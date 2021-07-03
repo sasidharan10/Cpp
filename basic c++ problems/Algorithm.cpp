@@ -1,29 +1,29 @@
-#include<iostream>
-#include<stdio.h>
-#include<string>  // separate header file to use the string(datatype)
-#include<algorithm>
-#include<vector>
+#include <iostream>
+#include <stdio.h>
+#include <string> // separate header file to use the string(datatype)
+#include <algorithm>
+#include <vector>
 using namespace std;
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
+	// #ifndef ONLINE_JUDGE
+	// 	freopen("input.txt", "r", stdin);
+	// 	freopen("output.txt", "w", stdout);
+	// #endif
 	char b[] = "hushvoaiaddv";
-	string a = (string)b;  // convert to string
+	string a = (string)b; // convert to string
 	// string a(b);
 	sort(a.begin(), a.end());
-	cout<<a<<endl;
-	cout <<"Count of h : "<< count(a.begin(), a.end(), 'h') << endl;// count of h
+	cout << a << endl;
+	cout << "Count of h : " << count(a.begin(), a.end(), 'h') << endl; // count of h
 	cout << "max : " << *max_element(a.begin(), a.end()) << endl;
 	cout << "min : " << *min_element(a.begin(), a.end()) << endl;
-	cout << "finding o : " ;
-	find(a.begin(), a.end(), 'o') != a.end() ? cout << "Found" << endl :
-	        cout << "Not Found" << endl;// finding o
+	cout << "finding o : ";
+	find(a.begin(), a.end(), 'o') != a.end() ? cout << "Found" << endl : cout << "Not Found" << endl; // finding o
 	int arr[] = {5, 10, 15, 20, 20, 23, 42, 45};
 	int n = sizeof(arr) / sizeof(arr[0]);
-	sort(arr, arr + n);
+	sort(arr, arr + n);	   // sort
+	// reverse(arr, arr + n); // reverse
 	for (int i : arr)
 		cout << i << " ";
 	auto p = lower_bound(arr, arr + n, 20);

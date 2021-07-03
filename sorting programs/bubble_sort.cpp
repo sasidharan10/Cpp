@@ -36,6 +36,10 @@ int main()
     return 0;
 }
 
+// Algorithm
+
+// Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements and pushes the largest element to last in each iteration.
+
 // for first loop (n-1) passes is enough because at last loop it will check the first element with the second
 // element which is not needed as all greater elements are already pushed int hat array.array gets sorted at (n-1)
 // passes itself

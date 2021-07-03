@@ -34,3 +34,10 @@ int main()
     }
     return 0;
 }
+/*
+
+algorithm :
+
+The selection sort algorithm sorts an array by repeatedly finding the minimum element from unsorted part and putting it at the beginning.
+
+*/
