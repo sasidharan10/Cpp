@@ -3,6 +3,7 @@
 using namespace std;
 int kth_element(int *a, int n, int k)
 {
+    // bubble sort
     int min, temp;
     for (int i = 0; i < n; i++)
     {

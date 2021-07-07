@@ -41,9 +41,9 @@ void segregate2(int *a,int n)
     {
         if(a[mid]==0)
             swap(a[mid++],a[low++]);
-        if(a[mid]==1)
+        else if(a[mid]==1)
             mid++;
-        if(a[mid]==2)
+        else if(a[mid]==2)
             swap(a[mid],a[high--]);
     }
     cout<<"\nSorted array(method 2) : ";
@@ -56,7 +56,7 @@ int main()
 {
     int arr[] = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1 };
     int n = sizeof(arr) / sizeof(arr[0]);
-    segregate1(arr,n);
+    // segregate1(arr,n);
     segregate2(arr,n);
     return 0;
 }
