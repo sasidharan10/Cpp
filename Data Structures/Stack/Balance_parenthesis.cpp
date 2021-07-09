@@ -37,7 +37,7 @@ bool areParenthesis(char* exp,int n)
 }
 int main()
 {
-    char exp[] ={"[(())]"};
+    char exp[] ={"{[(())]}"};
     cout<<exp<<endl;
     int n=sizeof(exp)/sizeof(exp[0]);
     if(areParenthesis(exp,n-1))
