@@ -1,9 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <climits>
-#include <vector>
 using namespace std;
-vector<int> v;
 class bstNode
 {
 public:
@@ -26,30 +24,22 @@ bool Isbst1Util(bstNode *root, int min, int max)
     else
         return false;
 }
-void Isbst2Util(bstNode *root)
-{
-    if (root == NULL)
-        return;
-    Isbst2Util(root->left);
-    v.push_back(root->data);
-    Isbst2Util(root->right);
-}
 bool Isbst1(bstNode *root)
 {
     return Isbst1Util(root, INT_MIN, INT_MAX);
 }
 bool Isbst2(bstNode *root)
 {
-    static bstNode *prev=NULL;
-    if (root==NULL)
+    static bstNode *prev = NULL;
+    if (root == NULL)
         return true;
     else
     {
-        if(!Isbst2(root->left))
+        if (!Isbst2(root->left))
             return false;
-        if(prev!=NULL && root->data<=prev->data)
+        if (prev != NULL && root->data <= prev->data)
             return false;
-        prev=root;
+        prev = root;
         return Isbst2(root->right);
     }
 }
@@ -59,7 +49,7 @@ int main()
     bstNode *node = new bstNode(4);
     node->left = new bstNode(2);
     node->left->left = new bstNode(1);
-    node->left->right = new bstNode(8);
+    node->left->right = new bstNode(3);
     node->right = new bstNode(6);
     node->right->left = new bstNode(5);
     node->right->right = new bstNode(7);
