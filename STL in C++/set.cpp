@@ -8,11 +8,12 @@ class student
     public:
     int rno;
     string name;
+    // operator overloading
     bool operator < (const student &rhs) // for ascending order
     const{
         return rno<rhs.rno;
     }
-    bool operator > (const student &rhs) // for ascending order
+    bool operator > (const student &rhs) // for decending order
     const{
         return rno>rhs.rno;
     }
@@ -21,7 +22,7 @@ int main()
 {
     set<int> a{6, 5, 4, 3, 8, 3, 21, 6, 8};  // default ascending order
     set<int, greater<>> b = {20, 30, 10, 60, 40, 80, 50}; // decending order
-    set<student,less<>> s={{1,"smith"},{2,"root"},{3,"kane"}};// decending order
+    set<student,less<>> s={{1,"smith"},{2,"root"},{3,"kane"}};// ascending order(less)
     cout<<"Elements in student class : \n";
     for(auto &i:s)
         cout<<"Rno : "<<i.rno<<") "<<"Name : "<<i.name<<endl;
@@ -46,3 +47,9 @@ int main()
 
     // cout<<"a.upper_bound() : "<<*a.upper_bound()<<endl;
 }
+
+/*
+
+use 'less<>' for ascending order and 'greater<>' for decending order
+
+*/
