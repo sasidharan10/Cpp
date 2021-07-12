@@ -1,12 +1,9 @@
 #include<iostream>
-#include<stdio.h>
+#include<algorithm>
 using namespace std;
 int main()
 {
-    int n=16789;
-    while (n >= 10)
-    {
-                n /= 10;
-    }
-    cout<<n;
+    int y=8;
+    int z=y++ + y++ + y++;
+    cout<<y<<endl;
 }

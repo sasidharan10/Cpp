@@ -3,12 +3,8 @@
 using namespace std;
 int main()
 {
-	// #ifndef ONLINE_JUDGE
-	// 	freopen("input.txt", "r", stdin);
-	// 	freopen("output.txt", "w", stdout);
-	// #endif
 	int a, b, c, d, e, g, f, h, i,j,k;
-	a = b = c = d = e = f = g = h = i = j=k=1;
+	a = b = c = d = e = f = g = h = i = j=k=5;
 	a = a++ + ++a;
 	b = b++ + b++;
 	c = ++c + ++c;

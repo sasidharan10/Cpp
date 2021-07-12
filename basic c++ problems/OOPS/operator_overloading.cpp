@@ -8,20 +8,20 @@ class student
     int rno;
 
 public:
-    void getData(string,int);
+    void getData(string, int);
     void printData();
-    bool operator ==(student &s3)
-{
-    if(name==s3.name && rno==s3.rno)
-        return true;
-    else
-        return false;
-}
+    bool operator==(student &s3)
+    {
+        if (name == s3.name && rno == s3.rno)
+            return true;
+        else
+            return false;
+    }
 };
-void student::getData(string name,int rno)
+void student::getData(string name, int rno)
 {
-    this->name=name;
-    this->rno=rno;
+    this->name = name;
+    this->rno = rno;
 }
 void student::printData()
 {
@@ -32,12 +32,12 @@ void student::printData()
 int main()
 {
     student s1;
-    s1.getData("sasi",10);
+    s1.getData("sasi", 10);
     s1.printData();
-    student s2=s1;  // coping s1 in s2
-    if(s1==s2)
-        cout<<"Same"<<endl;
+    student s2 = s1; // coping s1 in s2
+    if (s1 == s2)
+        cout << "Same" << endl;
     else
-        cout<<"Not same"<<endl;
+        cout << "Not same" << endl;
     return 0;
 }

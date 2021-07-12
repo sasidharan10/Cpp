@@ -41,6 +41,6 @@ Base1’s constructor called
 Base2’s constructor called
 Derived’s constructor called
 
-- In case of Multiple Inheritance, constructors of base classes are always called in derivation order from left to right and Destructors are called in reverse order.
+- In case of Multiple Inheritance, constructors of base classes are always called in derivation order from base to derived and Destructors are called in reverse order.
 
 */

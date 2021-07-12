@@ -20,10 +20,6 @@ void isPalindrome(char *a) // or char a[]  (both are same)
 }
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin); !!
-// 	freopen("output.txt", "w", stdout);
-// #endif
 	char a[] = "abba";
 	char b[] = "abbccbba";
 	char c[] = "goinog";

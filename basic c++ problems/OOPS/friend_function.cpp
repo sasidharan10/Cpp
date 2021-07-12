@@ -33,7 +33,7 @@ int main()
     c2.setNumber(5, 2);
     c2.printNumber();
     c3 = sumComplex(c1, c2);
-    cout<<"Sum is : "<<endl;
+    cout << "Sum is : " << endl;
     c3.printNumber();
     return 0;
 }

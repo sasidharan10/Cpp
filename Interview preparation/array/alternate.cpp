@@ -4,7 +4,6 @@
 using namespace std;
 void alternate(int *a, int n)
 {
-    sort(a, a + n);
     int i = 0, j = 1;
     while (i < n && j < n)
     {
@@ -23,7 +22,7 @@ void alternate(int *a, int n)
 }
 int main()
 {
-    int a[] = {-5, -2, 5, 2, 4, 7, 1, 8, 0, -8};
+    int a[] = {-5, -2, 5, 2, 4, -7, 1, -8, 0, -8};
     int n = sizeof(a) / sizeof(a[0]);
     alternate(a, n);
     return 0;
