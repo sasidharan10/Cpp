@@ -24,7 +24,7 @@ int main()
 {
     int a[] = {6, 5, 8, 4, 9, 10, 7, 2, 3, 1};
     int n = sizeof(a) / sizeof(a[0]);
-    int k = 5;
+    int k = 2;
     cout << k << "th smallest Element : " << kth_element(a, n, k);
     return 0;
 }

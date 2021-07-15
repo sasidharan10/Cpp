@@ -1,0 +1,1 @@
+{"name":"Local: Lucky_Four","url":"e:\\Programming\\Cpp\\Z Practice Questions\\Lucky_Four.cpp","tests":[{"id":1626268703814,"input":"5\n447474\n228\n6664\n40\n81","output":"4\n0\n1\n1\n0"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"e:\\Programming\\Cpp\\Z Practice Questions\\Lucky_Four.cpp","group":"local","local":true}
