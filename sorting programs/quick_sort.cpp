@@ -11,7 +11,7 @@ int partition(int a[], int start, int end)
 {
     int p_index = start;
     int pivot = a[end]; // taking last element as pivot element
-    for (int i = start; i < end; i++)
+    for (int i = start; i < end; i++)  // 0 to n-1 (excluding last element)
     {
         if (a[i] <= pivot)
         {
@@ -19,6 +19,7 @@ int partition(int a[], int start, int end)
             p_index++;
         }
     }
+    // left of p_index will have lesser value than pivot and higher in right side
     swap(a[p_index], a[end]); // swapping the pivot element in its appropriate index
     return p_index;
 }

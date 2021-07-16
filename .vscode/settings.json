@@ -75,7 +75,11 @@
         "sstream": "cpp",
         "stack": "cpp",
         "xlocmon": "cpp",
-        "xloctime": "cpp"
+        "xloctime": "cpp",
+        "chrono": "cpp",
+        "ratio": "cpp",
+        "thread": "cpp",
+        "unordered_set": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled"
 }

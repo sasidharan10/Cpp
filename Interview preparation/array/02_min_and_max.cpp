@@ -54,7 +54,7 @@ result minAndMax2(int *a,int n)
         r.max=a[1];
         r.min=a[0];
     }
-    for (int i = 2; i < n-1; i++)
+    for (int i = 2; i < n-1; i+2)
     {
         if(a[i]>a[i+1])
         {
