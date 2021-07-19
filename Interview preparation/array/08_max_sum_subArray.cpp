@@ -2,8 +2,11 @@
 #include <algorithm>
 #include <climits>
 using namespace std;
+// kadane Algorithm
 void maxSubArraySum(int *a, int n)
 {
+    // O(n)
+
     int max_end_here = 0;
     int max_so_far = INT_MIN;
     int start = 0, end = 0, s = 0;
@@ -22,13 +25,16 @@ void maxSubArraySum(int *a, int n)
             s = i + 1;
         }
     }
-    cout << "Max Sum of Sub-Array is : " << max_so_far << endl;
+    cout << "Max Sum of Sub-Array is (kadane algorithm) : " << max_so_far << endl;
     cout << "Sub-Array is : ";
     for (int i = start; i <= end; i++)
     {
         cout << a[i] << " ";
     }
 }
+
+// dp programming
+
 void maxSubArraySum2(int a[], int size)
 {
     int max_so_far = a[0];
@@ -39,7 +45,7 @@ void maxSubArraySum2(int a[], int size)
         curr_max = max(a[i], curr_max + a[i]);
         max_so_far = max(max_so_far, curr_max);
     }
-    cout << "\nMax Sum of Sub-Array is (method 2) : " << max_so_far << endl;
+    cout << "\nMax Sum of Sub-Array is (dp) : " << max_so_far << endl;
 }
 int main()
 {

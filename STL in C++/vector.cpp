@@ -34,6 +34,10 @@ int main()
         cout<<i<<", ";
     // auto it = b.lower_bound(b.begin(),b.end(),0);
     // auto it=b.lower_bound(b.begin(),b.end(),0);
+
+    // initialise a vector with all values 0
+    vector<int> vec(5,0);
+    // vec(size,value);
     return 0;
 }
 

@@ -12,7 +12,7 @@ void segregate(int *a,int n)
         else if(a[high]==1)
             high--;
         else
-            swap(a[low],a[high]);
+            swap(a[low++],a[high--]);
     }
     cout<<"\nSorted array(method 2) : ";
     for (int i = 0; i < n; i++)

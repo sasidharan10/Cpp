@@ -9,12 +9,12 @@ void negative(int *a, int n)
     {
         if (a[low] < 0)
             low++;
-        if (a[low] > 0)
-            swap(a[low], a[high--]);
-        if (a[high] > 0)
+        else if (a[high] > 0)
             high--;
+        else
+            swap(a[low++], a[high--]);
     }
-    cout << "\nSorted array(method 2) : ";
+    cout << "\nFinal array (method 1) : ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
@@ -22,7 +22,7 @@ void negative(int *a, int n)
 }
 int main()
 {
-    int a[] = {6, -5, -9, 4, -9, 10, -7, 6, 5, -1, -11};
+    int a[] = {6, -5, -9, 4, -9, 10, -7, 6, 5, -1};
     int n = sizeof(a) / sizeof(a[0]);
     negative(a, n);
     return 0;

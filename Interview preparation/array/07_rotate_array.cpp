@@ -4,13 +4,14 @@
 using namespace std;
 void rotateRight1(int *a, int n)
 {
+    // O(n)
     int i = 0, j = n - 1;
     while (i != j)
     {
         swap(a[i], a[j]);
         i++;
     }
-    cout << "\nArray Right rotation (method 1): ";
+    cout << "\nArray Right rotation (optimised): ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
@@ -18,6 +19,7 @@ void rotateRight1(int *a, int n)
 }
 void rotateRight2(int *a, int n)
 {
+    // O(n)
     int last = 0;
     int r = 1; // no of rotations
     while (r > 0)
@@ -30,7 +32,7 @@ void rotateRight2(int *a, int n)
         a[0] = last;
         r--;
     }
-    cout << "\nArray Right rotation (method 2): ";
+    cout << "\nArray Right rotation (normal): ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
@@ -38,6 +40,7 @@ void rotateRight2(int *a, int n)
 }
 void rotateLeft1(int *a, int n)
 {
+    // O(n)
     int r = 2;  // no of rotations
     while (r > 0)
     {
@@ -49,7 +52,7 @@ void rotateLeft1(int *a, int n)
         }
         r--;
     }
-    cout << "\nArray Left rotation (method 1): ";
+    cout << "\nArray Left rotation (optimised): ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";

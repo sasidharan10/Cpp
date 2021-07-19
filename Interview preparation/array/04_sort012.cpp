@@ -1,63 +1,67 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 using namespace std;
-void segregate1(int *a,int n)
+void segregate1(int *a, int n)
 {
-    int c0=0,c1=0;
+    //  O(n) 2 traversal
+    int c0 = 0, c1 = 0;
     for (int i = 0; i < n; i++)
     {
-        if(a[i]==0)
+        if (a[i] == 0)
             c0++;
-        if(a[i]==1)
+        if (a[i] == 1)
             c1++;
     }
-    int i=0;
-    while (c0>0)
+    int i = 0;
+    while (c0 > 0)
     {
-        a[i++]=0;
+        a[i++] = 0;
         c0--;
     }
-    while (c1>0)
+    while (c1 > 0)
     {
-        a[i++]=1;
+        a[i++] = 1;
         c1--;
     }
-    while (n>i)
+    while (n > i)
     {
-        a[i++]=2;
+        a[i++] = 2;
     }
-    cout<<"\nSorted array(method 1): ";
+    cout << "\nSorted array (2 traversal) : ";
     for (int i = 0; i < n; i++)
     {
-        cout<<a[i]<<" ";
-    }  
+        cout << a[i] << " ";
+    }
 }
-void segregate2(int *a,int n)
+void segregate2(int *a, int n)
 {
-    int low=0;
-    int mid=0;
-    int high=n-1;
-    while(mid<=high)
+    //  O(n) 1 traversal
+    int low = 0;
+    int mid = 0;
+    int high = n - 1;
+    while (mid <= high)
     {
-        if(a[mid]==0)
-            swap(a[mid++],a[low++]);
-        else if(a[mid]==1)
+        if (a[mid] == 0)
+            swap(a[mid++], a[low++]);
+        else if (a[mid] == 1)
             mid++;
-        else if(a[mid]==2)
-            swap(a[mid],a[high--]);
+        else if (a[mid] == 2)
+            swap(a[mid], a[high--]);
     }
-    cout<<"\nSorted array(method 2) : ";
+    cout << "\nSorted array (1 traversal) : ";
     for (int i = 0; i < n; i++)
     {
-        cout<<a[i]<<" ";
+        cout << a[i] << " ";
     }
 }
 int main()
 {
-    int arr[] = { 0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1 };
-    int n = sizeof(arr) / sizeof(arr[0]);
-    // segregate1(arr,n);
-    segregate2(arr,n);
+    int arr1[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+    int n1 = sizeof(arr1) / sizeof(arr1[0]);
+    int arr2[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+    segregate1(arr1, n1);
+    segregate2(arr2, n2);
     return 0;
 }
 
