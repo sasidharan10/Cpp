@@ -20,9 +20,9 @@ void mergeArray1(int *a1, int n, int *a2, int m)
         - (j!=n-2) means a2[i] is greatest element and no need to change it.
         - last > a2[i] to check if last element is greater than a[i] since in first loop
           last is not compared with a[i]    
-        */                  
-        if (j != n - 2 || last > a2[i]) 
-        {                                                         
+        */
+        if (j != n - 2 || last > a2[i])
+        {
             a1[j + 1] = a2[i];
             a2[i] = last;
         }
@@ -32,21 +32,21 @@ void mergeArray2(int *a, int n, int *b, int m)
 {
     // O(nlogm)+ O(mlogn)
 
-    int i=0;    // for a1
-    int j=0;    // for a2
-    int k=n-1;  // for iterator from last in a1 to swap it with a2 (swapping all largest element to a2)
-    while (i<=k && j<m)  // when k meets i it means all large elements are swapped to a2
+    int i = 0;              // for a1
+    int j = 0;              // for a2
+    int k = n - 1;          // for iterator from last in a1 to swap it with a2 (swapping all largest element to a2)
+    while (i <= k && j < m) // when k meets i it means all large elements are swapped to a2
     {
-        if(a[i]<b[j])
+        if (a[i] < b[j])
             i++;
         else
         {
-            swap(b[j++],a[k--]);
+            swap(b[j++], a[k--]);
         }
     }
     // now sorting both array
-    sort(a,a+n);
-    sort(b,b+m);
+    sort(a, a + n);
+    sort(b, b + m);
 }
 int main()
 {
@@ -71,7 +71,7 @@ int main()
     int b2[] = {1, 4, 7, 9};
     int n2 = sizeof(a2) / sizeof(a2[0]);
     int m2 = sizeof(b2) / sizeof(b2[0]);
-    mergeArray1(a2, n2, b2, m2);
+    mergeArray2(a2, n2, b2, m2);
     cout << "\nSorted Array (o(nlogm)+ O(mlogn)) : ";
     for (int i = 0; i < n2; i++)
     {
