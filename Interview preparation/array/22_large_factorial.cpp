@@ -3,10 +3,10 @@
 using namespace std;
 int multiply(int x, int *res, int res_size)
 {
-    int carry = 0, prod = 1, i;
-    for (i = 0; i < res_size; i++)
+    int carry = 0, prod = 1;
+    for (int i = 0; i < res_size; i++)
     {
-        prod = x * res[i]+carry;
+        prod = x * res[i] + carry;
         res[i] = prod % 10;
         carry = prod / 10;
     }
@@ -28,7 +28,7 @@ void factorial(int n)
         res_size = multiply(i, res, res_size);
     }
     cout << "Factorial of " << n << endl;
-    for (int j = res_size-1; j >= 0; j--)
+    for (int j = res_size - 1; j >= 0; j--)
     {
         cout << res[j];
     }
@@ -39,3 +39,12 @@ int main()
     factorial(n);
     return 0;
 }
+
+/*
+
+- here we have to do normal real-life multiplication.
+- we have to create an array to store all digits of the factorial.
+- whenever we multiply a number with the result, we will keep updating the digits and 
+
+
+*/

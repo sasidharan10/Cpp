@@ -3,6 +3,9 @@
 using namespace std;
 void common(int *a, int *b, int *c, int n1, int n2, int n3)
 {
+    // Time :  O(n1 + n2 + n3)
+    // Space :  O(1)
+    
     cout << "Common are : ";
     int i = 0, j = 0, k = 0;
     while (i < n1 && j < n2 && k < n3)
@@ -19,6 +22,16 @@ void common(int *a, int *b, int *c, int n1, int n2, int n3)
         else if (b[j] < c[k])
             j++;
         else
+            k++;
+        // to skip the duplicate elements
+        int x=a[i-1];
+        int y=b[j-1];
+        int z=c[k-1];
+        if(x==a[i])
+            i++;
+        if(y==b[j])
+            j++;
+        if(z==c[k])
             k++;
     }
 }

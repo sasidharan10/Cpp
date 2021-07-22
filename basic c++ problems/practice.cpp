@@ -1,51 +1,57 @@
 #include <iostream>
+void Merge(int *A, int *L, int leftCount, int *R, int rightCount)
+{
+    int i, j, k;
+    i = 0;
+    j = 0;
+    k = 0;
 
-using namespace std;
-
-
-void merge(int* ALR, int* L, int left_length, int* R, int right_length) {
-    int l = 0;
-    int r = 0;
-    for (int i = 0; i < left_length + right_length;) {
-
-        if (l == left_length)ALR[i++] = R[r++];
-        else if (r == right_length)ALR[i++] = L[l++];
-        else ALR[i++] = (R[r] > L[l]) ? L[l++] : R[r++];
-
+    while (i < leftCount && j < rightCount)
+    {
+        if (L[i] < R[j])
+            A[k++] = L[i++];
+        else
+            A[k++] = R[j++];
     }
+    while (i < leftCount)
+        A[k++] = L[i++];
+    while (j < rightCount)
+        A[k++] = R[j++];
 }
 
-void merge_sort(int* ALR, int length) {
+void MergeSort(int *A, int n)
+{
+    int mid, i, *L, *R;
+    if (n < 2)
+        return;
 
-    if (length == 1)return;
+    mid = n / 2; // find the mid index.
 
-    int mid = length / 2;
+    // L = (int *)malloc(mid * sizeof(int));
+    // R = (int *)malloc((n - mid) * sizeof(int));
+    L = new int[mid];
+    R = new int[n-mid];
 
-    int* L = new int[mid];
-    int* R = new int[length - mid];
+    for (i = 0; i < mid; i++)
+        L[i] = A[i];
+    for (i = mid; i < n; i++)
+        R[i - mid] = A[i];
 
-    int k = 0;
-
-    for (size_t i = 0; k < mid; i++)L[i] = ALR[k++];
-    for (size_t i = 0; k < length; i++)R[i] = ALR[k++];
-
-    merge_sort(L, mid);
-    merge_sort(R, length - mid);
-
-    merge(ALR, L, mid, R, length - mid);
-    delete(L);
-    delete(R);
+    MergeSort(L, mid);            // sorting the left subarray
+    MergeSort(R, n - mid);        // sorting the right subarray
+    Merge(A, L, mid, R, n - mid); // Merging L and R into A as sorted list.
+    delete []L;
+    delete []R;
 }
-int main() {
 
-    int A[] = { 1,3,4,7,2,8,5,6,9 };
+int main()
+{
 
-    int size = sizeof(A) / sizeof(A[0]);
-
-    merge_sort(A, size);
-
-    for (size_t i = 0; i < size; i++)cout<<A[i]<<" ";
-
-
-
+    int A[] = {6, 2, 3, 1, 9, 10, 15, 13, 12, 17};
+    int i, numberOfElements;
+    numberOfElements = sizeof(A) / sizeof(A[0]);
+    MergeSort(A, numberOfElements);
+    for (i = 0; i < numberOfElements; i++)
+        printf("%d ", A[i]);
+    return 0;
 }

@@ -4,6 +4,8 @@
 using namespace std;
 bool sum_so_subarray1(int *a, int n)
 {
+    // Time : O(n^2)
+    // Space : O(1)
     int sum = 0;
     for (int i = 0; i < n; i++)
     {
@@ -19,6 +21,8 @@ bool sum_so_subarray1(int *a, int n)
 }
 bool sum_so_subarray2(int *a, int n)
 {
+    // Time : O(n)
+    // Space : O(n)
     int sum;
     unordered_set<int> sumSet;
     for (int i = 0; i < n; i++)

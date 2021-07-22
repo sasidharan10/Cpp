@@ -1,52 +1,47 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-void merge(int *a, int l, int mid, int r)
+void merge(int *a,int *left,int l,int *right,int r)
 {
-    int n1 = mid - l + 1;
-    int n2 = r - mid;
-    int *left = new int[mid];      
-    int *right = new int[r - mid];
-    // int left[mid];
-    // int right[r - mid];
-    for (int i = 0; i < n1; i++)
+    int i=0;
+    int j=0;
+    int k=0;
+    while (i<l && j<r)
     {
-        left[i] = a[l + i];
-    }
-    for (int j = 0; j < n2; j++)
-    {
-        right[j] = a[mid + 1 + j];
-    }
-    int i = 0;
-    int j = 0;
-    int k = l;
-    while (i < n1 && j < n2)
-    {
-        if (left[i] < right[j])
-            a[k++] = left[i++];
+        if(left[i]<right[j])
+            a[k++]=left[i++];
         else
-            a[k++] = right[j++];
+            a[k++]=right[j++];
     }
-    while (i < n1)
+    while (i<l)
     {
-        a[k++] = left[i++];
+        a[k++]=left[i++];
     }
-    while (j < n2)
+    while (j<r)
     {
-        a[k++] = right[j++];
+        a[k++]=right[j++];
     }
-    delete[] left;
-    delete[] right;
 }
-void mergeSort(int *a, int l, int r)
+void mergeSort(int *a,int n)
 {
-    if (l < r)
+    if(n<2)
+        return;
+    int mid=n/2;
+    int *left = new int[mid];
+    int *right = new int[n-mid];
+    for (int i = 0; i < mid; i++)
     {
-        int mid = (l + r) / 2;
-        mergeSort(a, l, mid);       // left array
-        mergeSort(a, mid + 1, r);   // right array
-        merge(a, l, mid, r);        // merging both array
+        left[i]=a[i];
     }
+    for (int j = mid; j < n; j++)
+    {
+        right[j-mid]=a[j];
+    }
+    mergeSort(left,mid);
+    mergeSort(right,n-mid);
+    merge(a,left,mid,right,n-mid);
+    delete []left;
+    delete []right;
 }
 int main()
 {
@@ -56,7 +51,7 @@ int main()
     for (int i : a)
         cout << i << ", ";
 
-    mergeSort(a, 0, n - 1);
+    mergeSort(a, n);
     cout << "\nThe Sorted array is : ";
     for (int i : a)
         cout << i << ", ";
