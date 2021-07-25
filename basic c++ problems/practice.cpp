@@ -1,57 +1,34 @@
 #include <iostream>
-void Merge(int *A, int *L, int leftCount, int *R, int rightCount)
+#include <algorithm>
+#include <unordered_map>
+using namespace std;
+bool findSubArray5(int *a, int *b, int n, int m)
 {
-    int i, j, k;
-    i = 0;
-    j = 0;
-    k = 0;
+    // Time : O(n)+O(m)
+    // Space : O(n)
+    unordered_map<int, int> m;
 
-    while (i < leftCount && j < rightCount)
+    for (int i = 0; i < n; i++)
     {
-        if (L[i] < R[j])
-            A[k++] = L[i++];
-        else
-            A[k++] = R[j++];
+        m[a[i]]++;
     }
-    while (i < leftCount)
-        A[k++] = L[i++];
-    while (j < rightCount)
-        A[k++] = R[j++];
+    for (int j = 0; j < m; j++)
+    {
+        if(m[b[j]]>0)
+        {
+            m[b[j]]--;
+        }
+        else 
+            return false;
+    }
+    return true;
 }
-
-void MergeSort(int *A, int n)
-{
-    int mid, i, *L, *R;
-    if (n < 2)
-        return;
-
-    mid = n / 2; // find the mid index.
-
-    // L = (int *)malloc(mid * sizeof(int));
-    // R = (int *)malloc((n - mid) * sizeof(int));
-    L = new int[mid];
-    R = new int[n-mid];
-
-    for (i = 0; i < mid; i++)
-        L[i] = A[i];
-    for (i = mid; i < n; i++)
-        R[i - mid] = A[i];
-
-    MergeSort(L, mid);            // sorting the left subarray
-    MergeSort(R, n - mid);        // sorting the right subarray
-    Merge(A, L, mid, R, n - mid); // Merging L and R into A as sorted list.
-    delete []L;
-    delete []R;
-}
-
 int main()
 {
-
-    int A[] = {6, 2, 3, 1, 9, 10, 15, 13, 12, 17};
-    int i, numberOfElements;
-    numberOfElements = sizeof(A) / sizeof(A[0]);
-    MergeSort(A, numberOfElements);
-    for (i = 0; i < numberOfElements; i++)
-        printf("%d ", A[i]);
+    int a[] = {3, 5, 6, 4, 1, 2};
+    int b[] = {1, 2, 6};
+    int n = sizeof(a) / sizeof(a[0]);
+    int m = sizeof(b) / sizeof(b[0]);
+    cout << "5) Sub-Array Exists (using map) ?   : " << findSubArray5(a, b, n, m) << endl;
     return 0;
 }

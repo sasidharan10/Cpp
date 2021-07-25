@@ -15,10 +15,7 @@ int func(int *a, int size, int k)
 }
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
+
 	int a[] = {1, 2, 3, 4, 5};
 	int k, size, count;
 	cout << "Enter the difference : " << endl;
