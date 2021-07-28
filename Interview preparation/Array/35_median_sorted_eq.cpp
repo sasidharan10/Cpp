@@ -57,6 +57,9 @@ int findMedian2(int *a, int *b, int n)
 }
 int getMedian(int *a, int *b, int start_a, int end_a, int start_b, int end_b)
 {
+    // Time : O(logn)
+    // Space : O(1)
+
     if (end_a - start_a == 1 && end_b - start_b == 1)
     {
         return (max(a[start_a], b[start_b]) + min(a[end_a], b[end_b])) / 2;

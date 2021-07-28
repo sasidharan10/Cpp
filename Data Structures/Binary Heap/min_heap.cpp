@@ -3,6 +3,8 @@
 using namespace std;
 void minHeapify(int *a, int i, int n)
 {
+    // Time : O(logn)
+
     int left = (2 * i) + 1;
     int right = (2 * i) + 2;
     int smallest = i;
@@ -18,6 +20,9 @@ void minHeapify(int *a, int i, int n)
 }
 void buildHeap(int *a, int n)
 {
+    // Time : O(nlogn)
+    // Space : O(1)
+
     for (int i = (n / 2) - 1; i >= 0; i--)
     {
         minHeapify(a, i, n);

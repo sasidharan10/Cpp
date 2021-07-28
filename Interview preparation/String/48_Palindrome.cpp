@@ -3,6 +3,9 @@
 using namespace std;
 void isPalindrome(char *a) // or char a[]  (both are same)
 {
+	// Time : O(n)
+    // Space : O(1)
+
 	int l = 0;
 	int h = strlen(a) - 1;
 	while (h > l)
@@ -12,8 +15,6 @@ void isPalindrome(char *a) // or char a[]  (both are same)
 			cout << "Not Palindrome" << endl;
 			return;
 		}
-		else
-			continue;
 	}
 	cout << "It is Palindrome" << endl;
 		return;

@@ -81,5 +81,20 @@
         "thread": "cpp",
         "unordered_set": "cpp"
     },
-    "C_Cpp.errorSquiggles": "Enabled"
+    "C_Cpp.errorSquiggles": "Enabled",
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default"
+            },
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 3306,
+            "driver": "MySQL",
+            "name": "sasi",
+            "database": "student",
+            "username": "root",
+            "password": "root"
+        }
+    ]
 }

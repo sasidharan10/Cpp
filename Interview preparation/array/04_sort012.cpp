@@ -3,7 +3,9 @@
 using namespace std;
 void segregate1(int *a, int n)
 {
-    //  O(n) 2 traversal
+    // Time : O(n) 2 traversal
+    // Space : O(1)
+
     int c0 = 0, c1 = 0;
     for (int i = 0; i < n; i++)
     {
@@ -35,7 +37,9 @@ void segregate1(int *a, int n)
 }
 void segregate2(int *a, int n)
 {
-    //  O(n) 1 traversal
+    // Time : O(n) 1 traversal
+    // Space : O(1)
+
     int low = 0;
     int mid = 0;
     int high = n - 1;
@@ -43,10 +47,10 @@ void segregate2(int *a, int n)
     {
         if (a[mid] == 0)
             swap(a[mid++], a[low++]);
-        else if (a[mid] == 1)
-            mid++;
         else if (a[mid] == 2)
             swap(a[mid], a[high--]);
+        else if (a[mid] == 1)
+            mid++;
     }
     cout << "\nSorted array (1 traversal) : ";
     for (int i = 0; i < n; i++)
