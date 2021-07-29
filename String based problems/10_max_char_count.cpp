@@ -23,6 +23,23 @@ int main()
     count(a,n);
     return 0;
 }
+/*
+- here we follow the hash technique where the ASCII code of each variable is denoted by the 
+  indices of the array count[255]. whenever we read a characterfrom a given array, we increment 
+  the corredponding value pointing to the indexhaving value of that ASCII code.
+- max value is noting the maximum count of a variable and result will be getting updated whenever
+  a new max value is found.
+*/
+/*
 
-// here we follow the hash technique where the ASCII code of each variable is denoted by the indices of the array count[255]. whenever we read a character from a given array, we increment the corredponding value pointing to the index having value of that ASCII code.
-// max value is noting the maximum count of a variable and result will be getting updated whenever a new max value is found.
+Write a program in C to find maximum occurring character in a string.
+
+Test Data :
+Input the string : Welcome to w3resource.com.
+
+Expected Output :
+
+The Highest frequency of character 'e' 
+appears number of times : 4 
+
+*/

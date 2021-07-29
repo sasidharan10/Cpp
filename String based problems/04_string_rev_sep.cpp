@@ -23,3 +23,17 @@ int main()
     // n=strlen(a);
     rev_sep(a,n);
 }
+
+/*
+
+Write a program in C to print individual characters of string in reverse order.
+
+Test Data :
+Input the string : w3resource.com
+
+Expected Output :
+
+The characters of the string in reverse are :
+m  o  c  .  e  c  r  u  o  s  e  r  3  w 
+
+*/

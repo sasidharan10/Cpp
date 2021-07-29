@@ -18,3 +18,17 @@ int main()
     fgets(a,sizeof(a),stdin);
     separate(a);
 }
+
+
+/*
+
+Write a program in C to separate the individual characters from a string.
+
+Input the string : w3resource.com
+
+Expected Output :
+
+The characters of the string are : 
+w  3  r  e  s  o  u  r  c  e  .  c  o  m 
+
+*/

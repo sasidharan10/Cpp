@@ -13,7 +13,7 @@ int main()
     char temp;
     int n = sizeof(a) / sizeof(a[0]);
     // bubble sort
-    for (int i = 0; i < n-1; i++)
+    for (int i = 0; i < n - 1; i++)
     {
         flag = 0;
         for (int j = 0; j < n - i - 2; j++)
@@ -34,3 +34,17 @@ int main()
 }
 
 // here we use n-2 because the last character is '\0' and we dont want the last character to be compared
+
+/*
+
+Write a C program to sort a string array in ascending order. Go to the editor
+
+Test Data :
+Input the string : w3resource
+
+Expected Output :
+
+After sorting the string appears like : 
+3ceeorrsuw 
+
+*/

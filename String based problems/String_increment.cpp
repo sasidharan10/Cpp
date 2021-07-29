@@ -32,7 +32,7 @@ string change_letter(string str) {
 
 int main() 
 {
-	cout << "Original string: w3resource"; 
+	cout << "\nOriginal string: w3resource"; 
 	cout << "\nNew string: " << change_letter("w3resource");
 	cout << "\n\nOriginal string: Python"; 
 	cout << "\nNew string: " << change_letter("Python");

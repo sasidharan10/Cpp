@@ -16,4 +16,14 @@ int main()
     return 0;
 }
 
-// 27) Print only the string before new line character
+/*
+
+Write a program in C to print only the string before new line character. Go to the editor
+
+Note: isprint() will only print line one, because the newline character is not printable.
+
+Expected Output :
+
+The quick brown fox
+
+*/
