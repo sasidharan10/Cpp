@@ -30,7 +30,7 @@ int main()
     b.insert(b.begin(),5); // (iterator,value)
     a.erase(a.begin()); // (iterator,value)
     cout<<"\nElements in b : ";
-    for(int i:b)
+    for(auto i:b)
         cout<<i<<", ";
     // auto it = b.lower_bound(b.begin(),b.end(),0);
     // auto it=b.lower_bound(b.begin(),b.end(),0);

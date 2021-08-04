@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 struct node
 {
@@ -13,12 +13,11 @@ void insert(int data, int n)
 	temp1->next = NULL;
 	if (n == 1)
 	{
-		temp1->next = head;
 		head = temp1;
 		return;
 	}
 	node *temp2 = head;
-	for (int i = 0; i < n - 2; i++)  // n-2 because we are going from head
+	for (int i = 0; i < n - 2; i++)
 	{
 		temp2 = temp2->next;
 	}

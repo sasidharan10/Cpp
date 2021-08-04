@@ -5,8 +5,9 @@
 using namespace std;
 bool validShuffle1(string a, string b)
 {
-    // int hash1[26]{0};
-    // int hash2[26]{0};
+    // Time : O(n)
+    // Space : O(2n)
+
     vector<int> hash1(26, 0);
     vector<int> hash2(26, 0);
     int n = a.length();
@@ -36,7 +37,8 @@ bool validShuffle1(string a, string b)
 }
 bool validShuffle2(string a, string b)
 {
-
+    // Time : O(n)
+    // Space : O(2n)
     vector<int> hash1(255, 0);
     vector<int> hash2(255, 0);
     int n = a.length();
@@ -60,7 +62,7 @@ bool validShuffle2(string a, string b)
         if (right != m)
             hash2[b[right]]++;
         hash2[b[left]]--;
-        left--;
+        left++;
     }
     return false;
 }

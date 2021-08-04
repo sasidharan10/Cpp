@@ -1,4 +1,4 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 struct node
 {
@@ -9,67 +9,67 @@ struct node
 node *head;
 node *getNode(int n)
 {
-    node *newNode=new node();
-    newNode->data=n;
-    newNode->prev=NULL;
-    newNode->next=NULL;
+    node *newNode = new node();
+    newNode->data = n;
+    newNode->prev = NULL;
+    newNode->next = NULL;
     return newNode;
 }
 void insertEnd(int n)
 {
-    node *newNode=getNode(n);
-    if(head==NULL)
+    node *newNode = getNode(n);
+    if (head == NULL)
     {
-        head=newNode;
+        head = newNode;
         return;
     }
-    node *temp2=head;  // temporary pointer to go to last node
-    while(temp2->next!=NULL)
+    node *temp2 = head; // temporary pointer to go to last node
+    while (temp2->next != NULL)
     {
-        temp2=temp2->next;
+        temp2 = temp2->next;
     }
-    temp2->next=newNode;
-    newNode->prev=temp2;
+    temp2->next = newNode;
+    newNode->prev = temp2;
 }
 void insertBeg(int n)
 {
-    node *newNode=getNode(n);
-    if(head==NULL)
+    node *newNode = getNode(n);
+    if (head == NULL)
     {
-        head=newNode;
+        head = newNode;
         return;
     }
-    head->prev=newNode;
-    newNode->next=head;
-    head=newNode;
+    head->prev = newNode;
+    newNode->next = head;
+    head = newNode;
 }
 void print()
 {
-    node *temp=head;
-    while(temp!=NULL)
+    node *temp = head;
+    while (temp != NULL)
     {
-        cout<<temp->data<<", ";
-        temp=temp->next;
+        cout << temp->data << " ";
+        temp = temp->next;
     }
 }
 void Reverse()
 {
-    node *temp=head;
-    if(temp==NULL)
-        return;  // if list is empty
-    while(temp->next!=NULL)
+    node *temp = head;
+    if (temp == NULL)
+        return; // if list is empty
+    while (temp->next != NULL)
     {
-        temp=temp->next;
+        temp = temp->next;
     }
-    while(temp!=NULL)
+    while (temp != NULL)
     {
-        cout<<temp->data<<", ";
-        temp=temp->prev;
+        cout << temp->data << " ";
+        temp = temp->prev;
     }
 }
 int main()
 {
-    head=NULL;
+    head = NULL;
     // insertBeg(1);
     // insertBeg(2);
     // insertBeg(3);
@@ -80,9 +80,9 @@ int main()
     insertEnd(3);
     insertEnd(4);
     insertEnd(5);
-    cout<<"The list is : ";
+    cout << "The list is : ";
     print();
-    cout<<"\nThe reverse is : ";
+    cout << "\nThe reverse is : ";
     Reverse();
     return 0;
 }
