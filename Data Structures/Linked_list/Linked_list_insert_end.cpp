@@ -29,7 +29,7 @@ void print(node *head)
 	cout<<"\nThe elements are : ";
 	while(temp!=NULL)
 	{
-		cout<<temp->data<<", ";
+		cout<<temp->data<<" ";
 		temp=temp->next;
 	}
 }
@@ -37,7 +37,7 @@ int main()
 {
     node* head=NULL;
 	int n,a;
-	cout<<"Enter the size of the list :";
+	cout<<"Enter the size of the list : ";
 	cin>>n;
 	cout<<"\nEnter the Elements : ";
 	for (int i = 0; i < n; i++)
@@ -46,5 +46,6 @@ int main()
 		head=insert(head,a);
 	}
 	print(head);
+    cout<<"\nFirst node : "<<head->data;
 	return 0;
 }

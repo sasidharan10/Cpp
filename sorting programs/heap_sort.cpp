@@ -42,6 +42,6 @@ int main()
 {
     int a[] = {6, 5, 8, 4, 9, 7, 2, 3, 1};
     int n = sizeof(a) / sizeof(a[0]);
-    heapsort(a, n);
+    heapsort(a, n); // using max heap
     return 0;
 }

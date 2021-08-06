@@ -45,15 +45,15 @@ void mergeSort(int *a,int n)
 }
 int main()
 {
-    int a[] = {6, 5, 8, 4, 7, 2, 3, 1};
+    int a[] = {6, 5, 8, 4, 7, 2, 3, 1,9};
     int n = sizeof(a) / sizeof(a[0]);
     cout << "The array is : ";
     for (int i : a)
-        cout << i << ", ";
+        cout << i << " ";
 
     mergeSort(a, n);
     cout << "\nThe Sorted array is : ";
     for (int i : a)
-        cout << i << ", ";
+        cout << i << " ";
     return 0;
 }

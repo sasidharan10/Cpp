@@ -11,6 +11,8 @@ public:
 node *head;
 void Reverse1()
 {
+    // Time  : O(n)
+    // Space : O(1)
     node *prev, *nextptr, *current;
     prev = NULL;
     current = head;
@@ -30,6 +32,8 @@ void Reverse1()
 }
 void Reverse2(node *p)
 {
+    // Time  : O(n)
+    // Space : O(1) { O(n) for stack memory }
     if (p->next == NULL)
     {
         head = p;
