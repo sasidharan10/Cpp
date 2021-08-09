@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <stack>
 using namespace std;
 class node
 {
@@ -16,13 +17,30 @@ node *Insert(int n)
     temp->right = NULL;
     return temp;
 }
-void print(node *root)
+void inorder1(node *root)
 {
     if (root == NULL)
         return;
-    print(root->left);
+    inorder1(root->left);
     cout << root->data << " ";
-    print(root->right);
+    inorder1(root->right);
+}
+void inorder2(node *root)
+{
+    stack<node *> s;
+    node *current = root;
+    while (current != NULL || !s.empty())
+    {
+        while (current != NULL)
+        {
+            s.push(current);
+            current = current->left;
+        }
+        current = s.top();
+        s.pop();
+        cout << current->data << " ";
+        current = current->right;
+    }
 }
 int main()
 {
@@ -34,7 +52,9 @@ int main()
     root->left->left = Insert(1);
     root->right->left = Insert(5);
     root->right->right = Insert(7);
-    cout << "Tree : ";
-    print(root);
+    cout << "\nTree (Recursion) : ";
+    inorder1(root);
+    cout << "\nTree (Iteration) : ";
+    inorder2(root);
     return 0;
 }
