@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <cmath>
 using namespace std;
 class node
 {
@@ -16,20 +17,25 @@ node *Insert(int n)
     temp->right = NULL;
     return temp;
 }
-int height1(node *root)
+int f = 1;
+int height(node *root)
 {
     if (root == NULL)
         return 0;
-    // return 0 for no of nodes, return -1 for no of edges
-    int leftHeight = height1(root->left);
-    int rightHeight = height1(root->right);
-    return max(leftHeight, rightHeight) + 1;
+    int lh = height(root->left);
+    int rh = height(root->right);
+    if (abs(lh - rh) > 1)
+    {
+        f = 0;
+        return 0;
+    }
+    return max(lh, rh) + 1;
 }
-int height2(node *root)
+int isBalanced(node *root)
 {
-    if (root == NULL)
-        return 0;
-    return max(height2(root->left), height2(root->right)) + 1;
+    f = 1;
+    height(root);
+    return f;
 }
 int main()
 {
@@ -41,7 +47,9 @@ int main()
     root->left->right = Insert(5);
     root->right->left = Insert(6);
     root->right->right = Insert(7);
-    cout << "Height : " << height1(root) << endl;
-    cout << "Height : " << height2(root) << endl;
+    root->right->right->right = Insert(8);
+    // root->right->right->right->right = Insert(9);
+    // root->right->right->right->right->right = Insert(10);
+    cout << "Balanced : " << isBalanced(root);
     return 0;
 }

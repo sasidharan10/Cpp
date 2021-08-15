@@ -1,5 +1,7 @@
 #include <iostream>
 #include <algorithm>
+#include <vector>
+#include <queue>
 using namespace std;
 class node
 {
@@ -16,20 +18,31 @@ node *Insert(int n)
     temp->right = NULL;
     return temp;
 }
-int height1(node *root)
+void Diagonal(node *root)
 {
     if (root == NULL)
-        return 0;
-    // return 0 for no of nodes, return -1 for no of edges
-    int leftHeight = height1(root->left);
-    int rightHeight = height1(root->right);
-    return max(leftHeight, rightHeight) + 1;
-}
-int height2(node *root)
-{
-    if (root == NULL)
-        return 0;
-    return max(height2(root->left), height2(root->right)) + 1;
+    {
+        cout << "Empty!!!" << endl;
+        return;
+    }
+    queue<node *> q;
+    vector<int> v;
+    q.push(root);
+    while (!q.empty())
+    {
+        node *temp = q.front();
+        q.pop();
+        while (temp)
+        {
+            if (temp->left)
+                q.push(temp->left);
+            v.push_back(temp->data);
+            temp = temp->right;
+        }
+    }
+    cout << "\nDiagonal : ";
+    for (int i : v)
+        cout << i << " ";
 }
 int main()
 {
@@ -41,7 +54,6 @@ int main()
     root->left->right = Insert(5);
     root->right->left = Insert(6);
     root->right->right = Insert(7);
-    cout << "Height : " << height1(root) << endl;
-    cout << "Height : " << height2(root) << endl;
+    Diagonal(root);
     return 0;
 }

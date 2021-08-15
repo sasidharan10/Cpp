@@ -8,10 +8,11 @@ int minSwap(int *a, int n, int k)
     while (i <= j)
     {
         if (a[i] < k)
+        {
             i++;
-        else if (a[j] > k)
             j--;
-        else
+        }  
+        else  
         {
             count++;
             i++;
