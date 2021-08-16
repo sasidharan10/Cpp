@@ -37,6 +37,9 @@ void print(node *root)
 }
 bool find(node *root, int x)
 {
+    // Time  :  O(h) or O(logn)
+    // Space :  O(1)
+
     if (root == NULL)
         return false;
     if (x == root->data)

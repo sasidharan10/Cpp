@@ -4,8 +4,8 @@
 using namespace std;
 vector<vector<int>> mergeIntervals(vector<vector<int>> intervals)
 {
-    // space : O(n)
     // time : O(nlogn) + O(n) [for sotring and traversing through the intervals]
+    // space : O(n)
 
     vector<vector<int>> ans;                  // to store all the non-overlapping intervals
     vector<int> temp;                         // to store each intervals(row) and compare with intervals

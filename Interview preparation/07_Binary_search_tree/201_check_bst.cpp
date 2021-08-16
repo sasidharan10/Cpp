@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <climits>
 using namespace std;
 class node
 {
@@ -35,27 +36,34 @@ void print(node *root)
     cout << root->data << " ";
     print(root->right);
 }
-int minValue(node *root)
+bool checkBstUtil1(node *root, int min, int max)
 {
-    // Time  :  O(h)
-    // Space :  O(1)
-
-    while (root->left != NULL)
-    {
-        root = root->left;
-    }
-    return root->data;
+    if (root == NULL)
+        return true;
+    else if (root->data > min && root->data < max && checkBstUtil1(root->left, min, root->data) && checkBstUtil1(root->right, root->data, max))
+        return true;
+    else
+        return false;
 }
-int maxValue(node *root)
+bool checkBst1(node *root)
 {
-    // Time  :  O(h)
-    // Space :  O(1)
-
-    while (root->right != NULL)
-    {
-        root = root->right;
-    }
-    return root->data;
+    return checkBstUtil1(root, INT_MIN, INT_MAX);
+}
+bool checkBstUtil2(node *root, node *&prev)
+{
+    if (root == NULL)
+        return true;
+    if (!checkBstUtil2(root->left, prev))
+        return false;
+    else if (prev != NULL && root->data <= prev->data)
+        return false;
+    prev = root;
+    return checkBstUtil2(root->right, prev);
+}
+bool checkBst2(node *root)
+{
+    node *prev = NULL;
+    return checkBstUtil2(root, prev);
 }
 int main()
 {
@@ -69,7 +77,7 @@ int main()
     Insert(&root, 7);
     cout << "\nTree : ";
     print(root);
-    cout << "\nMin : " << minValue(root);
-    cout << "\nMax : " << maxValue(root);
+    cout << "\nBST ? : " << checkBst1(root);
+    cout << "\nBST ? : " << checkBst2(root);
     return 0;
 }

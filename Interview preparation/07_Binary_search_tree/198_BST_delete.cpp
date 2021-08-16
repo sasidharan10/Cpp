@@ -45,6 +45,9 @@ node *findMin(node *root)
 }
 node *Delete(node *root, int x)
 {
+    // Time  :  O(h)
+    // Space :  O(1)
+
     if (root == NULL)
     {
         cout << "Empty Tree!!!";

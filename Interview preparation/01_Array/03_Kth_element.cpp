@@ -4,7 +4,7 @@ using namespace std;
 int kth_element1(int *a, int n, int k)
 {
     // bubble sort
-    // Time : O(n^2)
+    // Time  : O(n^2)
     // Space : O(1)
 
     int min, temp;
@@ -25,7 +25,7 @@ int kth_element1(int *a, int n, int k)
 }
 void minHeapify(int *a, int i, int n)
 {
-    // Time : O(logn)
+    // Time  : O(logn)
     // Space : O(1)
 
     int left = (2 * i) + 1;
@@ -43,12 +43,13 @@ void minHeapify(int *a, int i, int n)
 }
 int kth_element2(int *a, int n, int k)
 {
-    // Time : O(nlogn)
+    // Time : O(n + klogn)
     // Space : O(1)
+
     int start = (n / 2) - 1;
     for (int i = start; i >= 0; i--)
     {
-        minHeapify(a, 0, n);
+        minHeapify(a, i, n);
     }
     return a[k - 1];
 }
@@ -87,11 +88,13 @@ int quickSelect(int *a, int start, int end, int k)
 int main()
 {
     int a[] = {6, 5, 8, 4, 9, 10, 7, 2, 3, 1};
+    // int a[] = {6, 5, 1,3,2,4};
     int n = sizeof(a) / sizeof(a[0]);
     int k = 2;
     cout << k << "th Smallest Element : " << kth_element1(a, n, k) << endl;
     cout << k << "th Largest Element : " << kth_element1(a, n, n - k + 1) << endl;
     cout << k << "th Smallest Element (Heap): " << kth_element2(a, n, k) << endl;
+    cout << k << "th Largest Element (Heap): " << kth_element2(a, n, n - k + 1) << endl;
     cout << k << "th Smallest Element (QuickSelect) : " << quickSelect(a, 0, n - 1, k) << endl;
     cout << k << "th Largest Element (QuickSelect) : " << quickSelect(a, 0, n - 1, n - k + 1) << endl;
     return 0;

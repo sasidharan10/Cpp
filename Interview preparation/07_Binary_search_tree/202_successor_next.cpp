@@ -1,5 +1,6 @@
 #include <iostream>
 #include <algorithm>
+#include <climits>
 using namespace std;
 class node
 {
@@ -7,6 +8,7 @@ public:
     int data;
     node *left;
     node *right;
+    node *next;
 };
 node *createNode(int n)
 {
@@ -35,27 +37,28 @@ void print(node *root)
     cout << root->data << " ";
     print(root->right);
 }
-int minValue(node *root)
+void fillNext(node *root, node *&prev)
 {
-    // Time  :  O(h)
-    // Space :  O(1)
-
+    if (root == NULL)
+        return;
+    fillNext(root->left, prev);
+    if (prev != NULL)
+        prev->next = root;
+    prev = root;
+    fillNext(root->right, prev);
+}
+void printList(node *root)
+{
+    cout << "\nList : ";
     while (root->left != NULL)
     {
         root = root->left;
     }
-    return root->data;
-}
-int maxValue(node *root)
-{
-    // Time  :  O(h)
-    // Space :  O(1)
-
-    while (root->right != NULL)
+    while (root != NULL)
     {
-        root = root->right;
+        cout << root->data << " ";
+        root = root->next;
     }
-    return root->data;
 }
 int main()
 {
@@ -69,7 +72,9 @@ int main()
     Insert(&root, 7);
     cout << "\nTree : ";
     print(root);
-    cout << "\nMin : " << minValue(root);
-    cout << "\nMax : " << maxValue(root);
+    node *prev = NULL;
+    fillNext(root, prev);
+    printList(root);
+    // cout << "\nBST ? : " << checkBst1(root);
     return 0;
 }
