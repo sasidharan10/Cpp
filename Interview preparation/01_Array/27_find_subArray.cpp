@@ -89,27 +89,27 @@ bool findSubArray4(int *a, int *b, int n, int m)
     }
     return (j == m) ? true : false;
 }
-bool findSubArray5(int *a, int *b, int n, int m)
-{
-    // Time : O(n)+O(m)
-    // Space : O(n)
-    unordered_map<int, int> m;
+// bool findSubArray5(int *a, int *b, int n, int m)
+// {
+//     // Time : O(n)+O(m)
+//     // Space : O(n)
+//     unordered_map<int, int> m;
 
-    for (int i = 0; i < n; i++)
-    {
-        m[a[i]]++;
-    }
-    for (int j = 0; j < m; j++)
-    {
-        if(m[b[j]]>0)
-        {
-            m[b[j]]--;
-        }
-        else 
-            return false;
-    }
-    return true;
-}
+//     for (int i = 0; i < n; i++)
+//     {
+//         m[a[i]]++;
+//     }
+//     for (int j = 0; j < m; j++)
+//     {
+//         if(m[b[j]]>0)
+//         {
+//             m[b[j]]--;
+//         }
+//         else 
+//             return false;
+//     }
+//     return true;
+// }
 int main()
 {
     int a[] = {3, 5, 6, 4, 1, 2};
@@ -120,6 +120,6 @@ int main()
     cout << "2) Sub-Array Exists (using set) ?   : " << findSubArray2(a, b, n, m) << endl;
     cout << "3) Sub-Array Exists (sorting) ?     : " << findSubArray3(a, b, n, m) << endl;
     cout << "4) Sub-Array Exists (2-pointer) ?   : " << findSubArray4(a, b, n, m) << endl;
-    cout << "5) Sub-Array Exists (using map) ?   : " << findSubArray5(a, b, n, m) << endl;
+    // cout << "5) Sub-Array Exists (using map) ?   : " << findSubArray5(a, b, n, m) << endl;
     return 0;
 }

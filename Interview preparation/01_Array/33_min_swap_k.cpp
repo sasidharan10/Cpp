@@ -7,11 +7,12 @@ int minSwap(int *a, int n, int k)
     int count = 0;
     while (i <= j)
     {
-        if (a[i] < k)
+        if (a[i] <= k)
         {
             i++;
-            j--;
-        }  
+        }
+        else if(a[j]>k)
+            j--;  
         else  
         {
             count++;
@@ -25,6 +26,6 @@ int main()
 {
     int arr[] = {2, 1, 5, 6, 3};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 2;
+    int k = 3;
     cout << "Min Swap : " << minSwap(arr, n, k);
 }

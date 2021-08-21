@@ -1,17 +1,11 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
-void swap(int *a, int *b)
-{
-    int temp;
-    temp = *a;
-    *a = *b;
-    *b = temp;
-}
 int partition(int a[], int start, int end)
 {
     int p_index = start;
-    int pivot = a[end]; // taking last element as pivot element
-    for (int i = start; i < end; i++)  // 0 to n-1 (excluding last element)
+    int pivot = a[end];               // taking last element as pivot element
+    for (int i = start; i < end; i++) // 0 to n-1 (excluding last element)
     {
         if (a[i] <= pivot)
         {
@@ -38,12 +32,12 @@ int main()
     int n = sizeof(a) / sizeof(a[0]);
     cout << "The array is : ";
     for (int i : a)
-        cout << i << ", ";
+        cout << i << " ";
 
     quick_sort(a, 0, n - 1);
 
     cout << "\nThe Sorted array is : ";
     for (int i : a)
-        cout << i << ", ";
+        cout << i << " ";
     return 0;
 }

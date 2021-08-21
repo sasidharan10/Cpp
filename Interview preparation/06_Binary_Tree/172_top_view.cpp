@@ -46,28 +46,6 @@ void topview(node *root)
         cout << it->second << " ";
     }
 }
-void topview2(node *root)
-{
-    queue<pair<node *, int>> q;
-    map<int, int> m;
-    q.push({root, 0});
-    while (!q.empty())
-    {
-        node *temp = q.front().first;
-        int h = q.front().second;
-        q.pop();
-        m[h] = temp->data;
-        if (temp->left)
-            q.push({temp->left, h - 1});
-        if (temp->right)
-            q.push({temp->right, h + 1});
-    }
-    cout << "Bottom View : ";
-    for (auto it = m.begin(); it != m.end(); it++)
-    {
-        cout << it->second << " ";
-    }
-}
 int main()
 {
     node *root = NULL;
@@ -78,6 +56,6 @@ int main()
     root->left->right = Insert(5);
     root->right->left = Insert(6);
     root->right->right = Insert(7);
-    topview2(root);
+    topview(root);
     return 0;
 }

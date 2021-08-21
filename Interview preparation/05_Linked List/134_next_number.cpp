@@ -69,7 +69,7 @@ void add1()
 int addCarry(node *temp)
 {
     if (temp == NULL)
-        return 1;
+        return 5;
     int res = temp->data + addCarry(temp->next);
     temp->data = res % 10;
     return res / 10;
@@ -119,7 +119,7 @@ int main()
     Insert(9);
     print();
     // add1();
-    add2();
-    // add3();
+    // add2();
+    add3();
     print();
 }

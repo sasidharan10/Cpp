@@ -3,6 +3,9 @@
 using namespace std;
 void nextPermutation(int *a,int n)
 {
+    // Time  : O(nlogn)
+    // Space : O(1)
+
     // finding peak element which is as right as possible
     if(n<=1)
         return;

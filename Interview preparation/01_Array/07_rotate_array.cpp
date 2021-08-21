@@ -4,7 +4,9 @@
 using namespace std;
 void rotateRight1(int *a, int n)
 {
-    // O(n)
+    // Time  : O(n)
+    // Space : O(1)
+
     int i = 0, j = n - 1;
     while (i != j)
     {
@@ -19,7 +21,9 @@ void rotateRight1(int *a, int n)
 }
 void rotateRight2(int *a, int n)
 {
-    // O(n)
+    // Time  : O(n)
+    // Space : O(1)
+
     int last = 0;
     int r = 1; // no of rotations
     while (r > 0)
@@ -41,7 +45,7 @@ void rotateRight2(int *a, int n)
 void rotateLeft1(int *a, int n)
 {
     // O(n)
-    int r = 2;  // no of rotations
+    int r = 2; // no of rotations
     while (r > 0)
     {
         int i = 0, j = n - 1;

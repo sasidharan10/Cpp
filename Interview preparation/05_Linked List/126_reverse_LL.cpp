@@ -18,7 +18,7 @@ void Reverse1()
     current = head;
     if (head == NULL)
     {
-        cout << "LIst Empty!!!" << endl;
+        cout << "List Empty!!!" << endl;
         return;
     }
     while (current != NULL)

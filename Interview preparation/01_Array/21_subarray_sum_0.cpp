@@ -23,6 +23,7 @@ bool sum_so_subarray2(int *a, int n)
 {
     // Time : O(n)
     // Space : O(n)
+    
     int sum;
     unordered_set<int> sumSet;
     for (int i = 0; i < n; i++)

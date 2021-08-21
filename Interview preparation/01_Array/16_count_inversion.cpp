@@ -51,6 +51,11 @@ int mergeSort(int *a, int n)
     delete[] right;
     return count;
 }
+int countInversion2(int *a, int n)
+{
+    // O(nlogn)
+    return mergeSort(a, n);
+}
 int countInversion1(int *a, int n)
 {
     // O(n^2)
@@ -66,11 +71,7 @@ int countInversion1(int *a, int n)
     }
     return count;
 }
-int countInversion2(int *a, int n)
-{
-    // O(nlogn)
-    return mergeSort(a, n);
-}
+
 int countInversion3(int *a, int n)
 {
     multiset<int> s;
@@ -89,7 +90,16 @@ int main()
     int a[] = {1, 20, 6, 4, 5};
     int n = sizeof(a) / sizeof(a[0]);
     cout << "Total Inversions (Brute Force): " << countInversion1(a, n) << endl;
-    cout << "Total Inversions (O(n^2)): " << countInversion3(a, n) << endl;
+    cout << "Total Inversions (O(n) for space: " << countInversion3(a, n) << endl;
     cout << "Total Inversions (O(nlogn)): " << countInversion2(a, n) << endl;
     return 0;
 }
+
+
+/*
+
+Inversion Count for an array indicates – how far (or close) the array is from being sorted. If the array is already 
+sorted, then the inversion count is 0, but if the array is sorted in the reverse order, the inversion count is the 
+maximum. 
+
+*/

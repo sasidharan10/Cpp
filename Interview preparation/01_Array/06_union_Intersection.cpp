@@ -6,7 +6,9 @@
 using namespace std;
 void Union(int *a, int *b, int n1, int n2)
 {
-    // O(m+n)
+    // Time : O(m+n) 1 traversal
+    // Space : O(1) if directly printing
+
     vector<int> un; // using set to eliminate duplicate values
     int i = 0, j = 0;
     while (i < n1 && j < n2)
@@ -39,6 +41,9 @@ void Union(int *a, int *b, int n1, int n2)
 
 void Intersection(int *a, int *b, int n1, int n2)
 {
+    // Time : O(m+n) 1 traversal
+    // Space : O(1) if directly printing
+
     unordered_set<int> inter;
     int i = 0, j = 0;
     while (i < n1 && j < n2)
@@ -77,7 +82,7 @@ void Intersection1(int *a, int *b, int n1, int n2)
             j++;
         }
     }
-    v.erase(unique(v.begin(), v.end()), v.end());  // erasing duplicate elements
+    v.erase(unique(v.begin(), v.end()), v.end()); // erasing duplicate elements
     cout << "\nUnion is (without set) : ";
     for (int i : v)
         cout << i << " ";

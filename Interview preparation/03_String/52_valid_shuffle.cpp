@@ -39,6 +39,7 @@ bool validShuffle2(string a, string b)
 {
     // Time : O(n)
     // Space : O(2n)
+    
     vector<int> hash1(255, 0);
     vector<int> hash2(255, 0);
     int n = a.length();
