@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 using namespace std;
 class node
 {
@@ -21,7 +22,7 @@ void Insert(node **root, int n)
         *root = createNode(n);
         return;
     }
-    if (n <= (*root)->data)
+    else if (n < (*root)->data)
         Insert(&(*root)->left, n);
     else
         Insert(&(*root)->right, n);
@@ -36,22 +37,28 @@ void print(node *root)
 }
 node *findLCA1(node *root, int a, int b)
 {
+    // time  : O(h)
+    // space : O(h) (stack frame)
+
     if (root == NULL)
-        return root;
-    if (a <= root->data && b <= root->data)
+        return NULL;
+    if (root->data > a && root->data > b)
         return findLCA1(root->left, a, b);
-    if (a > root->data && b > root->data)
+    if (root->data < a && root->data < b)
         return findLCA1(root->right, a, b);
     return root;
 }
 int findLCA2(node *root, int a, int b)
 {
-    while(root!=NULL)
+    // time  : O(h)
+    // space : O(1)
+
+    while (root != NULL)
     {
-        if(a<root->data && b<root->data)
-            root=root->left;
-        else if(a>root->data && b>root->data)
-            root=root->right;
+        if (root->data > a && root->data > b)
+            root = root->left;
+        else if (root->data < a && root->data < b)
+            root = root->right;
         else
             break;
     }
@@ -67,9 +74,11 @@ int main()
     Insert(&root, 12);
     Insert(&root, 10);
     Insert(&root, 14);
-    cout << "\nTree : " ;
+    cout << "Tree : ";
     print(root);
-    cout << "\nLCA : " << findLCA1(root, 4, 14)->data << endl;
-    cout << "LCA : " << findLCA2(root, 4, 14)<< endl;
+    // node *root1=root;
+    node *temp = findLCA1(root, 10, 14);
+    cout << "\nAns : " << temp->data;
+    cout << "\nAns : " << findLCA2(root, 10, 14);
     return 0;
 }
