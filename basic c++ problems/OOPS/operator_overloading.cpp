@@ -34,7 +34,7 @@ int main()
     student s1;
     s1.getData("sasi", 10);
     s1.printData();
-    student s2 = s1; // coping s1 in s2
+    student s2 = s1; // coping s1 to s2
     if (s1 == s2)
         cout << "Same" << endl;
     else

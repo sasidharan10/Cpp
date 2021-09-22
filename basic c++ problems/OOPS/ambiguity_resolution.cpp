@@ -17,19 +17,19 @@ public:
         cout << "This is Base_2 print" << endl;
     }
 };
-class derived :public base1,public base2
+class derived : public base1, public base2
 {
 public:
     void print()
     {
+        cout << "This is Derived print" << endl;
         base1::print();
     }
-    
 };
 int main()
 {
     derived d;
-    d.print();  // here ambiguity occurs whether which 'print' function it should call from two classes
+    d.print(); // here ambiguity occurs whether which 'print' function it should call from two classes
     return 0;
 }
 

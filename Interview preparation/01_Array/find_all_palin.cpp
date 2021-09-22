@@ -21,9 +21,9 @@ bool findAllPalinfrome(int *a, int n)
 }
 int main()
 {
-    int a[] = {121, 131, 20};
-    // int a[] = {111, 121, 222, 333, 444};
+    // int a[] = {121, 131, 20};
+    int a[] = {111, 121, 222, 333, 444};
     int n = sizeof(a) / sizeof(a[0]);
-    cout << "Min Merge Operation To make Palindrome : " << findAllPalinfrome(a, n) << endl;
+    cout << "Find Palindrome : " << findAllPalinfrome(a, n) << endl;
     return 0;
 }

@@ -45,7 +45,7 @@ void duplicate2(int *a,int n)
 }
 int main()
 {
-    int a[] = {6,  1, 1, 6, 4, 7, 10,6, 2, 2, 4, 5, 5, };
+    int a[] = {6,  1, 1, 6, 4, 7, 10,2, 2, 4, 5, 5, };
     int n = sizeof(a) / sizeof(a[0]);
     duplicate1(a,n);
     duplicate2(a,n);

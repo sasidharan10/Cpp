@@ -62,10 +62,12 @@ int main()
 {
     node *head = NULL;
     Insert(&head, 1);
+    Insert(&head, 1);
     Insert(&head, 2);
     Insert(&head, 3);
     Insert(&head, 3);
     Insert(&head, 2);
+    Insert(&head, 1);
     Insert(&head, 1);
     print(head);
     cout<<"\nPalindrome ? : "<<checkPalindrome(head);

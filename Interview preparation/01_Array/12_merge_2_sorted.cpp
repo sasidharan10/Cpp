@@ -19,7 +19,8 @@ void mergeArray1(int *a1, int n, int *a2, int m)
         /*
         - (j!=n-2) means a2[i] is greatest element and no need to change it.
         - last > a2[i] to check if last element is greater than a[i] since in first loop
-          last is not compared with a[i]    
+          last is not compared with a2[i]    
+        - we j!=n-2 to check if any swaps have happened
         */
         if (j != n - 2 || last > a2[i])
         {
