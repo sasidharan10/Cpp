@@ -12,13 +12,13 @@ int main()
         sum1-=a[i];
     }
     // to prevent overflow
-    int sum2=0;
-    for (int i = 1; i <= n+1; i++)
+    int sum2=1;
+    for (int i = 2; i <= n+1; i++)
     {
         sum2+=i;
-        sum2-=a[i-1];
+        sum2-=a[i-2];
     }
     cout << "Missing is : "<<sum1;
-    cout << "\nMissing is : "<<sum1;
+    cout << "\nMissing is : "<<sum2;
     return 0;
 }

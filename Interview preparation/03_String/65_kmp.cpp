@@ -37,8 +37,8 @@ int longestPrefixSuffix(string str)
 }
 int main()
 {
-    // string str = "abckgjogabjfgjabc";
-    string str = "aaaa";
+    string str = "abckgjogabjfgjabc";
+    // string str = "aaaa";
     cout << "Length of Longest Prefix Suffix : " << longestPrefixSuffix(str) << endl;
     return 0;
 }

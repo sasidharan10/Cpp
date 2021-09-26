@@ -6,7 +6,7 @@ string countSay(int n)
 {
     if (n == 1)
         return "1";
-    if (n == 12)
+    if (n == 2)
         return "11";
     string res = "11";
     int c = 0;

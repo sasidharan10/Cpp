@@ -9,7 +9,7 @@ int gcd(int a,int b)
 }
 int findGcd(int *a,int l,int r)
 {
-    int result=a[0];
+    int result=a[l];
     for (int i = l; i <= r; i++)
     {
         result=gcd(a[i],result);
@@ -20,7 +20,7 @@ int findGcd(int *a,int l,int r)
 }
 int main()
 {
-    int a[]{20,40,60,80,10,5};
+    int a[]{20,40,60,30,9,3};
     int n = sizeof(a) / sizeof(a[0]);
     int r=2;
     for (int i = 0; i < n; i++)

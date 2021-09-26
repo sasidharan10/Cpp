@@ -18,7 +18,7 @@ void maxHeapify(int *a, int i, int n)
 }
 void buildHeap(int *a, int n)
 {
-    int start = (n / 2) - 1;
+    int start = (n / 2) - 1;   // heapifying internal nodes are sufficient
     for (int i = start; i >= 0; i--)
     {
         maxHeapify(a, i, n);

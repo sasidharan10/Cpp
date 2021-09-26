@@ -96,10 +96,10 @@ void Search4(string txt, string key)
 
     int n = txt.length();
     int m = key.length();
-    int d = 256;          // character range
+    int d = 26;          // character range
     int p = 5381;        // prime number
     int h = 1;           // pow(d,m-1) used for eliminating the first character from the hash
-    long long int k = 0; // hash for ket string
+    long long int k = 0; // hash for key string
     long long int t = 0; // hash window of txt string
     // the first character
     for (int i = 0; i < m - 1; i++)

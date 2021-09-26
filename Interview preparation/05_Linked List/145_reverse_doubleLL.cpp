@@ -47,7 +47,7 @@ node *Reverse(node *head)
         current = current->prev;
     }
     // as current becomes null,we assign temp->prev as head since it is pointing
-    // to second node.
+    // to second last node.
     head = temp->prev;
     return head;
 }
