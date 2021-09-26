@@ -3,8 +3,8 @@
 using namespace std;
 int main()
 {
-	int a, b, c, d, e, g, f, h, i,j,k;
-	a = b = c = d = e = f = g = h = i = j=k=5;
+	int a, b, c, d, e, g, f, h, i, j, k;
+	a = b = c = d = e = f = g = h = i = j = k = 1;
 	a = a++ + ++a;
 	b = b++ + b++;
 	c = ++c + ++c;
@@ -21,7 +21,14 @@ int main()
 	cout << "7) g++ + ++g + g++ : " << g << endl;
 	printf("8) ++i , i , i++ : %d, %d, %d \n", ++i, i, i++);
 	printf("9) j++ , j , ++j : %d, %d, %d \n", j++, j, ++j);
-	cout<<"10) ++k<<k<<k++ : "<<++k<<k<<k++;
-	// for 8th and 9th statement, the evaluation is done from right to left and printing is done from left to right 
+	cout << "10) ++k<<k<<k++ : " << ++k << k << k++;
+
+	/*
+
+	- for 8th and 9th statement, the evaluation is done from right to left and printing is done
+	  from left to right
+	- for statements with 3 operands, the compiler will evaluate first 2 operands and
+	- then it will add the result with the third operand.
+	*/
 	return 0;
 }

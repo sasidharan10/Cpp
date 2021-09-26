@@ -1,10 +1,10 @@
-#include <iostream>
-#include <algorithm>
-#include <stack>
+#include<iostream>
+#include<algorithm>
+#include<stack>
 using namespace std;
-void bottom(stack<int> &s,int n)
+void sorting(stack<int>&s,int n)
 {
-    if(s.empty())
+    if(s.empty() || n<s.top())
     {
         s.push(n);
     }
@@ -12,31 +12,31 @@ void bottom(stack<int> &s,int n)
     {
         int temp=s.top();
         s.pop();
-        bottom(s,n);
+        sorting(s,n);
         s.push(temp);
     }
 }
-void Reverse(stack<int> &s)
+void stackSort(stack<int>&s)
 {
-    if (!s.empty())
+    if(!s.empty())
     {
-        int temp = s.top();
+        int temp=s.top();
         s.pop();
-        Reverse(s);
-        bottom(s,temp);
+        stackSort(s);
+        sorting(s,temp);
     }
 }
 int main()
 {
-    stack<int> s;
-    for (int i = 1; i <= 5; i++)
-    {
-        s.push(i);
-    }
-
-    Reverse(s);
-    
-    cout<<"Reverse : ";
+    stack<int>s;
+    s.push(6);
+    s.push(2);
+    s.push(3);
+    s.push(1);
+    s.push(5);
+    s.push(4);
+    stackSort(s);
+    cout<<"Stack : ";
     while (!s.empty())
     {
         cout << s.top() << " ";

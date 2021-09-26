@@ -17,31 +17,29 @@ node *Insert(int n)
     temp->right = NULL;
     return temp;
 }
-void convertUtil(node *root, node *&head, node *&prev, int &f)
+void convertUtil(node *root, node *&head, node *&prev)
 {
     if (root == NULL)
         return;
-    convertUtil(root->left, head, prev, f);
-    if (f == 0)
+    convertUtil(root->left, head, prev);
+    if (prev==NULL)
     {
-        f = 1;
         head = root;
         prev = root;
     }
     else
     {
         prev->right = root;
-        prev->right->left = prev;
+        root->left = prev;
         prev = root;
     }
-    convertUtil(root->right, head, prev, f);
+    convertUtil(root->right, head, prev);
 }
 node *convert(node *root)
 {
     node *head = NULL;
     node *prev = NULL;
-    int f = 0;
-    convertUtil(root, head, prev, f);
+    convertUtil(root, head, prev);
     return head;
 }
 void print(node *head)

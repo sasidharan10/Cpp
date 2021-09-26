@@ -7,7 +7,7 @@ int main()
     int l1 = sizeof(a) / sizeof(a[0]);
     int l2 = sizeof(b) / sizeof(b[0]);
     int freq = 0, t = 0, h = 0, e = 0, sp1 = 0, sp2 = 0;
-    for (int i = 0; i <= l1 - 3; i++)
+    for (int i = 0; i <= l1 - l2; i++)
     {
         sp1 = (a[i - 1] == ' ' || a[i - 1] == '\0');
         t = (a[i] == 't' || a[i] == 'T');

@@ -17,7 +17,7 @@ node *Insert(int n)
     temp->right = NULL;
     return temp;
 }
-void leftview(node *root, int current, int &maxLevel)
+void rightview(node *root, int current, int &maxLevel)
 {
     if (root == NULL)
         return;
@@ -26,15 +26,15 @@ void leftview(node *root, int current, int &maxLevel)
         cout << root->data << " ";
         maxLevel = current;
     }
-    leftview(root->right, current + 1, maxLevel);
-    leftview(root->left, current + 1, maxLevel);
+    rightview(root->right, current + 1, maxLevel);
+    rightview(root->left, current + 1, maxLevel);
 }
-void leftview1(node *root)
+void rightview1(node *root)
 {
     int maxLevel = 0;
-    leftview(root, 1, maxLevel);
+    rightview(root, 1, maxLevel);
 }
-void leftview2(node *root)
+void rightview2(node *root)
 {
     queue<node *> q;
     q.push(root);
@@ -68,8 +68,8 @@ int main()
     root->right->left = Insert(6);
     root->right->right = Insert(7);
     cout << "Left View (Recursion) : ";
-    leftview1(root);
+    rightview1(root);
     cout << "\nLeft View (Iteration) : ";
-    leftview2(root);
+    rightview2(root);
     return 0;
 }

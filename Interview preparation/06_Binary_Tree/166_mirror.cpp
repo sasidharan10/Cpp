@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 #include <algorithm>
 using namespace std;
 class node
@@ -24,13 +25,21 @@ void mirror(node *root)
     mirror(root->right);
     swap(root->left, root->right);
 }
-void print(node *root)
+
+void levelOrder(node *root)
 {
-    if (root == NULL)
-        return;
-    print(root->left);
-    cout << root->data << " ";
-    print(root->right);
+    queue<node *> q;
+    q.push(root);
+    while (!q.empty())
+    {
+        node *temp = q.front();
+        q.pop();
+        cout << temp->data << " ";
+        if (temp->left != NULL)
+            q.push(temp->left);
+        if (temp->right != NULL)
+            q.push(temp->right);
+    }
 }
 int main()
 {
@@ -43,9 +52,9 @@ int main()
     root->right->left = Insert(6);
     root->right->right = Insert(7);
     cout << "\nBefore mirror : ";
-    print(root);
+    levelOrder(root);
     mirror(root);
     cout << "\nAfter mirror : ";
-    print(root);
+    levelOrder(root);
     return 0;
 }

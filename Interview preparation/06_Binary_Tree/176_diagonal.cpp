@@ -26,7 +26,7 @@ void Diagonal(node *root)
         return;
     }
     queue<node *> q;
-    vector<int> v;
+    vector<int> v;  
     q.push(root);
     while (!q.empty())
     {

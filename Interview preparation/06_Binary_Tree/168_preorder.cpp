@@ -27,8 +27,8 @@ void preorder1(node *root)
 }
 void preorder2(node *root)
 {
-    if (root == NULL) 
-       return;
+    if (root == NULL)
+        return;
     stack<node *> s;
     node *current = root;
     s.push(current);
@@ -37,21 +37,21 @@ void preorder2(node *root)
         current = s.top();
         s.pop();
         cout << current->data << " ";
-        if(current->right!=NULL)
+        if (current->right != NULL)
             s.push(current->right);
-        if(current->left!=NULL)
+        if (current->left != NULL)
             s.push(current->left);
     }
 }
 int main()
 {
     node *root = NULL;
-    root = Insert(4);
+    root = Insert(1);
     root->left = Insert(2);
-    root->right = Insert(6);
-    root->left->right = Insert(3);
-    root->left->left = Insert(1);
-    root->right->left = Insert(5);
+    root->right = Insert(3);
+    root->left->left = Insert(4);
+    root->left->right = Insert(5);
+    root->right->left = Insert(6);
     root->right->right = Insert(7);
     cout << "\nTree (Recursion) : ";
     preorder1(root);

@@ -37,9 +37,9 @@ int main()
     node *root = NULL;
     root = Insert(4);
     root->left = Insert(2);
-    root->right = Insert(6);
-    root->left->right = Insert(3);
     root->left->left = Insert(1);
+    root->left->right = Insert(3);
+    root->right = Insert(6);
     root->right->left = Insert(5);
     root->right->right = Insert(7);
     cout << "\nList : ";
@@ -49,3 +49,13 @@ int main()
     print(root);
     return 0;
 }
+
+    // root = Insert(10);
+    // root->left = Insert(-2);
+    // root->right = Insert(6);
+    // root->left->left = Insert(8);
+    // root->left->right = Insert(-4);
+    // root->right->left = Insert(7);
+    // root->right->right = Insert(5);
+
+    // 0 4 0 20 0 12 0

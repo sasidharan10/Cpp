@@ -18,7 +18,7 @@ void countOccurence1(int *a, int n, int k)
             cout << "Number : " << i.first << " "
                  << "occurence : " << i.second << endl;
 }
-void countOccurence1(int *a, int n, int k)
+void countOccurence2(int *a, int n, int k)
 {
     // Time  :  O(2n)
     // Space :  O(n)

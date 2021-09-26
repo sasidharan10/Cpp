@@ -26,6 +26,7 @@ int main()
     }
 
     cout << "Stack using Queue : ";
+    Insert(s,6);
     while (!s.empty())
     {
         cout << s.top() << " ";

@@ -5,7 +5,7 @@ int main()
 {
     // Time = O(n^2)
 
-    char a[][10] = {"sasi", "bishnoi", "axar"};
+    char a[][10] = {"sasi", "bishnoi", "axar","saas"};
     char temp[10];
     int flag = 0;
     int n = sizeof(a) / sizeof(a[0]);

@@ -23,7 +23,7 @@ void zigzag(node *root)
     queue<node *> q;
     vector<int> ans;
     q.push(root);
-    int flag = 0;
+    int flag = 1;
     while (!q.empty())
     {
         vector<int> v;
