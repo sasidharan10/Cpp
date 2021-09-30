@@ -3,7 +3,7 @@
 using namespace std;
 void heapify(int *a, int i, int n)
 {
-    // Time : O(nlogn)
+    // Time  : O(nlogn)
     // Space : O(1)
 
     int left = (2 * i) + 1;
