@@ -108,8 +108,8 @@ void Search4(string txt, string key)
     }
     for (int i = 0; i < m; i++)
     {
-        t = (t * d + txt[i]) % p;
-        k = (k * d + key[i]) % p;
+        t = (t * d + txt[i]-'A') % p;
+        k = (k * d + key[i]-'A') % p;
     }
     int j;
     for (int i = 0; i < n - m; i++)
@@ -126,7 +126,7 @@ void Search4(string txt, string key)
         }
         if (i < n - m)
         {
-            t = (d * (t - txt[i] * h) + txt[i + m]) % p;
+            t = (d * (t - (txt[i]-'A') * h) + (txt[i + m]-'A')) % p;
             if (t < 0)
                 t = (t + p);
         }

@@ -130,29 +130,29 @@ node *getPredecessor(node *root, int x)
         return predecessor;
     }
 }
-void findPreSuc(node *root,node **pre,node **suc,int x)
+void findPreSuc(node *root, node **pre, node **suc, int x)
 {
     // Time  :  O(h)
     // Space :  O(1)
 
-    if(root==NULL)
+    if (root == NULL)
         return;
-    if(root->data==x)
+    if (root->data == x)
     {
-        if(root->right!=NULL)
-            *suc=findMin(root->right);
-        if(root->right!=NULL)
-            *pre=findMax(root->left);
+        if (root->right != NULL)
+            *suc = findMin(root->right);
+        if (root->left != NULL)
+            *pre = findMax(root->left);
     }
-    else if(x>root->data)
+    else if (x > root->data)
     {
-        *pre=root;
-        findPreSuc(root->right,&*pre,&*suc,x);
+        *pre = root;
+        findPreSuc(root->right, &*pre, &*suc, x);
     }
     else
     {
-        *suc=root;
-        findPreSuc(root->left,&*pre,&*suc,x);
+        *suc = root;
+        findPreSuc(root->left, &*pre, &*suc, x);
     }
 }
 int main()
@@ -167,13 +167,19 @@ int main()
     Insert(&root, 7);
     cout << "\nTree : ";
     print(root);
-    int x = 6;
+    int x = 4;
     cout << "\nSuccessor : " << getSuccessor(root, x)->data << endl;
     cout << "Predecessor : " << getPredecessor(root, x)->data << endl;
-    node *pre=NULL;
-    node *suc=NULL;
-    findPreSuc(root,&pre,&suc,x);
-    cout << "\nSuccessor : " << suc->data << endl;
-    cout << "Predecessor : " << pre->data << endl;
+    node *pre = NULL;
+    node *suc = NULL;
+    findPreSuc(root, &pre, &suc, x);
+    if (suc == NULL)
+        cout << "\nsuccessor : NULL" << endl;
+    else
+        cout << "\nSuccessor : " << suc->data << endl;
+    if (pre == NULL)
+        cout << "Predecessor : NULL" << endl;
+    else
+        cout << "Predecessor : " << pre->data << endl;
     return 0;
 }
