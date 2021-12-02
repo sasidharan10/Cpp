@@ -8,11 +8,13 @@ int main()
     r=new int;  // dynamic allocation of the varible
     *r=500;  // asssigning value to the variable
     int*s; // pointer vaiable
-    s=new int[3];  // pointer poining to an array in heap
+    s=new int[3];  // pointer poining to an array(size=3) in heap
     s[0]=90;  // initialising values
     s[1]=80;
     s[2]=70;
+    // *s={1};  // eqiuvalent to s[0]=1
     cout<<"p[1] : "<<p[1]<<endl;
+    cout<<"s[0] : "<<s[0]<<endl;
     cout<<"s[2] : "<<s[2]<<endl;
     cout<<"*r : "<<*r<<endl;
     cout<<"*q : "<<*q<<endl;

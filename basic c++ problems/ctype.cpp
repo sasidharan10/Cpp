@@ -4,8 +4,8 @@
 using namespace std;
 int main()
 {
-    char a[]="\nthis\t. is, (good)";
-    int blank=0,space=0,cntrl=0,punct=0,i=0;
+    char a[]="\nthis\t. is,  (good)";
+    int blank=0,space=0,cntrl=0,punct=0,i=0,graph=0;
     while(a[i]!='\0')
     {
         if(isblank(a[i]))
@@ -16,12 +16,15 @@ int main()
             cntrl++;
         if(ispunct(a[i]))
             punct++;
+        if(isgraph(a[i]))
+            graph++;
         i++;
     }
     cout << "blank : " << blank << endl;
     cout << "space : " << space << endl;
     cout << "cntrl : " << cntrl << endl;
     cout << "punct : " << punct << endl;
+    cout << "graph : " << graph << endl;
     return 0;
 }
 

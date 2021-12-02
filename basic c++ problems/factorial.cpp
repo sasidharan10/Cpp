@@ -2,16 +2,15 @@
 using namespace std;
 int factorial(int x)
 {
-    if(x==0)
+    if(x==1)
         return 1;
     else
         return x*factorial(x-1);
 }
 int main()
 {
-    int x;
-    cout<<"Enter a number : "<<endl;
-    cin>>x;
+    int x=5;
+    cout<<"Factorial : ";
     cout<<factorial(x);
     return 0;
 }

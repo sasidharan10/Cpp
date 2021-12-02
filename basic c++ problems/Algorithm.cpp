@@ -22,7 +22,7 @@ int main()
 	find(a.begin(), a.end(), 'o') != a.end() ? cout << "Found" << endl : cout << "Not Found" << endl; // finding o
 	int arr[] = {5, 10, 15, 20, 20, 23, 42, 45};
 	int n = sizeof(arr) / sizeof(arr[0]);
-	sort(arr, arr + n);	   // sort
+	sort(arr, arr + n); // sort
 	// reverse(arr, arr + n); // reverse
 	for (int i : arr)
 		cout << i << " ";
@@ -33,8 +33,14 @@ int main()
 	cout << "The upper bound is at position: ";
 	cout << *q << endl;
 	vector<int> v(arr, arr + n);
+	for (int i : v)
+		cout << i << " ";
+	cout << endl;
 	v.erase(v.begin() + 6);
-	v.erase(unique(v.begin(), v.end()), v.begin() + 5);
+	for (int i : v)
+		cout << i << " ";
+	cout << endl;
+	v.erase(unique(v.begin(), v.end()), v.end());
 	for (int i : v)
 		cout << i << " ";
 	cout << "\ndistance : " << distance(v.begin(), max_element(v.begin(), v.end()));

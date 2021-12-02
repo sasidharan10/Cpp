@@ -2,7 +2,8 @@
 #include<string.h>
 void swap(char *str1, char *str2)
 {
-	char temp[20];
+	// char temp[20];
+	char *temp;
 	strcpy(temp, str1);
 	strcpy(str1, str2);
 	strcpy(str2, temp);

@@ -20,6 +20,10 @@ public:
 class derived : public base1, public base2
 {
 public:
+    // derived()
+    // {
+    //     base1::print();
+    // }
     void print()
     {
         cout << "This is Derived print" << endl;
@@ -30,6 +34,8 @@ int main()
 {
     derived d;
     d.print(); // here ambiguity occurs whether which 'print' function it should call from two classes
+    // or use base2::print() while calling itself
+    d.base2::print();
     return 0;
 }
 

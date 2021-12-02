@@ -16,6 +16,6 @@ int main()
 	cout << "a.max_size() : " << a.max_size() << endl;
 	a.swap(b);
 	cout << "a.empty() : " << a.empty() << endl;
-	a.fill(1); //fill aarray with value 1
+	a.fill(1); //fill array with value 1
 	return 0;
 }

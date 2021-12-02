@@ -20,7 +20,9 @@ int Binary_search(int *a, int key, int beg, int end)
 int main()
 {
     int a[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
+    // int b[3][3]{0};
     int n = sizeof(a) / sizeof(a[0]);
+    cout<<endl;
     int key = 3;
     int x = Binary_search(a, key, 0, n - 1);
     if (x == -1)

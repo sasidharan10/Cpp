@@ -6,6 +6,9 @@
 using namespace std;
 bool anagram(string a, string b)
 {
+	// time  : O(nlogn)
+	// space : O(1)
+	
 	int str1, str2;
 	str1 = a.length();
 	str2 = b.length();
