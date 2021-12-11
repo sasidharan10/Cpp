@@ -13,6 +13,8 @@ int main()
 	char b[] = "hushvoaiaddv";
 	string a = (string)b; // convert to string
 	// string a(b);
+	cout<<a<<endl;
+	cout<<a.size()<<endl;
 	sort(a.begin(), a.end());
 	cout << a << endl;
 	cout << "Count of h : " << count(a.begin(), a.end(), 'h') << endl; // count of h

@@ -102,12 +102,12 @@ void solve2(int col, int n, vector<vector<int>> &board, vector<int> &leftRow, ve
 void nQueen(int n)
 {
     vector<vector<int>> board(n, vector<int>(n, 0));
-    solve(0, n, board);
+    // solve(0, n, board);
 
     // optimised technique
 
-//     vector<int> leftRow(n, 0), leftUp(2 * n - 1, 0), leftDown(2 * n - 1, 0);
-//     solve2(0, n, board, leftRow, leftUp, leftDown);
+    vector<int> leftRow(n, 0), leftUp(2 * n - 1, 0), leftDown(2 * n - 1, 0);
+    solve2(0, n, board, leftRow, leftUp, leftDown);
 }
 
 int main()
