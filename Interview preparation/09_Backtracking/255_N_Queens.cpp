@@ -54,7 +54,6 @@ void solve(int col, int n, vector<vector<int>> &board)
         }
         cout << endl;
         return;
-        true;
     }
     for (int row = 0; row < n; row++)
     {
