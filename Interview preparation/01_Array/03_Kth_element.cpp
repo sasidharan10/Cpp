@@ -3,11 +3,11 @@
 using namespace std;
 int kth_element1(int *a, int n, int k)
 {
-    // bubble sort
     // Time  : O(n^2)
     // Space : O(1)
 
     int min, temp;
+    // bubble sort
     for (int i = 0; i < n; i++)
     {
         min = i;
