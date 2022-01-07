@@ -85,6 +85,15 @@ int quickSelect(int *a, int start, int end, int k)
     }
     return -1;
 }
+int kthSmallest(int arr[], int l, int r, int k) {
+        int *b=new int[r-l+1];
+        for (int i = l; i <= r; i++)
+        {
+            b[i]=arr[i];
+        }
+        sort(b,b+r-l);
+        return b[k-1];
+    }
 int main()
 {
     int a[] = {6, 5, 8, 4, 9, 10, 7, 2, 3, 1};
@@ -97,6 +106,7 @@ int main()
     cout << k << "th Largest Element (Heap): " << kth_element2(a, n, n - k + 1) << endl;
     cout << k << "th Smallest Element (QuickSelect) : " << quickSelect(a, 0, n - 1, k) << endl;
     cout << k << "th Largest Element (QuickSelect) : " << quickSelect(a, 0, n - 1, n - k + 1) << endl;
+    cout << k << "th Smallest Element : " << kthSmallest(a,3, n-1, k) << endl;
     return 0;
 }
 /*

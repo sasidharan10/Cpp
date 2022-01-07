@@ -21,7 +21,7 @@ void rotateRight1(int *a, int n)
 }
 void rotateRight2(int *a, int n)
 {
-    // Time  : O(n)
+    // Time  : O(n*r)
     // Space : O(1)
 
     int last = 0;
@@ -44,7 +44,7 @@ void rotateRight2(int *a, int n)
 }
 void rotateLeft1(int *a, int n)
 {
-    // O(n)
+    // O(n*r)
     int r = 2; // no of rotations
     while (r > 0)
     {
