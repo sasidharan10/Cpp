@@ -6,10 +6,7 @@
 using namespace std;
 int main()
 {
-	// #ifndef ONLINE_JUDGE
-	// 	freopen("input.txt", "r", stdin);
-	// 	freopen("output.txt", "w", stdout);
-	// #endif
+
 	char b[] = "hushvoaiaddv";
 	string a = (string)b; // convert to string
 	// string a(b);
