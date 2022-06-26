@@ -1,40 +1,34 @@
 #include <iostream>
-#include <algorithm>
-#include <vector>
+#include <climits>
 using namespace std;
+void binary(int *a, int beg, int end, int key)
+{
+    if (beg <= end)
+    {
+        int mid = beg + (end - beg) / 2;
+        if (a[mid] == key)
+        {
+            cout << "Element found at index: " << mid;
+            return;
+        }
+        else if (a[mid] < key)
+            binary(a, mid + 1, end, key);
+        else
+            binary(a, beg, mid - 1, key);
+    }
+    else
+    {
+        cout << "Not Found!!!";
+        return;
+    }
+}
 int main()
 {
-    int arr[]{20, 24, 12, 15, 27, 11, 18, 15, 21, 26, 20, 15};
-    int n = sizeof(arr) / sizeof(arr[0]);
-    cout << "Array: ";
-    for (int i : arr)
-        cout << i << " ";
-    int *f = find(arr, arr + n, 15);
-    // int *f = find(arr, arr + n, 38);
-    // if (f == arr + n)
-    //     cout << "Not found" << endl;
-    // else
-    //     cout << "found" << endl;
-    int pos = (f - arr) / (arr + 1 - arr);
-    cout << "\n(f - arr): " << (f - arr) << endl;
-    cout << "(arr + 1 - arr): " << (arr + 1 - arr) << endl;
-    cout << "\nPos: " << pos << endl;
-    for (int i : arr)
-        cout << i << " ";
-    int c = count(arr, arr + n, 27);
-    cout << "\nc: " << c << endl;
-    sort(arr, arr + n);
-    cout << "\nSorted array: ";
-    cout << "\nMax: " << *max_element(arr, arr + n) << endl;
-    cout << "Min: " << *min_element(arr, arr + n) << endl;
-    vector<int> v(10);
-    int k = 0;
-    for (int i = 0; i < v.size(); i++)
-    {
-        v[i]=++k;
-    }
-    cout << endl;
-    for (int i : v)
-        cout << i << " ";
+    int ar[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+    int n = sizeof(ar) / sizeof(ar[0]);
+    int x = 9;
+    int beg = 0;
+    int end = n - 1;
+    binary(ar, beg, end, x);
     return 0;
 }

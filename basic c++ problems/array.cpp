@@ -17,5 +17,8 @@ int main()
 	a.swap(b);
 	cout << "a.empty() : " << a.empty() << endl;
 	a.fill(1); //fill array with value 1
+	cout<<"a.fill(1): ";
+	for (int i : a)
+		cout<<i<<" ";
 	return 0;
 }

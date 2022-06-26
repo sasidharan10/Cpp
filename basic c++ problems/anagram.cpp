@@ -1,7 +1,5 @@
 #include <iostream>
 #include <string>
-#include <string.h>
-#include <stdio.h>
 #include <algorithm>
 using namespace std;
 bool anagram(string a, string b)
@@ -34,3 +32,8 @@ int main()
 		cout << "They are not anagram words" << endl;
 	return 0;
 }
+/*
+- for char array, use sort(a,a+n) 
+- for finding length, use loop to find the length as char array ends with '\0' character
+
+*/

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <climits>
 using namespace std;
 int binary(int ar[], int n, int x)
 {
@@ -15,18 +16,17 @@ int binary(int ar[], int n, int x)
 		else
 			end = mid - 1;
 	}
-	return 0;
+	return INT_MIN;
 }
 
 int main()
 {
-	int ar[]{1, 2, 3, 4, 5, 6, 7, 8, 9};
-	int x, n, ans = 0;
+	int ar[]{0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+	int n, ans = 0;
 	n = sizeof(ar) / sizeof(ar[0]);
-	cout << "Enter the no you want to search " << endl;
-	cin >> x;
+	int x = 9;
 	ans = binary(ar, n, x);
-	if (ans)
+	if (ans != INT_MIN)
 		cout << "Found at index : " << ans << endl;
 	else
 		cout << "Not found!!!";
