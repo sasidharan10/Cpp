@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo> // for typeid()
 using namespace std;
 int main()
 {
@@ -9,10 +10,14 @@ int main()
 	int d = a + e;
 	cout << "c : " << c << endl;
 	cout << "d : " << d << endl;
-	cout << "d : " << typeid(d).name()<< endl;
+	cout << "d : " << typeid(e).name() << endl; // find data type while runtime
 	// cout << "addition : " <<type(a+e) << endl;
 	cout << "e : " << (int)e / 2 << endl; // int always takes floor value
 	printf("e : %.4f\n", e);
 	cout << "sizeof(long) : " << sizeof(long);
 	return 0;
 }
+
+
+// always the data type with higher precedence in a expression ends as resultant data type
+// byte < char < int < float < double

@@ -1,30 +1,40 @@
-#include<iostream>
-#include<algorithm>
-#include<unordered_set>
+#include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
-void calc(int i,int n,int k,int x,int y,unordered_set<int> &s)
-{
-    int t=abs(k-i);
-    int res=(t*x-(n-t)*y) + (i*x-(n-i)*y);
-    if(s.find(res)==s.end())
-        s.insert(res);
-    return;
-}
 int main()
 {
-    int n=3,x=1,y=1,z=3;
-    int count=0;
-    int j=0;
-    unordered_set<int> s;
-    for (int i = 1,j=i+1; i <= n && j<=n; i++)
+    int arr[]{20, 24, 12, 15, 27, 11, 18, 15, 21, 26, 20, 15};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    cout << "Array: ";
+    for (int i : arr)
+        cout << i << " ";
+    int *f = find(arr, arr + n, 15);
+    // int *f = find(arr, arr + n, 38);
+    // if (f == arr + n)
+    //     cout << "Not found" << endl;
+    // else
+    //     cout << "found" << endl;
+    int pos = (f - arr) / (arr + 1 - arr);
+    cout << "\n(f - arr): " << (f - arr) << endl;
+    cout << "(arr + 1 - arr): " << (arr + 1 - arr) << endl;
+    cout << "\nPos: " << pos << endl;
+    for (int i : arr)
+        cout << i << " ";
+    int c = count(arr, arr + n, 27);
+    cout << "\nc: " << c << endl;
+    sort(arr, arr + n);
+    cout << "\nSorted array: ";
+    cout << "\nMax: " << *max_element(arr, arr + n) << endl;
+    cout << "Min: " << *min_element(arr, arr + n) << endl;
+    vector<int> v(10);
+    int k = 0;
+    for (int i = 0; i < v.size(); i++)
     {
-        int k=n-i+j;
-        calc(i,n,k,x,y,s);
-        calc(n-i,n,k,x,y,s);
+        v[i]=++k;
     }
-    for (auto i : s)
-        cout<<i<<" ";
-    cout<<endl;
-    cout<<s.size();
+    cout << endl;
+    for (int i : v)
+        cout << i << " ";
     return 0;
 }

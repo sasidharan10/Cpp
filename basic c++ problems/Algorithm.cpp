@@ -10,8 +10,8 @@ int main()
 	char b[] = "hushvoaiaddv";
 	string a = (string)b; // convert to string
 	// string a(b);
-	cout<<a<<endl;
-	cout<<a.size()<<endl;
+	cout << a << endl;
+	cout << a.size() << endl;
 	sort(a.begin(), a.end());
 	cout << a << endl;
 	cout << "Count of h : " << count(a.begin(), a.end(), 'h') << endl; // count of h
@@ -32,14 +32,17 @@ int main()
 	cout << "The upper bound is at position: ";
 	cout << *q << endl;
 	vector<int> v(arr, arr + n);
+	cout << "Vector: ";
 	for (int i : v)
 		cout << i << " ";
 	cout << endl;
 	v.erase(v.begin() + 6);
+	cout << "Vector after erasing: ";
 	for (int i : v)
 		cout << i << " ";
 	cout << endl;
 	v.erase(unique(v.begin(), v.end()), v.end());
+	cout << "Vector after removing duplicates: ";
 	for (int i : v)
 		cout << i << " ";
 	cout << "\ndistance : " << distance(v.begin(), max_element(v.begin(), v.end()));
