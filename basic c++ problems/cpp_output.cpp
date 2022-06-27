@@ -1,24 +1,29 @@
-#include<stdio.h>
-#include<string.h>
-void swap(char *str1, char *str2)
-{
-	// char temp[20];
-	char *temp;
-	strcpy(temp, str1);
-	strcpy(str1, str2);
-	strcpy(str2, temp);
-}
-
+#include<iostream>
+#include<cstdio>    // for fgets()
+#include<cstring>   // string.h in C lang
+#include<string>    // to use string DS
+using namespace std;
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
-	char str1[] = "geeks";
-	char str2 [] = "forgeeks";
-	swap(str1, str2);
-	printf("str1 is %s, str2 is %s", str1, str2);
-	getchar();
-	return 0;
+    int a;
+    cout<<"Enter number: "<<endl;
+    cin>>a;
+    cout<<"Number: "<<a<<endl;
+    // char b[30];
+    cout<<"Enter string: "<<endl;
+    string c;
+    // cin>>b;                 // cin cannot take strings with spaces
+	// gets(b);                // avoid it because it does not support buffer overflow()
+	// fgets(b,sizeof(b),stdin);  // recommended
+    // getline(cin,c);         // this fn is for string DS
+    // printf("String b: %s",b);
+    getline(cin,c);
+    cout<<"String c: "<<c<<endl;
+    return 0;
 }
+
+/*
+- cerr in C++ is un-buffered so it is used when one needs to display the error message immediately.
+
+
+*/

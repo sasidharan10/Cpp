@@ -1,22 +1,22 @@
-#include<iostream>
-#include<cctype>
-#include<string>
+#include <iostream>
+#include <cctype>
+#include <string>
 using namespace std;
 int main()
 {
-    char a[]="\nthis\t. is,  (good)";
-    int blank=0,space=0,cntrl=0,punct=0,i=0,graph=0;
-    while(a[i]!='\0')
+    char a[] = "\nThis\t. is,  (good)";
+    int blank = 0, space = 0, cntrl = 0, punct = 0, i = 0, graph = 0;
+    while (a[i] != '\0')
     {
-        if(isblank(a[i]))
+        if (isblank(a[i]))
             blank++;
-        if(isspace(a[i]))
+        if (isspace(a[i]))
             space++;
-        if(iscntrl(a[i]))
+        if (iscntrl(a[i]))
             cntrl++;
-        if(ispunct(a[i]))
+        if (ispunct(a[i]))
             punct++;
-        if(isgraph(a[i]))
+        if (isgraph(a[i]))
             graph++;
         i++;
     }
@@ -25,6 +25,9 @@ int main()
     cout << "cntrl : " << cntrl << endl;
     cout << "punct : " << punct << endl;
     cout << "graph : " << graph << endl;
+    // char b='P';
+    // b=tolower(b);
+    // cout<<"b: "<<b;
     return 0;
 }
 

@@ -1,7 +1,7 @@
 #include<iostream>
 #include<stdio.h>
 using namespace std;
-void get(int*a)
+void get(int* a)
 {
 	cout<<"\na[0] : "<<a[0]<<endl;
 }

@@ -1,13 +1,9 @@
 #include<iostream>
 #include<stdio.h>
-#include<cstring>
+#include<cstring>   // string.h in C lang
 using namespace std;
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
 	char a[] = "this is ";
 	char b[] = "awesome";
 	char c[] = "awegdnfjbn";
