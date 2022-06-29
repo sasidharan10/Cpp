@@ -26,6 +26,7 @@ int fib2(int x)
 }
 int fib3(int x)
 {
+    // Formula = {[(√5 + 1)/2] ^ n} / √5
     double phi = (sqrt(5) + 1) / 2;
     return round(pow(phi, x) / sqrt(5));
 }
@@ -38,6 +39,5 @@ int main()
     cout << fib2(x);
     cout << "\nfibonacci series (O(logn)) : ";
     cout << fib3(x);
-
     return 0;
 }
