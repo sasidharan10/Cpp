@@ -17,5 +17,4 @@ int main()
     wt << b;
     cout << "\nWritten successfully!!!(check write.txt)" << endl;
     return 0;
-    
 }
