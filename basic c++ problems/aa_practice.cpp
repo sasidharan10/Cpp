@@ -5,7 +5,7 @@ void binary(int *a, int beg, int end, int key)
 {
     if (beg <= end)
     {
-        int mid = beg + (end - beg) / 2;
+        int mid = beg + (end - beg) / 2;   // to avoid overflow
         if (a[mid] == key)
         {
             cout << "Element found at index: " << mid;

@@ -2,9 +2,8 @@
 using namespace std;
 int main()
 {
-    int x,a=0,b=1,c=0;;
-    cout<<"Enter the length of the fibonacci series : "<<endl;
-    cin>>x;
+    int a=0,b=1,c=0;;
+    int x=8;
     cout<<"The fibonacci series is : "<<endl;
     for(int i=0;i<x;i++)
     {
@@ -14,4 +13,5 @@ int main()
         b=c;
     }
     // cout<<a;
+    return 0;
 }
