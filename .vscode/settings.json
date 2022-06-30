@@ -83,7 +83,8 @@
         "ratio": "cpp",
         "thread": "cpp",
         "unordered_set": "cpp",
-        "climits": "cpp"
+        "climits": "cpp",
+        "xthread": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "sqltools.connections": [
