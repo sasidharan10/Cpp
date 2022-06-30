@@ -1,8 +1,8 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
 void vowels(string a[], int n)
 {
-	int vowels = 0,cons=0;
+	int vowels = 0, cons = 0;
 	string ch;
 	char ch1;
 	for (int i = 0; i < n; i++)
@@ -12,9 +12,9 @@ void vowels(string a[], int n)
 		{
 			ch1 = ch[j];
 			if (ch1 == 'a' || ch1 == 'A' || ch1 == 'e' || ch1 == 'E' || ch1 == 'i' ||
-			        ch1 == 'I' || ch1 == 'o' || ch1 == 'O' || ch1 == 'u' || ch1 == 'U')
+				ch1 == 'I' || ch1 == 'o' || ch1 == 'O' || ch1 == 'u' || ch1 == 'U')
 				vowels++;
-			else if(ch1>='a' && ch1<='z' || ch1>='A' && ch1<='Z') 
+			else if (ch1 >= 'a' && ch1 <= 'z' || ch1 >= 'A' && ch1 <= 'Z')
 				cons++;
 			else
 				continue;
@@ -25,10 +25,6 @@ void vowels(string a[], int n)
 }
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
 	int count;
 	string a[] = {"awesome", "fant65astic", "good", "fine"};
 	int n = 4;

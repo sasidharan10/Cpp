@@ -1,5 +1,7 @@
-#include<stdio.h>
-#include<string.h>
+#include<cstdio>
+#include<iostream>
+#include<string>
+#include<cstring>
 using namespace std;
 void swap(char *str1, char *str2)
 {
@@ -12,6 +14,10 @@ void swap(char *str1, char *str2)
 
 int main()
 {
+	// string a="jfg";
+	// string b="ndjfijfe";
+	// a.swap(b);
+	// cout<<a<<" "<<b<<endl; 
 	char str1[] = "geeks";
 	char str2 [] = "forgeeks";
 	swap(str1, str2);

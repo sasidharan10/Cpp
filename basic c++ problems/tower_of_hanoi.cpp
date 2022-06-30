@@ -5,11 +5,12 @@ void TowerOfHanoi(int start, int end, char source, char auxilary, char destinati
 {
     if (start > end)
         return;
-    // to move disc 1 to n-1 from A to B
+    // to move disc 1 to n-1 from A to B using C
     TowerOfHanoi(start, end - 1, source, destination, auxilary);
     // this will take care of last disc to move from A to C
     cout << "Move disk " << end << " from " << source << " to " << destination << endl;
-    // to move disc 1 to n-1 from B to C
+    // to move disc 1 to n-1 from B to C using A
+    // the order is (source, using, destination)
     TowerOfHanoi(start, end - 1, auxilary, source, destination);
 }
 int main()

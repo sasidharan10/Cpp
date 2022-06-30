@@ -1,10 +1,10 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 void counter()
 {
-    static int c=0;
-    cout<<c++<<" ";
+    static int c = 0;
+    cout << c++ << " ";
 }
 int main()
 {
@@ -17,8 +17,9 @@ int main()
 
 /*
 
-- static variables can only be initialised once in a program. if multiple initialization occurs, they are skipped
-- it is allocated in memory only once.(no multiple copies for static variables) 
+- static variables can only be initialised once in a program.
+  if multiple initialization occurs, they are skipped
+- it is allocated in memory only once.(no multiple copies for static variables)
 
 
 */
