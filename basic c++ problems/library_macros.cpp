@@ -1,12 +1,8 @@
-#include<iostream>
-#include<limits.h>
+#include <iostream>
+#include <climits> // limits.h
 using namespace std;
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
 	cout << "CHAR_BIT : " << CHAR_BIT << endl;
 	cout << "SCHAR_MIN : " << SCHAR_MIN << endl;
 	cout << "SCHAR_MAX : " << SCHAR_MAX << endl;

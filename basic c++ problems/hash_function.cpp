@@ -2,10 +2,12 @@
 #include <algorithm>
 #include <string>
 typedef unsigned long long int lli;
+typedef long double lld;
+// typedef long float llf;
 using namespace std;
 lli hashing(string str)
 {
-    int p = 5381;
+    int p = 5381;     // some large prime number
     lli hash = 0;
     int d = 256;
     for (int i = 0; i < str.length(); i++)
@@ -23,6 +25,9 @@ int main()
     string str6 = "acbd";
     string str4 = "dcba";
     string str5 = "udfi";
+    cout<<"lli: "<<sizeof(lli)<<endl;
+    cout<<"lld: "<<sizeof(lld)<<endl;
+    // cout<<"llf: "<<sizeof(llf)<<endl;
     cout << str1 << " : " << hashing(str1) << endl;
     cout << str2 << " : " << hashing(str2) << endl;
     cout << str3 << " : " << hashing(str3) << endl;

@@ -1,15 +1,11 @@
-#include<iostream>
-#include<cstring>
+#include <iostream>
+#include <cstring> // string.h used for char array
 using namespace std;
 int main()
 {
-// #ifndef ONLINE_JUDGE
-// 	freopen("input.txt", "r", stdin);
-// 	freopen("output.txt", "w", stdout);
-// #endif
 	string a = "awesome";
 	char b[] = "fantastic";
-	cout << strrev(b) << endl;
+	cout << "Strrev: " << strrev(b) << endl;
 	int count = 0;
 	cout << "string a : length() : " << a.length() << endl;
 	cout << "string a : size() : " << a.size() << endl;
@@ -20,5 +16,4 @@ int main()
 	return 0;
 }
 
-// char b[] = "fantastic";  
 // char Arrays always add a null character(\0) at the end of array

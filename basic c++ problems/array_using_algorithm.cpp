@@ -9,6 +9,7 @@ int main()
     cout << "Array: ";
     for (int i : arr)
         cout << i << " ";
+    int *o;
     int *f = find(arr, arr + n, 15);
     // int *f = find(arr, arr + n, 38);
     // if (f == arr + n)
@@ -17,24 +18,38 @@ int main()
     //     cout << "found" << endl;
     int pos = (f - arr) / (arr + 1 - arr);
     cout << "\n(f - arr): " << (f - arr) << endl;
+    // cout << "\n(f + arr): " << (f + arr) << endl;    // error: below
     cout << "(arr + 1 - arr): " << (arr + 1 - arr) << endl;
-    cout << "\nPos: " << pos << endl;
+    cout << "Pos: " << pos << endl;
+    cout << "Distance: " << distance(arr, find(arr, arr + n, 15)) << endl;
+    cout << "Array: ";
     for (int i : arr)
         cout << i << " ";
     int c = count(arr, arr + n, 27);
     cout << "\nc: " << c << endl;
-    sort(arr, arr + n);
-    cout << "\nSorted array: ";
-    cout << "\nMax: " << *max_element(arr, arr + n) << endl;
+    cout << "Max: " << *max_element(arr, arr + n) << endl;
     cout << "Min: " << *min_element(arr, arr + n) << endl;
+    sort(arr, arr + n);
+    cout << "Sorted array: ";
     vector<int> v(10);
     int k = 0;
     for (int i = 0; i < v.size(); i++)
     {
-        v[i]=++k;
+        v[i] = ++k;
     }
-    cout << endl;
     for (int i : v)
         cout << i << " ";
     return 0;
 }
+
+
+/*
+
+- When we ubtract 2 pointers, it does not gives how many bytes they are apart
+  but # of integers the pointers are apart. This is because the pointers are
+  pointing to blocks of memory.
+- We can subtract 2 pointers to find how much distance they are apart, but we 
+  dont know where the new pointer will point to.
+
+
+*/

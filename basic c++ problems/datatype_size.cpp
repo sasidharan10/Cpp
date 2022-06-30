@@ -10,6 +10,7 @@ int main()
 	cout << "short : " << sizeof(short) << endl;
 	cout << "short int : " << sizeof(short int) << endl;
 	cout << "long int : " << sizeof(long int) << endl;
+	cout << "long long int : " << sizeof(long long int) << endl;
 	cout << "long double : " << sizeof(long double) << endl;
 	return 0;
 }
