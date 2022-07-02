@@ -65,3 +65,11 @@ int main()
     cout << "The sum of complex part of o1 and o2 is : " << resc <<"i"<< endl;
     return 0;
 }
+
+/*
+
+- Friend Class A friend class can access private and protected members of other class
+  in which it is declared as friend. It is sometimes useful to allow a particular
+  class to access private members of other class.
+
+*/

@@ -34,6 +34,11 @@ int sumPair2(int *a, int n, int k)
             m[a[i]]++;
         }
     }
+    cout<<endl;
+    for(auto i:m)
+    {
+        cout<<i.first<<" : "<<i.second<<endl;
+    }
     return count;
 }
 int main()

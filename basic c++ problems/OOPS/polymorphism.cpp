@@ -1,35 +1,35 @@
-#include<iostream>
-#include<algorithm>
+#include <iostream>
+#include <algorithm>
 using namespace std;
 class base
 {
-    public:
-    virtual void print()  // to avoid during runtime
+public:
+    virtual void print() // to avoid during runtime
     {
-        cout<<"This is base print()"<<endl;
+        cout << "This is base print()" << endl;
     }
     void display()
     {
-        cout<<"This is base display()"<<endl;
+        cout << "This is base display()" << endl;
     }
 };
-class derived:public base
+class derived : public base
 {
-    public:
+public:
     void print()
     {
-        cout<<"This is derived print()"<<endl;
+        cout << "This is derived print()" << endl;
     }
     void display()
     {
-        cout<<"This is derived display()"<<endl;
+        cout << "This is derived display()" << endl;
     }
 };
 int main()
 {
     base *b;
     derived d;
-    b=&d;
+    b = &d;
     b->print();
     b->display();
     return 0;
