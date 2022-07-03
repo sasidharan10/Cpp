@@ -45,7 +45,7 @@ node* Reverse(node* head)
         prev=current;  // updating prev pointer
         current=next_node;  // updating current pointer
     }
-    head =prev; // sice prev points to last node, we point head to this node as last step
+    head =prev; // since prev points to last node, we point head to this node as last step
     return head;
 }
 int main()

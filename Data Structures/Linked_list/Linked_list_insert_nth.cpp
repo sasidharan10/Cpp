@@ -8,21 +8,21 @@ struct node
 node *head;
 void insert(int data, int n)
 {
-	node *temp1 = new node();
-	temp1->data = data;
-	temp1->next = NULL;
+	node *temp = new node();
+	temp->data = data;
+	temp->next = NULL;
 	if (n == 1)
 	{
-		head = temp1;
+		head = temp;
 		return;
 	}
-	node *temp2 = head;
+	node *prev = head;
 	for (int i = 0; i < n - 2; i++)
 	{
-		temp2 = temp2->next;
+		prev = prev->next;
 	}
-	temp1->next = temp2->next;
-	temp2->next = temp1;
+	temp->next = prev->next;
+	prev->next = temp;
 }
 void print()
 {
