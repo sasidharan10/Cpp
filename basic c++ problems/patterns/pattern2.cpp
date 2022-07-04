@@ -4,6 +4,7 @@ using namespace std;
 void inverted_Pattern_Number()
 {
     int n = 5;
+    cout << "Inverted pattern number:" << endl;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= n + 1 - i; j++)
@@ -17,6 +18,7 @@ void inverted_Pattern_Number()
 void pattern_0_1()
 {
     int n = 5;
+    cout << "Pattern 0-1:" << endl;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= i; j++)
@@ -33,6 +35,7 @@ void pattern_0_1()
 void rhombus()
 {
     int n = 5;
+    cout << "Rhombus:" << endl;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= n - i; j++)
@@ -51,6 +54,7 @@ void rhombus()
 void number_Pyramid()
 {
     int n = 5;
+    cout << "Number Pyramid:" << endl;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= n - i; j++)
@@ -69,19 +73,19 @@ void number_Pyramid()
 void palindrome_Number_Pyramid()
 {
     int n = 5;
-    for (int i = 1; i <= n; i++)
+    cout << "Palindrome Number Pyramid:" << endl;
+    for (int i = 5; i >= 1; i--)
     {
-        for (int j = 1; j <= n - i; j++)
+        for (int j = 1; j <= n; j++)
         {
-            cout << "  ";
+            if (j >= i)
+                cout << n - j + 1 << " ";
+            else
+                cout << "  ";
         }
-        for (int k = i; k >= 1; k--)
+        for (int k = 2; k <= n - i + 1; k++)
         {
             cout << k << " ";
-        }
-        for (int l = 2; l <= i; l++)
-        {
-            cout << l << " ";
         }
         cout << endl;
     }
@@ -90,27 +94,26 @@ void palindrome_Number_Pyramid()
 void diamond_Pattern()
 {
     int n = 4;
+    cout << "Diamond Pattern:" << endl;
     for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= n - i; j++)
+        for (int j = 1; j <= n + i - 1; j++)
         {
-            cout << "  ";
-        }
-        for (int k = 1; k <= 2 * i - 1; k++)
-        {
-            cout << "* ";
+            if (j <= n - i)
+                cout << "  ";
+            else
+                cout << "* ";
         }
         cout << endl;
     }
     for (int i = n; i >= 1; i--)
     {
-        for (int j = 1; j <= n - i; j++)
+        for (int j = 1; j <= n + i - 1; j++)
         {
-            cout << "  ";
-        }
-        for (int k = 1; k <= 2 * i - 1; k++)
-        {
-            cout << "* ";
+            if (j <= n - i)
+                cout << "  ";
+            else
+                cout << "* ";
         }
         cout << endl;
     }
@@ -119,6 +122,7 @@ void diamond_Pattern()
 void zig_zag()
 {
     int row = 3, col = 9;
+    cout << "Zig-Zag Pattern:" << endl;
     for (int i = 1; i <= row; i++)
     {
         for (int j = 1; j <= col; j++)
@@ -133,19 +137,17 @@ void zig_zag()
 }
 void pattern()
 {
-    int n=5;
+    int n = 5;
+    cout << "Pattern:" << endl;
     for (int i = 1; i <= n; i++)
     {
-        int s=n;
-        for (int j = 1; j <= i; j++)
+        for (int j = n; j >= 1; j--)
         {
-            cout<<" ";
+            if (j > n - i + 1)
+                cout << "  ";
+            else
+                cout << j << " ";
         }
-        for (int k = 1; k <= n-i+1; k++)
-        {
-            cout<<s--;
-        }
-        
         cout << endl;
     }
 }

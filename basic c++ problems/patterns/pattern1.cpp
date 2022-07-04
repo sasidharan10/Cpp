@@ -61,12 +61,12 @@ void half_Pyramid()
 }
 void half_Pyramid_Number()
 {
-    int n=5;
+    int n = 5;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= i; j++)
         {
-            cout<<i<<" ";
+            cout << i << " ";
         }
         cout << endl;
     }
@@ -74,12 +74,12 @@ void half_Pyramid_Number()
 }
 void floyd_Triangle()
 {
-    int n=5,count=1;
+    int n = 5, count = 1;
     for (int i = 1; i <= n; i++)
     {
         for (int j = 1; j <= i; j++)
         {
-            cout<<count++<<" ";
+            cout << count++ << " ";
         }
         cout << endl;
     }
@@ -87,26 +87,26 @@ void floyd_Triangle()
 }
 void butterfly()
 {
-    int n=4;
+    int n = 4;
     for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= 2*n; j++)
+        for (int j = 1; j <= 2 * n; j++)
         {
-            if(j>2*n-i || j<=i)
-                cout<<"*";
+            if (j > 2 * n - i || j <= i)
+                cout << "*";
             else
-                cout<<" ";
+                cout << " ";
         }
         cout << endl;
     }
-        for (int i = n; i >= 1; i--)
+    for (int i = n; i >= 1; i--)
     {
-        for (int j = 2*n; j >= 1; j--)
+        for (int j = 2 * n; j >= 1; j--)
         {
-            if(j>2*n-i || j<=i)
-                cout<<"*";
+            if (j > 2 * n - i || j <= i)
+                cout << "*";
             else
-                cout<<" ";
+                cout << " ";
         }
         cout << endl;
     }
