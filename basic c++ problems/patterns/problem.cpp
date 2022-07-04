@@ -8,16 +8,15 @@ int main()
     cin >> n;
     for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= n - i; j++)
+        for (int j = 5; j >= 1; j--)
         {
-            cout << " ";
-        }
-        for (int k = 1; k <= i; k++)
-        {
-            cout << "*";
+            if (j > i)
+                cout << " ";
+            else
+                cout << "*";
         }
         cout << " ";
-        count=i;
+        count = i;
         for (int k = 1; k <= i; k++)
         {
             cout << count;
@@ -28,16 +27,15 @@ int main()
     for (int i = 1; i <= n; i++)
     {
         int s = n;
-        for (int j = 1; j < i; j++)
+        for (int j = 5; j >= 1; j--)
         {
-            cout << " ";
-        }
-        for (int k = 1; k <= n - i + 1; k++)
-        {
-            cout << s--;
+            if (j > n - i + 1)
+                cout << " ";
+            else
+                cout << j + i - 1;
         }
         cout << " ";
-        for (int l = 2 * i - 1; l <= 2*n; l = l + 2)
+        for (int l = 2 * i - 1; l <= 2 * n; l = l + 2)
         {
             cout << l;
         }
