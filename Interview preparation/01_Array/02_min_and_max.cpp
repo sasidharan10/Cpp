@@ -25,7 +25,7 @@ result minAndMax1(int *a,int n)
         r.max=a[1];
         r.min=a[0];
     }
-    for (int i = 0; i < n; i++)
+    for (int i = 2; i < n; i++)
     {
         if(a[i]>r.max)
             r.max=a[i];
@@ -94,7 +94,7 @@ int main()
     cout<<"Max (optimised): "<<r2.max<<endl;
     cout<<"Min (optimised): "<<r2.min<<endl;
 
-    cout<<"Max using library: "<<*max_element(a,a+n)<<endl;
+    cout<<"Max using library: "<<*max_element(a,a+n)<<endl;   // O(n)
     cout<<"Min using library: "<<*min_element(a,a+n)<<endl;
 
     cout<<"Max using recursion : "<<getMax(a,n)<<endl;
