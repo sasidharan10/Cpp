@@ -39,7 +39,7 @@ int main()
 
 /*
 
-According to this gate , the output is true , only if both the inputs are of opposite kind .
+According to this XOR gate, the output is true , only if both the inputs are of opposite kind .
 That is ,
 A B Y
 0 0 0
