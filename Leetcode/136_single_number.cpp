@@ -48,7 +48,8 @@ A B Y
 1 1 0
 
 We apply the extended version of this gate in our bitwise XOR operator.
-If we do "a^b" , it means that we are applying the XOR gate on the 2 numbers in a bitwise fashion ( on each of the corresponding bits of the numbers).
+If we do "a^b" , it means that we are applying the XOR gate on the 2 numbers in a bitwise fashion
+( on each of the corresponding bits of the numbers).
 Similarly , if we observe ,
 
 A^A=0
