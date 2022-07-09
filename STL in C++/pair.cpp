@@ -15,8 +15,9 @@ int main()
     vector<pair<int, string>> v;
     v.push_back(make_pair(1, "kane"));
     v.push_back(make_pair(2, "root"));
-    v.push_back(pair<int,string>(3, "smith"));
-    v.push_back(pair<int,string>(4, "kohli"));
+    v.push_back(pair<int, string>(3, "smith"));
+    v.push_back(pair<int, string>(4, "kohli"));
+    v.push_back({5, "babar"});
     cout << "Pairs are : " << endl;
     for (auto i : v)
     {

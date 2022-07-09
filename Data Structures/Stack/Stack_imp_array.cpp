@@ -35,6 +35,15 @@ void print()
     }
     cout<<endl; 
 }
+void getTop()
+{
+    if(top==-1)
+    {
+        cout<<"Stack is Empty!!!";
+        return;
+    }
+    cout<<"top: "<<a[top]<<endl;
+}
 int main()
 {
     push(1);  print();   
@@ -44,5 +53,6 @@ int main()
     push(5);  print();  
     pop();  print();
     pop();  print();
+    getTop();
     return 0;
 }
