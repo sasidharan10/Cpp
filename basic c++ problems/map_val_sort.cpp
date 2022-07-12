@@ -8,14 +8,18 @@
 #include <map>
 using namespace std;
 // typedef unordered_map<string,int>::iterator mit;
+struct comp
+{
+    bool operator()(const pair<string, int> &p1, const pair<string, int> &p2)
+    {
+        return p1.second < p2.second;
+    }
+};
 bool compare(pair<string, int> &p1, pair<string, int> &p2)
 {
     return p1.second < p2.second;
 }
-bool operator<(pair<string, int> &p1, pair<string, int> &p2)
-{
-    return p1.second < p2.second;
-}
+
 void valSort1(unordered_map<string, int> &m)
 {
     vector<pair<string, int>> v;
@@ -39,14 +43,14 @@ void valSort2(unordered_map<string, int> &m)
     {
         v.push_back({it.first, it.second});
     }
-    sort(v.begin(), v.end(), compare);
+    // sort(v.begin(), v.end(), compare);
     cout << "\nsorted by value: " << endl;
     for (auto &i : v)
         cout << i.first << " : " << i.second << endl;
 }
 void valSort3(unordered_map<string, int> &m)
 {
-    set<pair<string, int>, less<>> s(m.begin(), m.end());
+    set<pair<string, int>, comp> s(m.begin(), m.end());
     cout << "\nUsing set: " << endl;
     for (auto i : s)
         cout << i.first << " : " << i.second << endl;

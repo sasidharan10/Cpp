@@ -12,12 +12,12 @@ public:
     bool operator<(const student &rhs) // for ascending order
         const
     {
-        return rno < rhs.rno;
+        return name < rhs.name;
     }
     bool operator>(const student &rhs) // for decending order
         const
     {
-        return rno > rhs.rno;
+        return name > rhs.name;
     }
 };
 int main()
