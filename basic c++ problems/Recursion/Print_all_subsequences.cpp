@@ -5,7 +5,7 @@ void printSubsequences(int index, vector<int> v, vector<int> &ans)
 {
     if (index == v.size())
     {
-        if (ans.size() == 0)
+        if (ans.size() == 0)        // for empty subset
         {
             cout << "{}" << endl;
             return;
