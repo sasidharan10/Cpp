@@ -42,14 +42,14 @@ void rev(int *a, int i, int n)
     swap(a[i], a[n - 1 - i]);
     rev(a, i + 1, n);
 }
-bool palindrome(string s1,int i)
+bool palindrome(string s1, int i)
 {
-    int n=s1.length();
-    if(i>=n/2)
+    int n = s1.length();
+    if (i >= n / 2)
         return true;
-    if(s1[i]!=s1[n-i-1])
+    if (s1[i] != s1[n - i - 1])
         return false;
-    return palindrome(s1,i+1);
+    return palindrome(s1, i + 1);
 }
 int main()
 {
@@ -68,7 +68,7 @@ int main()
     rev(a, 0, n);
     for (auto i : a)
         cout << i << " ";
-    string s1="racecar";
-    cout<<"\nIs \""<<s1<<"\" palindrome?: "<<palindrome(s1,0);
+    string s1 = "racecar";
+    cout << "\nIs \"" << s1 << "\" palindrome?: " << palindrome(s1, 0);
     return 0;
 }
