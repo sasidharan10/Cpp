@@ -17,6 +17,7 @@ int main()
     cout << "*(a.end()-1) : " << *(a.end() - 1) << endl;
     cout << "a.size() : " << a.size() << endl;
     cout << "a.max_size() : " << a.max_size() << endl;
+    cout << "a.empty() : " << a.empty() << endl;
     b.clear(); // clears all element
     cout << "b.empty() : " << b.empty() << endl;
     a.push_back(6);
