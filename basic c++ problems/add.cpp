@@ -22,4 +22,4 @@ int main()
 
 
 // always the data type with higher precedence in a expression ends as resultant data type
-// byte < char < int < float < double
+// char < int < float < double

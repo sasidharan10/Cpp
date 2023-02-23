@@ -9,7 +9,7 @@ int main()
 	cout << "cos(x) : " << cos(x) << endl;
 	cout << "tan(x) : " << tan(x) << endl;
 	cout << "sqrt(y) : " << sqrt(y) << endl;
-	cout << "abs(z) : " << abs(z) << endl; 			 // prints positive value
+	cout << "abs(z) : " << abs(z) << endl; // prints positive value
 	cout << "round(x)) : " << round(x) << endl;
 	cout << "pow(2.3,0.25) : " << pow(x, y) << endl; // pow(number,power)
 	x = 3, y = 4;									 // reinitialise
@@ -17,6 +17,7 @@ int main()
 	x = 4.57;
 	cout << "floor(x) : " << floor(x) << endl;
 	cout << "ceil(x) : " << ceil(x) << endl;
+	cout << "trunc(x) : " << trunc(x) << endl; // removes numbers after decimal
 	x = -4.57;
 	cout << "fabs(x) : " << fabs(x) << endl;
 	x = 1.0;
