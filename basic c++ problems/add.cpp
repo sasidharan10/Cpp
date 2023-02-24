@@ -20,6 +20,5 @@ int main()
 	return 0;
 }
 
-
 // always the data type with higher precedence in a expression ends as resultant data type
 // char < int < float < double

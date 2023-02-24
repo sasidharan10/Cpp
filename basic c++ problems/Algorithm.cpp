@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stdio.h>
-#include <string> // separate header file to use the string(datatype)
+#include <string> // separate header file to use the string(Data structure)
 #include <algorithm>
 #include <vector>
 using namespace std;
@@ -19,7 +19,7 @@ int main()
 	cout << "min : " << *min_element(a.begin(), a.end()) << endl;
 	cout << "finding o : ";
 	find(a.begin(), a.end(), 'o') != a.end() ? cout << "Found" << endl : cout << "Not Found" << endl; // finding o
-	int arr[] = {5, 10, 15, 20, 20, 23, 42, 45};
+	int arr[] = {1, 2, 3, 4, 3, 2, 1, 4, 5, 3};
 	int n = sizeof(arr) / sizeof(arr[0]);
 	sort(arr, arr + n); // sort
 	// reverse(arr, arr + n); // reverse
@@ -45,6 +45,6 @@ int main()
 	cout << "Vector after removing duplicates: ";
 	for (int i : v)
 		cout << i << " ";
-	cout << "\ndistance : " << distance(v.begin(), max_element(v.begin(), v.end()));
+	cout << "\ndistance of max element : " << distance(v.begin(), max_element(v.begin(), v.end()));
 	return 0;
 }
