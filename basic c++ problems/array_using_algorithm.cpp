@@ -45,7 +45,7 @@ int main()
 
 /*
 
-- When we ubtract 2 pointers, it does not gives how many bytes they are apart
+- When we abtract 2 pointers, it does not gives how many bytes they are apart
   but # of integers the pointers are apart. This is because the pointers are
   pointing to blocks of memory.
 - We can subtract 2 pointers to find how much distance they are apart, but we 
