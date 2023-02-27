@@ -14,3 +14,11 @@ int main()
     cout << "a.max_size() : " << a.max_size() << endl;
     return 0;
 }
+
+/*
+
+- Array size is necessary
+- Using STL Array we can avoid array decay. (Since STL array will pass the whole array)
+- Decay: When array pointer is passed as arguments, only base address is copied, hence
+  we need to send array size also to access all elements.
+*/
