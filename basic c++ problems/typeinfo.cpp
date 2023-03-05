@@ -13,6 +13,5 @@ int main()
     cout << typeid(c).name() << endl;
     cout << typeid(d).name() << endl;
     cout << typeid(e).name() << endl;
-    
     return 0;
 }
