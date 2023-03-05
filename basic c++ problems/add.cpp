@@ -13,7 +13,7 @@ int main()
 	cout << "c : " << c << endl;
 	cout << "d : " << d << endl;
 	cout << "d : " << typeid(e).name() << endl; // find data type while runtime
-	// cout << "addition : " <<type(a+e) << endl;
+	cout << "addition : " <<typeid(a+e).name() << endl;
 	cout << "(int)e / 2 : " << (int)e / 2 << endl; // int always takes floor value
 	printf("e : %.4f\n", e);
 	cout << "sizeof(long) : " << sizeof(long);
