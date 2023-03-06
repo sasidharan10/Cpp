@@ -16,10 +16,9 @@ int main()
     //     cout << "Not found" << endl;
     // else
     //     cout << "found" << endl;
-    int pos = (f - arr) / (arr + 1 - arr);
+    int pos = (f - arr);
     cout << "\n(f - arr): " << (f - arr) << endl;
     // cout << "\n(f + arr): " << (f + arr) << endl;    // error: below
-    cout << "(arr + 1 - arr): " << (arr + 1 - arr) << endl;
     cout << "Pos: " << pos << endl;
     cout << "Distance: " << distance(arr, find(arr, arr + n, 15)) << endl;
     cout << "Array: ";

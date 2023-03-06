@@ -1,5 +1,5 @@
 #include <iostream>
-#include <climits>
+#include <climits>   // to use INT_MIN
 using namespace std;
 int binary(int ar[], int n, int x)
 {
@@ -31,3 +31,5 @@ int main()
 	else
 		cout << "Not found!!!";
 }
+
+// Binary search is applicable in sorted array only
