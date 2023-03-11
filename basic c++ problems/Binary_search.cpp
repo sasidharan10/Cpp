@@ -1,5 +1,5 @@
 #include <iostream>
-#include <climits>   // to use INT_MIN
+#include <climits> // to use INT_MIN
 using namespace std;
 int binary(int ar[], int n, int x)
 {
@@ -8,7 +8,7 @@ int binary(int ar[], int n, int x)
 	end = n - 1;
 	while (beg <= end)
 	{
-		mid = beg + (end - beg) / 2;
+		mid = beg + ((end - beg) / 2); // subtracting first to avoid overflow
 		if (ar[mid] == x)
 			return mid;
 		else if (x > ar[mid])
