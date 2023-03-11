@@ -3,8 +3,11 @@ using namespace std;
 int main()
 {
     int *p = new int[3]{1, 2, 3}; // declaration with initialisation of dynamic array
-    int *q = new int(10);         // dynamic allocation of a varible
-    int *r;                       // pointer varible
+    int *q = new int(10);         // dynamic allocation of a varible with initialisation
+    int *r;                       // pointer varible, only declaration
+    cout<<"*q: "<<*q<<endl;                  
+    cout<<"*r: "<<*r<<endl;                  
+    cout<<"*p: "<<*p<<endl;                  
     r = new int;                  // dynamic allocation of the varible
     *r = 500;                     // asssigning value to the variable
     int *s;                       // pointer vaiable
@@ -26,3 +29,4 @@ int main()
     delete[] s;
     return 0;
 }
+
