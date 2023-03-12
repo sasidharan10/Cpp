@@ -30,3 +30,12 @@ int main()
     return 0;
 }
 
+/*
+
+Memory leak: Dynamically allocated memory are present in "heap" section which
+are accessed by pointer variables. once the function call ends, the pointer
+variables are destroyed, but the memory space in "heap", to which these variables 
+were pointing, are not deallocated (not cleared), and needs to be explicitly
+deallocated. these consumed spaces are unusable and waste of memory.
+
+*/
