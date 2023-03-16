@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
     int a = 0, b = 1, c = 0;
-    int x = 8;
+    int x =5;
     cout << "The fibonacci series is : " << endl;
     for (int i = 0; i < x; i++)
     {

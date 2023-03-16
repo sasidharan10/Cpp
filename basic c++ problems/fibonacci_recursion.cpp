@@ -32,7 +32,7 @@ int fib3(int x)
 }
 int main()
 {
-    int x = 9;
+    int x = 5;
     cout << "fibonacci series : ";
     cout << fib1(x);
     cout << "\nfibonacci series (loop) : ";

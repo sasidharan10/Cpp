@@ -9,21 +9,15 @@ void reverse_string(int n, char *a)
         swap(a[i++], a[j--]);
     }
 }
+int Factorial(int x)
+{
+    if(x==1)
+        return x;
+    return x*Factorial(x-1);
+}
 int main()
 {
-    char arr[] = "creative";
-    cout << "String: ";
-    for (auto i : arr)
-    {
-        cout << i;
-    }
-    cout << endl;
-    int n = sizeof(arr) / sizeof(arr[0]);
-    reverse_string(n, arr);
-    cout << "Reversed string: ";
-    for (auto i : arr)
-    {
-        cout << i;
-    }
+    int x=5;
+    cout<<"Factorial: "<<Factorial(x)<<endl;
     return 0;
 }
