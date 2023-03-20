@@ -3,6 +3,8 @@
 using namespace std;
 int fib1(int x)
 {
+    // Time  : O(2^n)
+    // Space : O(n)  depth of the recursion tree
     if (x <= 1)
         return x;
     else
