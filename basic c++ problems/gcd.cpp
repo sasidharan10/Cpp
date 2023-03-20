@@ -8,6 +8,16 @@ int gcd1(int a, int b)
 }
 int gcd2(int a, int b)
 {
+    int gcd;
+    for (int i = 1; i <= a && i <= b; i++)
+    {
+        if (a % i == 0 && b % i == 0)
+            gcd = i;
+    }
+    return gcd;
+}
+int gcd3(int a, int b)
+{
     while (b != 0)
     {
         int rem = a % b;
@@ -35,6 +45,7 @@ int main()
     int n = sizeof(arr) / sizeof(arr[0]);
     cout << "GCD is(recursion) : " << gcd1(a, b);
     cout << "\nGCD is(loop) : " << gcd2(a, b);
+    cout << "\nGCD is(loop, optimized) : " << gcd3(a, b);
     cout << "\nGCD Array : " << gcdArray(arr, n);
     return 0;
 }
