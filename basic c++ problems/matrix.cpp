@@ -55,7 +55,13 @@ int main()
     else
         cout << "Multiplication is NOT possible (c1!=r2)!!!" << endl;
 
-    // note : the resultant matrix for (r1,c1)*(r2,c2) will have (r1,c2) rows and columns
+    /*
+    Note:
+    - For the matrix for (r1,c1)*(r2,c2) =>
+    1) The multiplication is possible only if c1==r2
+    2) The resultant matrix will have (r1,c2) rows and columns
+    */
+
     int pro[2][2];
     int sum = 0;
     for (int i = 0; i < r1; i++)
