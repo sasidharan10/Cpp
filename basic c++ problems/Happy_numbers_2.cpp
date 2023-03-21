@@ -27,6 +27,7 @@ bool ishappy1(int n)
 }
 bool ishappy2(int n)
 {
+    // floyd's cycle detection
     int slow = numSquareSum(n);
     int fast = numSquareSum(numSquareSum(n));
     while (slow != fast)
@@ -34,11 +35,11 @@ bool ishappy2(int n)
         slow = numSquareSum(slow);
         fast = numSquareSum(numSquareSum(fast));
     }
-    return slow == 1;
+    return (slow == 1);
 }
 int main()
 {
-    int n = 19;
+    int n = 20;
     cout << "Is happy: " << ishappy1(n) << endl;
     cout << "Is happy (Floyd): " << ishappy2(n) << endl;
     return 0;

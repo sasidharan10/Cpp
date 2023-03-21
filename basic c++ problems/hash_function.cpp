@@ -7,7 +7,7 @@ typedef long double lld;
 using namespace std;
 lli hashing(string str)
 {
-    int p = 5381;     // some large prime number
+    int p = 5381; // some large prime number
     lli hash = 0;
     int d = 256;
     for (int i = 0; i < str.length(); i++)
@@ -22,11 +22,11 @@ int main()
     string str1 = "abcd";
     string str2 = "acbd";
     string str3 = "adbc";
-    string str6 = "acbd";
+    string str6 = "bcad";
     string str4 = "dcba";
     string str5 = "udfi";
-    cout<<"lli: "<<sizeof(lli)<<endl;
-    cout<<"lld: "<<sizeof(lld)<<endl;
+    cout << "lli: " << sizeof(lli) << endl;
+    cout << "lld: " << sizeof(lld) << endl;
     // cout<<"llf: "<<sizeof(llf)<<endl;
     cout << str1 << " : " << hashing(str1) << endl;
     cout << str2 << " : " << hashing(str2) << endl;
