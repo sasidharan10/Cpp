@@ -5,7 +5,7 @@ using namespace std;
 int main()
 {
     int arr[10];
-    memset(arr, 0, sizeof(arr)); // works only for 0,-1(since memset works byte by byte).
+    memset(arr, 0, sizeof(arr)); // works only for 0,-1 integers(since memset works byte by byte).
     cout << "Array  : ";
     for (int i = 0; i < 10; i++)
     {

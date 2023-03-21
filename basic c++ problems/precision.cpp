@@ -11,7 +11,7 @@ int main()
     cout << setprecision(3) << x << endl;
     cout << setprecision(6) << x << endl;
 
-    // use fixed to add trailing 0's
+    // use fixed to add trailing 0's, if there are no further decimal numbers
 
     cout << fixed << setprecision(0) << x << endl;
     cout << fixed << setprecision(1) << x << endl;

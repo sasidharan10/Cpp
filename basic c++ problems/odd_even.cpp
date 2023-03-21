@@ -10,6 +10,10 @@ bool oddEven1(int n)
 }
 bool oddEven2(int n)
 {
+    /*
+        - using XOR operation, if no is even, then it increments
+          the value, if odd, then decreases by 1
+    */
     if ((n ^ 1) == n + 1)
         return true;
     else
@@ -17,13 +21,16 @@ bool oddEven2(int n)
 }
 bool oddEven3(int n)
 {
-    if (!(n & 1))
-        return true;
-    else
+    // using AND operation, it will produce 1, if the no is odd, or 0, if even.
+    if (n & 1 == 1) // all odd numbers
         return false;
+    else
+        return true;
 }
 bool oddEven4(int n)
 {
+    // using OR operation, if the no is odd, it increases the value by 1.
+
     if ((n | 1) > n)
         return true;
     else
