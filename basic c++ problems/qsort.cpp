@@ -54,10 +54,10 @@ int main()
 
     // for structure
 
-    student t[] = {{1, "sasi", 82}, {2, "ramesh", 78}, {3, "kishan", 97}};
+    student t[] = {{1, "sasi", 82}, {2, "sky", 78}, {3, "kishan", 97}};
     int size = sizeof(t) / sizeof(student);
     qsort(t, size, sizeof(student), compareMarks);
-    cout << "\nSorted by marks (desc): ";
+    cout << "\nSorted by marks (desc): "<<endl;
     for (int i = 0; i < size; i++)
     {
         cout << t[i].rno << " " << t[i].name << " " << t[i].marks << endl;
