@@ -87,7 +87,13 @@
         "climits": "cpp",
         "xthread": "cpp",
         "random": "cpp",
-        "*.tcc": "cpp"
+        "*.tcc": "cpp",
+        "atomic": "cpp",
+        "clocale": "cpp",
+        "cstdarg": "cpp",
+        "cwctype": "cpp",
+        "forward_list": "cpp",
+        "memory_resource": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "sqltools.connections": [

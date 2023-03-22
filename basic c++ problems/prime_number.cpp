@@ -5,8 +5,8 @@ bool isPrime(int x)
 {
     if (x <= 1)
         return false;
-    int n=sqrt(x);
-    for (int i = 2; i <=n; i++)
+    int n = sqrt(x);
+    for (int i = 2; i <= n; i++)
     {
         if (x % i == 0)
             return false;
