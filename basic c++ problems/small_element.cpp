@@ -9,10 +9,6 @@ void small(int a[], int n)
             min = a[i];
     }
     cout << "\nmin is : " << min << endl;
-    for (int i = 0; i < n; i++)
-    {
-        a[i] = a[i] + min;
-    }
 }
 int main()
 {
@@ -23,9 +19,5 @@ int main()
         cout << i << ", ";
 
     small(a, n);
-
-    cout << "\nThe modified array is : ";
-    for (int i : a)
-        cout << i << ", ";
     return 0;
 }

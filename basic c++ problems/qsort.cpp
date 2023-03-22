@@ -4,7 +4,7 @@ using namespace std;
 struct student
 {
     int rno;
-    char name[20];
+    char name[20];   // c-string wont work with qsort, unexpected behaviour
     int marks;
 };
 int compareMarks(const void *a, const void *b)
@@ -62,6 +62,7 @@ int main()
     {
         cout << t[i].rno << " " << t[i].name << " " << t[i].marks << endl;
     }
+
     return 0;
 }
 
