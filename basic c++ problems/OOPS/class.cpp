@@ -36,8 +36,18 @@ int main()
     return 0;
 }
 /*
-- we were able to access the private data members using a public function which 
+- we were able to access the private data members using a public function which
   acts like a middleware agent.
 - so private data members can be accessed by indirectly using functions which are public
+
+
+Characteristics of Constructors=>
+
+1. It should be declared in the public section Of the class
+2. They are automatically invoked whenever the object is created
+3. They cannot return values and do not have return types
+4. It can have default arguments
+5. We cannot refer to their address
+
 
 */

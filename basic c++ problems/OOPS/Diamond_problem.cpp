@@ -40,7 +40,7 @@ int main()
 
 - To avoid ambiguity, we inherit base class virtually, so when we try to access members
   from base class, compiler will automatically access base class through last inherited class
-- That is, through child1(since child1 ingerited last). If we change the order, we can access base
+- That is, through child1(since child1 inherited last). If we change the order, we can access base
   through child2.
 
 */

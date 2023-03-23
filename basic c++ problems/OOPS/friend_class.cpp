@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-// Forward declaration
+// class declaration is necessary, or have that class definition above
 class Complex;
 
 class Calculator
@@ -68,7 +68,8 @@ int main()
 
 /*
 
-- Friend Class A friend class can access private and protected members of other class
+  Friend Class:
+- A friend class can access private and protected members of other class
   in which it is declared as friend. It is sometimes useful to allow a particular
   class to access private members of other class.
 
