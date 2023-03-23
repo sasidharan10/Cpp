@@ -17,11 +17,11 @@ void box()
 void rectangle()
 {
     int row = 5, col = 5;
-    for (int i = 1; i <= row; i++)
+    for (int i = 0; i < row; i++)
     {
-        for (int j = 1; j <= col; j++)
+        for (int j = 0; j < col; j++)
         {
-            if (i == 1 || i == row || j == 1 || j == col)
+            if (i == 0 || i == row || j == 0 || j == col)
                 cout << "* ";
             else
                 cout << "  ";
@@ -46,11 +46,11 @@ void inverted_Half_Pyramid()
 void half_Pyramid()
 {
     int n = 5;
-    for (int i = 1; i <= n; i++)
+    for (int i = 0; i < n; i++)
     {
-        for (int j = 1; j <= n; j++)
+        for (int j = 0; j < n; j++)
         {
-            if (j <= n - i)
+            if (j < n - i)
                 cout << "  ";
             else
                 cout << "* ";
