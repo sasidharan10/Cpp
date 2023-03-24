@@ -1,17 +1,29 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-void towerOfHanoi(int start, int end, char source, char auxilary, char destination)
-{
-    if(start>end)
-        return;
-    towerOfHanoi(start, end-1, source, destination, auxilary);
-    cout<< "move disk "<< source<<" to "<<destination<<endl;
-    towerOfHanoi(start, end-1, auxilary, source, destination);
-}
 int main()
 {
-    int start=1;
-    int end=2;
-    towerOfHanoi(start, end,'A','B','C');
+    int n = 5;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = 0; j < 2 * n; j++)
+        {
+            if (j < i + 1 || j >= 2 * n - i - 1)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
+    for (int i = n; i > 0; i--)
+    {
+        for (int j = 2 * n; j > 0; j--)
+        {
+            if (j < i + 1 || j >= 2 * n - i + 1)
+                cout << "*";
+            else
+                cout << " ";
+        }
+        cout << endl;
+    }
     return 0;
 }
