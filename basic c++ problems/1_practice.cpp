@@ -3,27 +3,23 @@ using namespace std;
 int main()
 {
     int n = 5;
-    for (int i = 0; i < n; i++)
+    for (int i = 1; i <= n; i++)
     {
-        for (int j = 0; j < 2 * n; j++)
+        for (int j = 1; j <= n; j++)
         {
-            if (j < i + 1 || j >= 2 * n - i - 1)
-                cout << "*";
+            if(j<=n-i)
+                cout<<"  ";
             else
-                cout << " ";
+                cout<<j-n+i<<" ";
         }
-        cout << endl;
-    }
-    for (int i = n; i > 0; i--)
-    {
-        for (int j = 2 * n; j > 0; j--)
+        for (int k = n; k >= 2; k--)
         {
-            if (j < i + 1 || j >= 2 * n - i + 1)
-                cout << "*";
-            else
-                cout << " ";
+            if(k<=i)
+                cout<<k -1<<" ";
         }
-        cout << endl;
+        
+        cout<<endl;
     }
+    
     return 0;
 }

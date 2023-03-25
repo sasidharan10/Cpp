@@ -11,9 +11,10 @@ int add(int a , int b)
 int main()
 {
     int c;
-    int (*p)(int,int);  // function pointer
+    int (*p)(int,int);  // function pointer declaration, similar to int *p=&a for variable
     p=&add;  // pointer pointing to the function
     c=(*p)(20,30); // function call using pointer
+    // c=p(20,20); both call is same
     cout<<"C is : "<<c<<endl;
 
     char s[]="Joe Root";
@@ -24,4 +25,9 @@ int main()
     return 0;
 }
 
-// the return type of the pointer while declaring should be same and it should have the datatypes of the parameters
+/*
+
+- the return type of the pointer while declaring should be same and
+  it should have the datatypes of the parameters
+
+*/ 

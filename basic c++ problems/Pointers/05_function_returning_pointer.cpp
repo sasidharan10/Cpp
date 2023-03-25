@@ -16,6 +16,8 @@ int main()
     delete c;
     return 0;
 }
-
-  // when we return normal c, the memory gets deallocated when function ends. so only garbage value is present in that addrress.
-  // thats why we need a dynamic variable whose memorry will not be deallocated untill we delete it
+/*
+- when we return normal c, the memory gets deallocated when function ends. 
+  so only garbage value is present in that addrress. thats why we need 
+  a dynamic variable whose memorry will not be deallocated untill we delete it
+*/

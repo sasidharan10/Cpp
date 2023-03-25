@@ -42,7 +42,7 @@ void rhombus()
         {
             if (j <= n - i + 1)
                 cout << "  ";
-            else if (j <= 2 * n -i +1 )
+            else if (j <= 2 * n - i + 1)
                 cout << "* ";
         }
         cout << endl;
@@ -55,15 +55,13 @@ void number_Pyramid()
     cout << "Number Pyramid:" << endl;
     for (int i = 1; i <= n; i++)
     {
-        for (int j = 1; j <= n - i; j++)
+        for (int j = 1; j <= n; j++)
         {
-            cout << " ";
+            if (j <= n - i)
+                cout << " ";
+            else
+                cout << j - n + i << " ";
         }
-        for (int k = 1; k <= i; k++)
-        {
-            cout << k << " ";
-        }
-
         cout << endl;
     }
     cout << "-----------------" << endl;
