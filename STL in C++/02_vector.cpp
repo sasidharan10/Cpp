@@ -26,11 +26,11 @@ int main()
     cout << "Elements in a : ";
     for (int i : a)
         cout << i << " ";
-    b.resize(4);              // resizes to 4
-    b.emplace(b.begin(), 10); // (iterator,value)
-    b.emplace_back(20);       // (iterator,value)
-    b.insert(b.begin(), 5);   // (iterator,value)
-    a.erase(a.begin());       // (iterator,value)
+    b.resize(4);                  // resizes to 4
+    b.emplace(b.begin() + 2, 10); // (iterator,value)
+    b.emplace_back(20);           // (iterator,value)
+    b.insert(b.begin(), 5);       // (iterator,value)
+    a.erase(a.begin());           // (iterator,value)
     cout << "\nElements in b : ";
     for (auto i : b)
         cout << i << " ";

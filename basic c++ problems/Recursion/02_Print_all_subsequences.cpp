@@ -3,6 +3,9 @@
 using namespace std;
 void printSubsequences(int index, vector<int> v, vector<int> &ans)
 {
+    // Time  : O(2^n) 1 traversal
+    // Space : O(n)    depth of tree
+    
     if (index == v.size())
     {
         if (ans.size() == 0)        // for empty subset
