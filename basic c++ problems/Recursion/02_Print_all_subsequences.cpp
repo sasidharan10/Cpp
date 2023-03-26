@@ -32,3 +32,5 @@ int main()
     printSubsequences(index, v, ans);
     return 0;
 }
+
+// Q) Print all the subsets of the array

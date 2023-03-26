@@ -2,31 +2,37 @@
 #include <vector>
 #include <iterator>
 using namespace std;
-int countSubset(int index, vector<int> v, int sum)
+bool countDivision(int index, vector<int> v, vector<int>subset, int sum, int k)
 {
-    if(sum==0) 
-        return 1;  // to 
-    if (index == v.size())
+    if(index==v.size())
     {
-        if (sum == 0)
-            return 1;
-        return 0;
+        if(sum%k==0 && sum!=0)
+        {
+            for (auto &&i : subset)
+            {
+                cout<<i<<" ";
+            }
+            cout<<endl;
+            return true;
+        }
+        return false;
     }
-    int left = 0;
-    int right = 0;
-    if (v[index] <= sum)
-    {
-        sum -= v[index];
-        left = countSubset(index, v, sum);
-        sum += v[index];
-    }
-    right = countSubset(index + 1, v, sum);
-    return left + right;
+    sum+=v[index];
+    subset.push_back(v[index]);
+    if(countDivision(index+1, v, subset, sum,k))
+        return true;
+    sum-=v[index];
+    subset.pop_back();
+    if(countDivision(index+1, v, subset, sum,k))
+        return true;
+    return false;
 }
 int main()
 {
     vector<int> v{1, 2, 3, 4};
-    int sum = 3;
-    cout << "Count of subsets: " << countSubset(0, v, sum);
+    vector<int> subset;
+    int k = 3;
+    int sum=0;
+    countDivision(0, v, subset, sum, k);
     return 0;
 }

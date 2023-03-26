@@ -26,3 +26,5 @@ int main()
     }
     return 0;
 }
+
+// print sum of each subsets

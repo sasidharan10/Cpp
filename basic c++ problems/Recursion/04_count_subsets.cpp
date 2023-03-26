@@ -26,3 +26,5 @@ int main()
     cout << "Subset count: " << countSubsetSumDiv(index, v, sum, k);
     return 0;
 }
+
+// Q) count the subsets which are divisible by k, each element can only be picked once.

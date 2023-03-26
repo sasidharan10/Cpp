@@ -32,3 +32,5 @@ int main()
     printSubsetSum(index, v, subsets, sum, k);
     return 0;
 }
+
+// Q) count the sum of subsets equal to 'k', each element, can only be picked once.
