@@ -2,36 +2,31 @@
 #include <vector>
 #include <iterator>
 using namespace std;
-void printSubsequences(int index, vector<int>v, vector<int>&ans)
+int countSubset(int index, vector<int> v, int sum)
 {
-    
-    if(index==v.size())
+    if(sum==0) 
+        return 1;  // to 
+    if (index == v.size())
     {
-        if(ans.empty())
-        {
-            cout<<"{}"<<endl;
-            return;
-        }
-        vector<int>::iterator i;
-        for (i = ans.begin(); i !=ans.end(); i++)
-        {
-            cout<<*i<<" "; 
-        }
-        cout<<endl;
-        return;
+        if (sum == 0)
+            return 1;
+        return 0;
     }
-    printSubsequences(index+1,v, ans);
-    ans.push_back(v[index]);
-    printSubsequences(index+1,v, ans);
-    ans.pop_back();
+    int left = 0;
+    int right = 0;
+    if (v[index] <= sum)
+    {
+        sum -= v[index];
+        left = countSubset(index, v, sum);
+        sum += v[index];
+    }
+    right = countSubset(index + 1, v, sum);
+    return left + right;
 }
 int main()
 {
-    vector<int> v{56, 97, 34};
-    vector<int> ans;
-    int index = 0;
-    printSubsequences(index, v, ans);
+    vector<int> v{1, 2, 3, 4};
+    int sum = 3;
+    cout << "Count of subsets: " << countSubset(0, v, sum);
     return 0;
-    return 0;
-
 }
