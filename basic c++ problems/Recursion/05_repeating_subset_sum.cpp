@@ -4,6 +4,9 @@
 using namespace std;
 void printSubsetSum1(int index, vector<int> v, vector<int> &subsets, int sum)
 {
+    // Time  : O( (sum/v[index])^n )traversal
+    // Space : O(n)    depth of tree
+
     if (index == v.size())
     {
         if (sum == 0)
@@ -63,3 +66,5 @@ int main()
     printSubsetSum2(index, v, subsets, sum, k);
     return 0;
 }
+
+// count the sum of subsets equal to 'k', the same number can be picked up many times.
