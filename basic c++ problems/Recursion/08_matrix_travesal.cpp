@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 using namespace std;
-// consider its a 2D 3*2 matrix, we can only in 2 directions, i.e., "right" and "down"
+
 int row = 3;
 int col = 2;
 void matrixPath1(int i, int j, string str, vector<string> &ans)
@@ -69,7 +69,7 @@ int main()
     vector<string> ans;
     vector<vector<int>> v(col + 1, vector<int>(row + 1, 0));
     matrixPath1(0, 0, str, ans);
-    cout << "Possible paths to reach the end: " << endl;
+    cout << "\nPossible paths to reach the end: " << endl;
     for (auto &&i : ans)
     {
         cout << i << endl;
@@ -78,7 +78,7 @@ int main()
     ans.clear();
 
     matrixPath2(0, 0, str, ans, v);
-    cout << "Possible paths to reach the end: " << endl;
+    cout << "\nPossible paths to reach the end: " << endl;
     for (auto &&i : ans)
     {
         cout << i << endl;
@@ -86,3 +86,14 @@ int main()
 
     return 0;
 }
+
+/*
+
+matrixPath1()
+- consider its a 2D 3*2 matrix, we can traverse only in 2 directions, i.e., "right" and "down".
+  print all possible path
+
+matrixPath1()
+- consider its a 2D 3*2 matrix, we can traverse in all directions.
+  print all possible path
+*/
