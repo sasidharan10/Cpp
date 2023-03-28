@@ -12,9 +12,12 @@ int main()
     cout << "back  : " << q.back() << endl;
     cout << "size  : " << q.size() << endl;
     cout << "empty : " << q.empty() << endl;
-    cout << "Pop (front)" << endl;
-    q.pop();
-    cout << "size  : " << q.size() << endl;
-    cout << "front : " << q.front() << endl;
+    cout << "Queue: " << endl;
+    int n= q.size();
+    for (int i = 0; i < n; i++)
+    {
+        cout << q.front() << " ";
+        q.pop();
+    }
     return 0;
 }
