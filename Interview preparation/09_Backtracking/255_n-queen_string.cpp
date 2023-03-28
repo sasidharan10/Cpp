@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 using namespace std;
-bool isSafe(int row, int col, vector<string> &board, int n)
+bool isSafe(int row, int col, vector<string> board, int n)
 {
     // queen can go in 8 directions, since we are going from left to right there will not be any queens in the
     // right side of the spot where th contol is or col is,and as there would be only 1 queen in a
