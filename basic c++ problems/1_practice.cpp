@@ -7,7 +7,6 @@ bool isSafe(int row, int col, vector<string> board, int n)
     int duprow = row;
     int dupcol = col;
 
-
     // upper left
     while (row >= 0 && col >= 0)
     {
