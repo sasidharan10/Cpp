@@ -5,6 +5,7 @@ struct node
     int data;
     node *next;
 };
+
 void insetNode(int n, node *head)
 {
     if(head==NULL)
