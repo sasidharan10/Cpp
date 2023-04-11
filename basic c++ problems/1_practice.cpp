@@ -27,6 +27,23 @@ void insertNode(int n)
     }
     temp2->next = temp1;
 }
+void insertNth(int pos, int n)
+{
+    node *temp=new node(n);
+    if(pos==1)
+    {
+        temp->next=head;
+        head=temp;
+        return;
+    }
+    node *temp2=head;
+    for (int i = 1; i < pos-1; i++)
+    {
+        temp2=temp2->next;
+    }
+    temp->next=temp2->next;
+    temp2->next=temp;
+}
 void printData()
 {
     node *temp = head;
@@ -35,6 +52,7 @@ void printData()
         cout << temp->data << " ";
         temp = temp->next;
     }
+    cout<<endl;
 }
 int main()
 {
@@ -44,6 +62,10 @@ int main()
     {
         insertNode(i);
     }
+    printData();
+    int pos=3;
+    int val=9;
+    insertNth(pos, val);
     printData();
     return 0;
 }
