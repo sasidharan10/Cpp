@@ -85,4 +85,4 @@ int main()
     return 0;
 }
 
-// Hint : keep track of the previos node
+// Hint : keep track of the previous node
