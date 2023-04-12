@@ -27,14 +27,10 @@ void print()
 int main()
 {
 	head = NULL; // setting head to point null
-	int n, a;
-	cout << "Enter the size of the list :";
-	cin >> n;
-	cout << "\nEnter the Elements : ";
-	for (int i = 0; i < n; i++)
+	int n=5;
+	for (int i = 1; i <= n; i++)
 	{
-		cin >> a;
-		insert(a);
+		insert(i);
 	}
 	print();
 	return 0;

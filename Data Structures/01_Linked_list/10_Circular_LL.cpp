@@ -59,3 +59,12 @@ int main()
     print();
     return 0;
 }
+
+/*
+
+We use tail pointer instead of head, since:
+- In circular LL, the last node has to point to first node, hence
+  we need a pointer to last node.
+- using last node, we can get addres of first node(tail->next), but thats
+  not possible with head pointer.
+*/
