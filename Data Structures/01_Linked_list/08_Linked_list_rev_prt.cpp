@@ -31,7 +31,7 @@ void print(node *p)
 
     if (p == NULL)
         return;
-    cout << p->data << ", ";
+    cout << p->data << " ";
     print(p->next);
 }
 void Reverse_print(node *p)
@@ -39,7 +39,7 @@ void Reverse_print(node *p)
     if (p == NULL)
         return;
     Reverse_print(p->next);
-    cout << p->data << ", ";
+    cout << p->data << " ";
 }
 int main()
 {

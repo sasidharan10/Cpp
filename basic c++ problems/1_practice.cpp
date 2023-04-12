@@ -118,6 +118,28 @@ node *reverseList(node *head)
     head=prev; 
     return head;
 }
+node *reverseList2(node *p)
+{
+    node* head;
+    if(p->next==NULL)
+    {
+        head=p;
+        return head;
+    }
+    head=reverseList2(p->next);
+    node *temp;
+    temp=p->next;
+    temp->next=p;
+    p->next=NULL;
+    return head;
+}
+void printRecur(node *head)
+{
+    if(head==NULL)
+        return;
+    cout<<head->data<<" ";
+    printRecur(head->next);
+}
 int main()
 {
     int n = 5;
@@ -137,5 +159,8 @@ int main()
     printData(head);
     head=reverseList(head);
     printData(head);
+    head=reverseList2(head);
+    printData(head);
+    printRecur(head);
     return 0;
 }
