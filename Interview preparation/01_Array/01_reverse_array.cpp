@@ -9,7 +9,7 @@ void reverseArray(int *a, int n)
     int temp;
     for (int i = 0, j = n - 1; i < n / 2; i++, j--)
     {
-        if (i > j)
+        if (i < j)
         {
             temp = a[i];
             a[i] = a[j];
