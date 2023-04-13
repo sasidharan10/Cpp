@@ -12,6 +12,9 @@ int main()
     cout << "a.back() : " << a.back() << endl;
     cout << "a.size() : " << a.size() << endl;
     cout << "a.max_size() : " << a.max_size() << endl;
+    cout << "a.empty() : " << a.empty() << endl;
+    array<int,3>c;
+    c.fill(1);
     return 0;
 }
 
@@ -21,4 +24,5 @@ int main()
 - Using STL Array we can avoid array decay. (Since STL array will pass the whole array)
 - Decay: When array pointer is passed as arguments, only base address is copied, hence
   we need to send array size also to access all elements.
+- We can initialize STL array after declaration, which is not possible in regular array.
 */
