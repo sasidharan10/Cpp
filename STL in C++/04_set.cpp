@@ -39,6 +39,7 @@ int main()
     cout << "b.empty() : " << b.empty() << endl;
     b.insert(5); // (iterator,value)
     a.erase(21); // (iterator,value)
+    cout << "a.count(3) : " << a.count(3) << endl;
     cout << "\nElements in a : ";
     for (int i : a)
         cout << i << " ";
