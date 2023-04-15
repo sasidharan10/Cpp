@@ -21,19 +21,31 @@ int main()
     {
         cout << itr->first << " : " << itr->second << endl;
     }
+
+    cout << "Found \"E\" ?: ";
+    if (m.find("E") != m.end()) // only finds key
+        cout << "Yes" << endl;
+    else
+        cout << "No" << endl;
+
     cout << "m['A'] : " << m["A"] << endl;
     cout << "m.at('B') : " << m.at("B") << endl;
     m.erase(m.begin(), m.find("B")); // erase using key
     cout << "m.lower_bound('C')->first : " << m.lower_bound("C")->first << endl;
     cout << "m.upper_bound('C)->first : " << m.upper_bound("C")->first << endl;
-    cout << "m.count('D') : " << m.count("D") << endl; // returns 1 if key resent
+    cout << "m.count('D') : " << m.count("D") << endl; // returns 1 if key present
     m.clear();                                         // delete all values
     cout << "m.empty() : " << m.empty() << endl;
     // m1.swap(m2); maps gets swapped
     return 0;
 }
 
-// to-do-list: basic program map_val_sort
+/*
 
-// map stores key in ORDER and ELIMINATES DUPLICATE VALUES
-// it uses self balancing binary tree(AVL, Red-black tree)
+- map stores key in ORDER and ELIMINATES DUPLICATE VALUES based on key.
+- it uses self balancing binary tree(AVL, Red-black tree)
+- we can have duplicates values, but not keys.
+
+
+
+*/

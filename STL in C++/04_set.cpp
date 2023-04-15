@@ -48,10 +48,17 @@ int main()
         cout << i << " ";
 
     // cout<<"a.upper_bound() : "<<*a.upper_bound()<<endl;
+
+    int arr[5]{1, 2, 3, 4, 5};
+    set<int> d(arr, arr + 5); // initialise set with array
 }
 
 /*
 
-use 'less<>' for ascending order and 'greater<>' for decending order
+- Implemented using red-black tree.
+- Keeps the elements sorted, and eliminates duplicate elements.
+- uses binary search tree for searching
+- Insertion, removal and search have TC= O(logn)
+- use 'less<>' for ascending order and 'greater<>' for decending order
 
 */

@@ -39,3 +39,14 @@ int main()
     vector<int> vec(5, 0); // vec(size,value);
     return 0;
 }
+
+/*
+
+- vector is a dynamic array
+- Size can grow and shrink dynamically.
+- default size is 0
+- once the vectors default's size is exceeded, it creates a new array, double its 
+  previous size, and copies all elements to new array. this operation is costly.
+  hence, its better to predefine(using reserve) the size of vector, to reduce complexity 
+
+*/
