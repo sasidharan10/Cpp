@@ -42,3 +42,12 @@ int main()
     cout << "\nIs empty?: " << pq3.empty() << endl;
     return 0;
 }
+
+
+/*
+
+- Provides constant time lookup of largest and smallest element.
+- vector or array is used in priority queue.
+- Cost of insertion and deletion is O(logn).
+
+*/

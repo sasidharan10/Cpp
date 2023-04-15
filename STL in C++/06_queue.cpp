@@ -21,3 +21,12 @@ int main()
     }
     return 0;
 }
+
+
+/*
+
+- It is FIFO data structure.
+- It allows push at back and pop from front.
+- All operations have TC: O(1)
+
+*/

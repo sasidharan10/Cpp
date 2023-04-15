@@ -34,3 +34,14 @@ int main()
     // cout << "front : " << dq.front() << endl;
     return 0;
 }
+
+
+/*
+
+- Double ended queue
+- Allows insertion and deletion from both ends
+- TC: O(n) for insertion and deletion
+- Storage size is dynamic
+- Expansion of deque is cheaper than vector.
+
+*/

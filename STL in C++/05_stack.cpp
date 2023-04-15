@@ -25,6 +25,8 @@ int main()
 
 /*
 
-
+- Internally it uses deque STL container.
+- LIFO data structure
+- It llows push and pop only from top,
 
 */
