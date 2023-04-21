@@ -2,7 +2,8 @@
 using namespace std;
 int main()
 {
-    char a[] = "kos5vj49ki3scmpifhnvs4";
+    // char a[] = "kos5vj49ki3scmpifhnvs4";
+    char a[] = "abbacdaf";
     int arr[127] = {0};
     int i = 0;
     cout << "The count of each character is : " << endl;
@@ -14,8 +15,12 @@ int main()
     i = 0;
     while (a[i] != '\0')
     {
-        cout << a[i] << " : " << arr[a[i]] << endl;
-        i++;
+        if(arr[a[i]]>0)
+        {
+            cout << a[i] << " : " << arr[a[i]] << endl;
+            arr[a[i]]=0;
+        }
+            i++;
     }
     return 0;
 }

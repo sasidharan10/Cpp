@@ -18,7 +18,7 @@ int main()
 
 /*
 
- Write a C programming to convert vowels into upper case character in a given string. Go to the editor
+Write a C programming to convert vowels into upper case character in a given string. Go to the editor
 Test Data :
 Input a string : w3resource
 Expected Output:

@@ -21,7 +21,7 @@ int main()
 
 /*
 
-Write a C programming to find the repeated character in a given string. Go to the editor
+Write a C programming to find the first repeated character in a given string. Go to the editor
 Test Data :
 Input a string: w3resource
 Expected Output:

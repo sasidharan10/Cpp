@@ -7,7 +7,7 @@ int main()
     int i = 0, st = 0, en = 0, cur_len = 0, min_index = 0, max_index = 0, max = 0, min = n;
     while (en < n)
     {
-        if (en < n && a[en] != ' ' && a[en] != '\0')
+        if (en < n && a[en] != ' ' && a[en] != '\0' && a[en] != '.')
             en++;
         else
         {
@@ -52,7 +52,7 @@ Input the string : It is a string with smallest and largest word.
 Expected Output :
 
 The largest word is 'smallest'
-and the smallest word is 'a' 
+and the smallest word is 'a'
 in the string : 'It is a string with smallest and largest word.'.
 
 */

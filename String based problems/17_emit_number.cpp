@@ -3,7 +3,7 @@ using namespace std;
 int main()
 {
     char a[] = "fl42o!or g5a@ng42 ao45o#o0u9uhh";
-    int n = sizeof(a) / sizeof(a[0]);
+    int n = sizeof(a) / sizeof(a[0]) - 1;
     int i = 0, j = 0;
     cout << "The string is : ";
     // while(a[i]!='\0')
@@ -41,6 +41,6 @@ Input the string : w3resource.com
 
 Expected Output :
 
-After removing the Output String : wresourcecom 
+After removing the Output String : wresourcecom
 
 */

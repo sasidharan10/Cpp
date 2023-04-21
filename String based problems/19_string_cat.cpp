@@ -5,8 +5,8 @@ int main()
     char a[] = "floor gang";
     char b[] = " aooouuuh";
     char c[30];
-    int l1 = sizeof(a) / sizeof(a[0]);
-    int l2 = sizeof(b) / sizeof(b[0]);
+    int l1 = sizeof(a) / sizeof(a[0]) - 1;
+    int l2 = sizeof(b) / sizeof(b[0])-1;
     int i = 0, j = 0;
     while (a[i] != '\0')
     {

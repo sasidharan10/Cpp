@@ -8,7 +8,7 @@ void isPalindrome(char *a) // or char a[]  (both are same)
 
 	int l = 0;
 	int h = strlen(a) - 1;
-	while (h > l)
+	while (l < h)
 	{
 		if (a[l++] != a[h--])
 		{
