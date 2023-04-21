@@ -3,10 +3,10 @@ using namespace std;
 int main()
 {
     char a[] = "this is awesome bro";
-    int i = 0, word = 1;
+    int i = 0, word = 0;
     while (a[i] != '\0')
     {
-        if (a[i] == ' ' || a[i] == '\t' || a[i] == '\n')
+        if (a[i] == ' ' || a[i] == '\t' || a[i] == '\n' || a[i + 1] == '\0')
             word++;
         i++;
     }

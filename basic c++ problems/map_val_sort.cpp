@@ -22,6 +22,13 @@ bool compare(pair<string, int> &p1, pair<string, int> &p2)
 
 void valSort1(unordered_map<string, int> &m)
 {
+    // we know map sorts its elements w.r.t keys. hence we will create a map, 
+    /*
+    
+    Q) Sort 
+
+    */
+
     vector<pair<string, int>> v;
     map<int, string> sm;
     unordered_map<string, int>::iterator i;
@@ -29,7 +36,7 @@ void valSort1(unordered_map<string, int> &m)
     {
         sm[i->second] = i->first;
     }
-    cout << "\nUsing map: " << endl;
+    cout << "\nUsing unordered map: " << endl;
     map<int, string>::iterator it;
     for (it = sm.begin(); it != sm.end(); it++)
     {
@@ -43,7 +50,7 @@ void valSort2(unordered_map<string, int> &m)
     {
         v.push_back({it.first, it.second});
     }
-    // sort(v.begin(), v.end(), compare);
+    sort(v.begin(), v.end(), compare);
     cout << "\nsorted by value: " << endl;
     for (auto &i : v)
         cout << i.first << " : " << i.second << endl;
