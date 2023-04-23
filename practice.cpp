@@ -1,13 +1,42 @@
-#include<iostream>
+#include <iostream>
 using namespace std;
-int getmax(int *a, int n)
+void heapify(int *a, int i, int n)
 {
-    return (n==1)?a[0]:max(a[0],getmax(a+1,n-1));
+    int left=2*i+1;
+    int right=2*i+2;
+    int smallest=i;
+    if(left<n && a[left]<a[smallest])
+        smallest=left;
+    if (right<n && a[right]<a[smallest])
+        smallest=right;
+    if(smallest!=i)
+    {
+        swap(a[i],a[smallest]);
+        heapify(a,smallest,n);
+    }
+}
+void minHeap(int *a, int n)
+{
+    int start=(n/2)-1;  // internal nodes
+    for (int i = start; i >= 0; i--)
+    {
+        heapify(a,i,n);
+    }
+    cout << "Min Heap : ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+    
 }
 int main()
 {
-    int a[] = {21, 23, 56, 65, 34, 54, 76, 32, 23, 45, 21, 23, 25};
+    int a[] = {6, 5, 8, 4, 9, 7, 2, 3, 1};
     int n = sizeof(a) / sizeof(a[0]);
-    cout<<"max: "<<getmax(a,n);
+    minHeap(a, n);
+    cout << "\nThe Sorted array is : ";
+    for (int i : a)
+        cout << i << " ";
+
     return 0;
 }

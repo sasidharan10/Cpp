@@ -2,6 +2,9 @@
 using namespace std;
 void bub_sort(int arr[], int n)
 {
+    // Time  : O(n^2)
+    // Space : O(1)
+
     int temp = 0, flag = 0;
     for (int i = 0; i < n - 1; i++)
     {
@@ -36,10 +39,13 @@ int main()
     return 0;
 }
 
-// Algorithm
+/*
 
-// Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the adjacent elements and pushes the largest element to last in each iteration.
+Algorithm
 
-// for first loop (n-1) passes is enough because at last loop it will check the first element with the second
-// element which is not needed as all greater elements are already pushed int hat array.array gets sorted at (n-1)
-// passes itself
+- Bubble Sort is the simplest sorting algorithm that works by repeatedly swapping the
+  adjacent elements and pushes the largest element to last in each iteration.
+- for first loop (n-1) passes is enough because at last loop, it will check the 2nd last element with
+  the last element
+
+*/

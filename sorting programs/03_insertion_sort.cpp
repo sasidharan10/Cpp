@@ -2,6 +2,9 @@
 using namespace std;
 void insertion(int arr[], int n)
 {
+    // Time  : O(n^2)
+    // Space : O(1)
+    
     int index = 0, value = 0;
     for (int i = 1; i < n; i++)
     {
@@ -29,6 +32,13 @@ int main()
     return 0;
 }
 
-// Algorithm
 
-// here we iterate the array and sort the left side of array as we move forward. the shorter elements the sorted and pushed on the left.
+/*
+
+Algorithm
+
+- here we iterate the array and sort the left side of array as we move forward.
+  the shorter elements are sorted and pushed on the left.
+
+
+*/

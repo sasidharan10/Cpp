@@ -27,12 +27,17 @@ void heapsort(int *a, int n)
     {
         heapify(a, i, n);
     }
-    for (int i = n - 1; i > 0; i--) //loop runs till n-1 to 1. No need to swap last element(already sorted)
+    cout << "Max heap array : ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+    for (int i = n - 1; i > 0; i--) // loop runs till n-1 to 1. No need to swap last element(already sorted)
     {
         swap(a[0], a[i]); // swapping the max element(root) with last element
         heapify(a, 0, i); // heapify all element except last one
     }
-    cout << "Sorted array : ";
+    cout << "\nSorted array : ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";

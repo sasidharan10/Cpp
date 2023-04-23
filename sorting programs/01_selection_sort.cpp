@@ -41,6 +41,8 @@ int main()
 
 algorithm :
 
-The selection sort algorithm sorts an array by repeatedly finding the minimum element from unsorted part and putting it at the beginning.
+The selection sort algorithm sorts an array by repeatedly finding
+ the minimum element from unsorted part and swapping it at the beginning.
+ then we move on to next element and do the same process.
 
 */

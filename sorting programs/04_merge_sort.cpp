@@ -3,6 +3,9 @@
 using namespace std;
 void merge(int *a,int *left,int l,int *right,int r)
 {
+    // Time  : O(n*logn)
+    // Space : O(n)
+
     int i=0;
     int j=0;
     int k=0;
@@ -57,3 +60,13 @@ int main()
         cout << i << " ";
     return 0;
 }
+
+
+
+/*
+
+Here we divide the array by 2, untill we get a array of size 1, which is sorted by itself
+now we join the divided array in sorted order, and eventually the array gets sorted.
+
+
+*/

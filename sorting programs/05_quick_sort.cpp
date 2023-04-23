@@ -3,6 +3,9 @@
 using namespace std;
 int partition(int a[], int start, int end)
 {
+    // Time  : O(n^2)
+    // Space : O(n)
+
     int p_index = start;
     int pivot = a[end];               // taking last element as pivot element
     for (int i = start; i < end; i++) // 0 to n-1 (excluding last element)
@@ -41,3 +44,14 @@ int main()
         cout << i << " ";
     return 0;
 }
+
+
+/*
+
+- We take a pivot element, mostly first or last element.
+- then we traverse the whole array, and place the pivot element in its apropriate position.
+- then, we send the left array to pivot, and then to the right. after every call, each element
+  is placed it its sorted position.
+
+
+*/
