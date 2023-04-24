@@ -29,7 +29,7 @@ int main()
     for (auto &i : s)
         cout << "Rno : " << i.rno << ", "
              << "Name : " << i.name << endl;
-
+    // cout << a.advance(2) << endl;
     // operations
     cout << "a.begin() : " << *a.begin() << endl; // returns iterator. used for sorting ,etc
     cout << "a.end() : " << *a.end() << endl;

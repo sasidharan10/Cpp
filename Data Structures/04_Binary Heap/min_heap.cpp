@@ -28,6 +28,7 @@ void buildHeap(int *a, int n)
     {
         minHeapify(a, i, n);
     }
+    cout<<a[1]<<endl;
     cout << "Min Heap : ";
     for (int i = 0; i < n; i++)
     {
