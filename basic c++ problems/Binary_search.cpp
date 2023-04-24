@@ -32,4 +32,12 @@ int main()
 		cout << "Not found!!!";
 }
 
-// Binary search is applicable in sorted array only
+/*
+
+Binary search is applicable in sorted array only
+
+leetcode: https://leetcode.com/problems/binary-search/
+
+*/
+
+

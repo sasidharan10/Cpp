@@ -8,7 +8,7 @@ void negative(int *a, int n)
 
     int low = 0;
     int high = n - 1;
-    while (low < high)
+    while (low <= high)
     {
         if (a[low] < 0)
             low++;
@@ -30,3 +30,11 @@ int main()
     negative(a, n);
     return 0;
 }
+
+/*
+
+Move all negative numbers to beginning and positive to end with constant extra space
+
+link: https://www.geeksforgeeks.org/move-negative-numbers-beginning-positive-end-constant-extra-space/
+
+*/

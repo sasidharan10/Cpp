@@ -62,11 +62,21 @@ int main()
 {
     int arr1[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
-    int arr2[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+    // int arr2[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+    int arr2[] = {2,0,1};
     int n2 = sizeof(arr2) / sizeof(arr2[0]);
     segregate1(arr1, n1);
     segregate2(arr2, n2);
     return 0;
 }
 
-// Given an array A[] consisting 0s, 1s and 2s. The task is to write a function that sorts the given array. The functions should put all 0s first, then all 1s and all 2s in last.
+/*
+
+Given an array A[] consisting 0s, 1s and 2s. The task is to write a function that
+sorts the given array. The functions should put all 0s first, then all 1s and all 2s in last.
+
+link: https://www.geeksforgeeks.org/sort-an-array-of-0s-1s-and-2s/
+
+leetcode: https://leetcode.com/problems/sort-colors/description/
+
+*/
