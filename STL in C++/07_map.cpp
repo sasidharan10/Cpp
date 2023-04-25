@@ -46,6 +46,15 @@ int main()
 - it uses self balancing binary tree(AVL, Red-black tree)
 - we can have duplicates values, but not keys.
 
+note: 
+- When using an iterator to traverse a map, we get a pointer to a pair of key-value
+  elements in the map. This pointer can be accessed using the '->' operator,
+  which is used to access the member elements of a pointer to a struct or class object.
+- On the other hand, when using a for-each loop to iterate through a map, we get
+  a reference to the key-value elements in the map directly. The key-value elements
+  are returned as a reference to a pair object, and we can access the members of the
+  pair object using the '.' operator, just like we would access the members of any
+other struct or class object.
 
 
 */

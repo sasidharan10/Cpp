@@ -13,19 +13,19 @@ void rotateRight1(int *a, int n)
         swap(a[i], a[j]);
         i++;
     }
-    cout << "\nArray Right rotation (optimised): ";
+    cout << "\nArray Right rotation : ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
     }
 }
-void rotateRight2(int *a, int n)
+void rotateRight2(int *a, int n, int r)
 {
     // Time  : O(n*r)
     // Space : O(1)
 
     int last = 0;
-    int r = 1; // no of rotations
+    r = r % n;
     while (r > 0)
     {
         last = a[n - 1];
@@ -37,6 +37,18 @@ void rotateRight2(int *a, int n)
         r--;
     }
     cout << "\nArray Right rotation (normal): ";
+    for (int i = 0; i < n; i++)
+    {
+        cout << a[i] << " ";
+    }
+}
+void rotateRight3(int *a, int n, int r)
+{
+    r = r % n;
+    reverse(a, a + n);
+    reverse(a, a + r);
+    reverse(a + r, a + n);
+    cout << "\nArray right rotation (optimised): ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
@@ -56,7 +68,7 @@ void rotateLeft1(int *a, int n)
         }
         r--;
     }
-    cout << "\nArray Left rotation (optimised): ";
+    cout << "\nArray Left rotation : ";
     for (int i = 0; i < n; i++)
     {
         cout << a[i] << " ";
@@ -67,7 +79,17 @@ int main()
     int a[]{1, 2, 3, 4, 5};
     int n = sizeof(a) / sizeof(a[0]);
     rotateRight1(a, n);
-    rotateRight2(a, n);
     rotateLeft1(a, n);
+    int r = 3;
+    rotateRight2(a, n, r);
+    rotateRight3(a, n, r);
     return 0;
 }
+
+/*
+
+link: https://www.geeksforgeeks.org/c-program-cyclically-rotate-array-one/
+
+leetcode: https://leetcode.com/problems/rotate-array/description/
+
+*/

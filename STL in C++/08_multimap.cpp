@@ -6,7 +6,7 @@ int main()
     multimap<string, int> mm{{"A", 1}, {"B", 1}, {"C", 2}, {"C", 3}, {"D", 4}, {"E", 5}};
     // cout<<mm["A"]<<endl;   // not allowed, as it causes abmiguity
     cout << "Multi map: " << endl;
-    for (auto &&i : mm)
+    for (auto i : mm)
     {
         cout << i.first << " : " << i.second << endl;
     }

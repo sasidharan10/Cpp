@@ -9,7 +9,7 @@ void Union(int *a, int *b, int n1, int n2)
     // Time : O(m+n) 1 traversal
     // Space : O(1) if directly printing
 
-    vector<int> un; // using set to eliminate duplicate values
+    vector<int> un; // using set can eliminate duplicate values
     int i = 0, j = 0;
     while (i < n1 && j < n2)
     {
@@ -34,12 +34,12 @@ void Union(int *a, int *b, int n1, int n2)
         un.push_back(b[j++]);
     }
     un.erase(unique(un.begin(), un.end()), un.end()); // erasing duplicate elements
-    cout << "Intersection is (without set) : ";
+    cout << "Union (without set) : ";
     for (int i : un)
         cout << i << " ";
 }
 
-void Intersection(int *a, int *b, int n1, int n2)
+void Intersection1(int *a, int *b, int n1, int n2)
 {
     // Time : O(m+n) 1 traversal
     // Space : O(1) if directly printing
@@ -59,12 +59,12 @@ void Intersection(int *a, int *b, int n1, int n2)
             j++;
         }
     }
-    cout << "\nUnion is (with set) : ";
+    cout << "\nIntersection (with set) : ";
     for (int i : inter)
         cout << i << " ";
 }
 
-void Intersection1(int *a, int *b, int n1, int n2)
+void Intersection2(int *a, int *b, int n1, int n2)
 {
     vector<int> v;
     int i = 0, j = 0;
@@ -83,7 +83,7 @@ void Intersection1(int *a, int *b, int n1, int n2)
         }
     }
     v.erase(unique(v.begin(), v.end()), v.end()); // erasing duplicate elements
-    cout << "\nUnion is (without set) : ";
+    cout << "\nIntersection (without set) : ";
     for (int i : v)
         cout << i << " ";
 }
@@ -94,7 +94,42 @@ int main()
     int n1 = sizeof(a) / sizeof(a[0]);
     int n2 = sizeof(b) / sizeof(b[0]);
     Union(a, b, n1, n2);
-    Intersection(a, b, n1, n2);
     Intersection1(a, b, n1, n2);
+    Intersection2(a, b, n1, n2);
     return 0;
 }
+
+/*
+
+leetcode: 
+
+class Solution {
+public:
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+    unordered_set<int> ans;
+    sort(nums1.begin(), nums1.end());
+    sort(nums2.begin(), nums2.end());
+    int i=0;
+    int j=0;
+    while (i < nums1.size() && j < nums2.size())
+    {
+        if (nums1[i] < nums2[j])
+            i++;
+        else if (nums1[i] > nums2[j])
+            j++;
+        else if (nums1[i] == nums2[j])
+        {
+            ans.insert(nums1[i]);
+            i++;
+            j++;
+        }
+    }
+    vector<int>v(ans.begin(),ans.end());
+    // vector<int>v;
+    // for(auto i:ans)
+    //     v.push_back(i);
+    return v;
+    }
+};
+
+*/
