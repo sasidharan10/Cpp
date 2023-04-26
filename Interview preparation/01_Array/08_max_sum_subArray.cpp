@@ -55,9 +55,15 @@ int main()
     maxSubArraySum2(a, n);
     return 0;
 }
-
+void get()
+{
+}
 /*
 
 Largest Sum Contiguous Subarray
+
+link: https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/
+
+leetcode: https://leetcode.com/problems/maximum-subarray/description/
 
 */

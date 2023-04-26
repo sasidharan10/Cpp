@@ -2,31 +2,41 @@
 #include <algorithm>
 #include <vector>
 #include <map>
+#include <climits>
 using namespace std;
-void rotateRight1(int *a, int n)
+void kadane(int *a, int n)
 {
-    int r=3;
-    while (r>0)
-    {
-        int first=a[0];
-        for (int i = 0; i < n; i++)
-        {
-            a[i]=a[i+1];
-        }
-        a[n-1]=first;
-        r--;
-    }
-    cout << "\nArray right rotation (optimised): ";
+    int max_so_far=INT_MIN;
+    int max_here=0;
+    int s=0, start=0, end=0;
     for (int i = 0; i < n; i++)
+    {
+        max_here+=a[i];
+        if(max_here>max_so_far)
+        {
+            max_so_far=max_here;
+            start=s;
+            end=i;
+        }
+        if(max_here<0)
+        {
+            max_here=0;
+            s=i+1;
+        }
+    }
+    cout << "Max Sum of Sub-Array is (kadane algorithm) : " << max_so_far << endl;
+    cout << "Sub-Array is : ";
+    for (int i = start; i <= end; i++)
     {
         cout << a[i] << " ";
     }
+    
 }
 int main()
 {
-    int a[]{1, 2, 3, 4, 5};
+    int a[]{-2, -3, 4, -1, -2, 1, 5, -3};
     int n = sizeof(a) / sizeof(a[0]);
-    rotateRight1(a, n);
+    kadane(a,n);
 
     return 0;
 }
