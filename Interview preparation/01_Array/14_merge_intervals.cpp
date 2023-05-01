@@ -4,8 +4,8 @@
 using namespace std;
 vector<vector<int>> mergeIntervals(vector<vector<int>> intervals)
 {
-    // time : O(nlogn) + O(n) [for sotring and traversing through the intervals]
-    // space : O(n)
+    // TC: O(nlogn) + O(n) [for sotring and traversing through the intervals]
+    // SC: O(n)
 
     vector<vector<int>> ans;                  // to store all the non-overlapping intervals
     vector<int> temp;                         // to store each intervals(row) and compare with intervals
@@ -57,5 +57,13 @@ Solution :
 - we can compare the end of first(3 int {1,3}) interval with start of second interval(2 in {2,6}),
   if start is less(2<3), then overlapping of intevals exist, so we have to merge it.
 - for merging, we can find max of both ends of intervals, that will be the end of new interval.
+
+*/
+
+/*
+
+link: 
+
+leetcode: https://leetcode.com/problems/merge-intervals/description/
 
 */
