@@ -3,8 +3,8 @@
 using namespace std;
 void negative(int *a, int n)
 {
-    // Time : O(n) 1 traversal
-    // Space : O(1)
+    // TC: O(n) 1 traversal
+    // SC: O(1)
 
     int low = 0;
     int high = n - 1;

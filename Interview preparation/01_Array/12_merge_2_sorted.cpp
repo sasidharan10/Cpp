@@ -3,9 +3,11 @@
 using namespace std;
 void mergeArray1(int *a, int n, int *b, int m)
 {
-    // O(m*n)
 
-    //first loop is for the smaller array where we will store all greater elements
+    // TC: O(m*n)
+    // SC: O(1)
+
+    // first loop is for the smaller array where we will store all greater elements
     for (int i = m - 1; i >= 0; i--)
     {
         int j;
@@ -19,7 +21,7 @@ void mergeArray1(int *a, int n, int *b, int m)
         /*
         - (j!=n-2) means b[i] is greatest element and no need to change it.
         - last > b[i] to check if last element is greater than a[i] since in first loop
-          last is not compared with b[i]    
+          last is not compared with b[i]
         - we j!=n-2 to check if any swaps have happened
         */
         if (j != n - 2 || last > b[i])
@@ -31,11 +33,13 @@ void mergeArray1(int *a, int n, int *b, int m)
 }
 void mergeArray2(int *a, int n, int *b, int m)
 {
-    // O(n) + O(m) + O(nlogm)+ O(mlogn)
+
+    // TC: O(n) + O(m) + O(nlogn)+ O(mlogm)
+    // SC: O(1)
 
     int i = 0;              // for a1
     int j = 0;              // for a2
-    int k = n - 1;  // iterator for last in a1 to swap it with a2 (swapping all largest element to a2)
+    int k = n - 1;          // iterator for last in a1 to swap it with a2 (swapping all largest element to a2)
     while (i <= k && j < m) // when k meets i it means all large elements are swapped to a2
     {
         if (a[i] < b[j])
@@ -48,6 +52,39 @@ void mergeArray2(int *a, int n, int *b, int m)
     // now sorting both array
     sort(a, a + n);
     sort(b, b + m);
+}
+int nextGap(int gap)
+{
+    if (gap == 1)
+        return 0;
+    return (gap / 2) + (gap % 2);
+}
+void mergeArray3(int *a, int n, int *b, int m)
+{
+    
+    // TC: O(n+m)
+    // SC: O(1)
+    
+    int gap = n + m;
+    int i = 0, j = 0;
+    for (gap = nextGap(gap); gap > 0; gap = nextGap(gap))
+    {
+        for (i = 0; i + gap < n; i++)
+        {
+            if (a[i] > a[i + gap])
+                swap(a[i], a[i + gap]);
+        }
+        for (j = gap > n ? gap - n : 0; i < n && j < m; j++, i++)
+        {
+            if (a[i] > b[j])
+                swap(a[i], b[j]);
+        }
+        for (j = 0; j + gap < m; j++)
+        {
+            if (b[j] > b[j + gap])
+                swap(b[j], b[j + gap]);
+        }
+    }
 }
 int main()
 {
@@ -73,6 +110,7 @@ int main()
     int n2 = sizeof(a2) / sizeof(a2[0]);
     int m2 = sizeof(b2) / sizeof(b2[0]);
     mergeArray2(a2, n2, b2, m2);
+    mergeArray3(a1, n1, b1, m1);
     cout << "\nSorted Array (o(nlogm)+ O(mlogn)) : ";
     for (int i = 0; i < n2; i++)
     {
@@ -89,6 +127,6 @@ int main()
 
 link: https://www.geeksforgeeks.org/merge-two-sorted-arrays-o1-extra-space/
 
-leetcode: 
+leetcode:
 
 */

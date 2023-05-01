@@ -74,6 +74,6 @@ int main()
     {
         cout << b[j] << " ";
     }
-
-    return 0;
+    
+    return 0; 
 }

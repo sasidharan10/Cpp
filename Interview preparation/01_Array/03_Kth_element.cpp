@@ -4,6 +4,10 @@
 using namespace std;
 int kthSmallest(int arr[], int n, int k)
 {
+
+    // TC: O(n) + O(nlogn)
+    // SC: O(n)
+
     int *b = new int[n];
     for (int i = 0; i < n; i++)
     {
@@ -20,8 +24,8 @@ int kthSmallest(int arr[], int n, int k)
 }
 int kth_element1(int *a, int n, int k)
 {
-    // Time  : O(n^2)
-    // Space : O(1)
+    // TC: O(n^2)
+    // SC: O(1)
 
     int min, temp;
     // bubble sort
@@ -52,8 +56,8 @@ int kth_element2(int *a, int n, int k)
 }
 int quickSelect(int *a, int start, int end, int k)
 {
-    // Time : O(n^2) but O(n) on average as worst case is almost avoidable
-    // Space : O(1)
+    // TC: O(n^2) but O(n) on average as worst case is almost avoidable
+    // SC: O(1)
 
     if (start <= end)
     {

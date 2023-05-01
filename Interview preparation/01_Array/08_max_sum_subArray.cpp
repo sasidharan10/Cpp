@@ -5,7 +5,8 @@ using namespace std;
 // kadane Algorithm
 void maxSubArraySum(int *a, int n)
 {
-    // O(n)
+    // TC: O(n)
+    // SC: O(1)
 
     int max_end_here = 0;
     int max_so_far = INT_MIN;
@@ -37,6 +38,9 @@ void maxSubArraySum(int *a, int n)
 
 void maxSubArraySum2(int a[], int size)
 {
+    // TC: O(n)
+    // SC: O(1)
+    
     int max_so_far = a[0];
     int curr_max = a[0];
 

@@ -6,8 +6,8 @@
 using namespace std;
 void Union(int *a, int *b, int n1, int n2)
 {
-    // Time : O(m+n) 1 traversal
-    // Space : O(1) if directly printing
+    // TC: O(m+n) 1 traversal
+    // SC: O(n) or O(1) if directly printing 
 
     vector<int> un; // using set can eliminate duplicate values
     int i = 0, j = 0;
@@ -41,8 +41,8 @@ void Union(int *a, int *b, int n1, int n2)
 
 void Intersection1(int *a, int *b, int n1, int n2)
 {
-    // Time : O(m+n) 1 traversal
-    // Space : O(1) if directly printing
+    // TC: O(m+n) 1 traversal
+    // SC: O(n) or O(1) if directly printing
 
     unordered_set<int> inter;
     int i = 0, j = 0;

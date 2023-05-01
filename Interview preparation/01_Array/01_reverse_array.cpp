@@ -3,8 +3,8 @@
 using namespace std;
 void reverseArray(int *a, int n)
 {
-    // Time  : O(n)
-    // Space : O(1)
+    // TC: O(n)
+    // SC: O(1)
 
     int temp;
     for (int i = 0, j = n - 1; i < n / 2; i++, j--)

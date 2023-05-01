@@ -3,8 +3,8 @@
 using namespace std;
 void segregate1(int *a, int n)
 {
-    // Time : O(n) 2 traversal
-    // Space : O(1)
+    // TC: O(n) 2 traversal
+    // SC: O(1)
 
     int c0 = 0, c1 = 0;
     for (int i = 0; i < n; i++)
@@ -37,8 +37,8 @@ void segregate1(int *a, int n)
 }
 void segregate2(int *a, int n)
 {
-    // Time : O(n) 1 traversal
-    // Space : O(1)
+    // TC: O(n) 1 traversal
+    // SC: O(1)
 
     int low = 0;
     int mid = 0;
