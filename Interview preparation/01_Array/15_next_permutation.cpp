@@ -142,16 +142,17 @@ int main()
 {
     // int a[]{1, 2, 3, 5, 4, 2};
     // int a[]{1, 2, 3};
-    int a[]{3, 2, 1};
+    // int a[]{3, 2, 1};
+    int a[]{1, 1, 5};
     int n = sizeof(a) / sizeof(a[0]);
     // nextPermutation(a, n);
-    nextPermutation3(a, n);
-    // cout << "Next Permutation is : ";
-    // for (int i : a)
-    // {
-    //     cout << i << " ";
-    // }
-    // return 0;
+    nextPermutation4(a, n);
+    cout << "Next Permutation is : ";
+    for (int i : a)
+    {
+        cout << i << " ";
+    }
+    return 0;
 }
 
 /*
