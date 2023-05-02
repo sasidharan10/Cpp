@@ -30,10 +30,10 @@ void findPermutation(vector<int> v, vector<int> &ds, set<vector<int>> &ans, vect
 }
 void nextPermutation3(int *a, int n)
 {
-    
+
     // TC: O(n!*n)  brute force
     // SC: O(n)
-    
+
     vector<int> v;
     v.assign(a, a + n);
     set<vector<int>> ans;
@@ -53,7 +53,9 @@ void nextPermutation3(int *a, int n)
     // v.clear();
     // v={3,1,2};
     it = ans.find(v);
-    ++it; // next permutation
+    ++it;                // next permutation
+    if (it == ans.end()) // if its last permutaion
+        it = ans.begin();
     cout << "Next Permutation is : ";
     for (auto &&i : *it)
     {
@@ -98,18 +100,58 @@ void nextPermutation2(int *a, int n)
     // now sort reaming elements from the peak element to last of array
     sort(a + peak, a + n);
 }
+void nextPermutation4(int *a, int n)
+{
+    int l = -1, index = 0;
+    // finding left element of peak element which is as right as possible
+    for (int i = n - 2; i >= 0; i--)
+    {
+        if (a[i + 1] > a[i])
+        {
+            l = i;
+            break;
+        }
+    }
+    // case 1 :
+    // if no peak exist, that means the array is sorted in desc order. we have to sort it in asc order
+    if (l == -1)
+        reverse(a, a + n);
+    // case 2 :
+    else
+    {
+        /*
+
+        - finding element that are greater than "left of peak" element, if any.
+        - if no element is greater, than we swap it with the peak element.
+        - since index will point to peak element, once the loop is done.
+
+        */
+        for (int i = n - 1; i > l; i--)
+        {
+            if (a[i] > a[l])
+            {
+                index = i;
+                break;
+            }
+        }
+        swap(a[index], a[l]);
+        reverse(a + l + 1, a + n);
+    }
+}
 int main()
 {
     // int a[]{1, 2, 3, 5, 4, 2};
-    int a[]{1, 2, 3};
+    // int a[]{1, 2, 3};
+    int a[]{3, 2, 1};
     int n = sizeof(a) / sizeof(a[0]);
-    nextPermutation1(a, n);
-    cout << "Next Permutation is : ";
-    for (int i : a)
-    {
-        cout << i << " ";
-    }
-    return 0;
+    // nextPermutation(a, n);
+    nextPermutation3(a, n);
+    // cout << "Next Permutation is : ";
+    // for (int i : a)
+    // {
+    //     cout << i << " ";
+    // }
+    // return 0;
 }
 
 /*

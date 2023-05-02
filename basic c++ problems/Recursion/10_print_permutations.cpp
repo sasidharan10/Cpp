@@ -37,9 +37,22 @@ void printPermutations(vector<int> v)
         cout << endl;
     }
 }
+void printPermutations2(vector<int> v)
+{
+    cout << "All permutations (library): " << endl;
+    do
+    {
+        for (auto &&i : v)
+        {
+            cout << i << " ";
+        }
+        cout << endl;
+    } while (next_permutation(v.begin(), v.end()));
+}
 int main()
 {
     vector<int> v{1, 2, 3};
-    printPermutations(v);
+    // printPermutations(v);
+    printPermutations2(v);
     return 0;
 }
