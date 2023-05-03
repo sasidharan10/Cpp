@@ -28,7 +28,7 @@ void findPermutation(vector<int> v, vector<int> &ds, set<vector<int>> &ans, vect
         }
     }
 }
-void nextPermutation3(int *a, int n)
+void nextPermutation2(int *a, int n)
 {
 
     // TC: O(n!*n)  brute force
@@ -62,7 +62,7 @@ void nextPermutation3(int *a, int n)
         cout << i << " ";
     }
 }
-void nextPermutation2(int *a, int n)
+void nextPermutation3(int *a, int n)
 {
     // TC: O(nlogn) optimised
     // SC: O(1)
@@ -179,5 +179,7 @@ Special cases :
 - [1,2,3,5,4,2] In this array, peak is 5,but we cannot swap it with left element as to the right,
   as we have 4 which is closest to 5 so we have to swap 5 with 4 to make next permutation = [1,2,4,2,3,5].
   This is a special case.
+
+leetcode: https://leetcode.com/problems/next-permutation/description/
 
 */

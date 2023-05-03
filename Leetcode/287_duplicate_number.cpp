@@ -1,12 +1,13 @@
 #include <iostream>
+#include <algorithm>
+#include <unordered_set>
+#include <unordered_map>
 #include <vector>
-#include <climits>
-#include <cmath>
 using namespace std;
 class Solution
 {
 public:
-    void findDuplicate2(vector<int> &nums)
+    int findDuplicate(vector<int> &nums)
     {
         int slow = 0, fast = 0;
         do
@@ -20,15 +21,22 @@ public:
             slow = nums[slow];
             fast = nums[fast];
         }
-        cout << "Duplicate: " << slow << endl;
+        return slow;
     }
 };
 int main()
 {
     Solution s;
-    vector<int> v{7, 8, 6, 1, 5, 2, 4, 3, 1};
-    // s.findDuplicate1(v);
-    s.findDuplicate2(v);
-    cout << endl;
+    vector<int> nums{1, 3, 4, 2, 2};
+    cout << "Duplicate: " << s.findDuplicate(nums) << endl;
     return 0;
 }
+
+
+/*
+
+link: 
+
+leetcode: https://leetcode.com/problems/find-the-duplicate-number/description/
+
+*/
