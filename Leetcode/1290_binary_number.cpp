@@ -3,6 +3,7 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <vector>
+#include <cmath>
 using namespace std;
 struct ListNode
 {
@@ -23,46 +24,41 @@ public:
     }
     void print(ListNode *p)
     {
-
-        cout << "\nList: ";
+        cout << "List: ";
         while (p != NULL)
         {
             cout << p->val << " ";
             p = p->next;
         }
     }
-    ListNode *middleNode(ListNode *head)
+    int getDecimalValue(ListNode *head)
     {
-        ListNode*slow,*fast;
-        slow=fast=head;
-        while (fast && fast->next)
+        int prevSum = 0;
+        while (head)
         {
-            slow=slow->next;
-            fast=fast->next->next;
+            prevSum = prevSum * 2 + (head->val);
+            head = head->next;
         }
-        return slow;
+        return prevSum;
     }
 };
 int main()
 {
     Solution s;
     ListNode *head = nullptr;
-    head = s.insertNode(head, 6);
-    head = s.insertNode(head, 5);
-    head = s.insertNode(head, 4);
-    head = s.insertNode(head, 3);
-    head = s.insertNode(head, 2);
+    head = s.insertNode(head, 0);
     head = s.insertNode(head, 1);
-    s.print(head);
-    cout<<"Value: "<<(s.middleNode(head))->val;
+    head = s.insertNode(head, 0);
+    head = s.insertNode(head, 1);
+    // s.print(head);
+    cout << "Decimal: " << s.getDecimalValue(head);
     return 0;
 }
 
-
 /*
 
-link: 
+link:
 
-leetcode: https://leetcode.com/problems/middle-of-the-linked-list/description/
+leetcode: https://leetcode.com/problems/convert-binary-number-in-a-linked-list-to-integer/solutions/
 
 */
