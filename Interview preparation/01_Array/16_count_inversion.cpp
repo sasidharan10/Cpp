@@ -2,6 +2,22 @@
 #include <algorithm>
 #include <set>
 using namespace std;
+int countInversion1(int *a, int n)
+{
+    // TC: O(n^2)
+    // SC: O(1)
+
+    int count = 0;
+    for (int i = 0; i < n; i++)
+    {
+        for (int j = i + 1; j < n; j++)
+        {
+            if (a[i] > a[j])
+                count++;
+        }
+    }
+    return count;
+}
 int merge(int *a, int *left, int l, int *right, int r)
 {
     int count = 0;
@@ -53,33 +69,21 @@ int mergeSort(int *a, int n)
 }
 int countInversion2(int *a, int n)
 {
-    // O(nlogn)
+    //
+
+    // TC: O(nlogn)
+    // SC: O(n)
+
     return mergeSort(a, n);
 }
-int countInversion1(int *a, int n)
-{
-    // O(n^2)
-
-    int count = 0;
-    for (int i = 0; i < n; i++)
-    {
-        for (int j = i + 1; j < n; j++)
-        {
-            if (a[i] > a[j])
-                count++;
-        }
-    }
-    return count;
-}
-
 int countInversion3(int *a, int n)
 {
     multiset<int> s;
-    int count=0;
+    int count = 0;
     for (int i = 0; i < n; i++)
     {
         s.insert(a[i]);
-        count+=distance(s.upper_bound(a[i]),s.end());
+        count += distance(s.upper_bound(a[i]), s.end());
     }
     return count;
 }
@@ -90,16 +94,18 @@ int main()
     int a[] = {1, 20, 6, 4, 5};
     int n = sizeof(a) / sizeof(a[0]);
     cout << "Total Inversions (Brute Force): " << countInversion1(a, n) << endl;
-    cout << "Total Inversions (O(n) for space: " << countInversion3(a, n) << endl;
     cout << "Total Inversions (O(nlogn)): " << countInversion2(a, n) << endl;
+    cout << "Total Inversions (O(n) for space: " << countInversion3(a, n) << endl;
     return 0;
 }
 
-
 /*
 
-Inversion Count for an array indicates – how far (or close) the array is from being sorted. 
-If the array is already sorted, then the inversion count is 0, but if the array is sorted 
-in the reverse order, the inversion count is the maximum. 
+Inversion Count for an array indicates – how far (or close) the array is from being sorted.
+If the array is already sorted, then the inversion count is 0, but if the array is sorted
+in the reverse order, the inversion count is the maximum.
+Algorithm is, find the no of pairs, whose left element is greater than right element,
+their sum will be the answer.
+
 
 */

@@ -1,166 +1,86 @@
 #include <iostream>
+#include <algorithm>
+#include <vector>
 using namespace std;
-struct node
+int count=0;
+void merge(int *a,int *left,int l,int *right,int r, vector<int>&ans)
 {
-    int data;
-    node *next;
-    node(int n)
+    // Time  : O(n*logn)
+    // Space : O(n)
+
+    int i=0;
+    int j=0;
+    int k=0;
+    while (i<l && j<r)
     {
-        data = n;
-        next = NULL;
-    }
-};
-node *insertNode(node *head, int n)
-{
-    node *temp1 = new node(n);
-    if(head==NULL)
-    {
-        temp1->next=NULL;
-        head=temp1;
-        return head;
-    }
-    node *temp2=head;
-    while (temp2->next!=NULL)
-    {
-        temp2=temp2->next;
-    }
-    temp2->next = temp1;
-    return head;
-}
-node* insertNth(node *head, int pos, int n)
-{
-    node *temp=new node(n);
-    if(pos==1)
-    {
-        temp->next=head;
-        head=temp;
-        return head;
-    }
-    node *temp2=head;
-    for (int i = 1; i < pos-1; i++)
-    {
-        temp2=temp2->next;
-    }
-    temp->next=temp2->next;
-    temp2->next=temp;
-    return head;
-}
-void printData(node *head)
-{
-    while (head != NULL)
-    {
-        cout << head->data << " ";
-        head = head->next;
-    }
-    cout<<endl;
-}
-node *deleteNth(node *head, int pos)
-{
-    node *temp=head;
-    if(pos==1)
-    {
-        head=temp->next;
-        temp->next=NULL;
-        delete temp;
-        return head;
-    }
-    for (int i = 1; i < pos-1; i++)
-    {
-        temp=temp->next;
-    }
-    node* deleteNode=temp->next;
-    temp->next=deleteNode->next;
-    deleteNode->next=NULL;
-    delete deleteNode;
-    return head;
-}
-node *deleteValue(node *head, int val)
-{
-    node *prev=NULL;
-    node *current=head;
-    while (current!=NULL)
-    {
-        if(current->data==val)
+        if(left[i]<right[j])
         {
-            if(current==head)
-            {
-                head=current->next;
-                current->next=NULL;
-                delete current;
-                return head;
-            }
-            // last element
-            if(current->next==NULL)
-            {
-                prev->next=NULL;
-                delete current;
-                return head;
-            }
-            prev->next=current->next;
-            current->next=NULL;
-            delete current;
-            return head;
+            a[k++]=left[i++];
         }
-        prev=current;
-        current=current->next;
+        else
+        {
+            ans.push_back(l-i);
+            a[k++]=right[j++];
+        }
     }
-}
-node *reverseList(node *head)
-{
-    node *prev=NULL, *current=head,*next_node=NULL;
-    while (current!=NULL)
+    while (i<l)
     {
-        next_node=current->next;
-        current->next=prev;
-        prev=current;
-        current=next_node;
+        a[k++]=left[i++];
     }
-    head=prev; 
-    return head;
-}
-node *reverseList2(node *p)
-{
-    node* head;
-    if(p->next==NULL)
+    while (j<r)
     {
-        head=p;
-        return head;
+        a[k++]=right[j++];
     }
-    head=reverseList2(p->next);
-    node *temp;
-    temp=p->next;
-    temp->next=p;
-    p->next=NULL;
-    return head;
 }
-void printRecur(node *head)
+void mergeSort(int *a,int n, vector<int>&ans)
 {
-    if(head==NULL)
+    if(n<2)
         return;
-    cout<<head->data<<" ";
-    printRecur(head->next);
+    int mid=n/2;
+    int *left = new int[mid];
+    int *right = new int[n-mid];
+    for (int i = 0; i < mid; i++)
+    {
+        left[i]=a[i];
+    }
+    for (int j = mid; j < n; j++)
+    {
+        right[j-mid]=a[j];
+    }
+    mergeSort(left,mid, ans);
+    mergeSort(right,n-mid, ans);
+    merge(a,left,mid,right,n-mid, ans);
+    delete []left;
+    delete []right;
 }
 int main()
 {
-    int n = 5;
-    node *head = NULL;
-    for (int i = 1; i <= n; i++)
+    // int a[] = {6, 5, 8, 4, 7, 2, 3, 1,9};
+    int a[] = {5, 2, 6, 1};
+    int n = sizeof(a) / sizeof(a[0]);
+    cout << "The array is : ";
+    for (int i : a)
+        cout << i << " ";
+    vector<int>ans;
+    mergeSort(a, n, ans);
+    cout<<ans.size()<<endl;
+    for (int i = ans.size(); i < n; i++)
     {
-        head=insertNode(head, i);
+        ans.push_back(0);
     }
-    printData(head);
-    int pos=2;
-    int val=78;
-    head=insertNth(head, pos, val);
-    printData(head);
-    head=deleteNth(head, 2);
-    printData(head);
-    head=deleteValue(head, 1);
-    printData(head);
-    head=reverseList(head);
-    printData(head);
-    head=reverseList2(head);
-    printData(head);
-    printRecur(head);
+    
+    cout << "\nThe Sorted array is : ";
+    for (int i : ans)
+        cout << i << " ";
     return 0;
 }
+
+
+
+/*
+
+Here we divide the array by 2, untill we get a array of size 1, which is sorted by itself
+now we join the divided array in sorted order, and eventually the array gets sorted.
+
+
+*/
