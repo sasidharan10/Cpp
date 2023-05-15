@@ -5,7 +5,5 @@
 using namespace std;
 int main()
 {
-    int j = 7;
-    cout<<((j/2)+(j%2));
-    return 0;
+    cout<<7%5<<endl;
 }
