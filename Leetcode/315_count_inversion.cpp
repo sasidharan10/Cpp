@@ -16,11 +16,13 @@ public:
         int k = 0;
         while (i <= mid && j <= right)
         {
-            if (v[i].first <= v[j].first)
+            if (v[i].first >= v[j].first)
+            {
+                ans[v[i].second] = right - j + 1;
                 temp[k++] = v[i++];
+            }
             else
             {
-                ans[v[i].second] = mid - i + 1;
                 temp[k++] = v[j++];
             }
         }
@@ -53,12 +55,9 @@ public:
         vector<pair<int, int>> v(n);
         for (int i = 0; i < n; i++)
         {
-            pair<int, int> t;
-            t.first = nums[i];
-            t.second = i;
-            v[i] = t;
+            v[i] = make_pair(nums[i], i);
         }
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < v.size(); i++)
         {
             cout << v[i].first << " " << v[i].second << endl;
         }
@@ -79,3 +78,11 @@ int main()
 
     return 0;
 }
+
+/*
+
+link:
+
+leetcode: https://leetcode.com/problems/count-of-smaller-numbers-after-self/description/
+
+*/
