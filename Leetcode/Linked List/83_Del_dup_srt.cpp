@@ -33,7 +33,7 @@ public:
     }
     void printList(ListNode *head)
     {
-        cout << "\nList: ";
+        cout << "List: ";
         while (head != NULL)
         {
             cout << head->val << " ";
@@ -41,44 +41,45 @@ public:
         }
         cout << endl;
     }
-    ListNode *detectCycle(ListNode *head)
+    ListNode *deleteDuplicates(ListNode *head)
     {
-        ListNode *slow = head;
-        ListNode *fast = head;
-        while (slow != NULL and fast != NULL)
+        ListNode *delNode;
+        ListNode *temp = head;
+        if (head == nullptr)
+            return head;
+        while (temp->next != nullptr)
         {
-            slow = slow->next;
-            fast = fast->next;
-            if (fast)
-                fast = fast->next;
-            if (slow == fast)
-                break;
+            if (temp->val == temp->next->val)
+            {
+                delNode = temp->next;
+                temp->next = delNode->next;
+                delete delNode;
+            }
+            else
+                temp = temp->next;
         }
-        if (!slow || !fast)
-            return NULL;
-        slow = head;
-        while (slow != fast)
-        {
-            slow = slow->next;
-            fast = fast->next;
-        }
-        return slow;
+        return head;
     }
 };
 int main()
 {
     Solution s;
     ListNode *head = NULL;
-    head = s.InsertEnd(head, 3);
+    head = s.InsertEnd(head, 1);
+    head = s.InsertEnd(head, 1);
     head = s.InsertEnd(head, 2);
-    head = s.InsertEnd(head, 0);
-    head = s.InsertEnd(head, -4);
+    head = s.InsertEnd(head, 3);
+    head = s.InsertEnd(head, 3);
     s.printList(head);
-    head->next->next->next = head->next;
-    ListNode *temp = s.detectCycle(head);
-    if (!temp)
-        cout << "No cycle" << endl;
-    else
-        cout << "Cycle beg at: " << temp->val << endl;
+    head = s.deleteDuplicates(head);
+    s.printList(head);
     return 0;
 }
+
+/*
+
+link:
+
+leetcode: https://leetcode.com/problems/remove-duplicates-from-sorted-list/description/
+
+*/
