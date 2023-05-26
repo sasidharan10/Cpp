@@ -32,28 +32,57 @@ void print()
 }
 void removeDuplicates1()
 {
-    // Time  : O(n)
-    // Space : O(n)
+    // TC: O(n)
+    // SC: O(n)
 
-    node* temp=head;
-    node* prev=NULL;
-    node* deleteNode;
+    node *temp = head;
+    node *prev = NULL;
+    node *deleteNode;
     unordered_multiset<int> um;
-    while (temp!=NULL)
+    while (temp != NULL)
     {
-        if(um.find(temp->data)!=um.end())
+        if (um.find(temp->data) != um.end())
         {
-            deleteNode=temp;
-            prev->next=temp->next;
-            temp=temp->next;
+            deleteNode = temp;
+            prev->next = temp->next;
+            temp = temp->next;
             delete deleteNode;
         }
         else
         {
             um.insert(temp->data);
-            prev=temp;
-            temp=temp->next;
+            prev = temp;
+            temp = temp->next;
         }
+    }
+}
+void removeDuplicates2()
+{
+    // TC: O(n^2)
+    // SC: O(1)
+
+    node *temp = head;
+    node *prev = nullptr;
+    node *delNode = nullptr;
+    while (temp != nullptr)
+    {
+        node *t1 = temp->next;
+        while (t1 != nullptr)
+        {
+            if (temp->data == t1->data)
+            {
+                delNode = t1;
+                prev->next = t1->next;
+                t1 = prev->next;
+                delete delNode;
+            }
+            else
+            {
+                prev = t1;
+                t1 = t1->next;
+            }
+        }
+        temp = temp->next;
     }
 }
 int main()
@@ -70,6 +99,7 @@ int main()
     Insert(2);
     print();
     removeDuplicates1();
+    // removeDuplicates2();
     print();
     return 0;
 }

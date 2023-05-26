@@ -27,8 +27,8 @@ void print()
 }
 void lastToFirst()
 {
-    // Time  : O(n)
-    // Space : O(1)
+    // TC: O(n)
+    // SC: O(1)
 
     node *temp = head;
     node *prev = NULL;
