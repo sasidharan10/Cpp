@@ -66,14 +66,6 @@ void add1()
     }
     Reverse(head);
 }
-int addCarry(node *temp)
-{
-    if (temp == NULL)
-        return 5;
-    int res = temp->data + addCarry(temp->next);
-    temp->data = res % 10;
-    return res / 10;
-}
 void add3()
 {
     int carry = addCarry(head);
@@ -84,6 +76,14 @@ void add3()
         temp->next = head;
         head = temp;
     }
+}
+int addCarry(node *temp)
+{
+    if (temp == NULL)
+        return 5;
+    int res = temp->data + addCarry(temp->next);
+    temp->data = res % 10;
+    return res / 10;
 }
 void add2()
 {

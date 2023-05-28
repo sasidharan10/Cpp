@@ -41,53 +41,49 @@ public:
         }
         cout << endl;
     }
-    void reorderList(ListNode *head)
+    ListNode *removeNthFromEnd(ListNode *head, int n)
     {
-        ListNode *l1 = head;
-        ListNode *l2 = nullptr;
-        ListNode *slow = head;
-        ListNode *fast = head->next;
-        while (fast)
+        // TC: O(n)
+        // SC: O(1)
+
+        ListNode *dummy = new ListNode(0);
+        dummy->next = head;
+        ListNode *fast = dummy;
+        ListNode *slow = dummy;
+        for (int i = 0; i < n; i++)
         {
-            slow = slow->next;
             fast = fast->next;
-            if (fast)
-                fast = fast->next;
         }
-
-        l2 = slow->next;
-        slow->next = nullptr;
-        l2 = reverseList(l2);
-        // printList(l1);
-        // printList(l2);
-        ListNode *temp1 = nullptr;
-        ListNode *temp2 = nullptr;
-        while (l2)
+        while (fast->next != nullptr)
         {
-            // take smaller list, to avoid "out of bound error"
-            temp1 = l1->next;
-            temp2 = l2->next;
-
-            l1->next = l2;
-            l2->next = temp1;
-            l2 = temp2;
-            l1 = temp1;
+            fast = fast->next;
+            slow = slow->next;
         }
+        slow->next = slow->next->next;
+        return dummy->next;
     }
-    ListNode *reverseList(ListNode *head)
+    ListNode *removeNthFromEnd2(ListNode *head, int n)
     {
-        ListNode *prev = nullptr;
-        ListNode *current = head;
-        ListNode *nextNode = nullptr;
-        while (current)
+        // TC: O(2n)
+        // SC: O(1)
+
+        int s = 0;
+        ListNode *temp = head;
+        while (temp != nullptr)
         {
-            nextNode = current->next;
-            current->next = prev;
-            prev = current;
-            current = nextNode;
+            temp = temp->next;
+            s++;
         }
-        head = prev;
-        return head;
+        int k = s - n;
+        ListNode *dummy = new ListNode(0);
+        dummy->next = head;
+        temp = dummy;
+        for (int i = 0; i < k; i++)
+        {
+            temp = temp->next;
+        }
+        temp->next = temp->next->next;
+        return dummy->next;
     }
 };
 int main()
@@ -100,7 +96,7 @@ int main()
     head = s.InsertEnd(head, 4);
     head = s.InsertEnd(head, 5);
     s.printList(head);
-    s.reorderList(head);
+    head = s.removeNthFromEnd(head, 1);
     s.printList(head);
     return 0;
 }
@@ -109,6 +105,6 @@ int main()
 
 link:
 
-leetcode: https://leetcode.com/problems/reorder-list/description/
+leetcode: https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 
 */
