@@ -18,13 +18,15 @@ node *Insert(node *head, int n)
 void print(node *head)
 {
     node *temp = head;
+    cout << "List: ";
     while (temp != NULL)
     {
         cout << temp->data << " ";
         temp = temp->next;
     }
+    cout << endl;
 }
-int Intersect(node *first, node *second)
+node *Intersect(node *first, node *second)
 {
     node *head = NULL;
     node *current = NULL;
@@ -64,30 +66,47 @@ int Intersect(node *first, node *second)
         first = first->next;
         second = second->next;
     }
-    if (first != NULL)
-        return first->data;
+    if (first)
+        return first;
     else
     {
         cout << "They do not Intersect" << endl;
-        return -1;
+        return NULL;
     }
+}
+node *Intersect2(node *l1, node *l2)
+{
+    node *a = l1, *b = l2;
+    while (a != b)
+    {
+        if (!a)
+            a = l2;
+        else
+            a = a->next;
+        if (!b)
+            b = l1;
+        else
+            b = b->next;
+    }
+    return a;
 }
 int main()
 {
     node *first = NULL;
     node *second = NULL;
     // First List
-    first = Insert(first, 30);
-    first = Insert(first, 15);
+    first = Insert(first, 2);
+    first = Insert(first, 7);
     first = Insert(first, 9);
     first = Insert(first, 6);
     first = Insert(first, 3);
+    print(first);
     // Second List
     second = Insert(second, 30);
     second = Insert(second, 15);
     second = Insert(second, 10);
     second->next = first->next->next->next;
-    cout << "\nResult : " << Intersect(first, second);
-    ;
+    print(second);
+    cout << "\nResult : " << Intersect(first, second)->data;
     return 0;
 }
