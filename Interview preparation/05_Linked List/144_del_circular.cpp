@@ -22,36 +22,23 @@ void print(node *head)
         return;
     }
     node *temp = head;
-    cout << "\nList is : ";
+    cout << "List is : ";
     do
     {
         cout << temp->data << " ";
         temp = temp->next;
-    } while (temp != head);
+    } while (temp);
+    cout << endl;
 }
-node *deleteCircular(node *head, int n)
+void deleteAlternate(node *head)
 {
-    node *prev = head;
-    node *temp = head->next;
-    // to check if its head node
-    if (head->data == n)
+    node *temp = head;
+    while (temp != nullptr && temp->next != nullptr)
     {
-        head = head->next;
-    }
-    if (head->data == n && head->next == head)
-    {
-        delete head;
-        head = NULL;
-        return NULL;
-    }
-    while (temp->data != n)
-    {
-        prev = temp;
+        cout << temp->data << " ";
+        temp->next = temp->next->next;
         temp = temp->next;
     }
-    prev->next = temp->next;
-    delete temp;
-    return head;
 }
 int main()
 {
@@ -62,10 +49,8 @@ int main()
     Insert(&head, 3);
     Insert(&head, 2);
     Insert(&head, 1);
-    head->next->next->next->next->next->next = head;
     print(head);
-    head = deleteCircular(head, 1);
-    // head = deleteCircular(head, 6);
+    deleteAlternate(head);
     print(head);
     return 0;
 }

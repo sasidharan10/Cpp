@@ -29,47 +29,18 @@ void print(node *head)
         temp = temp->next;
     } while (temp != head);
 }
-node* deleteAlternate(node *head)
+node *deleteAlternate(node *head)
 {
-    // node *temp=head->next->next;
-    // while (temp!=head || temp->next!=head)
-    // {
-    //     node *delNode=temp->next;
-    //     temp->next=temp->next->next;
-    //     temp=temp->next;
-    //     // cout<<temp->data<<" ";
-    //     // delete delNode;
-    // }
-    node *temp=head;
+    node *temp = head;
     do
     {
-        cout<<temp->data<<" ";
-        node *delNode=temp->next;
-        temp->next=temp->next->next;
-        temp=temp->next;
-    } while (temp->next!=head || temp!=head);
-    
+        node *delNode = temp->next;
+        temp->next = temp->next->next;
+        temp = temp->next;
+        delete delNode;
+    } while (temp != head && temp->next != head);
+
     return head;
-}
-void deleteAlt(node *head) 
-{ 
-    if (head == NULL) 
-        return; 
-  
-    /* Initialize prev and node to be deleted */
-    node *prev = head; 
-    node *temp = head->next; 
-  
-    while (prev != NULL && temp != NULL) 
-    { 
-        /* Change next link of previous temp */
-        prev->next = temp->next; 
-        delete(temp); // delete the temp
-        /* Update prev and temp */
-        prev = prev->next; 
-        if (prev != NULL) 
-            temp = prev->next; 
-    } 
 }
 int main()
 {
@@ -84,8 +55,7 @@ int main()
     Insert(&head, 1);
     head->next->next->next->next->next->next->next->next = head;
     print(head);
-    // head=deleteAlternate(head);
-    deleteAlt(head);
+    head = deleteAlternate(head);
     print(head);
     return 0;
 }
