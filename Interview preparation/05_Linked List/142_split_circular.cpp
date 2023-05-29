@@ -68,3 +68,11 @@ int main()
     print(second);
     return 0;
 }
+
+/*
+
+link: https://practice.geeksforgeeks.org/problems/split-a-circular-linked-list-into-two-halves/1
+
+leetcode: 
+
+*/

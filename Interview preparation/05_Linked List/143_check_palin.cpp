@@ -73,3 +73,11 @@ int main()
     cout<<"\nPalindrome ? : "<<checkPalindrome(head);
     return 0;
 }
+
+/*
+
+link: 
+
+leetcode: https://leetcode.com/problems/palindrome-linked-list/description/
+
+*/

@@ -65,7 +65,7 @@ int main()
     head->next->next->next->next->next->next = head;
     print(head);
     head = deleteCircular(head, 1);
-    head = deleteCircular(head, 6);
+    // head = deleteCircular(head, 6);
     print(head);
     return 0;
 }
