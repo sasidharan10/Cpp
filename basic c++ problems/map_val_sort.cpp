@@ -22,11 +22,11 @@ bool compare(pair<string, int> &p1, pair<string, int> &p2)
 
 void valSort1(unordered_map<string, int> &m)
 {
-    // we know map sorts its elements w.r.t keys. hence we will create a map, 
     /*
-    
-    Q) Sort 
 
+    we know map sorts its elements w.r.t keys. hence we will create a map, and assign,
+    its key to value and vise-versa.
+    
     */
 
     vector<pair<string, int>> v;
@@ -45,6 +45,12 @@ void valSort1(unordered_map<string, int> &m)
 }
 void valSort2(unordered_map<string, int> &m)
 {
+    /*
+    
+    Here, we used the in-built sort() to sort the vector. we used a comparator
+     function (compare()),which tells the sort function, to sort the vector based on second parameter.
+    
+    */
     vector<pair<string, int>> v;
     for (auto it : m)
     {
@@ -57,6 +63,13 @@ void valSort2(unordered_map<string, int> &m)
 }
 void valSort3(unordered_map<string, int> &m)
 {
+
+    /*
+    
+    here, we use operator overloading, which used the class name as a parameter, 
+    and we define the operator function, to sort based on second value.
+    
+    */
     set<pair<string, int>, comp> s(m.begin(), m.end());
     cout << "\nUsing set: " << endl;
     for (auto i : s)

@@ -17,7 +17,7 @@ int main()
     int a[]{7, 5, 8, 9, 4, 2, 6, 3, 1};
     int n = sizeof(a) / sizeof(a[0]);
     priority_queue<int> pq1, pq3;                       // Max-Heap (default)
-    priority_queue<int, vector<int>, greater<int>> pq2; // min-Heap
+    priority_queue<int, vector<int>, greater<>> pq2; // min-Heap
     for (int i = 0; i < n; i++)
     {
         pq1.push(a[i]); // to push

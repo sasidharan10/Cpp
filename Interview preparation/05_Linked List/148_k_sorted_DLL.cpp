@@ -44,6 +44,9 @@ void print(node *head)
 }
 void sortDLL1(node *head)
 {
+    // TC: O(n^2)
+    // SC: O(1)
+
     node *temp = head;
     for (node *i = head->next; i != NULL; i = i->next)
     {
