@@ -14,6 +14,12 @@ int main()
 	cout << "SHRT_MAX : " << SHRT_MAX << endl;
 	cout << "USHRT_MAX : " << USHRT_MAX << endl;
 	cout << "INT_MIN : " << INT_MIN << endl;
+	cout << "INT16_MIN : " << INT16_MIN << endl;
+	cout << "INT16_MAX : " << INT16_MAX << endl;
+	cout << "INT32_MIN : " << INT32_MIN << endl;
+	cout << "INT32_MAX : " << INT32_MAX << endl;
+	cout << "INT64_MIN : " << INT64_MIN << endl;
+	cout << "INT64_MAX : " << INT64_MAX << endl;
 	cout << "INT_MAX : " << INT_MAX << endl;
 	cout << "UINT_MAX : " << UINT_MAX << endl;
 	cout << "LONG_MIN : " << LONG_MIN << endl;
