@@ -70,7 +70,7 @@ bstNode *Delete(bstNode *root, int x)
         {
             bstNode *temp;
             temp = Findmin(root->right);
-            root->data = temp->data;                       // assigning the minimum value in the deeted area
+            root->data = temp->data;                       // assigning the minimum value in the deleted area
             root->right = Delete(root->right, temp->data); // sending the sub-tree for deleting the duplicate
         }
     }
