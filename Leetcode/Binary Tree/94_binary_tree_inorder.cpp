@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 #include <unordered_set>
-#include <unordered_map>
+#include <queue>
 #include <vector>
 using namespace std;
 struct TreeNode
@@ -16,13 +16,19 @@ struct TreeNode
 class Solution
 {
 public:
-    void inorder(TreeNode *root)
+    void inorder(TreeNode *root, vector<int> &ans)
     {
         if (root == NULL)
             return;
-        inorder(root->left);
-        cout << root->val << " ";
-        inorder(root->right);
+        inorder(root->left, ans);
+        ans.push_back(root->val);
+        inorder(root->right, ans);
+    }
+    vector<int> inorderTraversal(TreeNode *root)
+    {
+        vector<int> ans;
+        inorder(root, ans);
+        return ans;
     }
     TreeNode *insertNode(TreeNode *root, int n)
     {
@@ -37,39 +43,32 @@ public:
             root->right = insertNode(root->right, n);
         return root;
     }
-    int rangeSumBST(TreeNode *root, int low, int high)
-    {
-        if (root == nullptr)
-            return 0;
-        if (root->val >= low && root->val <= high)
-            return root->val + rangeSumBST(root->left, low, high) + rangeSumBST(root->right, low, high);
-        else if (low > root->val)
-            return rangeSumBST(root->right, low, high);
-        else
-            return rangeSumBST(root->left, low, high);
-    }
 };
 int main()
 {
     Solution s;
     TreeNode *root = nullptr;
-    root = new TreeNode(10);
-    root->left = new TreeNode(5);
-    root->left->left = new TreeNode(3);
+    root = new TreeNode(3);
+    root->left = new TreeNode(9);
+    root->right = new TreeNode(20);
+    root->left->left = new TreeNode(6);
     root->left->right = new TreeNode(7);
-    root->right = new TreeNode(15);
-    // root->right->left = new TreeNode(5);
-    root->right->right = new TreeNode(18);
+    root->right->left = new TreeNode(15);
+    root->right->right = new TreeNode(7);
     cout << "\nTree: ";
-    s.inorder(root);
-    cout << "Sum of range: " << s.rangeSumBST(root, 7, 15);
+    vector<int> ans = s.inorderTraversal(root);
+    for (auto &&i : ans)
+    {
+        cout << i << " ";
+    }
+    cout << endl;
     return 0;
 }
 
 /*
 
-link: 
+link:
 
-leetcode: https://leetcode.com/problems/range-sum-of-bst/description/
+leetcode: https://leetcode.com/problems/binary-tree-inorder-traversal/description/
 
 */
