@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-#include <unordered_set>
+#include <stack>
 #include <queue>
 #include <vector>
 using namespace std;
@@ -16,13 +16,13 @@ struct TreeNode
 class Solution
 {
 public:
-    void inorder(TreeNode *root, vector<int> &ans)
+    void inorder(TreeNode *root)
     {
         if (root == NULL)
             return;
-        inorder(root->left, ans);
-        ans.push_back(root->val);
-        inorder(root->right, ans);
+        inorder(root->left);
+        cout << root->val << " ";
+        inorder(root->right);
     }
     TreeNode *insertNode(TreeNode *root, int n)
     {
@@ -37,10 +37,26 @@ public:
             root->right = insertNode(root->right, n);
         return root;
     }
-    vector<int> inorderTraversal(TreeNode *root)
+    vector<int> rightSideView(TreeNode *root)
     {
         vector<int> ans;
-        inorder(root, ans);
+        queue<TreeNode *> q;
+        q.push(root);
+        while (!q.empty())
+        {
+            int n = q.size();
+            if (q.front())
+                ans.push_back(q.front()->val);
+            while (n--)
+            {
+                TreeNode *temp = q.front();
+                if (temp && temp->right)
+                    q.push(temp->right);
+                if (temp && temp->left)
+                    q.push(temp->left);
+                q.pop();
+            }
+        }
         return ans;
     }
 };
@@ -48,15 +64,15 @@ int main()
 {
     Solution s;
     TreeNode *root = nullptr;
-    root = new TreeNode(3);
-    root->left = new TreeNode(9);
-    root->right = new TreeNode(20);
-    root->left->left = new TreeNode(6);
-    root->left->right = new TreeNode(7);
-    root->right->left = new TreeNode(15);
+    root = new TreeNode(4);
+    root->left = new TreeNode(2);
+    root->right = new TreeNode(6);
+    root->left->left = new TreeNode(1);
+    root->left->right = new TreeNode(3);
+    root->right->left = new TreeNode(5);
     root->right->right = new TreeNode(7);
     cout << "\nTree: ";
-    vector<int> ans = s.inorderTraversal(root);
+    vector<int> ans = s.rightSideView(root);
     for (auto &&i : ans)
     {
         cout << i << " ";
@@ -69,6 +85,6 @@ int main()
 
 link:
 
-leetcode: https://leetcode.com/problems/binary-tree-inorder-traversal/description/
+leetcode: https://leetcode.com/problems/binary-tree-right-side-view/description/
 
 */
