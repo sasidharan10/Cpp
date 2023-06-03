@@ -37,46 +37,38 @@ public:
             root->right = insertNode(root->right, n);
         return root;
     }
-    void leftSum(TreeNode *root, int &sum)
+    int findBottomLeftValue(TreeNode *root)
     {
-        if (!root)
-            return;
-        if (root->left && !root->left->left && !root->left->right)
-            sum += root->left->val;
-        leftSum(root->left, sum);
-        leftSum(root->right, sum);
-    }
-    int sumOfLeftLeaves(TreeNode *root)
-    {
-        int sum = 0;
-        leftSum(root, sum);
-        return sum;
-    }
-    int sumOfLeftLeaves2(TreeNode *root)
-    {
-        if (!root)
-            return 0;
-        else if (root->left && !root->left->left && !root->left->right)
-            return root->left->val + sumOfLeftLeaves2(root->right);
-        else
-            return sumOfLeftLeaves2(root->left) + sumOfLeftLeaves2(root->right);
+        queue<TreeNode *> q;
+        q.push(root);
+        TreeNode *temp;
+        while (!q.empty())
+        {
+            temp = q.front();
+            q.pop();
+            if (temp && temp->right)
+                q.push(temp->right);
+            if (temp && temp->left)
+                q.push(temp->left);
+        }
+        return temp->val;
     }
 };
 int main()
 {
     Solution s;
     TreeNode *root = nullptr;
-    root = new TreeNode(4);
+    root = new TreeNode(1);
     root->left = new TreeNode(2);
-    root->right = new TreeNode(6);
-    root->left->left = new TreeNode(1);
-    root->left->right = new TreeNode(3);
+    root->right = new TreeNode(3);
+    root->left->left = new TreeNode(4);
+    // root->left->right = new TreeNode(3);
     root->right->left = new TreeNode(5);
-    root->right->right = new TreeNode(7);
+    root->right->right = new TreeNode(6);
+    root->right->left->left = new TreeNode(7);
     cout << "\nTree: ";
     s.inorder(root);
-    cout << "\nSum of left leaves: " << s.sumOfLeftLeaves(root);
-    cout << "\nSum of left leaves: " << s.sumOfLeftLeaves2(root);
+    cout << "\nLeft most leaf: " << s.findBottomLeftValue(root);
     cout << endl;
     return 0;
 }
@@ -85,6 +77,6 @@ int main()
 
 link:
 
-leetcode: https://leetcode.com/problems/sum-of-left-leaves/
+leetcode: https://leetcode.com/problems/find-bottom-left-tree-value/description/
 
 */

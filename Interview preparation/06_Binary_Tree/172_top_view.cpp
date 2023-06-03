@@ -46,6 +46,42 @@ void topview(node *root)
         cout << it->second << " ";
     }
 }
+vector<int> topview2(node *root)
+{
+    // order will not be same.
+
+    deque<node *> q;
+    vector<int> ans;
+    ans.push_back(root->data);
+    if (root->left)
+        q.push_back(root->left);
+    if (root->right)
+        q.push_back(root->right);
+    while (!q.empty())
+    {
+        if (q.front())
+        {
+            node *lt = q.front();
+            ans.push_back(lt->data);
+        }
+        if (q.back())
+        {
+            node *rt = q.back();
+            ans.push_back(rt->data);
+        }
+        int n = q.size();
+        while (n--)
+        {
+            node *temp = q.front();
+            if (temp->left)
+                q.push_back(temp->left);
+            if (temp->right)
+                q.push_back(temp->right);
+            q.pop_front();
+        }
+    }
+    return ans;
+}
 int main()
 {
     node *root = NULL;
@@ -57,5 +93,12 @@ int main()
     root->right->left = Insert(6);
     root->right->right = Insert(7);
     topview(root);
+    vector<int> ans = topview2(root);
+    cout << "Top view: ";
+    for (auto &&i : ans)
+    {
+        cout << i << " ";
+    }
+
     return 0;
 }
