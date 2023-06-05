@@ -18,7 +18,7 @@ node *Insert(int n)
     temp->right = NULL;
     return temp;
 }
-void bottomview(node *root)
+vector<int> bottomview(node *root)
 {
     queue<pair<node *, int>> q;
     map<int, int> m;
@@ -34,9 +34,12 @@ void bottomview(node *root)
         if (temp->right)
             q.push({temp->right, h + 1});
     }
-    cout << "\nBottom View : ";
-    for (auto it : m)
-        cout << it.second << " ";
+    vector<int> v;
+    for (auto &&i : m)
+    {
+        v.push_back(i.second);
+    }
+    return v;
 }
 int main()
 {
@@ -51,6 +54,17 @@ int main()
     root->left->right->left = Insert(10);
     root->left->right->right = Insert(14);
     // 5 10 4 14 25
-    bottomview(root);
+    vector<int> v = bottomview(root);
+    cout << "\nBottom View : ";
+    for (auto it : v)
+        cout << it << " ";
     return 0;
 }
+
+/*
+
+link: https://practice.geeksforgeeks.org/problems/zigzag-tree-traversal/1
+
+leetcode:
+
+*/

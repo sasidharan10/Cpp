@@ -18,15 +18,14 @@ node *Insert(int n)
     temp->right = NULL;
     return temp;
 }
-void Diagonal(node *root)
+vector<int> Diagonal(node *root)
 {
+    vector<int> v;
     if (root == NULL)
     {
-        cout << "Empty!!!" << endl;
-        return;
+        return v;
     }
     queue<node *> q;
-    vector<int> v;  
     q.push(root);
     while (!q.empty())
     {
@@ -40,9 +39,7 @@ void Diagonal(node *root)
             temp = temp->right;
         }
     }
-    cout << "\nDiagonal : ";
-    for (int i : v)
-        cout << i << " ";
+    return v;
 }
 int main()
 {
@@ -54,6 +51,17 @@ int main()
     root->left->right = Insert(5);
     root->right->left = Insert(6);
     root->right->right = Insert(7);
-    Diagonal(root);
+    vector<int> v = Diagonal(root);
+    cout << "\nDiagonal : ";
+    for (int i : v)
+        cout << i << " ";
     return 0;
 }
+
+/*
+
+link: https://practice.geeksforgeeks.org/problems/diagonal-traversal-of-binary-tree/1
+
+leetcode:
+
+*/
