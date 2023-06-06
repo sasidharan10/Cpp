@@ -56,18 +56,17 @@ void right(node *root, vector<int> &v)
         v.push_back(root->data);
     }
 }
-void boundary(node *root)
+vector<int> boundary(node *root)
 {
-    if (root == NULL)
-        return;
     vector<int> v;
+    if (root == NULL)
+        return v;
     v.push_back(root->data);
     left(root->left, v);
-    leaf(root, v);
+    if (root->left || root->right)
+        leaf(root, v);
     right(root->right, v);
-    cout << "\nBoundary : ";
-    for (int i : v)
-        cout << i << " ";
+    return v;
 }
 int main()
 {
@@ -80,6 +79,9 @@ int main()
     root->left->right = Insert(5);
     root->left->right->left = Insert(7);
     root->left->right->right = Insert(8);
-    boundary(root);
+    vector<int> v = boundary(root);
+    cout << "\nBoundary : ";
+    for (int i : v)
+        cout << i << " ";
     return 0;
 }

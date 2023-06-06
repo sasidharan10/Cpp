@@ -117,3 +117,11 @@ int main()
     print(root2);
     return 0;
 }
+
+/*
+
+link: https://www.geeksforgeeks.org/construct-binary-tree-string-bracket-representation/
+
+leetcode: 
+
+*/
