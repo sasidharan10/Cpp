@@ -24,27 +24,14 @@ public:
         cout << root->val << " ";
         inorder(root->right);
     }
-
-    TreeNode *getTargetCopy(TreeNode *original, TreeNode *cloned, TreeNode *target)
+    bool hasPathSum(TreeNode *root, int targetSum)
     {
-        if (!cloned)
-            return NULL;
-        if (target->val == cloned->val)
-            return cloned;
-        TreeNode *lt=NULL;
-        TreeNode *rt=NULL;
-        if (cloned->left)
-            lt = getTargetCopy(original, cloned->left, target);
-
-        if (cloned->right)
-            rt = getTargetCopy(original, cloned->right, target);
-
-        if (rt)
-            return rt;
-        else if (lt)
-            return lt;
+        if(!root)
+            return false;
+        if(!root->left && !root->right && targetSum - root->val ==0 )
+            return true;
         else
-            return NULL;
+            return hasPathSum(root->left, targetSum-root->val) || hasPathSum(root->right, targetSum-root->val);
     }
 };
 int main()
@@ -61,8 +48,7 @@ int main()
     cout << "\nTree: ";
     s.inorder(root);
     cout << endl;
-    TreeNode *temp = s.getTargetCopy(root, root, root->right->left);
-    cout << "Node: " << temp->val << endl;
+    cout << "Path sum exists? " << s.hasPathSum(root, 9);
     return 0;
 }
 
@@ -70,6 +56,6 @@ int main()
 
 link:
 
-leetcode: https://leetcode.com/problems/find-a-corresponding-node-of-a-binary-tree-in-a-clone-of-that-tree/
+leetcode: https://leetcode.com/problems/path-sum/
 
 */
