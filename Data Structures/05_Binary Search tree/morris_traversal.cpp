@@ -43,7 +43,7 @@ vector<int> morrisInorder(bstNode *root)
             {
                 prev = prev->right;
             }
-            // create a thread to next node.
+            // create a thread to next node, then move to left.
             if (prev->right == NULL)
             {
                 prev->right = cur;
