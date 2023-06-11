@@ -54,18 +54,16 @@ int main()
 
 link: https://practice.geeksforgeeks.org/problems/transform-to-sum-tree/1
 
-leetcode: 
+leetcode:
 
 */
 
-    // root = Insert(10);
-    // root->left = Insert(-2);
-    // root->right = Insert(6);
-    // root->left->left = Insert(8);
-    // root->left->right = Insert(-4);
-    // root->right->left = Insert(7);
-    // root->right->right = Insert(5);
+// root = Insert(10);
+// root->left = Insert(-2);
+// root->right = Insert(6);
+// root->left->left = Insert(8);
+// root->left->right = Insert(-4);
+// root->right->left = Insert(7);
+// root->right->right = Insert(5);
 
-    // 0 4 0 20 0 12 0
-
-
+// 0 4 0 20 0 12 0
