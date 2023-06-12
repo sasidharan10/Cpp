@@ -1,8 +1,10 @@
 #include <iostream>
 #include <algorithm>
 #include <climits>
-#include <map>
 #include <vector>
+#include <queue>
+#include <map>
+#include <set>
 using namespace std;
 struct TreeNode
 {
@@ -37,27 +39,67 @@ public:
             root->right = insertNode(root->right, n);
         return root;
     }
-    void verticalTraversalUtil(TreeNode *root, int &level, map<int, vector<int>> &m)
+    vector<vector<int>> verticalTraversal(TreeNode *root)
+    {
+        // TC: O(logn*logn*logn*N)
+        // SC: O(3n)
+        // BFS approach (faster)
+
+        map<int, map<int, multiset<int>>> m;
+        vector<vector<int>> v;
+        queue<pair<TreeNode *, pair<int, int>>> q;
+        q.push({root, {0, 0}});
+        while (!q.empty())
+        {
+            pair<TreeNode *, pair<int, int>> temp = q.front();
+            TreeNode *node = temp.first;
+            int x = temp.second.first;
+            int y = temp.second.second;
+            m[x][y].insert(node->val);
+            if (node->left)
+                q.push({node->left, {x - 1, y + 1}});
+            if (node->right)
+                q.push({node->right, {x + 1, y + 1}});
+            q.pop();
+        }
+        for (auto &&i : m)
+        {
+            vector<int> temp;
+            for (auto &&j : i.second)
+            {
+                temp.insert(temp.end(), j.second.begin(), j.second.end());
+            }
+            v.push_back(temp);
+        }
+        return v;
+    }
+    void verticalTraversalUtil(TreeNode *root, int level, int depth, map<int, map<int, multiset<int>>> &m)
     {
         if (!root)
             return;
-        level--;
-        verticalTraversalUtil(root->left, level, m);
-        level++;
-        m[level].push_back(root->val);
-        level++;
-        verticalTraversalUtil(root->right, level, m);
-        level--;
+        verticalTraversalUtil(root->left, level - 1, depth + 1, m);
+        m[level][depth].insert(root->val);
+        verticalTraversalUtil(root->right, level + 1, depth + 1, m);
     }
-    vector<vector<int>> verticalTraversal(TreeNode *root)
+    vector<vector<int>> verticalTraversal2(TreeNode *root)
     {
-        map<int, vector<int>> m;
+        // TC: O(logn*logn*logn*N)
+        // SC: O(3n)
+        // DFS approach
+
+        map<int, map<int, multiset<int>>> m;
         int level = 0;
-        verticalTraversalUtil(root, level, m);
+        int depth = 0;
+        verticalTraversalUtil(root, level, depth, m);
         vector<vector<int>> v;
         for (auto &&i : m)
         {
-            v.push_back(i.second);
+            vector<int> temp;
+            for (auto &&j : i.second)
+            {
+                temp.insert(temp.end(), j.second.begin(), j.second.end());
+            }
+            v.push_back(temp);
         }
         return v;
     }
