@@ -71,11 +71,82 @@ public:
             root->right = insertNode(root->right, n);
         return root;
     }
+    TreeNode *sortedListToBSTUtil2(vector<int> v, int lt, int rt)
+    {
+        if (lt > rt)
+            return nullptr;
+        int mid = lt + (rt - lt) / 2;
+        TreeNode *root = new TreeNode(v[mid]);
+        root->left = sortedListToBSTUtil2(v, lt, mid - 1);
+        root->right = sortedListToBSTUtil2(v, mid + 1, rt);
+        return root;
+    }
+    TreeNode *sortedListToBST2(ListNode *head)
+    {
+        // TC: O(2n)
+        // SC: O(n)
+
+        vector<int> v;
+        getList(head, v);
+        TreeNode *root = sortedListToBSTUtil2(v, 0, v.size() - 1);
+        return root;
+    }
+    ListNode *findMid(ListNode *head)
+    {
+        ListNode *slow = head;
+        ListNode *fast = head->next;
+        if (fast)
+            fast = fast->next;
+        else
+            return slow;
+        while (fast && fast->next)
+        {
+            slow = slow->next;
+            fast = fast->next;
+            if (fast)
+                fast = fast->next;
+        }
+        return slow;
+    }
+    TreeNode *sortedListToBSTUtil(ListNode *head)
+    {
+        if (!head)
+            return nullptr;
+        if (head && !head->next)
+        {
+            TreeNode *temp = new TreeNode(head->val);
+            return temp;
+        }
+        ListNode *prev = findMid(head);
+        ListNode *mid = prev->next;
+        ListNode *rt = mid->next;
+        mid->next = nullptr;
+        prev->next = nullptr;
+        TreeNode *root = new TreeNode(mid->val);
+        root->left = sortedListToBSTUtil(head);
+        root->right = sortedListToBSTUtil(rt);
+        return root;
+    }
+    TreeNode *sortedListToBST(ListNode *head)
+    {
+        // TC: O(n^2)
+        // SC: O(1)
+
+        TreeNode *root = sortedListToBSTUtil(head);
+        return root;
+    }
+    void getList(ListNode *head, vector<int> &v)
+    {
+        while (head)
+        {
+            v.push_back(head->val);
+            head = head->next;
+        }
+    }
 };
 int main()
 {
     Solution s;
-    TreeNode *root = nullptr;
     ListNode *head = NULL;
     head = s.InsertEnd(head, 1);
     head = s.InsertEnd(head, 2);
@@ -86,7 +157,9 @@ int main()
     head = s.InsertEnd(head, 7);
     cout << "\nList: ";
     s.printList(head);
-    // s.inorder(root);
+    TreeNode *root = s.sortedListToBST(head);
+    cout << "\nTree: ";
+    s.inorder(root);
     return 0;
 }
 
