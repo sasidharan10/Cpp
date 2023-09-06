@@ -47,7 +47,7 @@ void valSort2(unordered_map<string, int> &m)
 {
     /*
     
-    Here, we used the in-built sort() to sort the vector. we used a comparator
+    Here, we used the in-built sort() to sort the map. we used a comparator
      function (compare()),which tells the sort function, to sort the vector based on second parameter.
     
     */

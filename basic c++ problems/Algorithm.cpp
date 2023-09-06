@@ -25,12 +25,12 @@ int main()
 	// reverse(arr, arr + n); // reverse
 	for (int i : arr)
 		cout << i << " ";
-	auto p = lower_bound(arr, arr + n, 20);
-	auto q = upper_bound(arr, arr + n, 20);
+	auto p = lower_bound(arr, arr + n, 4);
+	auto q = upper_bound(arr, arr + n, 4);
 	cout << "\nThe lower bound is at position: ";
-	cout << *p << endl;
+	cout << p - arr << endl;
 	cout << "The upper bound is at position: ";
-	cout << *q << endl;
+	cout << q - arr << endl;
 	vector<int> v(arr, arr + n);
 	cout << "Vector: ";
 	for (int i : v)
@@ -41,7 +41,11 @@ int main()
 	for (int i : v)
 		cout << i << " ";
 	cout << endl;
-	v.erase(unique(v.begin(), v.end()), v.end());
+	auto pt = unique(v.begin(), v.end());
+	cout << "\nVector after erasing: ";
+	for (int i : v)
+		cout << i << " ";
+	v.erase(pt, v.end());
 	cout << "Vector after removing duplicates: ";
 	for (int i : v)
 		cout << i << " ";

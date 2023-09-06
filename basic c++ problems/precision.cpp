@@ -17,8 +17,8 @@ int main()
     cout << fixed << setprecision(1) << x << endl;
     cout << fixed << setprecision(2) << x << endl;
     cout << fixed << setprecision(3) << x << endl;
-    cout << fixed << setprecision(6) << x << endl;
+    cout << fixed << setprecision(9) << x << endl;
 
-    printf("\n%.9f",x);   // old method
+    printf("\n%.9f", x); // old method
     return 0;
 }
