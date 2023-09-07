@@ -80,3 +80,15 @@ int main()
     cout << "Least Energy spent: " << frogJump(n, height);
     return 0;
 }
+
+/*
+
+link: https://www.codingninjas.com/studio/problems/frog-jump_3621012
+
+leetcode: 
+
+Youtube: https://www.youtube.com/watch?v=EgG3jsGoPvQ&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=4
+
+algorithm: 
+
+*/

@@ -39,3 +39,15 @@ int main()
     cout << "Fib: " << fib2(n) << endl;
     return 0;
 }
+
+/*
+
+link: 
+
+leetcode: 
+
+Youtube: https://www.youtube.com/watch?v=tyB0ztf0DNY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=2
+
+algorithm: 
+
+*/
