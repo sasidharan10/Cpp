@@ -102,4 +102,19 @@ int main()
 If the comp function is inside a class, then we need to make that function static, to
 make that function, independent, from the class.
 
+Sorting Pairs in Ascending Order:
+
+When you are sorting a collection of pairs in ascending order, you want the pair with the smallest 
+value (i.e., the most significant value in the comparison) to come first. Therefore, in your 
+comparator function, you use a.first < b.first to compare the first elements of the pairs. 
+This means that if a.first is less than b.first, a should come before b in the sorted order. 
+
+Min-Heap:
+
+In a min-heap, you want the smallest element to have the highest priority, which means the element 
+with the smallest value (i.e., value in your min-heap case) should be at the top of the heap. 
+To achieve this, you use a.value > b.value in your comparator function. This means that 
+if a.value is greater than b.value, a should have higher priority (and be lower in the heap), 
+allowing the smallest elements to rise to the top.
+
 */

@@ -21,6 +21,7 @@
     },
     "peacock.color": "#001f25",
     "files.associations": {
+        "*.ejs": "html",
         "iostream": "cpp",
         "algorithm": "cpp",
         "istream": "cpp",
@@ -93,7 +94,9 @@
         "cstdarg": "cpp",
         "cwctype": "cpp",
         "forward_list": "cpp",
-        "memory_resource": "cpp"
+        "memory_resource": "cpp",
+        "regex": "cpp",
+        "valarray": "cpp"
     },
     "C_Cpp.errorSquiggles": "Enabled",
     "sqltools.connections": [
