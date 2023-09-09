@@ -55,11 +55,6 @@ int main()
     Solution s;
     int n = 5;
     Job j[] = {{1, 2, 100}, {2, 1, 19}, {3, 2, 27}, {4, 1, 25}, {5, 1, 15}};
-    // for (int i = 0; i < n; i++)
-    // {
-    //     cout<<j[i].profit<<endl;
-    // }
-
     vector<int> ans = s.JobScheduling(j, n);
     cout << "No of jobs: " << ans[0] << "\nProfit: " << ans[1] << endl;
     return 0;
