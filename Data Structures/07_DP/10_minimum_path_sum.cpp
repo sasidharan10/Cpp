@@ -3,6 +3,9 @@ using namespace std;
 // Recursion
 int minSumPathRecur(int i, int j, vector<vector<int>> &grid)
 {
+    // TC: O(2^m*n)
+    // SC: O(n+m)
+
     if (i == 0 && j == 0)
         return grid[i][j];
     if (i < 0 || j < 0)
@@ -14,6 +17,9 @@ int minSumPathRecur(int i, int j, vector<vector<int>> &grid)
 // Memoization
 int minSumPathMem(int i, int j, vector<vector<int>> &grid, vector<vector<int>> &dp)
 {
+    // TC: O(n*m)
+    // SC: O(n+m) + O(n*m)
+
     if (i == 0 && j == 0)
         return grid[i][j];
     if (i < 0 || j < 0)
@@ -27,6 +33,9 @@ int minSumPathMem(int i, int j, vector<vector<int>> &grid, vector<vector<int>> &
 // Tabulation
 int minSumPathTab(vector<vector<int>> &grid)
 {
+    // TC: O(n*m)
+    // SC: O(n*m)
+
     int n = grid.size();
     int m = grid[0].size();
     vector<vector<int>> dp(m, vector<int>(n, 0));
@@ -57,6 +66,9 @@ int minSumPathTab(vector<vector<int>> &grid)
 // Space Optimization
 int minSumPathSpc(vector<vector<int>> &grid)
 {
+    // TC: O(n*m)
+    // SC: O(m)
+
     int n = grid.size();
     int m = grid[0].size();
     vector<int> prev(m, 0);

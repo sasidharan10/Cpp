@@ -3,6 +3,9 @@ using namespace std;
 // Recursion
 int minimumPathSumRecur(int i, int j, vector<vector<int>> &triangle)
 {
+    // TC: O(2^n*n)
+    // SC: O(2n)
+
     if (i == triangle.size() - 1)
         return triangle[i][j];
     int down = triangle[i][j] + minimumPathSumRecur(i + 1, j, triangle);
@@ -12,6 +15,9 @@ int minimumPathSumRecur(int i, int j, vector<vector<int>> &triangle)
 // Memoization
 int minimumPathSumMem(int i, int j, vector<vector<int>> &triangle, vector<vector<int>> &dp)
 {
+    // TC: O(2n)
+    // SC: O(2n) + O(2n)
+
     if (i == triangle.size() - 1)
         return triangle[i][j];
     if (dp[i][j] != 1e9)
@@ -23,6 +29,9 @@ int minimumPathSumMem(int i, int j, vector<vector<int>> &triangle, vector<vector
 // Tabulation
 int minimumPathSumTab(vector<vector<int>> &triangle, int n)
 {
+    // TC: O(2n)
+    // SC: O(2n)
+
     vector<vector<int>> dp(n, vector<int>(n, 0));
     for (int j = 0; j < n; j++)
     {
@@ -42,6 +51,9 @@ int minimumPathSumTab(vector<vector<int>> &triangle, int n)
 // Space Optimization
 int minimumPathSumSpc(vector<vector<int>> &triangle, int n)
 {
+    // TC: O(2n)
+    // SC: O(n)
+
     vector<int> prev(n, 0);
     for (int j = 0; j < n; j++)
     {
@@ -80,3 +92,15 @@ int main()
     cout << "Minimum path sum: " << minimumPathSum(triangle, n);
     return 0;
 }
+
+/*
+
+link: https://www.codingninjas.com/studio/problems/triangle_1229398
+
+leetcode:
+
+Youtube: https://www.youtube.com/watch?v=SrP-PiLSYC0&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=12
+
+algorithm:
+
+*/
