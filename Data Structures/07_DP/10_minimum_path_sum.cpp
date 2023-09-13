@@ -55,7 +55,37 @@ int minSumPathTab(vector<vector<int>> &grid)
     return dp[n - 1][m - 1];
 }
 // Space Optimization
-
+int minSumPathSpc(vector<vector<int>> &grid)
+{
+    int n = grid.size();
+    int m = grid[0].size();
+    vector<int> prev(m, 0);
+    for (int i = 0; i < n; i++)
+    {
+        vector<int> temp(m, 0);
+        for (int j = 0; j < m; j++)
+        {
+            if (i == 0 && j == 0)
+            {
+                temp[j] = grid[i][j];
+                continue;
+            }
+            int up = grid[i][j];
+            int left = grid[i][j];
+            if (i > 0)
+                up += prev[j];
+            else
+                up += 1e9;
+            if (j > 0)
+                left += temp[j - 1];
+            else
+                left += 1e9;
+            temp[j] = min(left, up);
+        }
+        prev = temp;
+    }
+    return prev[m - 1];
+}
 int minSumPath(vector<vector<int>> &grid)
 {
     int n = grid.size();
@@ -63,7 +93,8 @@ int minSumPath(vector<vector<int>> &grid)
     // return minSumPathRecur(n - 1, m - 1, grid);
     vector<vector<int>> dp(m, vector<int>(n, -1));
     // return minSumPathMem(n - 1, m - 1, grid, dp);
-    return minSumPathTab(grid);
+    // return minSumPathTab(grid);
+    return minSumPathSpc(grid);
 }
 int main()
 {
