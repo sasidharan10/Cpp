@@ -3,6 +3,9 @@ using namespace std;
 // Recursion
 bool subsetSumToKRecur(int ind, int target, vector<int> &arr)
 {
+    // TC: O(2^n)
+    // SC: O(n)
+
     if (target == 0)
         return true;
     if (ind == 0)
@@ -16,6 +19,9 @@ bool subsetSumToKRecur(int ind, int target, vector<int> &arr)
 // Memoization
 bool subsetSumToKMem(int ind, int target, vector<int> &arr, vector<vector<int>> &dp)
 {
+    // TC: O(n*target)
+    // SC: O(n*target) + O(n)
+
     if (target == 0)
         return true;
     if (ind == 0)
@@ -31,6 +37,9 @@ bool subsetSumToKMem(int ind, int target, vector<int> &arr, vector<vector<int>> 
 // Tabulation
 bool subsetSumToKTab(int n, int k, vector<int> &arr)
 {
+    // TC: O(n*target)
+    // SC: O(n*target)
+    
     vector<vector<int>> dp(n, vector<int>(k + 1, 0));
     for (int i = 0; i < n; i++)
     {
@@ -54,6 +63,9 @@ bool subsetSumToKTab(int n, int k, vector<int> &arr)
 // Space Optimization
 bool subsetSumToKSpc(int n, int k, vector<int> &arr)
 {
+    // TC: O(n*target)
+    // SC: O(target)
+
     vector<int> prev(k + 1, 0), cur(k + 1, 0);
     prev[0] = cur[0] = 1;
     if (arr[0] <= k)
@@ -96,10 +108,10 @@ int main()
 
 link: https://www.codingninjas.com/studio/problems/subset-sum-equal-to-k_1550954
 
-leetcode: 
+leetcode:
 
 Youtube: https://www.youtube.com/watch?v=fWX9xDmIzRI&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=15
 
-algorithm: 
+algorithm:
 
 */
