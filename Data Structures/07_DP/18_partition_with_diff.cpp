@@ -49,3 +49,15 @@ int main()
     cout << "Count of subsets s1 >= s2, with diff d: " << countPartitions(n, d, arr);
     return 0;
 }
+
+/*
+
+link: https://www.codingninjas.com/studio/problems/partitions-with-given-difference_3751628
+
+leetcode: 
+
+Youtube: https://www.youtube.com/watch?v=zoilQD1kYSg&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=19&pp=iAQB
+
+algorithm: 
+
+*/
