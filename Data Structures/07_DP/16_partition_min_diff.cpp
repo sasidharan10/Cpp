@@ -2,6 +2,8 @@
 using namespace std;
 int minSubsetSumDifference(vector<int> &arr, int n)
 {
+    // TC: O(n*target) + O(2n)
+    // SC: O(n*target)
     int totSum = 0;
     for (int i = 0; i < n; i++)
     {
