@@ -1,2 +1,7 @@
 # Cpp
-Basic C++ Programs | DSA | Leetcode Questions
+
+- Basic C++ Programs
+
+- DSA
+
+-  Leetcode Questions
