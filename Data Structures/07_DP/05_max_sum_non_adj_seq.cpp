@@ -22,8 +22,9 @@ int maximumNonAdjacentSumMem(int index, vector<int> &nums, vector<int> &dp)
     int notPick = 0 + maximumNonAdjacentSumRecur(index - 1, nums);
     return dp[index] = max(pick, notPick);
 }
-int maximumNonAdjacentSumTab(int n, vector<int> &nums)
+int maximumNonAdjacentSumTab(vector<int> &nums)
 {
+    int n = nums.size();
     vector<int> dp(n + 1, -1);
     dp[0] = nums[0];
     int neg = 0;
@@ -38,8 +39,9 @@ int maximumNonAdjacentSumTab(int n, vector<int> &nums)
     return dp[n - 1];
 }
 // Space Optimization
-int maximumNonAdjacentSumSpc(int n, vector<int> &nums)
+int maximumNonAdjacentSumSpc(vector<int> &nums)
 {
+    int n = nums.size();
     int prev = nums[0];
     int prev2 = 0;
     for (int i = 1; i < n; i++)
@@ -60,8 +62,8 @@ int maximumNonAdjacentSum(vector<int> &nums)
     // return maximumNonAdjacentSumRecur(n - 1, nums);
     vector<int> dp(n + 1, -1);
     // return maximumNonAdjacentSumMem(n - 1, nums, dp);
-    // return maximumNonAdjacentSumTab(n, nums);
-    return maximumNonAdjacentSumSpc(n, nums);
+    // return maximumNonAdjacentSumTab(nums);
+    return maximumNonAdjacentSumSpc(nums);
 }
 int main()
 {
@@ -74,10 +76,10 @@ int main()
 
 link: https://www.codingninjas.com/studio/problems/maximum-sum-of-non-adjacent-elements_843261
 
-leetcode: 
+leetcode:
 
 Youtube: https://www.youtube.com/watch?v=GrMBfJNk_NY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=6
 
-algorithm: 
+algorithm:
 
 */
