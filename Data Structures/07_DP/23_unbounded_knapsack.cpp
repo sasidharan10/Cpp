@@ -3,6 +3,9 @@ using namespace std;
 // Recursion
 int unboundedKnapsackRecur(int ind, int w, int n, vector<int> &val, vector<int> &wt)
 {
+    // TC: >> O(2^n), exponentially
+    // SC: O(n)
+
     if (ind == 0)
     {
         if (w % wt[ind] == 0)
@@ -19,6 +22,9 @@ int unboundedKnapsackRecur(int ind, int w, int n, vector<int> &val, vector<int> 
 // Memoization
 int unboundedKnapsackMem(int ind, int w, int n, vector<int> &val, vector<int> &wt, vector<vector<int>> &dp)
 {
+    // TC: O(n*w)
+    // SC: O(n*w) + O(n)
+
     if (ind == 0)
     {
         if (w % wt[ind] == 0)
@@ -37,6 +43,9 @@ int unboundedKnapsackMem(int ind, int w, int n, vector<int> &val, vector<int> &w
 // Tabulation
 int unboundedKnapsackTab(int n, int w, vector<int> &profit, vector<int> &weight)
 {
+    // TC: O(n*w)
+    // SC: O(n*w)
+
     vector<vector<int>> dp(n, vector<int>(w + 1, 0));
     for (int wt = weight[0]; wt <= w; wt++)
     {
@@ -59,6 +68,9 @@ int unboundedKnapsackTab(int n, int w, vector<int> &profit, vector<int> &weight)
 // Space Optimization
 int unboundedKnapsackSpc(int n, int w, vector<int> &profit, vector<int> &weight)
 {
+    // TC: O(n*w)
+    // SC: O(n)
+
     vector<int> prev(w + 1, 0), cur(w + 1, 0);
     for (int wt = weight[0]; wt <= w; wt++)
     {
@@ -102,7 +114,7 @@ link: https://www.codingninjas.com/studio/problems/unbounded-knapsack_1215029
 
 leetcode:
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=OgvOZ6OrJoY&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=24
 
 algorithm:
 

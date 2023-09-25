@@ -4,6 +4,7 @@ int findWaysSpc(vector<int> &arr, int k)
 {
     // TC: O(n*target) + O(n)
     // SC: O(target)
+    
     int mod = 1e9 + 7;
     int n = arr.size();
     vector<int> prev(k + 1, 0), cur(k + 1, 0);
@@ -54,11 +55,11 @@ int main()
 
 /*
 
-link:
+link: https://www.codingninjas.com/studio/problems/target-sum_4127362
 
 leetcode:
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=b3GD8263-PQ
 
 algorithm:
 

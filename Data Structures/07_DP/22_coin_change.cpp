@@ -3,6 +3,9 @@ using namespace std;
 // Recursion
 long countWaysToMakeChangeRecur(int ind, int target, int *arr, int n)
 {
+    // TC: >> O(2^n), exponential
+    // SC: O(n)
+
     if (ind == 0)
     {
         if (target % arr[ind] == 0)
@@ -21,6 +24,9 @@ long countWaysToMakeChangeRecur(int ind, int target, int *arr, int n)
 // Memoization
 long countWaysToMakeChangeMem(int ind, int target, int *arr, int n, vector<vector<long>> &dp)
 {
+    // TC: O(n*target)
+    // SC: O(n*target) + O(n)
+
     if (ind == 0)
     {
         if (target % arr[ind] == 0)
@@ -41,6 +47,9 @@ long countWaysToMakeChangeMem(int ind, int target, int *arr, int n, vector<vecto
 // Tabulation
 long countWaysToMakeChangeTab(int *arr, int n, int value)
 {
+    // TC: O(n*value)
+    // SC: O(n*value)
+
     vector<vector<long>> dp(n, vector<long>(value + 1, 0));
     for (int target = 0; target <= value; target++)
     {
@@ -65,6 +74,9 @@ long countWaysToMakeChangeTab(int *arr, int n, int value)
 // Space Optimization
 long countWaysToMakeChangeSpc(int *arr, int n, int value)
 {
+    // TC: O(n*value)
+    // SC: O(value)
+
     vector<long> prev(value + 1, 0), cur(value + 1, 0);
     for (int target = 0; target <= value; target++)
     {
