@@ -4,15 +4,10 @@
 using namespace std;
 int main()
 {
-    string x = "sasasafs";
-    int k=97;
-    cout << "x: " << x << endl;
-    
-    x+=to_string(k)+"->";
-    cout << "x: " << x << endl;
-    x.pop_back();
-    cout << "x: " << x << endl;
-    x.erase(x.end()-3, x.end());
-    cout << "x: " << x << endl;
+    string x = "s343";
+    int k = 97;
+    cout << x[0] - '0' << endl;
+    cout << isdigit(x[0])<< endl;
+
     return 0;
 }

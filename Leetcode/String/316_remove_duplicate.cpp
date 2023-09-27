@@ -18,7 +18,7 @@ public:
             int cur = s[i] - 'a';
             if (seen[cur])
                 continue;
-            if (!st.empty() && st.top() > s[i] && i < lastIndex[st.top() - 'a'])
+            while (!st.empty() && st.top() > s[i] && i < lastIndex[st.top() - 'a'])
             {
                 seen[st.top() - 'a'] = false;
                 st.pop();
