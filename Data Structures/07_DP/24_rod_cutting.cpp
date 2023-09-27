@@ -110,3 +110,15 @@ int main()
     cout << "Max Cost: " << cutRod(nums, n);
     return 0;
 }
+
+/*
+
+link: https://www.codingninjas.com/studio/problems/rod-cutting-problem_800284
+
+leetcode: 
+
+Youtube: https://www.youtube.com/watch?v=mO8XpGoJwuo&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=26
+
+algorithm: 
+
+*/
