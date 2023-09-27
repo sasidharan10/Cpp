@@ -48,9 +48,9 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/remove-duplicate-letters/description/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=j313ttNJjo0
 
 algorithm:
 

@@ -72,7 +72,7 @@ link:
 
 leetcode: https://leetcode.com/problems/decoded-string-at-index
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=vmgVNV0u3pE&t=526s
 
 algorithm:
 
