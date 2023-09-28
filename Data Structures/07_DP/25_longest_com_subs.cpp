@@ -101,11 +101,11 @@ int main()
 
 /*
 
-link:
+link: https://www.codingninjas.com/studio/problems/longest-common-subsequence_624879
 
 leetcode:
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=NPZn9jBrX8U&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=26&pp=iAQB
 
 algorithm:
 
