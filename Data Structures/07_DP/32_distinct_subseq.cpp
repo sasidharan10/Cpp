@@ -43,6 +43,9 @@ int distinctSubsequencesMem(int i, int j, string &str, string &sub, vector<vecto
 // Tabulation
 int distinctSubsequencesTab(string &str, string &sub)
 {
+    // TC: O(n*m)
+    // SC: O(n*m)
+
     int mod = 1e9 + 7;
     int n = str.size();
     int m = sub.size();
@@ -58,11 +61,11 @@ int distinctSubsequencesTab(string &str, string &sub)
         {
             if (str[i - 1] == sub[j - 1])
             {
-                dp[i][j] = (dp[i - 1][j - 1] + dp[i - 1][j])%mod;
+                dp[i][j] = (dp[i - 1][j - 1] + dp[i - 1][j]) % mod;
             }
             else
             {
-                dp[i][j] = (dp[i - 1][j])%mod;
+                dp[i][j] = (dp[i - 1][j]) % mod;
             }
         }
     }
@@ -71,6 +74,9 @@ int distinctSubsequencesTab(string &str, string &sub)
 // Space Optimization
 int distinctSubsequencesSpc(string &str, string &sub)
 {
+    // TC: O(n*m)
+    // SC: O(2m), O(m) also possible
+
     int mod = 1e9 + 7;
     int n = str.size();
     int m = sub.size();
@@ -93,6 +99,7 @@ int distinctSubsequencesSpc(string &str, string &sub)
         prev = cur;
     }
     return prev[m];
+    // note, 1D optimization also possible, just change cur[] to prev[]
 }
 
 int distinctSubsequences(string &str, string &sub)
