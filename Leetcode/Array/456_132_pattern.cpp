@@ -41,6 +41,11 @@ leetcode:
 
 Youtube:
 
-algorithm:
+algorithm: 
+
+- condition nums[i] < nums[k] < nums[j] 
+- We keep track of the max element(nums[j]) in the stack, and keep track of the second largest element
+  in the variable "third" nums[k]. If we find any element smaller than "third", i.e nums[i], that means
+  we found the sequence, hence we return true. If the loop ends, we return false.
 
 */
