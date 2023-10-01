@@ -5,13 +5,24 @@ class Solution
 public:
     bool find132pattern(vector<int> &nums)
     {
+        // TC: O(n)
+        // SC: O(n)
+
+        stack<int> st;
         int n = nums.size();
-        bool res = false;
-        for (int i = 0; i < n - 2; i++)
+        int third = INT_MIN;
+        for (int i = n - 1; i >= 0; i--)
         {
-            int a = i, b = i - 1, c = i - 2;
-            if (nums[a] < nums[b] && nums[a] < nums[c] && nums[b] < nums[c]);
+            if (nums[i] < third)
+                return true;
+            while (!st.empty() && st.top() < nums[i])
+            {
+                third = st.top();
+                st.pop();
+            }
+            st.push(nums[i]);
         }
+        return false;
     }
 };
 int main()

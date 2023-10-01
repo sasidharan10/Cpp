@@ -121,7 +121,7 @@ void nextPermutation4(int *a, int n)
     {
         /*
 
-        - finding element that are greater than "left of peak" element, if any.
+        - finding element that are greater than "left of peak" element on the right side, if any.
         - if no element is greater, than we swap it with the peak element.
         - since index will point to peak element, once the loop is done.
 
