@@ -1,8 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include <unordered_set>
-#include <unordered_map>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
 class Solution
 {
@@ -32,5 +28,7 @@ int main()
 link: 
 
 leetcode: https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
+
+Youtube: https://www.youtube.com/watch?v=excAOvwF_Wk&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=36&pp=iAQB
 
 */
