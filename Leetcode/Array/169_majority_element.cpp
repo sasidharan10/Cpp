@@ -49,11 +49,11 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/majority-element/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=nP_ns3uSh80
 
-algorithm:
+algorithm: Moore's Voting algorithm
 
 - Brute force: run 2 loops, find count of every element and return the result. - O(n^2)
 - Using Hashmap: store frequency and then check for each element if > (n/2).
