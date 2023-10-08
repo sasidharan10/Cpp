@@ -35,14 +35,27 @@ public:
         return dp[n] = res;
     }
     // Tabulation
-
+    int integerBreakTab(int n)
+    {
+        vector<int> dp(n + 1, 0);
+        dp[1] = 1;
+        int res = INT_MIN;
+        for (int i = n - 1; i >= 0; i--)
+        {
+            int prod = i * max(n - i, dp[n - i]);
+            res = max(res, prod);
+            dp[i] = res;
+        }
+        return dp[1];
+    }
     // Space Optimization
 
     int integerBreak(int n)
     {
         // return integerBreakRecur(n);
         vector<int> dp(n + 1, -1);
-        return integerBreakMem(n, dp);
+        // return integerBreakMem(n, dp);
+        return integerBreakTab(n);
     }
 };
 int main()
