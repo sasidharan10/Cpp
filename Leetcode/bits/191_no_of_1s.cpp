@@ -42,3 +42,15 @@ int main()
     cout << "No of 1s: " << s.hammingWeight(n);
     return 0;
 }
+
+/*
+
+link: 
+
+leetcode: https://leetcode.com/problems/number-of-1-bits/
+
+Youtube: https://www.youtube.com/watch?v=5Km3utixwZs
+
+algorithm: 
+
+*/

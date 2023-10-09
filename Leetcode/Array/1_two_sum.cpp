@@ -26,6 +26,17 @@ int main()
     v = twoSum(v, target);
     for (auto i : v)
         cout << i << " : ";
-    // cout<<v[0]<<" : "<<v[1]<<endl;
     return 0;
 }
+
+/*
+
+link: 
+
+leetcode: https://leetcode.com/problems/two-sum/
+
+Youtube: 
+
+algorithm: 
+
+*/
