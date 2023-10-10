@@ -13,6 +13,7 @@ void insert(int data, int n)
 	temp->next = NULL;
 	if (n == 1)
 	{
+		temp->next = head;
 		head = temp;
 		return;
 	}
@@ -30,7 +31,7 @@ void print()
 	node *temp = head;
 	while (temp != NULL)
 	{
-		cout << temp->data << endl;
+		cout << temp->data<<" ";
 		temp = temp->next;
 	}
 }
@@ -42,6 +43,7 @@ int main()
 	insert(5, 3);
 	insert(4, 3);
 	insert(3, 3);
+	insert(6, 1);
 	print();
 	return 0;
 }
