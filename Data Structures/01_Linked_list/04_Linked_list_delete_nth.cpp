@@ -29,7 +29,7 @@ void print(node *head)
     cout << "\nThe elements are : ";
     while (temp != NULL)
     {
-        cout << temp->data << ", ";
+        cout << temp->data << " ";
         temp = temp->next;
     }
 }
@@ -54,14 +54,10 @@ node *Delete(node *head, int n)
 int main()
 {
     node *head = NULL;
-    int s, a, n;
-    cout << "Enter the size of the list :";
-    cin >> s;
-    cout << "\nEnter the Elements : ";
+    int s = 5, n;
     for (int i = 0; i < s; i++)
     {
-        cin >> a;
-        head = insert(head, a);
+        head = insert(head, i + 1);
     }
     print(head);
     cout << "\nEnter the position you want to delete : ";

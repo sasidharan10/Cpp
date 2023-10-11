@@ -36,14 +36,10 @@ void print(node *head)
 int main()
 {
     node *head = NULL;
-    int n, a;
-    cout << "Enter the size of the list : ";
-    cin >> n;
-    cout << "\nEnter the Elements : ";
+    int n = 5;
     for (int i = 0; i < n; i++)
     {
-        cin >> a;
-        head = insert(head, a);
+        head = insert(head, i + 1);
     }
     print(head);
     cout << "\nFirst node : " << head->data;
