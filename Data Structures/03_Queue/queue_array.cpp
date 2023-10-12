@@ -1,78 +1,76 @@
-#include<iostream>
-#include<stdio.h>
+#include <iostream>
+#include <stdio.h>
 using namespace std;
-int rear=-1,front=-1;
-int n=10;  // size of array
+int rear = -1, front = -1;
+int n = 10; // size of array
 int a[10];
 bool isfull()
 {
-   return (rear+1)%n==front ? true:false;
-
+    return (rear + 1) % n == front ? true : false;
 }
 bool isempty()
 {
-    return (front==-1 && rear==-1);
+    return (front == -1 && rear == -1);
 }
 void enqueue(int x)
 {
-    if(isfull())
+    if (isfull())
     {
-        cout<<"\nQueue is full!!!"<<endl;
+        cout << "\nQueue is full!!!" << endl;
         return;
     }
-    else if(isempty())
+    else if (isempty())
     {
-        front=rear=0;
+        front = rear = 0;
     }
     else
     {
-        rear=(rear+1)%n;
+        rear = (rear + 1) % n;
     }
-    a[rear]=x;
+    a[rear] = x;
 }
 void dequeue()
 {
-    if(isempty())
+    if (isempty())
     {
-        cout<<"\nQueue is Empty!!!"<<endl;
+        cout << "\nQueue is Empty!!!" << endl;
         return;
     }
-    else if(front==rear)
+    else if (front == rear)
     {
-        front=rear=-1;
+        front = rear = -1;
     }
     else
     {
-        front=(front+1)%n;
+        front = (front + 1) % n;
     }
 }
 void top()
 {
-    if(front==-1)
+    if (front == -1)
     {
-        cout<<"\nQueue is empty!!!"<<endl;
+        cout << "\nQueue is empty!!!" << endl;
         return;
     }
     else
     {
-        cout<<"Front : "<<a[front]<<endl;
+        cout << "Front : " << a[front] << endl;
     }
 }
 void print()
-{   
-    if(isempty())
+{
+    if (isempty())
     {
-        cout<<"\nQueue is Empty!!!"<<endl;
+        cout << "\nQueue is Empty!!!" << endl;
         return;
     }
-    cout<<"\nQueue : ";
-    int count=(rear+n-front)%n +1;
+    cout << "\nQueue : ";
+    int count = (rear + n - front) % n + 1;
     for (int i = 0; i < count; i++)
     {
-        int index=(front+i)%n;
-        cout<<a[index]<<" ";
+        int index = (front + i) % n;
+        cout << a[index] << " ";
     }
-    
 }
 int main()
 {
