@@ -56,20 +56,6 @@ int maxProfitTab(vector<int> &prices)
             }
         }
     }
-    for (auto &&i : dp)
-    {
-        for (auto &&j : i)
-        {
-            for (auto &&k : j)
-            {
-                cout << k << " ";
-            }
-            cout << endl;
-        }
-        cout << endl
-             << endl;
-    }
-    cout << endl;
     return dp[0][1][2];
 }
 // Space Optimization
@@ -122,9 +108,9 @@ int main()
 
 link: https://www.codingninjas.com/studio/problems/buy-and-sell-stock_1071012
 
-leetcode:
+leetcode: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=-uQGzhYj8BQ&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=38&pp=iAQB
 
 algorithm:
 
