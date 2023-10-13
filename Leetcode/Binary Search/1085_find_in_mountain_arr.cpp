@@ -92,9 +92,9 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/find-in-mountain-array/description/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=rjEJeYCasHs
 
 algorithm:
 
