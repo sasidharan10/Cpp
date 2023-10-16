@@ -14,10 +14,10 @@ public:
         int left = numWaysRecur(ind - 1, steps - 1, n);
         int right = numWaysRecur(ind + 1, steps - 1, n);
         int stay = numWaysRecur(ind, steps - 1, n);
-        return left + right + stay;
+        return (left + right + stay) % mod;
     }
     // Memoization
-    int numWaysMem(int ind, int steps, int n, vector<vector<int>> &dp)
+    int numWaysMem(int ind, int steps, int n, vector<vector<long long>> &dp)
     {
         if (ind < 0 || ind >= n || (steps == 0 && ind != 0))
             return 0;
@@ -25,20 +25,49 @@ public:
             return 1;
         if (dp[ind][steps] != -1)
             return dp[ind][steps];
-        int left = numWaysMem(ind - 1, steps - 1, n, dp);
-        int right = numWaysMem(ind + 1, steps - 1, n, dp);
-        int stay = numWaysMem(ind, steps - 1, n, dp);
-        return dp[ind][steps] = left + right + stay;
+        long long left = numWaysMem(ind - 1, steps - 1, n, dp) % mod;
+        long long right = numWaysMem(ind + 1, steps - 1, n, dp) % mod;
+        long long stay = numWaysMem(ind, steps - 1, n, dp) % mod;
+        return dp[ind][steps] = (left + right + stay) % mod;
     }
     // Tabulation
+    int numWaysTab(int st, int n)
+    {
+        vector<vector<int>> dp(st + 1, vector<int>(n + 1, 0));
+        dp[0][0] = 1;
+        for (int steps = 1; steps <= st; steps++)
+        {
+            for (int ind = 0; ind < n; ind++)
+            {
+                int stay = 0, left = 0, right = 0;
+                stay = dp[steps - 1][ind];
+                if (ind - 1 >= 0)
+                    left = dp[steps - 1][ind - 1];
+                if (ind + 1 < n)
+                    right = dp[steps - 1][ind + 1];
+                dp[ind][steps] = (left + right + stay) % mod;
+            }
+        }
+        for (auto &&i : dp)
+        {
+            for (auto &&j : i)
+            {
+                cout << j << " ";
+            }
+            cout << endl;
+        }
 
+        return dp[st][n - 1];
+    }
     // Space Optimization
 
     int numWays(int steps, int arrLen)
     {
         // return numWaysRecur(0, steps, arrLen);
-        vector<vector<int>> dp(arrLen, vector<int>(steps + 1, -1));
-        return numWaysMem(0, steps, arrLen, dp);
+        // arrLen = min(arrLen, (steps / 2) + 1);
+        vector<vector<long long>> dp(arrLen, vector<long long>(steps + 1, -1));
+        // return numWaysMem(0, steps, arrLen, dp);
+        return numWaysTab(steps, arrLen);
     }
 };
 int main()
