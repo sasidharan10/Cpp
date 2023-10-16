@@ -30,7 +30,9 @@ public:
         long long stay = numWaysMem(ind, steps - 1, n, dp) % mod;
         return dp[ind][steps] = (left + right + stay) % mod;
     }
-    // Tabulation
+
+    
+    // Tabulation incomplete
     int numWaysTab(int st, int n)
     {
         vector<vector<int>> dp(st + 1, vector<int>(n + 1, 0));
