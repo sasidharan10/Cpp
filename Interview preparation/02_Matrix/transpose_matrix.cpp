@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <vector>
 using namespace std;
-void transposeMatrix(vector<vector<int>> v)
+void transposeMatrix(vector<vector<int>> v) 
 {
     int row = v.size();
     int col = v[0].size();
