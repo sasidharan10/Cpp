@@ -25,14 +25,48 @@ int longestIncreasingSubsequenceMem(int ind, int prev, int arr[], int n, vector<
     return dp[ind][prev + 1] = max(pick, notPick);
 }
 // Tabulation
-
+int longestIncreasingSubsequenceTab(int arr[], int n)
+{
+    vector<vector<int>> dp(n + 1, vector<int>(n + 1, 0));
+    for (int ind = n - 1; ind >= 0; ind--)
+    {
+        for (int prev = ind - 1; prev >= -1; prev--)
+        {
+            int notPick = 0 + dp[ind + 1][prev + 1];
+            int pick = -1e9;
+            if (prev == -1 || arr[prev] <= arr[ind])
+                pick = 1 + dp[ind + 1][ind + 1];
+            dp[ind][prev + 1] = max(pick, notPick);
+        }
+    }
+    return dp[0][0];
+}
 // Space Optimization
+int longestIncreasingSubsequenceSpc(int arr[], int n)
+{
+    vector<int> next(n + 1, 0), cur(n + 1, 0);
+    for (int ind = n - 1; ind >= 0; ind--)
+    {
+        for (int prev = ind - 1; prev >= -1; prev--)
+        {
+            int notPick = 0 + next[prev + 1];
+            int pick = -1e9;
+            if (prev == -1 || arr[prev] < arr[ind])
+                pick = 1 + next[ind + 1];
+            cur[prev + 1] = max(pick, notPick);
+        }
+        next = cur;
+    }
+    return next[0];
+}
 
 int longestIncreasingSubsequence(int arr[], int n)
 {
     // return longestIncreasingSubsequenceRecur(0, -1, arr, n);
     vector<vector<int>> dp(n + 1, vector<int>(n + 1, -1));
-    return longestIncreasingSubsequenceMem(0, -1, arr, n, dp);
+    // return longestIncreasingSubsequenceMem(0, -1, arr, n, dp);
+    // return longestIncreasingSubsequenceTab(arr, n);
+    return longestIncreasingSubsequenceSpc(arr, n);
 }
 int main()
 {
