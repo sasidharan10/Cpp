@@ -15,6 +15,9 @@ public:
     }
     vector<int> topoSort(int V, vector<int> adj[])
     {
+        // TC: O(V+E)+O(V)
+        // SC: O(2n)
+        
         stack<int> st;
         vector<bool> vis(V, false);
         for (int i = 0; i < V; i++)

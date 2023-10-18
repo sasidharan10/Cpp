@@ -3,11 +3,8 @@ using namespace std;
 class Solution
 {
 public:
-    vector<int> topoSort(int V, vector<int> adj[])
+    bool isCyclic(int V, vector<int> adj[])
     {
-        // TC:  O(V+E)
-        // SC: O(2n)
-        
         vector<int> inDegree(V, 0);
         for (int i = 0; i < V; i++)
         {
@@ -22,45 +19,42 @@ public:
             if (inDegree[i] == 0)
                 q.push(i);
         }
-        vector<int> ans;
+        int cnt = 0;
         while (!q.empty())
         {
             int node = q.front();
-            ans.push_back(node);
             q.pop();
+            cnt++;
             for (auto &&i : adj[node])
             {
                 inDegree[i]--;
                 if (inDegree[i] == 0)
-                {
                     q.push(i);
-                }
             }
         }
-        return ans;
+        if (cnt == V)
+            return false;
+        else
+            return true;
     }
 };
 int main()
 {
     Solution s;
-    vector<int> adj[] = {{}, {3}, {3}, {0}, {1}, {0, 2}};
-    int V = 6;
-    vector<int> ans = s.topoSort(V, adj);
-    cout << "Topological Sort: " << endl;
-    for (auto &&i : ans)
-    {
-        cout << i << " ";
-    }
+    vector<int> adj[] = {{1}, {2}, {3}, {3}};
+    // vector<int> adj[] = {{}, {3}, {3}, {0}, {1}, {0, 2}};
+    int V = 4;
+    cout << "Cyclic Graph?: " << s.isCyclic(V, adj);
     return 0;
 }
 
 /*
 
-link: https://practice.geeksforgeeks.org/problems/topological-sort/1
+link: https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-graph/1
 
 leetcode:
 
-Youtube: https://www.youtube.com/watch?v=73sneFXuTEg&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=23
+Youtube:
 
 algorithm:
 
