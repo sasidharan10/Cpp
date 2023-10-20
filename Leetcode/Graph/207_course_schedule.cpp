@@ -3,15 +3,15 @@ using namespace std;
 class Solution
 {
 public:
-    bool isPossible(int N, int P, vector<pair<int, int>> &prerequisites)
+    bool canFinish(int numCourses, vector<vector<int>> &prerequisites)
     {
-        vector<int> adj[N];
-        for (int i = 0; i < P; i++)
+        vector<int> adj[numCourses];
+        for (int i = 0; i < prerequisites.size(); i++)
         {
-            adj[prerequisites[i].first].push_back(prerequisites[i].second);
+            adj[prerequisites[i][0]].push_back(prerequisites[i][1]);
         }
-        vector<int> inDegree(N, 0);
-        for (int i = 0; i < N; i++)
+        vector<int> inDegree(numCourses, 0);
+        for (int i = 0; i < numCourses; i++)
         {
             for (auto &&node : adj[i])
             {
@@ -19,7 +19,7 @@ public:
             }
         }
         queue<int> q;
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < numCourses; i++)
         {
             if (inDegree[i] == 0)
                 q.push(i);
@@ -39,16 +39,15 @@ public:
                 }
             }
         }
-        return ans.size() == N;
+        return ans.size() == numCourses;
     }
 };
 int main()
 {
     Solution s;
-    vector<pair<int, int>> prerequisites{{1, 0}, {2, 1}, {3, 2}};
-    int N = 4;
-    int V = 3;
-    cout << "Possible to complete task: " << s.isPossible(N, V, prerequisites);
+    vector<vector<int>> prerequisites{{1, 0}, {2, 1}, {3, 2}};
+    int n = 4;
+    cout << "Possible to complete task: " << s.canFinish(n, prerequisites);
     return 0;
 }
 

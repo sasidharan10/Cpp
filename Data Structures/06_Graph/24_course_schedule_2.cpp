@@ -3,15 +3,15 @@ using namespace std;
 class Solution
 {
 public:
-    bool isPossible(int N, int P, vector<pair<int, int>> &prerequisites)
+    vector<int> findOrder(int n, int m, vector<vector<int>> prerequisites)
     {
-        vector<int> adj[N];
-        for (int i = 0; i < P; i++)
+        vector<int> adj[n];
+        for (int i = 0; i < m; i++)
         {
-            adj[prerequisites[i].first].push_back(prerequisites[i].second);
+            adj[prerequisites[i][1]].push_back(prerequisites[i][0]);
         }
-        vector<int> inDegree(N, 0);
-        for (int i = 0; i < N; i++)
+        vector<int> inDegree(n, 0);
+        for (int i = 0; i < n; i++)
         {
             for (auto &&node : adj[i])
             {
@@ -19,7 +19,7 @@ public:
             }
         }
         queue<int> q;
-        for (int i = 0; i < N; i++)
+        for (int i = 0; i < n; i++)
         {
             if (inDegree[i] == 0)
                 q.push(i);
@@ -39,16 +39,24 @@ public:
                 }
             }
         }
-        return ans.size() == N;
+        if (ans.size() == n)
+            return ans;
+        else
+            return {};
     }
 };
 int main()
 {
     Solution s;
-    vector<pair<int, int>> prerequisites{{1, 0}, {2, 1}, {3, 2}};
-    int N = 4;
-    int V = 3;
-    cout << "Possible to complete task: " << s.isPossible(N, V, prerequisites);
+    vector<vector<int>> prerequisites{{1, 0}, {2, 1}, {3, 2}};
+    int n = 4;
+    int m = 3;
+    vector<int> ans = s.findOrder(n, m, prerequisites);
+    cout << "Possible to complete task: " << endl;
+    for (auto &&i : ans)
+    {
+        cout << i << " ";
+    }
     return 0;
 }
 
@@ -56,7 +64,7 @@ int main()
 
 link: https://practice.geeksforgeeks.org/problems/prerequisite-tasks/1
 
-leetcode: https://leetcode.com/problems/course-schedule/
+leetcode: https://leetcode.com/problems/course-schedule-ii/
 
 Youtube: https://www.youtube.com/watch?v=WAOfKpxYHR8
 
