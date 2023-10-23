@@ -31,6 +31,6 @@ int main()
 	cout << "sinh(x) : " << sinh(x) << endl;
 	cout << "cosh(x) : " << cosh(x) << endl;
 	cout << "tanh(x) : " << tanh(x) << endl;
-	y = 100.0;
+	y = 64.0;
 	cout << "log(y) : " << log(y) << endl;
 }
