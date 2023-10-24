@@ -44,5 +44,8 @@ int main()
   1 memory space, hence, its values will be reflected, if changes are made by any objects.
 - Static functions can only access static variables, while normal functions can access both,
   normal and static variables.
-
+- Stacic functions dont require objects to call the functions, they are independent
+- They are often used for providing helper functions like conversion, formatting, or validation
+  methods that don't require an instance.
+- 
 */
