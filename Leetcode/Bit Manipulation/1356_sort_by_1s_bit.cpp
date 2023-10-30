@@ -63,9 +63,9 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/sort-integers-by-the-number-of-1-bits/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=2owpaafBIgw
 
 algorithm:
 
