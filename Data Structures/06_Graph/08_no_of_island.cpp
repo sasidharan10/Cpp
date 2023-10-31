@@ -61,15 +61,6 @@ int main()
     int n = 3;
     vector<vector<char>> v{{'0', '1', '1', '1', '0', '0', '0'}, {'0', '0', '1', '1', '0', '1', '0'}};
     cout << "No of Islands: " << s.numIslands(v);
-    // for (auto &&i : v)
-    // {
-    //     for (auto &&j : i)
-    //     {
-    //         cout << j << " ";
-    //     }
-    //     cout << endl;
-    // }
-
     return 0;
 }
 
@@ -77,7 +68,7 @@ int main()
 
 link: https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1
 
-leetcode:
+leetcode: https://leetcode.com/problems/number-of-islands/
 
 Youtube: https://www.youtube.com/watch?v=muncqlKJrH0&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=8
 
