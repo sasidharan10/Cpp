@@ -55,6 +55,7 @@ public:
         }
         return ans;
     }
+    // better
     void inorder2(TreeNode *root, int &prev, int &curFreq, int &mostFreq, vector<int> &ans)
     {
         if (root == NULL)
@@ -78,7 +79,6 @@ public:
         prev = cur;
         inorder2(root->right, prev, curFreq, mostFreq, ans);
     }
-    // better
     vector<int> findMode(TreeNode *root)
     {
         vector<int> ans;
