@@ -92,7 +92,7 @@ int main()
     int b1[] = {1, 4, 7, 9};
     int n1 = sizeof(a1) / sizeof(a1[0]);
     int m1 = sizeof(b1) / sizeof(b1[0]);
-    mergeArray1(a1, n1, b1, m1);
+    // mergeArray1(a1, n1, b1, m1);
     cout << "Sorted Array O(m*n): ";
     for (int i = 0; i < n1; i++)
     {
@@ -110,7 +110,7 @@ int main()
     int n2 = sizeof(a2) / sizeof(a2[0]);
     int m2 = sizeof(b2) / sizeof(b2[0]);
     mergeArray2(a2, n2, b2, m2);
-    mergeArray3(a1, n1, b1, m1);
+    // mergeArray3(a1, n1, b1, m1);
     cout << "\nSorted Array (o(nlogm)+ O(mlogn)) : ";
     for (int i = 0; i < n2; i++)
     {

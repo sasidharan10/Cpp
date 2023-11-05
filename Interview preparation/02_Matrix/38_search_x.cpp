@@ -105,9 +105,16 @@ int main()
 
 /*
 
+link: 
+
+leetcode: https://leetcode.com/problems/search-a-2d-matrix/description/
+
+Youtube: 
+
+algorithm: 
+
 - In third solution, we do binary search in the matrix by making imaginary
   index of a 1D array. To get the row, we use mid/m (mid/column) formula 
   for columns we use mid%m (mid/Column) formula.
  
-
 */

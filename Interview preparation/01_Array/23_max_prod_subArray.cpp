@@ -12,7 +12,6 @@ int maxProduct1(int *a,int n)
         prod=a[i];
         for (int j =i+1; j < n; j++)
         {
-            result=max(result,prod);
             prod*=a[j];
         }
         result=max(result,prod);
