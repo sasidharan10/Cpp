@@ -6,26 +6,18 @@ using namespace std;
 class Solution
 {
 public:
-    bool detectCycle(int src, vector<int> adj[], vector<int> &vis)
+    bool dfs(int node, int parent, vector<int> adj[], vector<int> &vis)
     {
-        vis[src] = 1;
-        queue<pair<int, int>> q;
-        q.push({src, -1});
-        while (!q.empty())
+        vis[node] = 1;
+        for (auto &&adjacentNode : adj[node])
         {
-            int node = q.front().first;
-            int parent = q.front().second;
-            q.pop();
-            for (auto &&adjacentNode : adj[node])
+            if (!vis[adjacentNode])
             {
-                if (!vis[adjacentNode])
-                {
-                    vis[adjacentNode] = 1;
-                    q.push({adjacentNode, node});
-                }
-                else if (parent != adjacentNode)
+                if (dfs(adjacentNode, node, adj, vis))
                     return true;
             }
+            else if (adjacentNode != parent)
+                return true;
         }
         return false;
     }
@@ -36,7 +28,7 @@ public:
         {
             if (!vis[i])
             {
-                if (detectCycle(i, adj, vis))
+                if (dfs(i, -1, adj, vis))
                     return true;
             }
         }
@@ -63,7 +55,7 @@ link: https://practice.geeksforgeeks.org/problems/detect-cycle-in-an-undirected-
 
 leetcode:
 
-Youtube: https://www.youtube.com/watch?v=BPlrALf1LDU&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=11&pp=iAQB
+Youtube: https://www.youtube.com/watch?v=zQ3zgFypzX4&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=12
 
 algorithm:
 
