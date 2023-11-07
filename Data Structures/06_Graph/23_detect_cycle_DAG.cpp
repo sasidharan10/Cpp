@@ -54,7 +54,7 @@ link: https://practice.geeksforgeeks.org/problems/detect-cycle-in-a-directed-gra
 
 leetcode:
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=iTBaI90lpDQ&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=23&pp=iAQB
 
 algorithm:
 
