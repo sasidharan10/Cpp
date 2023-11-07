@@ -43,7 +43,6 @@ public:
 int main()
 {
     Solution s;
-    int n = 3;
     vector<int> adj[10];
     adj[0].assign({1});
     adj[1].assign({2});
