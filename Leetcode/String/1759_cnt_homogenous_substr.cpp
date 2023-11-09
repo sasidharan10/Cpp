@@ -38,7 +38,6 @@ int main()
 /*
 
 link:
-
 leetcode: https://leetcode.com/problems/count-number-of-homogenous-substrings
 
 Youtube: https://www.youtube.com/watch?v=qEJR7ox0mNI

@@ -3,23 +3,23 @@ using namespace std;
 class Solution
 {
 public:
-void topoSort(int node, vector<pair<int, int>>adj[], stack<int>&st, vector<int>&vis)
-{
-    vis[node]=1;
-    for (auto adjacentNode : adj[node])
+    void topoSort(int node, vector<pair<int, int>> adj[], stack<int> &st, vector<int> &vis)
     {
-        int v = adjacentNode.first;
-        int wt = adjacentNode.second;
-        if(!vis[v])
-            topoSort(v, adj,st,  vis);
+        vis[node] = 1;
+        for (auto adjacentNode : adj[node])
+        {
+            int v = adjacentNode.first;
+            int wt = adjacentNode.second;
+            if (!vis[v])
+                topoSort(v, adj, st, vis);
+        }
+        st.push(node);
     }
-    st.push(node);
-}
     vector<int> shortestPath(int N, int M, vector<vector<int>> &edges)
     {
-        vector<int>vis(N, 0);
-        vector<pair<int, int>>adj[N];
-        stack<int>st;
+        vector<int> vis(N, 0);
+        vector<pair<int, int>> adj[N];
+        stack<int> st;
         for (int i = 0; i < M; i++)
         {
             int u = edges[i][0];
@@ -29,18 +29,35 @@ void topoSort(int node, vector<pair<int, int>>adj[], stack<int>&st, vector<int>&
         }
         for (int i = 0; i < N; i++)
         {
-            if(!vis[i])
+            if (!vis[i])
                 topoSort(i, adj, st, vis);
         }
-
-        
-        
+        vector<int> dist(N, 1e9);
+        dist[0] = 0;
+        while (!st.empty())
+        {
+            int node = st.top();
+            st.pop();
+            for (auto it : adj[node])
+            {
+                int v = it.first;
+                int wt = it.second;
+                if (dist[node] + wt < dist[v])
+                    dist[v] = dist[node] + wt;
+            }
+        }
+        for (int i = 0; i < N; i++)
+        {
+            if (dist[i] == 1e9)
+                dist[i] = -1;
+        }
+        return dist;
     }
 };
 int main()
 {
     Solution s;
-    vector<vector<int>> edges{{0,1,2},{0,4,1},{4,5,4},{4,2,2},{1,2,3},{2,3,6},{5,3,1}};
+    vector<vector<int>> edges{{0, 1, 2}, {0, 4, 1}, {4, 5, 4}, {4, 2, 2}, {1, 2, 3}, {2, 3, 6}, {5, 3, 1}};
     int N = 6;
     int M = 7;
     vector<int> ans = s.shortestPath(N, M, edges);
