@@ -54,5 +54,10 @@ Youtube: https://www.youtube.com/watch?v=V6H1qAeB-l4&list=PLgUwDviBIf0oE3gA41TKO
 algorithm:
 
 - Dijkstra Algorithm won't work with negative weights, as it will end in an infinite loop.
+- By using priority_queue instead of Queue, we always update the dist[] with smallest element,
+  hence we are checking for paths with smallest value possible. Eliminating paths having
+  high values.
+- Using queue will explore all the paths, irrespective of the path values, hence TC will be
+  high.
 
 */
