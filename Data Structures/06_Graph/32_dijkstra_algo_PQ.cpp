@@ -5,6 +5,9 @@ class Solution
 public:
     vector<int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
+        // TC: O(ElogV)
+        // SC: O(V)
+        
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
         vector<int> dist(V, 1e9);
         pq.push({0, S});
