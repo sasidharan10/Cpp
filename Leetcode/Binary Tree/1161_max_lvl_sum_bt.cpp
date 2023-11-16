@@ -14,7 +14,7 @@ class Solution
 public:
     int maxLevelSum(TreeNode *root)
     {
-        int maxi = 0;
+        int maxi = INT_MIN;
         int maxLevel = 0;
         int lvl = 0;
         int sum = 0;
