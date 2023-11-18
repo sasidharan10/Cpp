@@ -78,12 +78,39 @@ int ninjaTrainingTab(int n, vector<vector<int>> &points)
     }
     return dp[n - 1][3];
 }
+// Tabulation traversing in reverse
+int ninjaTrainingTab2(int n, vector<vector<int>> &points)
+{
+    // TC: O(n * 4 * 3)
+    // SC: O(n * 4)
+
+    vector<vector<int>> dp(n, vector<int>(4, 0));
+    dp[n - 1][0] = max(points[n - 1][1], points[n - 1][2]);
+    dp[n - 1][1] = max(points[n - 1][0], points[n - 1][2]);
+    dp[n - 1][2] = max(points[n - 1][0], points[n - 1][1]);
+    dp[n - 1][3] = max({points[n - 1][1], points[n - 1][2], points[n - 1][3]});
+    for (int day = n - 2; day >= 0; day--)
+    {
+        for (int last = 0; last < 4; last++)
+        {
+            for (int task = 0; task < 3; task++)
+            {
+                if (task != last)
+                {
+                    int point = points[day][task] + dp[day + 1][task];
+                    dp[day][last] = max(dp[day][last], point);
+                }
+            }
+        }
+    }
+    return dp[0][3];
+}
 // Space Optimization
 int ninjaTrainingSpc(int n, vector<vector<int>> &points)
 {
     // TC: O(n * 4 * 3)
     // SC: O(4)
-    
+
     vector<int> prev(4, 0);
     prev[0] = max(points[0][1], points[0][2]);
     prev[1] = max(points[0][0], points[0][2]);
@@ -113,7 +140,8 @@ int ninjaTraining(int n, vector<vector<int>> &points)
     vector<vector<int>> dp(n, vector<int>(4, -1));
     // return ninjaTrainingMem(n - 1, 3, points, dp);
     // return ninjaTrainingTab(n, points);
-    return ninjaTrainingSpc(n, points);
+    return ninjaTrainingTab2(n, points);
+    // return ninjaTrainingSpc(n, points);
 }
 int main()
 {

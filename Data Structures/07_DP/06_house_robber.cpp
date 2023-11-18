@@ -34,7 +34,7 @@ long long int houseRobber(vector<int> &valueInHouse)
 }
 int main()
 {
-    vector<int> v{1, 3, 2, 1};
+    vector<int> v{1, 2, 3, 1};
     cout << "Maximum profit: " << houseRobber(v);
     return 0;
 }
@@ -47,6 +47,6 @@ leetcode: https://leetcode.com/problems/house-robber-ii/description/
 
 Youtube: https://www.youtube.com/watch?v=3WaxQMELSkw&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=7
 
-algorithm: 
+algorithm:
 
 */

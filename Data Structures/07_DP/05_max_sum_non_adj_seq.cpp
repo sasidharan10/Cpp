@@ -25,7 +25,7 @@ int maximumNonAdjacentSumMem(int index, vector<int> &nums, vector<int> &dp)
 int maximumNonAdjacentSumTab(vector<int> &nums)
 {
     int n = nums.size();
-    vector<int> dp(n + 1, -1);
+    vector<int> dp(n + 1, 0);
     dp[0] = nums[0];
     int neg = 0;
     for (int i = 1; i < n; i++)
@@ -62,8 +62,8 @@ int maximumNonAdjacentSum(vector<int> &nums)
     // return maximumNonAdjacentSumRecur(n - 1, nums);
     vector<int> dp(n + 1, -1);
     // return maximumNonAdjacentSumMem(n - 1, nums, dp);
-    // return maximumNonAdjacentSumTab(nums);
-    return maximumNonAdjacentSumSpc(nums);
+    return maximumNonAdjacentSumTab(nums);
+    // return maximumNonAdjacentSumSpc(nums);
 }
 int main()
 {

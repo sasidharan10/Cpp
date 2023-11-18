@@ -6,7 +6,7 @@
 using namespace std;
 int frogJumpRecur(int index, vector<int> &heights)
 {
-    if (index == 0)
+    if (index <= 0)
         return 0;
     int left = frogJumpRecur(index - 1, heights) + abs(heights[index] - heights[index - 1]);
     int right = INT_MAX;
@@ -18,7 +18,7 @@ int frogJumpRecur(int index, vector<int> &heights)
 }
 int frogJumpMem(int index, vector<int> &heights, vector<int> &dp)
 {
-    if (index == 0)
+    if (index <= 0)
         return 0;
     if (dp[index] != -1)
         return dp[index];
@@ -70,8 +70,8 @@ int frogJump(int n, vector<int> &heights)
     vector<int> dp(n + 1, -1);
     // return frogJumpRecur(n - 1, heights);
     // return frogJumpMem(n - 1, heights, dp);
-    return frogJumpBtt(n, heights);
-    // return frogJumpSpc(n, heights);
+    // return frogJumpBtt(n, heights);
+    return frogJumpSpc(n, heights);
 }
 int main()
 {
@@ -85,10 +85,10 @@ int main()
 
 link: https://www.codingninjas.com/studio/problems/frog-jump_3621012
 
-leetcode: 
+leetcode:
 
 Youtube: https://www.youtube.com/watch?v=EgG3jsGoPvQ&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=4
 
-algorithm: 
+algorithm:
 
 */
