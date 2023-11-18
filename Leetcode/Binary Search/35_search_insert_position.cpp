@@ -3,18 +3,19 @@ using namespace std;
 class Solution
 {
 public:
-    int upperBound(vector<int> arr, int n, int x)
+    int searchInsert(vector<int> &nums, int target)
     {
         // TC: O(logN)
         // SC: O(1)
 
+        int n = nums.size();
         int low = 0;
         int high = n - 1;
-        int ans = 0;
+        int ans = n;
         while (low <= high)
         {
             int mid = low + (high - low) / 2;
-            if (arr[mid] > x)
+            if (nums[mid] >= target)
             {
                 ans = mid;
                 high = mid - 1;
@@ -24,27 +25,25 @@ public:
                 low = mid + 1;
             }
         }
+        return ans;
     }
 };
 int main()
 {
     Solution s;
-    vector<int> nums{1, 2, 3, 5, 8, 8, 8, 10};
-    int n = nums.size();
-    int x = 8;
-    int index = s.upperBound(nums, n, x);
-    cout << "Upper Bound: " << nums[index] << endl;
+    vector<int> nums{1, 2, 3, 4, 5};
     return 0;
 }
 
 /*
 
-link: https://www.codingninjas.com/studio/problems/implement-upper-bound_8165383
+link: 
 
-leetcode:
+leetcode: https://leetcode.com/problems/search-insert-position/description/
 
-Youtube:
+Youtube: 
 
-algorithm:
+algorithm: 
 
+- Finding LB of the target
 */
