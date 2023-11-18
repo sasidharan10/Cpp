@@ -138,9 +138,14 @@ int main()
     return 0;
 }
 
-// if (j > 0)
-// else
-//     ld += -1e9;
-// if (j < m - 1)
-// else
-//     ld += -1e9;
+/*
+
+link: https://www.codingninjas.com/studio/problems/maximum-path-sum-in-the-matrix_797998
+
+leetcode: 
+
+Youtube: https://www.youtube.com/watch?v=N_aJ5qQbYA0&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=13
+
+algorithm: 
+
+*/
