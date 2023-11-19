@@ -97,16 +97,17 @@ int main()
     {
         cout << i << " ";
     }
+    cout << "Count of occurence: " << ans[1] - ans[0] + 1 << endl;
     return 0;
 }
 
 /*
 
-link:
+link: https://www.codingninjas.com/studio/problems/first-and-last-position-of-an-element-in-sorted-array_1082549
 
 leetcode: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=hjR1IYVx9lY&list=PLgUwDviBIf0pMFMWuuvDNMAkoQFi-h0ZF&index=5
 
 algorithm:
 
