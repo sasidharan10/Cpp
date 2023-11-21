@@ -16,6 +16,9 @@ public:
     }
     int countNicePairs(vector<int> &nums)
     {
+        // TC: O(n)
+        // SC: O(n)
+        
         long long count = 0;
         int mod = 1e9 + 7;
         int n = nums.size();
@@ -30,7 +33,7 @@ public:
             int temp = i.second;
             if (temp > 1)
             {
-                int sum = (temp * (temp - 1)) / 2;
+                long long sum = (temp * (temp - 1)) / 2;
                 count += sum;
                 count = count % mod;
             }
@@ -54,6 +57,15 @@ leetcode: https://leetcode.com/problems/count-nice-pairs-in-an-array/description
 
 Youtube:
 
-algorithm: - refer 1512 LC
+algorithm:
+
+- Formula given:
+  => nums[i] + rev(nums[j]) == nums[j] + rev(nums[i])
+  => nums[i] - rev(nums[i]) == nums[j] - rev(nums[j])
+- Hence, we Find the sum of pairs, 1 num reversed, and store the result in a map.
+- Then using the count of the pair sum, we can find the total no of combinations.
+- use nCr formula
+- here we know we have to find the combinations of 2, hence simplifying nCr formula,
+  we get n(n*1)/2, which is same as sum 1....n.
 
 */
