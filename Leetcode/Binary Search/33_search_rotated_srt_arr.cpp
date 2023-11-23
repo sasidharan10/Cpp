@@ -14,9 +14,9 @@ public:
         while (low <= high)
         {
             int mid = low + (high - low) / 2;
+            // left part sorted
             if (nums[mid] == target)
                 return mid;
-            // left part sorted
             if (nums[low] <= nums[mid])
             {
                 if (nums[low] <= target && target <= nums[mid])

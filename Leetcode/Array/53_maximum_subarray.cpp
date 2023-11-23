@@ -31,9 +31,14 @@ int main()
     return 0;
 }
 
-
 /*
 
+link: 
+
 leetcode: https://leetcode.com/problems/maximum-subarray/description/
+
+Youtube: https://www.youtube.com/watch?v=AHZpyENo7k4&t=870s
+
+algorithm: 
 
 */

@@ -1,27 +1,29 @@
 #include <bits/stdc++.h>
 using namespace std;
-int maxProduct1(int *a, int n)
+int maxProduct2(vector<int> &nums)
 {
     // Time : O(n^2)
     // Space : O(1)
 
-    int result = a[0], prod = 1;
+    int n = nums.size();
+    int result = nums[0], prod = 1;
     for (int i = 0; i < n; i++)
     {
-        prod = a[i];
+        prod = nums[i];
         for (int j = i + 1; j < n; j++)
         {
-            prod *= a[j];
+            prod *= nums[j];
         }
         result = max(result, prod);
     }
     return result;
 }
-int maxProduct2(int *a, int n)
+int maxProduct(vector<int> &nums)
 {
     // Time : O(n)
     // Space : O(1)
 
+    int n = nums.size();
     int maxi = INT_MIN;
     int prefix = 1;
     int suffix = 1;
@@ -31,8 +33,8 @@ int maxProduct2(int *a, int n)
             prefix = 1;
         if (suffix == 0)
             suffix = 1;
-        prefix = prefix * a[i];
-        suffix = suffix * a[n - i - 1];
+        prefix = prefix * nums[i];
+        suffix = suffix * nums[n - i - 1];
         maxi = max({prefix, suffix, maxi});
     }
     return maxi;
@@ -40,9 +42,8 @@ int maxProduct2(int *a, int n)
 int main()
 {
     // int a[] = {6, -3, -10, 0, 2};
-    int a[] = {1, -2, -3, 0, 7, -8, -2};
-    int n = sizeof(a) / sizeof(a[0]);
-    cout << "Max Prod O(n^2) : " << maxProduct1(a, n) << endl;
-    cout << "Max Prod O(n)   : " << maxProduct2(a, n) << endl;
+    vector<int> nums{1, -2, -3, 0, 7, -8, -2};
+    cout << "Max Prod O(n^2) : " << maxProduct(nums) << endl;
+    cout << "Max Prod O(n)   : " << maxProduct(nums) << endl;
     return 0;
 }

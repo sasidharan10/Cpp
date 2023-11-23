@@ -9,6 +9,9 @@ class Solution
 public:
     int findDuplicate(vector<int> &nums)
     {
+        // TC: O(n)
+        // SC: O(1)
+
         int slow = 0, fast = 0;
         do
         {
@@ -32,11 +35,18 @@ int main()
     return 0;
 }
 
-
 /*
 
-link: 
+link:
 
 leetcode: https://leetcode.com/problems/find-the-duplicate-number/description/
 
+Youtube: https://www.youtube.com/watch?v=wjYnzkAhcNk
+
+algorithm:
+
+- Floyd cycle detection
+- We find the index, where the cycle occurs.
+- then initialize slow = 0, then move slow, fast by 1 index, until they meet.
+- The intersection value is the duplicate element.
 */

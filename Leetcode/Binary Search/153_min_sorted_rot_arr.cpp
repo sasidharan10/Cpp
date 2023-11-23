@@ -51,4 +51,7 @@ Youtube: https://www.youtube.com/watch?v=nhEMDKMB44g&list=PLgUwDviBIf0pMFMWuuvDN
 
 algorithm:
 
+- We find the smallest element in the sorted half, and then we
+  eliminate that half, and move to other half, to find the small element
+
 */
