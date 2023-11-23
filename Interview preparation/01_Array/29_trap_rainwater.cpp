@@ -103,10 +103,25 @@ int main()
 
 /*
 
+link: 
+
+leetcode: https://leetcode.com/problems/trapping-rain-water/
+
+Youtube: https://www.youtube.com/watch?v=m18Hntz4go8
+
+algorithm: 
+
 - the Algorithm here is to find the water level of each structure and subtract it
   with the height of the structure (min(left[i],right[i])-a[i]);
 - In first solution, we store all rightmax and leftmax of all the element
   in a array and then compare it with the current element
 - In 2nd solution, we traverse the array only once, keeping the current left,current
   right element as max and update it if the current is bigger.
+
+*/
+
+/*
+
+
+
 */
