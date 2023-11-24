@@ -40,7 +40,7 @@ algorithm:
 
 - Sort the array, give the smallest to bob, by moving pointer from start.
 - Give alice the largest, by moving the pointer from last.
-- Take the second largest from the back, and mover the pointer by 2.
+- Take the second largest from the back, and moveing the last pointer by 2.
 
 */
 

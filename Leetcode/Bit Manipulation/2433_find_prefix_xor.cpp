@@ -36,4 +36,24 @@ Youtube: https://www.youtube.com/watch?v=TDjmp768H3Q
 
 algorithm:
 
+- XOR = if 2 bits are same, XOR = 0
+-       if 2 bits are different, XOR = 1
+- A ^ B = B ^ A (commutative)
+- A ^ (B ^ C)= (A ^ B) ^ C (associative)
+- A ^ 0 = A
+- A ^ A = 0 (both are same)
+
+- Lets take pref XOR pref = {5, 2, 0, 3, 1}, and original arr = {a0, a1, a2, a3, a4}
+- Now the prefix XOR can be written as
+- 5 = a0
+- 2 = a0 ^ a1
+- 0 = a0 ^ a1 ^ a2
+- 3 = a0 ^ a1 ^ a2 ^ a3
+- 1 = a0 ^ a1 ^ a2 ^ a3 ^ a4
+
+- Which implies a4 = (a0 ^ a1 ^ a2 ^ a3 ^ a4) ^ (a0 ^ a1 ^ a2 ^ a3) = 1 ^ 3 = 2
+- The same values get eliminated by XOR property, 
+- So we can just XOR the last 2 values, to get the last value, until we reach the second element.
+- The first element is the same in both array.
+
 */
