@@ -46,6 +46,6 @@ int main()
 
 - "this" keyword is used to refer the members of the class
 - If variables in class and function arguments have same name,
-  the to avoid ambiguity, we use "this" pointer to refer class members.
+  then to avoid ambiguity, we use "this" pointer to refer class members.
 
 */
