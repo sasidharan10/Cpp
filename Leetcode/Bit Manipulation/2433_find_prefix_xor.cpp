@@ -70,7 +70,6 @@ Note that ^ denotes the bitwise-xor operation.
 
 It can be proven that the answer is unique.
 
-
 Example 1:
 
 Input: pref = [5,2,0,3,1]
