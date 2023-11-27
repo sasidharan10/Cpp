@@ -29,30 +29,32 @@ public:
         }
         return maxArea;
     }
-    // Better
+    // Better, but in leetcode, brute is performing better
     int largestSubmatrix(vector<vector<int>> &matrix)
     {
-        // TC: O(n)
-        // SC: O(n)
-        
+        // TC: O(n*mlogm)
+        // SC: O(m)
+
         int n = matrix.size();
         int m = matrix[0].size();
         int maxArea = INT_MIN;
-        vector<int> prevHeight, curHeight;
+        vector<int> prevHeight(m, 0);
         for (int row = 0; row < n; row++)
         {
+            vector<int> curHeight = matrix[row];
             for (int col = 0; col < m; col++)
             {
-                if (matrix[row][col] == 1 && row > 0)
-                    matrix[row][col] += matrix[row - 1][col];
+                if (curHeight[col] == 1)
+                    curHeight[col] += prevHeight[col];
             }
-            vector<int> height = matrix[row];
+            vector<int> height = curHeight;
             sort(height.begin(), height.end(), greater<int>());
             for (int i = 0; i < m; i++)
             {
                 int base = i + 1;
                 maxArea = max(maxArea, height[i] * base);
             }
+            prevHeight = curHeight;
         }
         return maxArea;
     }
