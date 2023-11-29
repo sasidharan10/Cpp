@@ -2,37 +2,31 @@
 using namespace std;
 class Solution
 {
+    int mod = 1e9 + 7;
+
 public:
     int numberOfWays(string corridor)
     {
         int n = corridor.length();
-        int sCount = 0, ways = 0;
+        vector<int> seat;
         for (int i = 0; i < n; i++)
         {
             if (corridor[i] == 'S')
-                sCount++;
+                seat.push_back(i);
         }
-        if (sCount < 2 || sCount % 2 == 1)
+        int m = seat.size();
+        long long res = 1;
+        if (m < 2 || m % 2 != 0)
             return 0;
-        for (int i = 0; i < n; i++)
+        int prev_end_idx = seat[1];
+        int len = 0;
+        for (int i = 2; i < m; i += 2)
         {
-            if (corridor[i] == 'S')
-                sCount++;
-            if (sCount == 2)
-            {
-                int j = i + 1;
-                int pCount = 1;
-                while (corridor[j] != 'S')
-                {
-                    pCount++;
-                    j++;
-                }
-                ways += pCount;
-                sCount = 0;
-                i = j - 1;
-            }
+            len = seat[i] - prev_end_idx;
+            res = (res * len) % mod;
+            prev_end_idx = seat[i + 1];
         }
-        return ways;
+        return res;
     }
 };
 int main()
