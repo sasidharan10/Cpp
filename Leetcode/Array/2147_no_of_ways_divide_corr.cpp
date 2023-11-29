@@ -43,9 +43,15 @@ link:
 
 leetcode: https://leetcode.com/problems/number-of-ways-to-divide-a-long-corridor
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=ixzhJ8OoA6Q
 
 algorithm:
+
+- We have to divide the chairs into sections having exactly 2 chairs, hence if corridoor
+  has odd no of chairs, or has less than 2 chairs, we can return 0.
+- We keep track of starting and ending index in an array, then subtract (prev_end - start) index
+  to get the count of ways, we can divide the 2 sections of the corridoor (each section must have 2 chairs)
+- Then we multiply all this ways, to get the total no of pssible ways.
 
 */
 
