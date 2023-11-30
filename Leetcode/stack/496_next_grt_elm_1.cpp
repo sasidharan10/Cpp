@@ -54,7 +54,7 @@ Youtube: https://www.youtube.com/watch?v=Du881K7Jtk8
 
 algorithm:
 
-- we basically, maintain a stack, where we keep the greater element
+- we basically, maintain a stack, where we keep of the greater element
 */
 
 
