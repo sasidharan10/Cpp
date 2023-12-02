@@ -3,21 +3,23 @@ using namespace std;
 class Solution
 {
 public:
+    int gcd(int a, int b)
+    {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
+    }
     string gcdOfStrings(string str1, string str2)
     {
-        string res = "";
         int n1 = str1.length();
         int n2 = str2.length();
-        string temp = "";
-        for (int i = 0; i < n2; i++)
+        if (str1 + str2 != str2 + str1)
         {
-            temp += str2[i];
-            int j = 0;
-            while (j<n1)
-            {
-                
-            }
-            
+            return "";
+        }
+        else
+        {
+            return str1.substr(0, gcd(n1, n2));
         }
     }
 };
@@ -38,6 +40,21 @@ leetcode: https://leetcode.com/problems/greatest-common-divisor-of-strings
 Youtube:
 
 algorithm:
+
+Suppose str1 = "ABCABC" and str2 = "ABC"
+str1 + str2 = ABCABCABC
+str2 + str1 = ABCABCABC
+str1 + str2 == str2 + str1
+return str.substr(0, gcd(size(str1), gcd(size(str2))))
+where gcd(3, 6) = 3
+So, answer is "ABC"
+
+Also str1 = "LEET", str2 = "CODE"
+str1 + str2 = "LEETCODE"
+str2 + str1 = "CODELEET"
+str1 + str2 != str2 + str1
+So, return ""
+
 
 */
 

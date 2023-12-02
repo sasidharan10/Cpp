@@ -1,4 +1,6 @@
 #include <iostream>
+#include <algorithm>
+#include <cmath>
 using namespace std;
 int gcd1(int a, int b)
 {
@@ -37,6 +39,10 @@ int gcdArray(int *arr, int n)
     }
     return result;
 }
+int gcdBuiltIn(int a, int b)
+{
+    return __gcd(a, b);
+}
 int main()
 {
     // greatest common divisor or highest common factor
@@ -46,6 +52,7 @@ int main()
     cout << "GCD is(recursion) : " << gcd1(a, b);
     cout << "\nGCD is(loop) : " << gcd2(a, b);
     cout << "\nGCD is(loop, optimized) : " << gcd3(a, b);
+    cout << "\nGCD (Built-in) : " << gcdBuiltIn(a, b);
     cout << "\nGCD Array : " << gcdArray(arr, n);
     return 0;
 }
