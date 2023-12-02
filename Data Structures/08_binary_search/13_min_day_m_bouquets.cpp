@@ -65,7 +65,7 @@ int main()
 
 /*
 
-link:
+link: https://www.codingninjas.com/studio/problems/rose-garden_2248080
 
 leetcode: https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
 
