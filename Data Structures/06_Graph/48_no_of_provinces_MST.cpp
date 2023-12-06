@@ -84,4 +84,5 @@ Youtube: https://www.youtube.com/watch?v=ZGr5nX-Gi6Y&list=PLgUwDviBIf0oE3gA41TKO
 algorithm:
 
 - Using MST
+- no of nodes, whose parent is itself, is the count of no of components in a graph
 */

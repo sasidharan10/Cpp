@@ -128,4 +128,5 @@ algorithm:
 
 - 1) using simple dfs
 - 2) using MST
+- no of nodes, whose parent is itself, is the count of no of components in a graph
 */
