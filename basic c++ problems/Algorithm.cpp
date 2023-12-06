@@ -3,6 +3,7 @@
 #include <string> // separate header file to use the string(Data structure)
 #include <algorithm>
 #include <vector>
+#include <numeric>
 using namespace std;
 int main()
 {
@@ -21,10 +22,16 @@ int main()
 	find(a.begin(), a.end(), 'o') != a.end() ? cout << "Found" << endl : cout << "Not Found" << endl; // finding o
 	int arr[] = {1, 2, 3, 4, 3, 2, 1, 4, 5, 3};
 	int n = sizeof(arr) / sizeof(arr[0]);
+
+	// Syntax = accumulate(first_index, first_index, starting_sum)
+	cout << "Sum of array: " << accumulate(arr, arr + n, 0) << endl;
+
 	sort(arr, arr + n); // sort
+
 	// reverse(arr, arr + n); // reverse
 	for (int i : arr)
 		cout << i << " ";
+
 	auto p = lower_bound(arr, arr + n, 4);
 	auto q = upper_bound(arr, arr + n, 4);
 	cout << "\nThe lower bound is at position: ";
