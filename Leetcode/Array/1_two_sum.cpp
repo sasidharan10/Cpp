@@ -48,7 +48,7 @@ bool twoSum3(vector<int> v, int target)
     // TC: O(n) + O(nlogn)
     // SC: O(1)
 
-    // to check if 2 sum pair exists,
+    // using 2-pointer approach
     sort(v.begin(), v.end());
     int left = 0, right = v.size() - 1;
     while (left < right)
