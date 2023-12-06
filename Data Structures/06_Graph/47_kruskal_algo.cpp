@@ -43,7 +43,11 @@ class Solution
 public:
     int spanningTree(int V, vector<vector<int>> adj[])
     {
+        // TC: O(N + E) + O(MlogM) + O(M * 4 * Alpla)
+        // SC: O(M) + O(V) * 2
+
         vector<pair<int, pair<int, int>>> edges;
+        // O(N + E)
         for (int i = 0; i < V; i++)
         {
             for (auto it : adj[i])
@@ -53,10 +57,12 @@ public:
                 edges.push_back({wt, {i, v}});
             }
         }
+        int m = edges.size();
+        // O(MlogM)
         sort(edges.begin(), edges.end());
         disjointSet ds(V);
-        int m = edges.size();
         int mstWt = 0;
+        // O(M * 4 * Alpla)
         for (int i = 0; i < m; i++)
         {
             int wt = edges[i].first;
