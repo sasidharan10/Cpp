@@ -18,6 +18,9 @@ public:
     }
     int numProvinces(vector<vector<int>> mat, int V)
     {
+        // TC: ~O(n) or O(n) + O(n + 2E)
+        // SC: O(n) + (n)
+        
         vector<int> vis(V, 0);
         vector<int> adj[V];
         for (int i = 0; i < V; i++)
@@ -46,8 +49,8 @@ int main()
 {
     Solution s;
     int n = 3;
-    vector<vector<int>> v{{1, 0, 1}, {0, 1, 0}, {1, 0, 1}};
-    cout << "No of provinces: " << s.numProvinces(v, n);
+    vector<vector<int>> adj{{1, 0, 1}, {0, 1, 0}, {1, 0, 1}};
+    cout << "No of provinces: " << s.numProvinces(adj, n);
     return 0;
 }
 
@@ -55,7 +58,9 @@ int main()
 
 link: https://practice.geeksforgeeks.org/problems/number-of-provinces/1
 
-leetcode:
+leetcode: https://leetcode.com/problems/number-of-provinces/
+
+Youtube: https://www.youtube.com/watch?v=ACzkVtewUYA&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=7&pp=iAQB
 
 algorithm:
 
