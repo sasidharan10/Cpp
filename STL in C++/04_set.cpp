@@ -45,11 +45,12 @@ int main()
     cout << "\nElements in a : ";
     for (int i : a)
         cout << i << " ";
-
     cout << "\nElements in b : ";
-    for (int i : b)
-        cout << i << " ";
-
+    set<int>::iterator it = b.begin();
+    for (it = b.begin(); it != b.end(); it++)
+    {
+        cout << *it << " ";
+    }
     // cout<<"a.upper_bound() : "<<*a.upper_bound()<<endl;
 
     int arr[5]{1, 2, 3, 4, 5};
