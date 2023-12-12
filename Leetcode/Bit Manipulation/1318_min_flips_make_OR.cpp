@@ -95,7 +95,7 @@ int main()
 {
     Solution s;
     int a = 2, b = 6, c = 5;
-    cout << "Result: " << s.minFlips(a, b, c) << endl;
+    cout << "Result: " << s.minFlips2(a, b, c) << endl;
     return 0;
 }
 
