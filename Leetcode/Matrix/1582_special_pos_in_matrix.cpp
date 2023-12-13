@@ -83,7 +83,7 @@ int main()
 {
     Solution s;
     vector<vector<int>> mat{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
-    cout << "Result: " << s.numSpecial(mat) << endl;
+    cout << "No of Special Positions in Matrix: " << s.numSpecial(mat) << endl;
     return 0;
 }
 

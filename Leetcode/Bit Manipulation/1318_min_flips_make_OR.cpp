@@ -95,7 +95,7 @@ int main()
 {
     Solution s;
     int a = 2, b = 6, c = 5;
-    cout << "Result: " << s.minFlips2(a, b, c) << endl;
+    cout << "Minimum Flips to Make (a || b == c): " << s.minFlips2(a, b, c) << endl;
     return 0;
 }
 
@@ -105,7 +105,7 @@ link:
 
 leetcode: https://leetcode.com/problems/minimum-flips-to-make-a-or-b-equal-to-c
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=evSUv26z4Wk
 
 algorithm:
 
