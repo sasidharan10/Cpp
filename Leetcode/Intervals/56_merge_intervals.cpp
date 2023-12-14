@@ -50,6 +50,7 @@ Youtube:
 
 algorithm: 
 
+- Sort the intervals, by its starting value
 - Let A = (x1, y1) and B = (x2, y2), then if (y1 > x2) then its overlapping.
 - If over lapping then we update its prev_Y as => prev_Y = max(y1, y2);
 - If not, we push that intervals into ans vector.

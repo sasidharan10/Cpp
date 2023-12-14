@@ -58,6 +58,7 @@ algorithm:
   the arrow will penetrate number of balloons, if overlapped.
 - Hence we need to find the no of ballons overlapped with each other, then we can
   return the Min no of arrows to burst all balloons.
+- Sort the intervals, by its starting value
 - We know that, to find if 2 balloons are overlapped it should meet this condition:
 - Let A = (x1, y1) and B = (x2, y2), then if (y1 > x2) then its overlapping.
 - So no need increase the arrow count, we can move to next balloon.
@@ -65,7 +66,7 @@ algorithm:
   overlapping interval will be => prev_X = max(x1, x2), prev_Y = min(y1, y2);
 - we will compare with prev intervals, and if no overlapping found, we
   increase cnt++, and update the pev intervals, by the current values.
-  
+
 */
 
 /*
