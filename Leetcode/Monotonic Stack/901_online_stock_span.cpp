@@ -10,6 +10,9 @@ public:
 
     int next(int price)
     {
+        // TC: O(n)
+        // SC: O(n)
+        
         int span = 1;
         while (!st.empty() && st.top().first <= price)
         {
