@@ -61,6 +61,24 @@ Youtube: https://www.youtube.com/watch?v=SF13GD8FPxM
 
 algorithm:
 
+- We use 3 DS, one to map food to its rating, then to map food to its cuisine and then map
+  cuisine with all its food with its rating.
+- cuisineFoodRating DS, the cuisine contains all the foods along with its rating. 
+  as per the question we need to return the food with highest rating of a particular
+  cuisine. If the rating are same for mltiple food, we need to return the food, which 
+  is lexicographically sorted.
+- To achieve this, we use a set<pair<int, string>>, which will store the food and rating
+  in sorted order. First it will sort in terms of rating, then if ratings are same, it will 
+  sort based on food by default.
+- By default, it will be sorted ascending order, hence our result will be present at last.
+  but if we try to fetch the last element, we will return wrong answer if 2 or more foods
+  have the same rating.
+- EX: (13, noodles), (16, burger), (16, sushi) 
+- here, the function will return (16, sushi), but the answer is (16, burger).
+  Either we can write comparator function to sort it in decreasing orde
+  or we can store the ratings in negative, which will aslo give the desired result.
+- EX: (-16, burger), (-16, sushi), (13, noodles)
+
 */
 
 /*
