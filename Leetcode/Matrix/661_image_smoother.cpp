@@ -57,7 +57,7 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/image-smoother
 
 Youtube:
 
