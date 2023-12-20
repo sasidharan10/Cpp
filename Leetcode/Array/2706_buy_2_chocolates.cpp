@@ -32,7 +32,7 @@ int main()
     Solution s;
     vector<int> nums{1, 2, 2};
     int money = 3;
-    cout << "Result: " << s.buyChoco(nums, money) << endl;
+    cout << "Minimum sum of 2 Chocolates: " << s.buyChoco(nums, money) << endl;
     return 0;
 }
 

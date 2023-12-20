@@ -43,7 +43,7 @@ int main()
     // int threshold = 6;
     vector<int> nums{44, 22, 33, 11, 1};
     int threshold = 5;
-    cout << "Result: " << s.smallestDivisor(nums, threshold) << endl;
+    cout << "Smallest Divisor Given a Threshold: " << s.smallestDivisor(nums, threshold) << endl;
     return 0;
 }
 

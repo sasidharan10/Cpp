@@ -41,7 +41,7 @@ int main()
     Solution s;
     vector<vector<int>> nums{{100, 200, 100}, {200, 50, 200}, {100, 200, 100}};
     vector<vector<int>> ans = s.imageSmoother(nums);
-    cout << "Result: " << endl;
+    cout << "Matrix after Image smoothing: " << endl;
     for (auto i : ans)
     {
         for (auto j : i)
