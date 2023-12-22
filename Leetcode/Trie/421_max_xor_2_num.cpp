@@ -51,7 +51,7 @@ public:
         for (int i = 31; i >= 0; i--)
         {
             int bit = (num >> i) & 1;
-            // 1 - bit == (compliment of bit)
+            // 1 - bit == (compliment of bit) or use "!bit"
             if (node->containKey(1 - bit))
             {
                 res = res | (1 << i);
@@ -114,7 +114,7 @@ int main()
     Solution s;
     int n = 7, m = 7;
     vector<int> nums{3, 10, 5, 25, 2, 8};
-    cout << "Result: " << s.findMaximumXOR(nums) << endl;
+    cout << "Maximum XOR of Two Numbers in an Array: " << s.findMaximumXOR(nums) << endl;
     return 0;
 }
 
