@@ -104,7 +104,7 @@ int main()
     Solution s;
     int n = 6;
     vector<string> nums{"n", "ni", "nin", "ninj", "ninja", "ninga"};
-    cout << "Result: " << s.completeString(n, nums) << endl;
+    cout << "Longest Complete String: " << s.completeString(n, nums) << endl;
     return 0;
 }
 

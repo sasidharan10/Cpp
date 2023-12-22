@@ -129,7 +129,7 @@ int main()
 {
     Solution s;
     vector<string> words = {"a", "banana", "app", "appl", "ap", "apply", "apple"};
-    cout << "Result: " << s.longestWord(words) << endl;
+    cout << "Longest Word in Dictionary: " << s.longestWord(words) << endl;
     return 0;
 }
 
@@ -161,7 +161,7 @@ algorithm:
   prefix exists. if (flag==false), means its prefix not exists, we return false.
 - If (true), then we check if its the longest, if yes, we update longest,
   else we move to next word.
-  
+
 */
 
 /*
