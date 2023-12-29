@@ -114,9 +114,23 @@ link:
 
 leetcode: https://leetcode.com/problems/minimum-difficulty-of-a-job-schedule
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=smTnSl6UKi0
+Youtube: https://www.youtube.com/watch?v=TjyYTng3f5A
 
 algorithm:
+
+- We need to separate the job difficulty array into 'n' parts,
+  such that, sum of max of each part should be minimum.
+- if (n < d) means less jobs, but more days, hence we cannot divide
+  without empty days, hence return -1.
+- We ue loop to take ith job into a day, and move to next day.
+- Ex: 
+- (6), (5, 4, 3, 2, 1) = 6 + 5 = 11
+- (6, 5), (4, 3, 2, 1) = 6 + 4 = 10
+- (6, 5, 4), (3, 2, 1) = 6 + 3 = 9
+- (6, 5, 4, 3), (2, 1) = 6 + 2 = 8
+- (6, 5, 4, 3, 2), (1) = 6 + 1 = 7
+- ans = 7.
 
 */
 
