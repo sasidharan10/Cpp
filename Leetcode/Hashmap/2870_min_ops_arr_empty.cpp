@@ -38,7 +38,7 @@ link:
 
 leetcode: https://leetcode.com/problems/minimum-number-of-operations-to-make-array-empty
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=lkPNh2M1lUs
 
 algorithm:
 
