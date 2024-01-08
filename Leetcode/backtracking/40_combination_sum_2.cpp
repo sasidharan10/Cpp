@@ -46,9 +46,15 @@ int main()
 
 /*
 
-link: https://www.youtube.com/watch?v=G1fRTGRxXU8&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=12
+link:
 
-i>index (or i!=index) is used, so that we can pick the element first time without
+leetcode: https://leetcode.com/problems/combination-sum-ii/
+
+Youtube: https://www.youtube.com/watch?v=G1fRTGRxXU8&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=12
+
+algorithm:
+
+-   i>index (or i!=index) is used, so that we can pick the element first time without
     checking  this condition "v[i] == v[i - 1]".
     eg: [1,1,1,2,2]
     as we go down the recursion call, we pick each one position till n-1.
@@ -56,5 +62,37 @@ i>index (or i!=index) is used, so that we can pick the element first time withou
     so in that case, i should not check my 1st index element with 0th index, as it was lready picked,
     but due to this condition "v[i] == v[i - 1]", it will check and we might skip that element.
     so we use "i>index (or i!=index)" to skip that condition for first time.
+*/
+
+/*
+
+40. Combination Sum II
+
+Given a collection of candidate numbers (candidates) and a target
+number (target), find all unique combinations in candidates
+where the candidate numbers sum to target.
+
+Each number in candidates may only be used once in the combination.
+
+Note: The solution set must not contain duplicate combinations.
+
+Example 1:
+
+Input: candidates = [10,1,2,7,6,1,5], target = 8
+Output:
+[
+[1,1,6],
+[1,2,5],
+[1,7],
+[2,6]
+]
+Example 2:
+
+Input: candidates = [2,5,2,1,2], target = 5
+Output:
+[
+[1,2,2],
+[5]
+]
 
 */
