@@ -59,7 +59,7 @@ algorithm:
     eg: [1,1,1,2,2]
     as we go down the recursion call, we pick each one position till n-1.
     suppose I picked 1 from 0th index and now i am picking elements for 1st index,
-    so in that case, i should not check my 1st index element with 0th index, as it was lready picked,
+    so in that case, i should not check my 1st index element with 0th index, as it was already picked,
     but due to this condition "v[i] == v[i - 1]", it will check and we might skip that element.
     so we use "i>index (or i!=index)" to skip that condition for first time.
 */
