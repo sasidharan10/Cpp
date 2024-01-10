@@ -47,7 +47,7 @@ link:
 
 leetcode: https://leetcode.com/problems/combination-sum-iv/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=YyuwTwXzSxY
 
 algorithm:
 
