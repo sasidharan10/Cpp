@@ -40,8 +40,9 @@ public:
 class Solution
 {
 public:
-    int maxRemove(vector<vector<int>> &stones, int n)
+    int maxRemove(vector<vector<int>> &stones)
     {
+        int n = stones.size();
         int maxRow = 0, maxCol = 0;
         for (int i = 0; i < n; i++)
         {
@@ -68,9 +69,8 @@ public:
 int main()
 {
     Solution s;
-    int n = 6;
     vector<vector<int>> stones{{0, 0}, {0, 1}, {1, 0}, {1, 2}, {2, 1}, {2, 2}};
-    cout << "Result: " << s.maxRemove(stones, n) << endl;
+    cout << "Result: " << s.maxRemove(stones) << endl;
     return 0;
 }
 

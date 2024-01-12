@@ -58,6 +58,8 @@ Youtube: https://www.youtube.com/watch?v=Iwmn-gFL3c0&t=1923s
 
 algorithm:
 
+https://takeuforward.org/data-structure/most-stones-removed-with-same-row-or-column-dsu-g-53/
+
 */
 
 /*
