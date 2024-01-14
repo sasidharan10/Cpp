@@ -83,10 +83,10 @@ algorithm:
 - Once the DFS traversal is completed for a particular node, we check with
   its adjacents node, and update the minTime => low[node] = min(low[node], low[it]).
 - if (tin[node] < low[it]), means the adjacent node has taken more time than the parent
-  node during the DFS travelsal, which we had to traverse through the node to reach
+  node during the DFS travelsal, which means we had to traverse through the node to reach
   the adjacent node i.e., it was the only path. hence the path between these 2 nodes
   is a bridge. 
-- Note that, we dont update minTIme low[node] = min(low[node], low[it]) with its parent
+- Note that, we dont update minTime low[node] = min(low[node], low[it]) with its parent
   node, as we are checking for paths, other than the path, from where it came from.
 
 */

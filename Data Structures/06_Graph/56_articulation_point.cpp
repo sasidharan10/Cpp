@@ -72,6 +72,20 @@ Youtube: https://www.youtube.com/watch?v=j1QDfU21iZk&list=PLgUwDviBIf0oE3gA41TKO
 
 algorithm:
 
+- Using tarjan's algorithm.
+- Its a DFS algo, where we track the time, minTime for every node.
+- As we do the DFS traversal, we track the time taken to reach that node.
+- the minTime will also be same, as we are visitng the node for first time.
+- Once the DFS traversal is completed for a particular node, we check with
+  its adjacents node, and update the minTime => low[node] = min(low[node], low[it]).
+- if (tin[node] <= low[it]) (instead of just "<"), means the adjacent node has taken 
+  more time than the parent node during the DFS travelsal, which means we had to 
+  traverse through the node to reach the adjacent node i.e., it was the only path. 
+  hence the path between these 2 nodes is a bridge. So we add that node into our ans
+  and check for other nodes.
+- Another change willbe, if the node is already visited, then we update minTime by comparing it
+  with tin[i] and not low[i] => low[node] = min(low[node], tin[it]).
+  
 */
 
 /*

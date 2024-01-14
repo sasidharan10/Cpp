@@ -7,7 +7,7 @@ public:
     {
         // TC: O(n * MlogM) where M = count of chars
         // SC: O(26) + O(M)
-        
+
         int n1 = word1.size();
         int n2 = word2.size();
         if (n1 != n2)
@@ -24,18 +24,9 @@ public:
                 return false;
             mp2[ch]++;
         }
-        vector<int> cnt1, cnt2;
-        for (auto it : mp1)
-        {
-            cnt1.push_back(it);
-        }
-        for (auto it : mp2)
-        {
-            cnt2.push_back(it);
-        }
-        sort(cnt1.begin(), cnt1.end());
-        sort(cnt2.begin(), cnt2.end());
-        return cnt1 == cnt2;
+        sort(mp1.begin(), mp1.end());
+        sort(mp2.begin(), mp2.end());
+        return mp1 == mp2;
     }
 };
 int main()
