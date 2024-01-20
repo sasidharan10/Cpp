@@ -3,6 +3,7 @@ using namespace std;
 class Solution
 {
 public:
+    // Optimal
     int calCapacity(int cap, vector<int> &weights)
     {
         int n = weights.size();

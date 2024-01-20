@@ -3,6 +3,14 @@
 #include <string>
 #include <set>
 using namespace std;
+class comp
+{
+public:
+    bool operator()(const student &lhs, const student &rhs)
+    {
+        return lhs.name < rhs.name;
+    }
+};
 class student
 {
 public:
@@ -25,8 +33,9 @@ int main()
     set<int> a{6, 5, 4, 3, 8, 3, 21, 6, 8};                            // default ascending order
     set<int, greater<>> b = {20, 30, 10, 60, 40, 80, 50};              // decending order
     set<student, less<>> s = {{1, "smith"}, {2, "root"}, {3, "kane"}}; // ascending order(less)
+    set<student, comp> t = {{1, "smith"}, {2, "root"}, {3, "kane"}};         // ascending order(less)
     cout << "Elements in student class : \n";
-    for (auto &i : s)
+    for (auto &i : t)
         cout << "Rno : " << i.rno << ", "
              << "Name : " << i.name << endl;
     set<int>::iterator i = b.begin();

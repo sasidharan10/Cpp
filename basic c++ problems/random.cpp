@@ -4,7 +4,7 @@ using namespace std;
 int main()
 { 
     int x;
-    int l=0, h=10;
+    int l=0, h=3;
 
     // random_integer = lowest + rand() % range
 
