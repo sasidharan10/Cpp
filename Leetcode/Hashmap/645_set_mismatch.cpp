@@ -86,7 +86,7 @@ int main()
     Solution s;
     vector<int> nums{3, 2, 3};
     vector<int> ans = s.findErrorNums(nums);
-    cout << "Result: " << endl;
+    cout << "Duplicate and Missing number: " << endl;
     for (auto &&i : ans)
     {
         cout << i << " ";

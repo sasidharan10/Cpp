@@ -5,6 +5,9 @@ class Solution
 public:
     bool solve(int i, int j, int n, int cnt, vector<vector<int>> &grid)
     {
+        // TC: O(n*n)
+        // SC: only stack space = O(n*n)
+        
         if (cnt == n * n)
             return true;
         int row = -1, col = -1;
@@ -96,14 +99,15 @@ Youtube:
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
-- Optimal Approach:
-
--
-
+- Its a DFS traversal
+- Knight can only move in L shape and a knight has at most 8 moves
+  from its position. 
+- Hence from each cell, we check for all 8 moves of the knight
+  and see if we have the (cell + 1) value. If yes, we move to that cell, and check 
+  again for (cell + 1) value using those 8 moves.
+- If not, return false. If cell == n*n, means we bisited all cells and all values
+  are present in the matrix, hence we return true.
+.
 */
 
 /*
