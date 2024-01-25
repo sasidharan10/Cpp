@@ -26,26 +26,66 @@ public:
         }
         return true;
     }
-    int solve(int ind, int n, string res, vector<string> &arr)
+    // better
+    int solve2(int ind, int n, string res, vector<string> &arr)
     {
         if (ind == n)
             return res.length();
         int notTake = INT_MIN, take = INT_MIN;
         if (!isUnique(res, arr[ind]))
         {
-            notTake = solve(ind + 1, n, res, arr);
+            notTake = solve2(ind + 1, n, res, arr);
         }
         else
         {
-            notTake = solve(ind + 1, n, res, arr);
-            take = solve(ind + 1, n, res + arr[ind], arr);
+            notTake = solve2(ind + 1, n, res, arr);
+            take = solve2(ind + 1, n, res + arr[ind], arr);
+        }
+        return max(take, notTake);
+    }
+    int maxLength2(vector<string> &arr)
+    {
+        int n = arr.size();
+        return solve2(0, n, "", arr);
+    }
+
+    // optimal
+    int solve(int ind, int val, int n, vector<int> &nums)
+    {
+        if (ind == n)
+        {
+            return __builtin_popcount(val);
+        }
+        int notTake = INT_MIN, take = INT_MIN;
+        if ((val & nums[ind]) != 0)
+        {
+            notTake = solve(ind + 1, val, n, nums);
+        }
+        else
+        {
+            notTake = solve(ind + 1, val, n, nums);
+            take = solve(ind + 1, val | nums[ind], n, nums);
         }
         return max(take, notTake);
     }
     int maxLength(vector<string> &arr)
     {
         int n = arr.size();
-        return solve(0, n, "", arr);
+        vector<int> nums;
+        for (int i = 0; i < n; i++)
+        {
+            unordered_set<char> st(arr[i].begin(), arr[i].end());
+            if (st.size() != arr[i].size())
+                continue;
+            int val = 0;
+            for (char ch : arr[i])
+            {
+                val = val | (1 << (ch - 'a'));
+            }
+            nums.push_back(val);
+        }
+        int m = nums.size();
+        return solve(0, 0, m, nums);
     }
 };
 int main()
