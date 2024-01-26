@@ -1,18 +1,18 @@
-#include<iostream>
-#include<cstdlib>
+#include <iostream>
+#include <cstdlib>
 using namespace std;
 int main()
-{ 
-    int x;
-    int l=0, h=3;
+{
+    int mini = 5, maxi = 10;
+    int range = maxi - mini + 1;
 
     // random_integer = lowest + rand() % range
 
-    for (int i = 0; i < 20; i++)
+    for (int i = 0; i < 10; i++)
     {
-        int ran=l+rand()%h;
-        cout<<ran<<endl;
+        int ran = rand() % range + mini;
+        cout << ran << endl;
     }
-    
+
     return 0;
 }
