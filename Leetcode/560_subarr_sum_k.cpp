@@ -12,12 +12,17 @@ public:
             for (int j = 0; j < n; j++)
             {
                 int sum = 0;
+                bool flag = false;
                 for (int l = i; l <= j; l++)
                 {
+                    flag = true;
                     sum += nums[l];
                 }
-                if (sum == k)
+                if (sum == k && flag)
+                {
                     cnt++;
+                    flag = false;
+                }
             }
         }
         return cnt;
