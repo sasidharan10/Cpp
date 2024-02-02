@@ -119,9 +119,9 @@ int main()
 
 /*
 
-link:
+link: https://www.codingninjas.com/studio/problems/ways-to-make-coin-change_630471
 
-leetcode: https://www.codingninjas.com/studio/problems/ways-to-make-coin-change_630471
+leetcode: 
 
 Youtube: https://www.youtube.com/watch?v=HgyouUi11zk&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=23
 
