@@ -3,7 +3,7 @@ using namespace std;
 // Recursion
 int maximumChocolatesRecur(int i, int j1, int j2, vector<vector<int>> &grid)
 {
-    // TC: O(3^n * 3^n)
+    // TC: O(3 ^ n * 3 ^ n)
     // SC: O(n)
 
     int n = grid.size();
@@ -36,8 +36,8 @@ int maximumChocolatesRecur(int i, int j1, int j2, vector<vector<int>> &grid)
 // Memoization
 int maximumChocolatesMem(int i, int j1, int j2, vector<vector<int>> &grid, vector<vector<vector<int>>> &dp)
 {
-    // TC: O(n*m*m) * 9
-    // SC: O(n*m*m) + O(n)
+    // TC: O(n * m * m) * 9
+    // SC: O(n * m * m) + O(n)
 
     int n = grid.size();
     int m = grid[0].size();
@@ -71,6 +71,9 @@ int maximumChocolatesMem(int i, int j1, int j2, vector<vector<int>> &grid, vecto
 // Tabulation
 int maximumChocolatesTab(int n, int m, vector<vector<int>> &grid)
 {
+    // TC: O(n * m * m) * 9
+    // SC: O(n * m * m)
+
     vector<vector<vector<int>>> dp(n, vector<vector<int>>(m, vector<int>(m, 0)));
     for (int j1 = 0; j1 < m; j1++)
     {
@@ -114,6 +117,9 @@ int maximumChocolatesTab(int n, int m, vector<vector<int>> &grid)
 // Space Optimization
 int maximumChocolatesSpc(int n, int m, vector<vector<int>> &grid)
 {
+    // TC: O(n * m * m) * 9
+    // SC: O(m * m)
+    
     vector<vector<int>> prev(m, vector<int>(m, 0));
     for (int j1 = 0; j1 < m; j1++)
     {
@@ -179,10 +185,12 @@ int main()
 
 link: https://www.codingninjas.com/studio/problems/ninja-and-his-friends_3125885
 
-leetcode:
+leetcode: https://leetcode.com/problems/cherry-pickup-ii
 
 Youtube: https://www.youtube.com/watch?v=QGfn7JeXK54&list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&index=16
 
 algorithm:
+
+tuf: https://takeuforward.org/data-structure/3-d-dp-ninja-and-his-friends-dp-13/
 
 */
