@@ -9,7 +9,6 @@ public:
         // SC: O(1)
 
         int el = 0, cnt = 0, n = nums.size();
-        ;
         for (int i = 0; i < n; i++)
         {
             if (cnt == 0)
@@ -24,6 +23,15 @@ public:
             else
                 cnt--;
         }
+        // return el;
+        
+        /*
+
+        since its given in the question that, majority element will exist
+        hence, we can directly return the element without verifying its
+        freq > n/2.
+
+        */
         cnt = 0;
         for (int i = 0; i < n; i++)
         {

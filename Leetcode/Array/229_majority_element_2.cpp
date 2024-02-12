@@ -11,23 +11,23 @@ public:
         int el1 = INT_MIN, cnt1 = 0, el2 = INT_MIN, cnt2 = 0, n = nums.size();
         for (int i = 0; i < n; i++)
         {
-            if (cnt1 == 0 && nums[i] != el2)
+            if (nums[i] == el1)
+            {
+                cnt1++;
+            }
+            else if (cnt1 == 0 && nums[i] != el2)
             {
                 cnt1 = 1;
                 el1 = nums[i];
             }
-            else if (nums[i] == el1)
+            else if (nums[i] == el2)
             {
-                cnt1++;
+                cnt2++;
             }
             else if (cnt2 == 0 && nums[i] != el1)
             {
                 cnt2 = 1;
                 el2 = nums[i];
-            }
-            else if (nums[i] == el2)
-            {
-                cnt2++;
             }
             else
             {
@@ -74,6 +74,10 @@ Youtube: https://www.youtube.com/watch?v=vwZj1K0e9U8
 algorithm: Moore's Voting algorithm
 
 - Brute force: run 2 loops, find count of every element and return the result. - O(n^2)
-- Using Hashmap: store frequency and then check for each element if > (n/2).
+- Using Hashmap: store frequency and then check for each element if > (n/3).
+
+- If find (n / 2) -> 1 majority element
+- If find (n / 3) -> 2 majority element
+- If find (n / 4) -> 3 majority element ...
 
 */
