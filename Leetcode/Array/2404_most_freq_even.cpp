@@ -7,35 +7,36 @@ public:
     {
         // TC: O(2n)
         // SC: O(n)
-        
-        int el = 0, mostFreq = 0, n = nums.size(), cnt = 0;
-        unordered_map<int, int> map;
+
+        int element = 0, mostFreq = 0, n = nums.size(), cnt = 0;
+        unordered_map<int, int> mp;
         for (int i = 0; i < n; i++)
         {
             if (nums[i] % 2 == 0)
             {
-                map[nums[i]]++;
-                mostFreq = max(mostFreq, map[nums[i]]);
+                mp[nums[i]]++;
+                if (mp[nums[i]] == mostFreq)
+                {
+                    element = min(element, nums[i]);
+                }
+                else if (mp[nums[i]] > mostFreq)
+                {
+                    element = nums[i];
+                    mostFreq = mp[nums[i]];
+                }
             }
         }
         if (mostFreq == 0)
             return -1;
-        int res = INT_MAX;
-        for (auto &&i : map)
-        {
-            if (i.second == mostFreq && i.first < res)
-            {
-                res = i.first;
-            }
-        }
-        return res;
+        else
+            return element;
     }
 };
 int main()
 {
     Solution s;
     vector<int> nums{4, 4, 4, 9, 2, 4};
-    cout << "Majority element : " << s.mostFrequentEven(nums) << endl;
+    cout << "Majority Even Element : " << s.mostFrequentEven(nums) << endl;
     return 0;
 }
 
