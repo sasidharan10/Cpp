@@ -49,7 +49,7 @@ int main()
 {
     Solution s;
     int n = 16;
-    cout << "Power of 2?: " << s.isPowerOfTwo(n) << endl;
+    cout << "Power of 2: " << s.isPowerOfTwo(n) << endl;
     return 0;
 }
 
