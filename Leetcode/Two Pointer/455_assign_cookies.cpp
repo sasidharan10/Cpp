@@ -33,7 +33,7 @@ int main()
 {
     Solution s;
     vector<int> g = {1, 2}, nums = {1, 2, 3};
-    cout << "MAx count of children who got the cookies: ";
+    cout << "Max count of children who got the cookies: ";
     cout << s.findContentChildren(g, nums) << endl;
     return 0;
 }

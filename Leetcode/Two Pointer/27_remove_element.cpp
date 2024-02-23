@@ -6,29 +6,16 @@ public:
     int removeElement(vector<int> &nums, int val)
     {
         int n = nums.size();
-        int cnt = 0;
-        int i = 0, j = n - 1;
-        if (n == 1)
+        int k = 0;
+        for (int i = 0; i < n; i++)
         {
-            if (nums[0] == val)
-                return 0;
-            else
-                return 1;
-        }
-        while (i < j)
-        {
-            while (i != j && nums[i] != val)
+            if (nums[i] != val)
             {
-                i++;
+                nums[k] = nums[i];
+                k++;
             }
-            while (i != j && nums[j] == val)
-            {
-                j--;
-            }
-            swap(nums[i], nums[j]);
-            cnt++;
         }
-        return n - cnt;
+        return k;
     }
 };
 int main()
@@ -36,6 +23,10 @@ int main()
     Solution s;
     vector<int> nums{0, 1, 2, 2, 3, 0, 4, 2};
     int val = 2;
+    // vector<int> nums{3,3};
+    // int val = 3;
+    // vector<int> nums{2, 2, 3};
+    // int val = 2;
     cout << "Result: " << s.removeElement(nums, val) << endl;
     return 0;
 }
@@ -44,19 +35,14 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/remove-element/
 
 Youtube:
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
-- Optimal Approach:
-
--
+- Using 2 pointer, we just keep elements if (nums[i] != val), on the
+  left and move the k pointer.
 
 */
 
