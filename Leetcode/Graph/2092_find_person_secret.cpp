@@ -174,7 +174,50 @@ public:
     // Optimal
     vector<int> findAllPeople(int n, vector<vector<int>> &meetings, int firstPerson)
     {
+        int m = meetings.size();
+        unordered_map<int, vector<pair<int, int>>> adj;
+        for (int i = 0; i < m; i++)
+        {
+            int person1 = meetings[i][0];
+            int person2 = meetings[i][1];
+            int time = meetings[i][2];
 
+            adj[person1].push_back({person2, time});
+            adj[person2].push_back({person1, time});
+        }
+
+        vector<bool> vis(n, false);
+        priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+        pq.push({0, 0});
+        pq.push({0, firstPerson});
+        while (!pq.empty())
+        {
+            int time = pq.top().first;
+            int person = pq.top().second;
+            pq.pop();
+
+            if (vis[person])
+                continue;
+            vis[person] = true;
+            for (auto &&it : adj[person])
+            {
+                int nextPerson = it.first;
+                int t = it.second;
+
+                if (t >= time && !vis[nextPerson])
+                {
+                    pq.push({t, nextPerson});
+                }
+            }
+        }
+
+        vector<int> ans;
+        for (int i = 0; i < n; i++)
+        {
+            if (vis[i])
+                ans.push_back(i);
+        }
+        return ans;
     }
 };
 int main()
