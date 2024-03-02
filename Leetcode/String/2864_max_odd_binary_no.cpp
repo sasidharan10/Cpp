@@ -5,6 +5,9 @@ class Solution
 public:
     string maximumOddBinaryNumber(string s)
     {
+        // TC: O(n) + O(n)
+        // SC: O(1)
+        
         int n = s.length();
         int cnt = 0;
         for (int i = 0; i < n; i++)
@@ -28,7 +31,7 @@ int main()
 {
     Solution s;
     string str = "0101";
-    cout << "Result: " << s.maximumOddBinaryNumber(str) << endl;
+    cout << "Max Odd Number: " << s.maximumOddBinaryNumber(str) << endl;
     return 0;
 }
 
@@ -44,11 +47,12 @@ algorithm:
 
 - Brute Force Approach:
 
--
+- Sort the string in descending order, and swap the last '1', to the last position.
 
 - Optimal Approach:
 
--
+- Count no of '1's and place them at the left, and keep only one '1's at the
+  end to make it a odd number.
 
 */
 
