@@ -41,28 +41,19 @@ public:
         }
         cout << endl;
     }
-    ListNode *detectCycle(ListNode *head)
+    bool hasCycle(ListNode *head)
     {
         ListNode *slow = head;
         ListNode *fast = head;
-        while (slow != NULL and fast != NULL)
+
+        while (fast != nullptr && fast->next != nullptr)
         {
             slow = slow->next;
-            fast = fast->next;
-            if (fast)
-                fast = fast->next;
+            fast = fast->next->next;
             if (slow == fast)
-                break;
+                return true;
         }
-        if (!slow || !fast)
-            return NULL;
-        slow = head;
-        while (slow != fast)
-        {
-            slow = slow->next;
-            fast = fast->next;
-        }
-        return slow;
+        return false;
     }
 };
 int main()
@@ -75,59 +66,70 @@ int main()
     head = s.InsertEnd(head, -4);
     s.printList(head);
     head->next->next->next = head->next;
-    ListNode *temp = s.detectCycle(head);
-    if (!temp)
-        cout << "No cycle" << endl;
-    else
-        cout << "Cycle beg at: " << temp->val << endl;
+    cout << "Has Cycle?: " << s.hasCycle(head) << endl;
     return 0;
 }
 
 /*
 
-link: 
+link:
 
-leetcode: https://leetcode.com/problems/linked-list-cycle-ii/
+leetcode: https://leetcode.com/problems/linked-list-cycle
 
-Youtube: 
+Youtube:
 
-algorithm:  
-
-- Floyd cycle detection
+algorithm:
 
 */
 
 /*
 
-142. Linked List Cycle II
+141. Linked List Cycle
 
-Given the head of a linked list, return the node where the cycle 
-begins. If there is no cycle, return null.
+Given head, the head of a linked list, determine if the
+linked list has a cycle in it.
 
-There is a cycle in a linked list if there is some node in the list that 
-can be reached again by continuously following the next pointer. 
-Internally, pos is used to denote the index of the node that tail's 
-next pointer is connected to (0-indexed). It is -1 if there is no cycle. 
-Note that pos is not passed as a parameter.
+There is a cycle in a linked list if there is some node in the list
+that can be reached again by continuously following the next pointer.
+Internally, pos is used to denote the index of the node that tail's
+next pointer is connected to. Note that pos is not passed as a parameter.
 
-Do not modify the linked list.
+Return true if there is a cycle in the linked list. Otherwise, return false.
 
 Example 1:
 
 Input: head = [3,2,0,-4], pos = 1
-Output: tail connects to node index 1
-Explanation: There is a cycle in the linked list, where tail connects to the second node.
+Output: true
+Explanation: There is a cycle in the linked list, where the tail
+connects to the 1st node (0-indexed).
 
 Example 2:
 
 Input: head = [1,2], pos = 0
-Output: tail connects to node index 0
-Explanation: There is a cycle in the linked list, where tail connects to the first node.
+Output: true
+Explanation: There is a cycle in the linked list, where the tail connects to the 0th node.
 
 Example 3:
 
 Input: head = [1], pos = -1
-Output: no cycle
+Output: false
 Explanation: There is no cycle in the linked list.
+
+*/
+
+/*
+
+public static boolean hasCycle(ListNode head) {
+        ListNode slow = head;
+        ListNode fast = head;
+
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast)
+                return true;
+        }
+        return false;
+    }
 
 */
