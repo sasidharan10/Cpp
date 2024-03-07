@@ -4,12 +4,18 @@
 using namespace std;
 int gcd1(int a, int b)
 {
+    // TC: O(log(max(a)))
+    // SC: O(log(max(a)))
+    
     if (b == 0)
         return a;
     return gcd1(b, a % b);
 }
 int gcd2(int a, int b)
 {
+    // TC: O(log(max(a)))
+    // SC: O(1)
+
     int gcd;
     for (int i = 1; i <= a && i <= b; i++)
     {
@@ -20,6 +26,9 @@ int gcd2(int a, int b)
 }
 int gcd3(int a, int b)
 {
+    // TC: O(log(max(a)))
+    // SC: O(1)
+
     while (b != 0)
     {
         int rem = a % b;
