@@ -1,5 +1,42 @@
 #include <bits/stdc++.h>
 using namespace std;
+class disjointSet
+{
+public:
+    vector<int> parent, size;
+    disjointSet(int n)
+    {
+        parent.resize(n + 1, 0);
+        size.resize(n + 1, 1);
+        for (int i = 0; i <= n; i++)
+        {
+            parent[i] = i;
+        }
+    }
+    int findUParent(int node)
+    {
+        if (parent[node] == node)
+            return node;
+        return parent[node] = findUParent(parent[node]);
+    }
+    void unionBySize(int u, int v)
+    {
+        int ulp_u = findUParent(u);
+        int ulp_v = findUParent(v);
+        if (ulp_u == ulp_v)
+            return;
+        else if (size[ulp_u] > size[ulp_v])
+        {
+            parent[ulp_v] = ulp_u;
+            size[ulp_u] += size[ulp_v];
+        }
+        else
+        {
+            parent[ulp_u] = ulp_v;
+            size[ulp_v] += size[ulp_u];
+        }
+    }
+};
 class Solution
 {
 public:
@@ -52,7 +89,7 @@ public:
     // Better
     bool canTraverseAllPairs2(vector<int> &nums)
     {
-        // TC: O(n * sqrt(m)) m = max(nums[i])
+        // TC: O(n * sqrt(m)) where m = max(nums[i])
         // SC: O(n + m)
 
         int n = nums.size();
@@ -114,14 +151,60 @@ public:
     // Optimal - Using Disjoint Set
     bool canTraverseAllPairs(vector<int> &nums)
     {
+        // TC: O(n * sqrt(m) * alpha) ,where m = max(nums[i])
+        // SC: O(n)
 
+        int n = nums.size();
+        disjointSet ds(n);
+        unordered_map<int, int> mp;
+        for (int i = 0; i < n; i++)
+        {
+            int temp = nums[i];
+            for (int factor = 2; factor * factor <= nums[i]; factor++)
+            {
+                if (temp % factor != 0)
+                    continue;
+                if (mp.find(factor) != mp.end())
+                {
+                    int idx = mp[factor];
+                    ds.unionBySize(idx, i);
+                }
+                else
+                    mp[factor] = i;
+
+                while (temp % factor == 0)
+                {
+                    temp /= factor;
+                }
+            }
+            if (temp > 1)
+            {
+                if (mp.find(temp) != mp.end())
+                {
+                    int idx = mp[temp];
+                    ds.unionBySize(idx, i);
+                }
+                else
+                    mp[temp] = i;
+            }
+        }
+        int cnt = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (ds.parent[i] == i)
+                cnt++;
+            if (cnt > 1)
+                return false;
+        }
+        return true;
     }
 };
 int main()
 {
     Solution s;
     // vector<int> nums{4, 3, 12, 8};
-    vector<int> nums{3, 9, 5};
+    // vector<int> nums{3, 9, 5};
+    vector<int> nums{2, 3, 6};
     cout << "Result: " << s.canTraverseAllPairs(nums) << endl;
     return 0;
 }
@@ -140,7 +223,7 @@ algorithm:
 - If the array contains 1, which means, it will have gcd() == 1 with
   all other elements and hence we cannot take that element. hence, we can
   return false, without computing further.
-  
+
 - Brute Force Approach:
 
 -
@@ -256,6 +339,38 @@ public static boolean canTraverseAllPairs(int[] nums) {
                 return false;
         }
         return true;
+    }
+
+    // using Disjoint Set
+    public static boolean canTraverseAllPairs(int[] nums) {
+        int n = nums.length;
+        disjointSet ds = new disjointSet(n);
+        HashMap<Integer, Integer> mp = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            int temp = nums[i];
+            for (int factor = 2; factor * factor <= nums[i]; factor++) {
+                if (temp % factor != 0)
+                    continue;
+                if (mp.containsKey(factor)) {
+                    int idx = mp.get(factor);
+                    ds.unionBySize(idx, i);
+                } else
+                    mp.put(factor, i);
+
+                while (temp % factor == 0) {
+                    temp /= factor;
+                }
+            }
+            if (temp > 1) {
+                if (mp.containsKey(temp)) {
+                    int idx = mp.get(temp);
+                    ds.unionBySize(idx, i);
+                } else {
+                    mp.put(temp, i);
+                }
+            }
+        }
+        return ds.getNoOfComponents() == 1;
     }
 
 */
