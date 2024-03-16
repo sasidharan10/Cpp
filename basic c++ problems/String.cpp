@@ -27,4 +27,7 @@ int main()
 	// strncpy(f,g, 4);  // from c only first 4 characters are copied
 	cout << "strcpy(f,g): " << f << endl;
 	cout << "strlen(f): " << strlen(f) << endl;
+	string temp = string(2, 'a');
+	cout << "string(2, \'a\'): " << temp << endl;
+	return 0;
 }
