@@ -51,14 +51,16 @@ leetcode: https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloo
 
 Youtube: https://www.youtube.com/watch?v=zfcGwzfDNu0
 
+code: 
+
 algorithm:
 
 - here, we are given the width of the balloons, as starting and ending (x ,y) width.
-- If 2 balloons overlap, then we need only 1 arrow to burst both balloons, as its given
-  the arrow will penetrate number of balloons, if overlapped.
+- If 2 balloons overlap, then we need only 1 arrow to burst both balloons, as its given,
+  the arrow will penetrate any number of balloons, if overlapped.
 - Hence we need to find the no of ballons overlapped with each other, then we can
   return the Min no of arrows to burst all balloons.
-- Sort the intervals, by its starting value
+- Sort the intervals, by its starting value.
 - We know that, to find if 2 balloons are overlapped it should meet this condition:
 - Let A = (x1, y1) and B = (x2, y2), then if (y1 > x2) then its overlapping.
 - So no need increase the arrow count, we can move to next balloon.
@@ -92,11 +94,13 @@ Output: 2
 Explanation: The balloons can be burst by 2 arrows:
 - Shoot an arrow at x = 6, bursting the balloons [2,8] and [1,6].
 - Shoot an arrow at x = 11, bursting the balloons [10,16] and [7,12].
+
 Example 2:
 
 Input: points = [[1,2],[3,4],[5,6],[7,8]]
 Output: 4
 Explanation: One arrow needs to be shot for each balloon for a total of 4 arrows.
+
 Example 3:
 
 Input: points = [[1,2],[2,3],[3,4],[4,5]]
@@ -104,5 +108,32 @@ Output: 2
 Explanation: The balloons can be burst by 2 arrows:
 - Shoot an arrow at x = 2, bursting the balloons [1,2] and [2,3].
 - Shoot an arrow at x = 4, bursting the balloons [3,4] and [4,5].
+
+*/
+
+/*
+
+public static int findMinArrowShots(int[][] points) {
+        int n = points.length;
+        if (n == 0)
+            return 0;
+        Arrays.sort(points, (a, b) -> Integer.compare(a[0], b[0]));
+        int prevStart = points[0][0], prevEnd = points[0][1];
+        int cnt = 1;
+        for (int i = 0; i < n; i++) {
+            int curStart = points[i][0];
+            int curEnd = points[i][1];
+
+            if (prevEnd < curStart) {
+                prevStart = curStart;
+                prevEnd = curEnd;
+                cnt++;
+            } else {
+                prevStart = Math.max(prevStart, curStart);
+                prevEnd = Math.min(prevEnd, curEnd);
+            }
+        }
+        return cnt;
+    }
 
 */
