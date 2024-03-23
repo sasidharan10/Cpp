@@ -41,8 +41,29 @@ public:
         }
         cout << endl;
     }
+
+    ListNode *reverseList(ListNode *head)
+    {
+        ListNode *prev = nullptr;
+        ListNode *current = head;
+        ListNode *nextNode = nullptr;
+        while (current)
+        {
+            nextNode = current->next;
+            current->next = prev;
+            prev = current;
+            current = nextNode;
+        }
+        head = prev;
+        return head;
+    }
+
+    // Optimal - reverse the 2nd half, and merge with the first half.
     void reorderList(ListNode *head)
     {
+        // T.C : O(n)
+        // S.C : O(1) Auxiliary, O(n) Recursion stack space
+
         ListNode *l1 = head;
         ListNode *l2 = nullptr;
         ListNode *slow = head;
@@ -74,20 +95,33 @@ public:
             l1 = temp1;
         }
     }
-    ListNode *reverseList(ListNode *head)
+    ListNode *front;
+    void solve(ListNode *tail)
     {
-        ListNode *prev = nullptr;
-        ListNode *current = head;
-        ListNode *nextNode = nullptr;
-        while (current)
+        if (!tail)
+            return;
+        solve(tail->next);
+
+        ListNode *nextFront = front->next;
+        // it means our reorder is completed
+        if (!nextFront)
+            return;
+        // it means both front and tail end up at the mid node. hence assign null and return.
+        else if (front == tail)
         {
-            nextNode = current->next;
-            current->next = prev;
-            prev = current;
-            current = nextNode;
+            front->next = nullptr;
+            return;
         }
-        head = prev;
-        return head;
+
+        front->next = tail;
+        // if front and tail are adjacent nodes, then cycle will be formed, hence we assign it as null.
+        tail->next = (nextFront == tail) ? nullptr : nextFront;
+        front = nextFront;
+    }
+    void reorderList2(ListNode *head)
+    {
+        front = head;
+        solve(front);
     }
 };
 int main()
@@ -100,7 +134,7 @@ int main()
     head = s.InsertEnd(head, 4);
     head = s.InsertEnd(head, 5);
     s.printList(head);
-    s.reorderList(head);
+    s.reorderList2(head);
     s.printList(head);
     return 0;
 }
@@ -110,5 +144,42 @@ int main()
 link:
 
 leetcode: https://leetcode.com/problems/reorder-list/description/
+
+youtube: https://www.youtube.com/watch?v=7cp_HR1BT1E
+
+*/
+
+
+/*
+
+    public static ListNode front; // global variable
+
+    public static void solve(ListNode tail) {
+        if (tail == null)
+            return;
+        solve(tail.next);
+
+        ListNode nextFront = front.next;
+        // it means our reorder is completed
+        if (nextFront == null)
+            return;
+        // it means both front and tail end up at the mid node. hence assign null and
+        // return.
+        else if (front == tail) {
+            front.next = null;
+            return;
+        }
+
+        front.next = tail;
+        // if front and tail are adjacent nodes, then cycle will be formed, hence we
+        // assign it as null.
+        tail.next = (nextFront == tail) ? null : nextFront;
+        front = nextFront;
+    }
+
+    public static void reorderList(ListNode head) {
+        front = head;
+        solve(front);
+    }
 
 */
