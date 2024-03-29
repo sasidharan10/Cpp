@@ -36,7 +36,7 @@ public:
     // Optimal - Sliding window
     int numSubarrayProductLessThanK(vector<int> &nums, int k)
     {
-        // TC: O(n)
+        // TC: O(2n)
         // SC: O(1)
 
         if (k == 0 || k == 1) // nums[i] range = [1, 1000]
