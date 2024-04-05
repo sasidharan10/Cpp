@@ -78,9 +78,9 @@ link:
 
 leetcode: https://leetcode.com/problems/count-subarrays-with-fixed-bounds/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=z6LwIkEn9qc
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Sliding%20Window/Count%20Subarrays%20With%20Fixed%20Bounds.cpp
 
 algorithm:
 
@@ -134,6 +134,30 @@ Explanation: Every subarray of nums is a fixed-bound subarray. There are 10 poss
 /*
 ************* Java Code **************
 
+public long countSubarrays(int[] nums, int minK, int maxK) {
+        int n = nums.length;
+        int minIndex = -1;
+        int maxIndex = -1;
+        int culpritIndex = -1;
+        long res = 0;
 
+        for (int i = 0; i < n; i++)
+        {
+            if (nums[i] > maxK || nums[i] < minK)
+                culpritIndex = i;
+
+            if (nums[i] == minK)
+                minIndex = i;
+            if (nums[i] == maxK)
+                maxIndex = i;
+
+            long leftBound = Math.min(minIndex, maxIndex);
+            long temp = leftBound - culpritIndex;
+
+            res += (temp < 0) ? 0 : temp;
+        }
+
+        return res;
+    }
 
 */
