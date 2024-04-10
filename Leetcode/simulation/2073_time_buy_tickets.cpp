@@ -120,7 +120,7 @@ algorithm:
   We will end traversing the array, as soon as tickets[k] becomes 0, hence
   whichever element is lying after k, won't be traversed in that last cycle, 
   hence we subtract 1 from the ans.
-  
+
 */
 
 /*
@@ -162,6 +162,16 @@ The person at position 0 has successfully bought 5 tickets and it took 4 + 1 + 1
 /*
 ************* Java Code **************
 
-
+public static int timeRequiredToBuy(int[] tickets, int k) {
+        int n = tickets.length;
+        int ans = 0;
+        for (int i = 0; i < n; i++) {
+            if (i <= k)
+                ans += Math.min(tickets[i], tickets[k]);
+            else
+                ans += Math.min(tickets[i], tickets[k] - 1);
+        }
+        return ans;
+    }
 
 */
