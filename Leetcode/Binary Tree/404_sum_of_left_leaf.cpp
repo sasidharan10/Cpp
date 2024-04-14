@@ -24,51 +24,34 @@ public:
         cout << root->val << " ";
         inorder(root->right);
     }
-    TreeNode *insertNode(TreeNode *root, int n)
+    void leftSum(TreeNode *root, int &sum)
     {
-        if (root == nullptr)
-        {
-            TreeNode *temp = new TreeNode(n);
-            return temp;
-        }
-        if (n <= root->val)
-            root->left = insertNode(root->left, n);
-        else
-            root->right = insertNode(root->right, n);
-        return root;
+        if (!root)
+            return;
+        if (root->left && !root->left->left && !root->left->right)
+            sum += root->left->val;
+        leftSum(root->left, sum);
+        leftSum(root->right, sum);
     }
-    int findBottomLeftValue(TreeNode *root)
+    int sumOfLeftLeaves(TreeNode *root)
     {
-        queue<TreeNode *> q;
-        q.push(root);
-        TreeNode *temp;
-        while (!q.empty())
-        {
-            temp = q.front();
-            q.pop();
-            if (temp && temp->right)
-                q.push(temp->right);
-            if (temp && temp->left)
-                q.push(temp->left);
-        }
-        return temp->val;
+        int sum = 0;
+        leftSum(root, sum);
+        return sum;
     }
 };
 int main()
 {
     Solution s;
     TreeNode *root = nullptr;
-    root = new TreeNode(1);
-    root->left = new TreeNode(2);
-    root->right = new TreeNode(3);
-    root->left->left = new TreeNode(4);
-    // root->left->right = new TreeNode(3);
-    root->right->left = new TreeNode(5);
-    root->right->right = new TreeNode(6);
-    root->right->left->left = new TreeNode(7);
-    cout << "\nTree: ";
+    root = new TreeNode(3);
+    root->left = new TreeNode(9);
+    root->right = new TreeNode(20);
+    root->right->left = new TreeNode(15);
+    root->right->right = new TreeNode(7);
+    cout << "Tree: ";
     s.inorder(root);
-    cout << "\nLeft most leaf: " << s.findBottomLeftValue(root);
+    cout << "\nSum of Left Leaves: " << s.sumOfLeftLeaves(root);
     cout << endl;
     return 0;
 }
@@ -77,6 +60,57 @@ int main()
 
 link:
 
-leetcode: https://leetcode.com/problems/find-bottom-left-tree-value/description/
+leetcode: https://leetcode.com/problems/sum-of-left-leaves/
+
+Youtube:
+
+Code Link:
+
+algorithm:
+
+- We have to find the sum of "left leaf", not all left nodes.
+- Hence, we have to make sure, the left node is the last node, without any children
+
+*/
+
+/*
+
+404. Sum of Left Leaves
+
+Given the root of a binary tree, return the sum of all left leaves.
+A leaf is a node with no children. A left leaf is a leaf that is the left child of another node.
+
+Example 1:
+
+Input: root = [3,9,20,null,null,15,7]
+Output: 24
+Explanation: There are two left leaves in the binary tree, with values 9 and 15 respectively.
+
+Example 2:
+
+Input: root = [1]
+Output: 0
+
+*/
+
+/*
+************* Java Code **************
+
+    public static int sum;
+
+    public static void leftSum(TreeNode root) {
+        if (root == null)
+            return;
+        if (root.left != null && root.left.left == null && root.left.right == null)
+            sum += root.left.val;
+        leftSum(root.left);
+        leftSum(root.right);
+    }
+
+    public static int sumOfLeftLeaves(TreeNode root) {
+        sum = 0;
+        leftSum(root);
+        return sum;
+    }
 
 */
