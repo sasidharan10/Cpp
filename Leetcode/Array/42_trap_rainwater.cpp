@@ -29,31 +29,40 @@ public:
     }
     int trap2(vector<int> &height)
     {
-        // Time : O(n)+O(n)+O(n)
+        // Time : O(3n)
         // Space : O(2n)
 
         int n = height.size();
-        
+
         // water will overflow if it has only 2 structure
-        if (n <= 2) 
+        if (n <= 2)
             return 0;
 
-        // to store left prefix sum and right suffix sum
+        // to store left max prefix and right max suffix
         vector<int> left(n), right(n);
 
-        // left max of first element will be 0 as it has no left structure
-        left[0] = 0;
+        left[0] = height[0];
         for (int i = 1; i < n; i++)
         {
             left[i] = max(left[i - 1], height[i]);
         }
-        // right max of last element will be 0 as it has no right structure
-        right[n - 1] = 0;
+        right[n - 1] = height[n - 1];
         for (int j = n - 2; j >= 0; j--)
         {
             right[j] = max(right[j + 1], height[j]);
         }
         int trappedWater = 0;
+        // for (auto &&it : left)
+        // {
+        //     cout << it << ", ";
+        // }
+        // cout << endl;
+        // for (auto &&it : right)
+        // {
+        //     cout << it << ", ";
+        // }
+        // cout << endl;
+
         for (int i = 1; i < n - 1; i++)
         {
             if (height[i] < left[i] && height[i] < right[i])
@@ -102,10 +111,11 @@ public:
 int main()
 {
     Solution s;
-    vector<int> height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    // vector<int> height = {0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
+    vector<int> height = {4, 2, 0, 3, 2, 5};
     // cout << "Total Trapped water : " << s.trap1(height) << endl;
-    // cout << "Total Trapped water : " << s.trap2(height) << endl;
-    cout << "Total Trapped water : " << s.trap(height) << endl;
+    cout << "Total Trapped water : " << s.trap2(height) << endl;
+    // cout << "Total Trapped water : " << s.trap(height) << endl;
     return 0;
 }
 
@@ -117,7 +127,9 @@ leetcode: https://leetcode.com/problems/trapping-rain-water/
 
 Youtube: https://www.youtube.com/watch?v=m18Hntz4go8
 
-algorithm:
+Code Link: 
+
+algorithm: 
 
 - the Algorithm here is to find the water level of each structure and subtract it
   with the height of the structure (min(left[i],right[i])-a[i]);
@@ -130,6 +142,50 @@ algorithm:
 
 /*
 
+42. Trapping Rain Water
 
+Given n non-negative integers representing an elevation map where the width of 
+each bar is 1, compute how much water it can trap after raining.
+
+Example 1:
+
+Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
+Output: 6
+Explanation: The above elevation map (black section) is represented by 
+array [0,1,0,2,1,0,1,3,2,1,2,1]. In this case, 6 units of rain water (blue section) are being trapped.
+
+Example 2:
+
+Input: height = [4,2,0,3,2,5]
+Output: 9
+
+*/
+
+/*   
+************* Java Code **************
+
+public int trap(int[] height) {
+        int n = height.length;
+        if (n <= 2)
+            return 0;
+        int[] left = new int[n];
+        int[] right = new int[n];
+
+        left[0] = height[0];
+        for (int i = 1; i < n; i++) {
+            left[i] = Math.max(left[i - 1], height[i]);
+        }
+        right[n - 1] = height[n - 1];
+        for (int j = n - 2; j >= 0; j--) {
+            right[j] = Math.max(right[j + 1], height[j]);
+        }
+        int trappedWater = 0;
+        for (int i = 1; i < n - 1; i++) {
+            if (height[i] < left[i] && height[i] < right[i]) {
+                trappedWater += (Math.min(left[i], right[i]) - height[i]);
+            }
+        }
+        return trappedWater;
+    }
 
 */
