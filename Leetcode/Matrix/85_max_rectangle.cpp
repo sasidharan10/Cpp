@@ -5,6 +5,9 @@ class Solution
 public:
     vector<int> getNSR(vector<int> &height)
     {
+        // TC: O(2n)
+        // SC: O(n)
+        
         int n = height.size();
         vector<int> NSR(n, 0);
         stack<int> st;
@@ -24,6 +27,9 @@ public:
     }
     vector<int> getNSL(vector<int> &height)
     {
+        // TC: O(2n)
+        // SC: O(n)
+
         int n = height.size();
         vector<int> NSL(n, 0);
         stack<int> st;
@@ -62,6 +68,9 @@ public:
     }
     int maximalRectangle(vector<vector<char>> &matrix)
     {
+        // TC: O(n * (2m + 2m)) ~ O(n * m)
+        // SC: O(3m) ~ O(m)
+
         int n = matrix.size();
         int m = matrix[0].size();
         vector<int> height(m, 0);
@@ -90,7 +99,7 @@ int main()
 {
     Solution s;
     vector<vector<char>> grid{{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'}, {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
-    cout << "Result: " << s.maximalRectangle(grid) << endl;
+    cout << "Area of Maximal Rectangle: " << s.maximalRectangle(grid) << endl;
     return 0;
 }
 
@@ -98,15 +107,15 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/maximal-rectangle/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=sH5yj83ta_Y
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Stack/Maximal%20Rectangle.cpp
 
 algorithm:
 
--
+- 
 
 */
 
@@ -138,6 +147,83 @@ Output: 1
 /*
 ************* Java Code **************
 
+public static int[] getNSR(int[] height) {
+        // TC: O(2n)
+        // SC: O(n)
 
+        int n = height.length;
+        int[] NSR = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for (int i = n - 1; i >= 0; i--) {
+            while (!st.isEmpty() && height[st.peek()] >= height[i]) {
+                st.pop();
+            }
+            if (st.isEmpty())
+                NSR[i] = n;
+            else
+                NSR[i] = st.peek();
+            st.push(i);
+        }
+        return NSR;
+    }
+
+    public static int[] getNSL(int[] height) {
+        // TC: O(2n)
+        // SC: O(n)
+
+        int n = height.length;
+        int[] NSL = new int[n];
+        Stack<Integer> st = new Stack<>();
+        for (int i = 0; i < n; i++) {
+            while (!st.isEmpty() && height[st.peek()] >= height[i]) {
+                st.pop();
+            }
+            if (st.isEmpty())
+                NSL[i] = -1;
+            else
+                NSL[i] = st.peek();
+            st.push(i);
+        }
+        return NSL;
+    }
+
+    public static int findMaxArea(int[] height) {
+        int n = height.length;
+        int maxArea = 0;
+        int[] NSL = getNSL(height);
+        int[] NSR = getNSR(height);
+
+        int[] width = new int[n];
+        for (int i = 0; i < n; i++) {
+            width[i] = NSR[i] - NSL[i] - 1;
+        }
+
+        for (int i = 0; i < n; i++) {
+            maxArea = Math.max(maxArea, width[i] * height[i]);
+        }
+        return maxArea;
+    }
+
+    public static int maximalRectangle(char[][] matrix) {
+        int n = matrix.length;
+        int m = matrix[0].length;
+        int[] height = new int[m];
+        for (int j = 0; j < m; j++) {
+            if (matrix[0][j] == '1')
+                height[j] = 1;
+        }
+        int maxArea = 0;
+        maxArea = findMaxArea(height);
+        for (int row = 1; row < n; row++) {
+            for (int col = 0; col < m; col++) {
+                if (matrix[row][col] == '0')
+                    height[col] = 0;
+                else
+                    height[col] += 1;
+            }
+            maxArea = Math.max(maxArea, findMaxArea(height));
+        }
+        return maxArea;
+    }
 
 */

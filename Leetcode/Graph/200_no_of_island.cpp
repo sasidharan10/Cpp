@@ -99,7 +99,7 @@ Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Graph/Numb
 
 algorithm:
 
-- Just do a simple bfs or dfs, until all the adjacent cells are visited on that  particular island.
+- Just do a simple bfs or dfs, until all the adjacent cells are visited on that particular island is visited.
 - We do this until all cells are visited.
 - In this way, each time we visit a cell, that island will be visited.
 - hence the no of times, we mark the island is the no of island present in the grid.
