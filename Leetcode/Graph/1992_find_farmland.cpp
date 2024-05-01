@@ -182,6 +182,38 @@ return the answer in any order.
 /*
 ************* Java Code **************
 
+public static int[][] findFarmland(int[][] land) {
+        int n = land.length;
+        int m = land[0].length;
+        List<int[]> res = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (land[i][j] == 1) {
+                    int r2 = i;
+                    int c2 = j;
+                    while (r2 < n && land[r2][j] == 1) {
+                        r2++;
+                    }
+                    while (c2 < m && land[i][c2] == 1) {
+                        c2++;
+                    }
+                    r2 = (r2 == 0) ? 0 : r2 - 1;
+                    c2 = (c2 == 0) ? 0 : c2 - 1;
+                    res.add(new int[] { i, j, r2, c2 });
 
+                    for (int k = i; k <= r2; k++) {
+                        for (int l = j; l <= c2; l++) {
+                            land[k][l] = -1;
+                        }
+                    }
+                }
+            }
+        }
+        int[][] ans = new int[res.size()][4];
+        for (int i = 0; i < res.size(); i++) {
+            ans[i] = res.get(i);
+        }
+        return ans;
+    }
 
 */
