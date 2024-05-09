@@ -78,7 +78,10 @@ algorithm:
 
 - Optimal Approach:
 
--
+- Its given that the del node will not be the last node.
+- Given list [4, 5, 1, 3], del = 5
+- We assign del = del.next => [4, 1, 1, 3]
+- Now we remove the del.next node, and link the del to del.next.next.
 
 */
 
