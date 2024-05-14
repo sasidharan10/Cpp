@@ -57,7 +57,9 @@ public:
         }
         return prev;
     }
-    ListNode *doubleIt(ListNode *head)
+
+    // By reversing the list
+    ListNode *doubleIt4(ListNode *head)
     {
         // TC: O(3n) ~ O(n)
         // SC: O(1)
@@ -90,6 +92,80 @@ public:
         head = reverseList(head);
         return head;
     }
+    int solve(ListNode *head)
+    {
+        if (!head)
+            return 0;
+        int carry = solve(head->next);
+        int newVal = head->val * 2 + carry;
+        head->val = newVal % 10;
+        return newVal / 10;
+    }
+
+    // Using Recursion
+    ListNode *doubleIt3(ListNode *head)
+    {
+        int lastCarry = solve(head);
+        if (lastCarry > 0)
+        {
+            ListNode *newHead = new ListNode(1);
+            newHead->next = head;
+            head = newHead;
+        }
+        return head;
+    }
+
+    // Without reversing the list
+    ListNode *doubleIt2(ListNode *head)
+    {
+        ListNode *curr = head;
+        ListNode *prev = nullptr;
+        while (curr != nullptr)
+        {
+            int newVal = curr->val * 2;
+            if (newVal < 10)
+            {
+                curr->val = newVal;
+            }
+            else if (prev != nullptr)
+            {
+                curr->val = newVal % 10;
+                prev->val = prev->val + 1;
+            }
+            else
+            {
+                ListNode *newHead = new ListNode(1);
+                newHead->next = curr;
+                curr->val = newVal % 10;
+                head = newHead;
+            }
+            prev = curr;
+            curr = curr->next;
+        }
+        return head;
+    }
+
+    // We add the extra node at the start, if needed and then traverse
+    ListNode *doubleIt(ListNode *head)
+    {
+        if (head->val >= 5)
+        {
+            ListNode *newHead = new ListNode(0);
+            newHead->next = head;
+            head = newHead;
+        }
+        ListNode *curr = head;
+        while (curr != nullptr)
+        {
+            curr->val = (curr->val * 2) % 10;
+            if (curr->next != nullptr && curr->next->val >= 5)
+            {
+                curr->val = curr->val + 1;
+            }
+            curr = curr->next;
+        }
+        return head;
+    }
 };
 int main()
 {
@@ -108,9 +184,9 @@ int main()
 
 link:
 
-leetcode: https://leetcode.com/problems/delete-node-in-a-linked-list/
+leetcode: https://leetcode.com/problems/double-a-number-represented-as-a-linked-list/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=KlB72wJDTv4
 
 Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Linked%20List/Double%20a%20Number%20Represented%20as%20a%20Linked%20List.cpp
 
@@ -118,7 +194,7 @@ algorithm:
 
 - Optimal Approach:
 
--
+- Self explanatory.
 
 */
 
