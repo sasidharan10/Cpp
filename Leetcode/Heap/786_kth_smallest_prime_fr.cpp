@@ -5,22 +5,30 @@ class Solution
 public:
     vector<int> kthSmallestPrimeFraction(vector<int> &arr, int k)
     {
+        // TC: O(n^2)*O(logk)
+        // SC: O(k)
+
         int n = arr.size();
-        priority_queue<int, vector<int>, greater<int>>pq;
+        priority_queue<pair<float, pair<int, int>>, vector<pair<float, pair<int, int>>>, less<pair<float, pair<int, int>>>> pq;
         for (int i = 0; i < n; i++)
         {
             for (int j = i + 1; j < n; j++)
             {
-                pq.push()
+                pq.push({arr[i] / (float)arr[j], {arr[i], arr[j]}});
+                if (pq.size() > k)
+                    pq.pop();
             }
         }
-        
+        vector<int> ans(2);
+        ans[0] = pq.top().second.first;
+        ans[1] = pq.top().second.second;
+        return ans;
     }
 };
 int main()
 {
     Solution s;
-    vector<int> nums{1, 2, 3, 4, 5};
+    vector<int> nums{1, 2, 3, 5};
     int k = 3;
     vector<int> ans = s.kthSmallestPrimeFraction(nums, k);
     cout << "Result: " << endl;
