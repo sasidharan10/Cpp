@@ -119,6 +119,14 @@ Explanation: The sum of all XOR totals for every subset is 480.
 /*
 ************* Java Code **************
 
-
+public int subsetXORSum(int[] nums) {
+        int n = nums.length;
+        int num = 0;
+        for (int i = 0; i < n; i++)
+        {
+            num = num | nums[i];
+        }
+        return num << (n - 1);
+    }
 
 */

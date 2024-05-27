@@ -85,11 +85,11 @@ int main()
     Solution s;
     vector<int> nums{1, 2, 3, 5, 8, 8, 8, 10};
     int n = nums.size();
-    int x = 8;
+    int x = 6;
     int index = s.lowerBound(nums, n, x);
-    cout << "Lower Bound: " << nums[index] << endl;
+    cout << "Lower Bound index: " << index << ", val: " << nums[index] << endl;
     index = s.upperBound(nums, n, x);
-    cout << "Upper Bound: " << nums[index] << endl;
+    cout << "Upper Bound index: " << index << ", val: " << nums[index] << endl;
     pair<int, int> ans = s.getFloorAndCeil(nums, n, 6);
     cout << "Floor and Ceil of X: " << ans.first << " : " << ans.second << endl;
     return 0;
@@ -105,5 +105,13 @@ leetcode:
 Youtube:
 
 algorithm:
+
+- Let arr = [1, 2, 3, 5, 8, 8, 8, 10], and target = 8.
+- Lower Bound: The first occurrence of 8 (index = 4). if 8 not available, then the next 
+  greater element is returned.
+- Lower Bound ⇒ nums[i] ≥ target.
+- Upper Bound: The element strictly greater than 8 (index = 7). If 8 not present, then 
+  next greater element is returned. If no greater element present, then index ‘n’ is returned.
+- upper Bound ⇒ nums[i] > target.
 
 */
