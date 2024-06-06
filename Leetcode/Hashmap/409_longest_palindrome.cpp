@@ -75,9 +75,9 @@ link:
 
 leetcode: https://leetcode.com/problems/longest-palindrome/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=DSEng0xILV4
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/strings/Easy%20Tagged/Longest%20Palindrome.cpp
 
 algorithm:
 
