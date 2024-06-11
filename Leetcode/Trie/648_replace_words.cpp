@@ -70,7 +70,7 @@ public:
     string findRoot(string word, unordered_set<string> &st)
     {
         int m = word.length();
-        for (int i = 1; i <= m; i++)
+        for (int i = 1; i <= m; i++) // O(l)
         {
             string temp = word.substr(0, i); // O(l)
             if (st.find(temp) != st.end())
@@ -106,13 +106,13 @@ public:
 
         Trie t;
         int n = dictionary.size();
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < n; i++)  // O(n)
         {
             t.insert(dictionary[i]);
         }
         string result, word;
         stringstream ss(sentence);
-        while (getline(ss, word, ' '))
+        while (getline(ss, word, ' ')) // O(m)
         {
             result += t.search(word) + ' ';
         }
