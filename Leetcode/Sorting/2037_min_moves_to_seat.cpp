@@ -3,11 +3,12 @@ using namespace std;
 class Solution
 {
 public:
-    int minMovesToSeat(vector<int> &seats, vector<int> &students)
+    // Better - Using sorting
+    int minMovesToSeat2(vector<int> &seats, vector<int> &students)
     {
         // TC: O(nlogn) + O(nlogn) + O(n)
         // SC: O(1)
-        
+
         int n = seats.size();
         sort(seats.begin(), seats.end());
         sort(students.begin(), students.end());
@@ -15,6 +16,40 @@ public:
         for (int i = 0; i < n; i++)
         {
             res += abs(seats[i] - students[i]);
+        }
+        return res;
+    }
+
+    // Optimal - Using array as map
+    int minMovesToSeat(vector<int> &seats, vector<int> &students)
+    {
+        // TC: O(n) + O(100)
+        // SC: O(100) + O(100)
+        
+        int n = seats.size();
+        int seatsMap[101] = {0};
+        int studentMap[101] = {0};
+        for (int i = 0; i < n; i++)
+        {
+            seatsMap[seats[i]]++;
+            studentMap[students[i]]++;
+        }
+
+        int i = 0, j = 0;
+        int res = 0;
+        while (i <= 100 && j <= 100)
+        {
+            if (seatsMap[i] == 0)
+                i++;
+            if (studentMap[j] == 0)
+                j++;
+
+            if (i <= 100 && j <= 100 && seatsMap[i] != 0 && studentMap[j] != 0)
+            {
+                res += abs(i - j);
+                seatsMap[i]--;
+                studentMap[j]--;
+            }
         }
         return res;
     }
@@ -33,15 +68,11 @@ link:
 
 leetcode: https://leetcode.com/problems/minimum-number-of-moves-to-seat-everyone/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=sU-yjrJTnYs
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Arrays/Leetcode%20Easy/Minimum%20Number%20of%20Moves%20to%20Seat%20Everyone.cpp
 
 algorithm:
-
-- Brute Force Approach:
-
--
 
 - Optimal Approach:
 
@@ -118,6 +149,35 @@ public int minMovesToSeat(int[] seats, int[] students) {
         for (int i = 0; i < n; i++)
         {
             res += Math.abs(seats[i] - students[i]);
+        }
+        return res;
+    }
+
+public int minMovesToSeat(int[] seats, int[] students) {
+        int n = seats.length;
+        int[] seatsMap = new int[101];
+        int[] studentMap = new int[101];
+        for (int i = 0; i < n; i++)
+        {
+            seatsMap[seats[i]]++;
+            studentMap[students[i]]++;
+        }
+
+        int i = 0, j = 0;
+        int res = 0;
+        while (i <= 100 && j <= 100)
+        {
+            if (seatsMap[i] == 0)
+                i++;
+            if (studentMap[j] == 0)
+                j++;
+
+            if (i <= 100 && j <= 100 && seatsMap[i] != 0 && studentMap[j] != 0)
+            {
+                res += Math.abs(i - j);
+                seatsMap[i]--;
+                studentMap[j]--;
+            }
         }
         return res;
     }
