@@ -14,6 +14,7 @@ int main()
 	cout << a << endl;
 	cout << a.size() << endl;
 	sort(a.begin(), a.end());
+	sort(a.begin(), a.end(), greater<>()); // decending order
 	cout << a << endl;
 	cout << "Count of h : " << count(a.begin(), a.end(), 'h') << endl; // count of h
 	cout << "max : " << *max_element(a.begin(), a.end()) << endl;
@@ -47,13 +48,12 @@ int main()
 	cout << "Vector after erasing: ";
 	for (int i : v)
 		cout << i << " ";
-	cout << endl;
 	auto pt = unique(v.begin(), v.end());
 	cout << "\nVector after erasing: ";
 	for (int i : v)
 		cout << i << " ";
 	v.erase(pt, v.end());
-	cout << "Vector after removing duplicates: ";
+	cout << "\nVector after removing duplicates: ";
 	for (int i : v)
 		cout << i << " ";
 	cout << "\ndistance of max element : " << distance(v.begin(), max_element(v.begin(), v.end()));

@@ -5,6 +5,9 @@ class Solution
 public:
     int findMaximizedCapital(int k, int w, vector<int> &profits, vector<int> &capital)
     {
+        // T.C: O(nlogn) + O(n)
+        // S.C: O(n)
+
         int n = profits.size();
         vector<pair<int, int>> mp;
         for (int i = 0; i < n; i++)
@@ -12,31 +15,22 @@ public:
             mp.push_back({capital[i], profits[i]});
         }
 
-        auto comparator = [&](pair<int, int> &p1, pair<int, int> &p2)
-        {
-            if (p1.first != p2.first)
-                return p1.first < p2.first;
-            else
-                return p1.second > p2.second;
-        };
-
-        sort(mp.begin(), mp.end(), comparator);
-
-        for (int i = 0; i < n; i++)
-        {
-            cout<<mp[i].first<<" : "<<mp[i].second<<endl;
-        }
-        
-
+        sort(mp.begin(), mp.end());
+        priority_queue<int, vector<int>, less<int>> pq;
         int idx = 0;
-        while (k > 0 && idx < n)
+        
+        while (k > 0)
         {
-            int cap = mp[idx].first;
-            int pft = mp[idx].second;
-            if (cap > w)
-                return w;
-            w += pft;
-            idx++;
+            while (idx < n && mp[idx].first <= w)
+            {
+                int pft = mp[idx].second;
+                pq.push(pft);
+                idx++;
+            }
+            if (pq.empty())   // means no project aquired, hence we return w.
+                break;
+            w += pq.top();
+            pq.pop();
             k--;
         }
         return w;
@@ -59,19 +53,24 @@ link:
 
 leetcode: https://leetcode.com/problems/ipo/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=b12SZXrZF9I
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Heap/IPO.cpp
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
 - Optimal Approach:
 
--
+- make list of pairs, with first element as the capital, and second as profit.
+- Sort the list based on capital.
+- Now iterate through the list, and check if we can take the current pair.
+- i.e., (w >= current capital), means we can aquire that project, hence 
+  push that profit to a max-heap.
+- Since there will be 'm' projects which we can aquire, but we will pick the
+  project with "max" profit. hence we add pq.top() in the result and pop it.
+- We do this until (k==0), since we can only aquire 'k' projects.
+- If (w < current capital), then we cannot aquire any further projects, hence
+  we break the loop and return w.
 
 */
 
@@ -127,6 +126,42 @@ n == capital.length
 /*
 ************* Java Code **************
 
+public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
+        int n = profits.length;
+        List<int[]> mp = new ArrayList<>();
+        for (int i = 0; i < n; i++) {
+            mp.add(new int[] { capital[i], profits[i] });
+        }
 
+        Comparator cmp = new Comparator<int[]>() {
+
+            public int compare(int[] arr1, int[] arr2) {
+                return Integer.compare(arr1[0], arr2[0]);
+            }
+        };
+
+        Collections.sort(mp, cmp);
+        for (int[] is : mp) {
+            for (int is2 : is) {
+                System.out.print(is2 + ", ");
+            }
+            System.out.println();
+        }
+        PriorityQueue<Integer> pq = new PriorityQueue<>(Comparator.reverseOrder());
+        int idx = 0;
+
+        while (k > 0) {
+            while (idx < n && mp.get(idx)[0] <= w) {
+                int pft = mp.get(idx)[1];
+                pq.add(pft);
+                idx++;
+            }
+            if (pq.isEmpty())
+                break;
+            w += pq.poll();
+            k--;
+        }
+        return w;
+    }
 
 */

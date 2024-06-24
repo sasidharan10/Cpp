@@ -9,25 +9,27 @@ public:
         // SC: O(1)
 
         int sz = bloomDay.size();
-        int cnt = 0, res = 0;
+        int consecutiveDays = 0, numOfBouquets = 0;
         for (int i = 0; i < sz; i++)
         {
             if (bloomDay[i] <= day)
             {
-                cnt++;
+                consecutiveDays++;
             }
             else
+                consecutiveDays = 0;
+            if (consecutiveDays == k)
             {
-                res += floor(cnt / k);
-                cnt = 0;
+                numOfBouquets++;
+                consecutiveDays = 0;
             }
         }
-        res += floor(cnt / k);
-        if (res >= m)
+        if (numOfBouquets >= m)
             return true;
         else
             return false;
     }
+    
     int minDays(vector<int> &bloomDay, int m, int k)
     {
         int sz = bloomDay.size();
@@ -42,8 +44,7 @@ public:
             int mid = low + (high - low) / 2;
             if (isPossible(mid, bloomDay, m, k))
             {
-                if (mid < res)
-                    res = mid;
+                res = mid;
                 high = mid - 1;
             }
             else
@@ -116,5 +117,62 @@ make another bouquet from the last three flowers that bloomed because they are n
 After day 12: [x, x, x, x, x, x, x]
 It is obvious that we can make two bouquets in different ways.
 
+Constraints:
+
+bloomDay.length == n
+1 <= n <= 105
+1 <= bloomDay[i] <= 109
+1 <= m <= 106
+1 <= k <= n
+
+*/
+
+/*
+
+************************   Java code  ***********************
+
+public static boolean isPossible(int day, int[] bloomDay, int m, int k) {
+        // TC: O(nLog(maxi - mini))
+        // SC: O(1)
+
+        int sz = bloomDay.length;
+        int consecutiveDays = 0, numOfBouquets = 0;
+        for (int i = 0; i < sz; i++) {
+            if (bloomDay[i] <= day) {
+                consecutiveDays++;
+            } else
+                consecutiveDays = 0;
+            if (consecutiveDays == k) {
+                numOfBouquets++;
+                consecutiveDays = 0;
+            }
+        }
+        if (numOfBouquets >= m)
+            return true;
+        else
+            return false;
+    }
+
+    public static int minDays(int[] bloomDay, int m, int k) {
+        int sz = bloomDay.length;
+        int res = 1000000000;
+        if (sz < m * k)
+            return -1;
+        int mini = 0, maxi = 0;
+        for (int i = 0; i < sz; i++) {
+            maxi = Math.max(maxi, bloomDay[i]);
+        }
+        int low = mini, high = maxi;
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            if (isPossible(mid, bloomDay, m, k)) {
+                res = mid;
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        return res;
+    }
 
 */

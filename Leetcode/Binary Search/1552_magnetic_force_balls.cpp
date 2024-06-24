@@ -19,7 +19,8 @@ public:
         }
         return false;
     }
-    // Brute
+
+    // Brute force - gives TLE
     int maxDistance2(vector<int> &position, int m)
     {
         // TC: O(maxi - mini)*n or similar to  O(n^2)
@@ -138,5 +139,44 @@ which also is the largest among all possible ways.
 Your Task:
 Complete the function int solve(), which takes integer n, k, and a vector stalls
 with n integers as input and returns the largest possible minimum distance between cows.
+
+*/
+
+/*
+************* Java Code **************
+
+public static boolean canPlaceBalls(int m, int diff, int n, int[] position)
+    {
+        int cowCount = 1;
+        int lastPlaced = position[0];
+        for (int i = 1; i < n; i++)
+        {
+            if (position[i] - lastPlaced >= diff)
+            {
+                lastPlaced = position[i];
+                cowCount++;
+            }
+            if (cowCount >= m)
+                return true;
+        }
+        return false;
+    }
+
+    public static int maxDistance(int[] position, int m)
+    {
+
+        int n = position.length;
+        Arrays.sort(position);
+        int low = 1, high = position[n - 1] - position[0];
+        while (low <= high)
+        {
+            int mid = low + (high - low) / 2;
+            if (canPlaceBalls(m, mid, n, position))
+                low = mid + 1;
+            else
+                high = mid - 1;
+        }
+        return high;
+    }
 
 */
