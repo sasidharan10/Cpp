@@ -155,7 +155,7 @@ public static boolean isPossible(int day, int[] bloomDay, int m, int k) {
 
     public static int minDays(int[] bloomDay, int m, int k) {
         int sz = bloomDay.length;
-        int res = 1000000000;
+        int res = -1;
         if (sz < m * k)
             return -1;
         int mini = 0, maxi = 0;
