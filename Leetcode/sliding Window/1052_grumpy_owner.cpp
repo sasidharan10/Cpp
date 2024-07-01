@@ -5,6 +5,7 @@ class Solution
 public:
     int maxSatisfied(vector<int> &customers, vector<int> &grumpy, int minutes)
     {
+<<<<<<< HEAD
         // TC: O(n) + O(n)
         // SC: O(1)
         
@@ -34,15 +35,60 @@ public:
                 maxi += customers[i];
         }
         return maxi;
+=======
+        int n = customers.size();
+        int window = minutes;
+        int curr = 0;
+        for (int i = 0; i < minutes; i++)
+        {
+            curr += customers[i];
+        }
+        int maxi = curr;
+        int maxStart = -1, maxEnd = -1;
+        for (int i = minutes; i < n; i++)
+        {
+            curr -= customers[i - minutes];
+            curr += customers[i];
+            if (curr > maxi)
+            {
+                maxi = curr;
+                maxStart = i - minutes + 1;
+                maxEnd = i;
+            }
+        }
+        int res = 0;
+        res += maxi;
+        if (maxStart != -1)
+        {
+            for (int i = 0; i < maxStart; i++)
+            {
+                if (grumpy[i] == 0)
+                    res += customers[i];
+            }
+            for (int i = maxEnd + 1; i < n; i++)
+            {
+                if (grumpy[i] == 0)
+                    res += customers[i];
+            }
+        }
+        return res;
+>>>>>>> 614369cf59bd50e42c4240104b647b62d1178e8a
     }
 };
 int main()
 {
     Solution s;
+<<<<<<< HEAD
     vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5}, grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
     int minutes = 3;
     // vector<int> customers = {3, 7}, grumpy = {0, 0};
     // int minutes = 2;
+=======
+    // vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5}, grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
+    // int minutes = 3;
+    vector<int> customers = {3, 7}, grumpy = {0, 0};
+    int minutes = 2;
+>>>>>>> 614369cf59bd50e42c4240104b647b62d1178e8a
     cout << "Result: " << s.maxSatisfied(customers, grumpy, minutes) << endl;
     return 0;
 }
@@ -51,6 +97,7 @@ int main()
 
 link:
 
+<<<<<<< HEAD
 leetcode: https://leetcode.com/problems/grumpy-bookstore-owner
 
 Youtube: https://www.youtube.com/watch?v=kCxCE0_66vM
@@ -70,6 +117,23 @@ algorithm:
   not only with max customers, but with  grumpy array having max no of 1's to yield the best result.
 - once we get the max customers, in the "maxi" variable, we will loop thorugh again and 
   all the customers, when grumpy[i] == 0, and return the result.
+=======
+leetcode:
+
+Youtube:
+
+Code Link:
+
+algorithm:
+
+- Brute Force Approach:
+
+-
+
+- Optimal Approach:
+
+-
+>>>>>>> 614369cf59bd50e42c4240104b647b62d1178e8a
 
 */
 
@@ -117,6 +181,7 @@ grumpy[i] is either 0 or 1.
 /*
 ************* Java Code **************
 
+<<<<<<< HEAD
 public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
         int n = customers.length;
         int curr = 0;
@@ -145,5 +210,8 @@ public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
         }
         return maxi;
     }
+=======
+
+>>>>>>> 614369cf59bd50e42c4240104b647b62d1178e8a
 
 */
