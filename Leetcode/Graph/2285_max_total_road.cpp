@@ -117,6 +117,30 @@ There are no duplicate roads.
 /*
 ************* Java Code **************
 
+public static long maximumImportance(int n, int[][] roads) {
+        int m = roads.length;
+        int[] outDegree = new int[n];
+        for (int i = 0; i < m; i++) {
+            outDegree[roads[i][0]]++;
+            outDegree[roads[i][1]]++;
+        }
 
+        // Convert the int array to Integer array
+        Integer[] integerArray = Arrays.stream(outDegree).boxed().toArray(Integer[]::new);
+
+        // Sort the array in descending order
+        Arrays.sort(integerArray, Collections.reverseOrder());
+
+        // Convert the Integer array back to int array
+        outDegree = Arrays.stream(integerArray).mapToInt(Integer::intValue).toArray();
+
+        long res = 0;
+        long val = n;
+        for (int i = 0; i < n; i++) {
+            res += outDegree[i] * val;
+            val--;
+        }
+        return res;
+    }
 
 */

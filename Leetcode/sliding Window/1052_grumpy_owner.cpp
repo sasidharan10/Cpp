@@ -5,51 +5,44 @@ class Solution
 public:
     int maxSatisfied(vector<int> &customers, vector<int> &grumpy, int minutes)
     {
+        // TC: O(n) + O(n)
+        // SC: O(1)
+        
         int n = customers.size();
-        int window = minutes;
         int curr = 0;
         for (int i = 0; i < minutes; i++)
         {
-            curr += customers[i];
+            if (grumpy[i] == 1)
+                curr += customers[i];
         }
         int maxi = curr;
-        int maxStart = -1, maxEnd = -1;
-        for (int i = minutes; i < n; i++)
+        int i = 0, j = minutes;
+        while (j < n)
         {
-            curr -= customers[i - minutes];
-            curr += customers[i];
-            if (curr > maxi)
-            {
-                maxi = curr;
-                maxStart = i - minutes + 1;
-                maxEnd = i;
-            }
+            if (grumpy[j] == 1)
+                curr += customers[j];
+            if (grumpy[i] == 1)
+                curr -= customers[i];
+            maxi = max(maxi, curr);
+            i++;
+            j++;
         }
-        int res = 0;
-        res += maxi;
-        if (maxStart != -1)
+
+        for (int i = 0; i < n; i++)
         {
-            for (int i = 0; i < maxStart; i++)
-            {
-                if (grumpy[i] == 0)
-                    res += customers[i];
-            }
-            for (int i = maxEnd + 1; i < n; i++)
-            {
-                if (grumpy[i] == 0)
-                    res += customers[i];
-            }
+            if (grumpy[i] == 0)
+                maxi += customers[i];
         }
-        return res;
+        return maxi;
     }
 };
 int main()
 {
     Solution s;
-    // vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5}, grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
-    // int minutes = 3;
-    vector<int> customers = {3, 7}, grumpy = {0, 0};
-    int minutes = 2;
+    vector<int> customers = {1, 0, 1, 2, 1, 1, 7, 5}, grumpy = {0, 1, 0, 1, 0, 1, 0, 1};
+    int minutes = 3;
+    // vector<int> customers = {3, 7}, grumpy = {0, 0};
+    // int minutes = 2;
     cout << "Result: " << s.maxSatisfied(customers, grumpy, minutes) << endl;
     return 0;
 }
@@ -58,21 +51,25 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/grumpy-bookstore-owner
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=kCxCE0_66vM
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Sliding%20Window/Grumpy%20Bookstore%20Owner.cpp
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
 - Optimal Approach:
 
--
+- when grumpy[i] = 0, the customers are satisfied, and vice-versa.
+- We can make only make m(or minutes) consecutive minutes of grumpy array as 0.
+- We need to find the subaray of size m, which when converted to 0, will
+  yield max customer satisfaction.
+- So we take a sliding window of size "minutes" and slide through the customers array
+  and add only customers[i], when grumpy[i] == 1, since we need to find the subarray,
+  not only with max customers, but with  grumpy array having max no of 1's to yield the best result.
+- once we get the max customers, in the "maxi" variable, we will loop thorugh again and 
+  all the customers, when grumpy[i] == 0, and return the result.
 
 */
 
@@ -120,6 +117,33 @@ grumpy[i] is either 0 or 1.
 /*
 ************* Java Code **************
 
+public int maxSatisfied(int[] customers, int[] grumpy, int minutes) {
+        int n = customers.length;
+        int curr = 0;
+        for (int i = 0; i < minutes; i++)
+        {
+            if (grumpy[i] == 1)
+                curr += customers[i];
+        }
+        int maxi = curr;
+        int i = 0, j = minutes;
+        while (j < n)
+        {
+            if (grumpy[j] == 1)
+                curr += customers[j];
+            if (grumpy[i] == 1)
+                curr -= customers[i];
+            maxi = Math.max(maxi, curr);
+            i++;
+            j++;
+        }
 
+        for (i = 0; i < n; i++)
+        {
+            if (grumpy[i] == 0)
+                maxi += customers[i];
+        }
+        return maxi;
+    }
 
 */
