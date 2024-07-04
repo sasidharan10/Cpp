@@ -5,6 +5,9 @@ class Solution
 public:
     int minDifference(vector<int> &nums)
     {
+        // TC: O(nlogn)
+        // SC: O(1)
+        
         int n = nums.size();
         if (n <= 4)
             return 0;
@@ -29,21 +32,30 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/minimum-difference-between-largest-and-smallest-value-in-three-moves
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=CHxya52oxCM
 
 Code Link:
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
 - Optimal Approach:
 
-- self explanatory
+- We need to make the difference between mini and maxi element as
+  minimum as possible, by changing any 3 elements in the array.
+- hence we need to make changes in those elements, which will have impact in the final result.
+- By making the mini bigger, and making maxi smaller, to reduce the gap between mini and maxi.
+- Hence we sort the array, and pick first 3 and last 3 elements.
+- there are only 4 options to reduce the gap, by making changes in
+  - first 3 elements
+  - first 2 elements and last 2
+  - first element and last 2
+  - last e elements.
+- Examples to understand:
+  - [0, 0, 1, 1, 7, 10, 14] => [0, 0, 1, 1, 1, 1, 1] => diff = (1 - 0) => 1 (changing last 3 elm).
+  - [0, 1, 1, 4, 6, 6, 6] => [4, 4, 4, 4, 6, 6, 6] => diff = (6 - 4) => 2 (changing first 3 elm).
+- So we try all 4 options, and find the smallest diff, and return it.
 
 */
 
