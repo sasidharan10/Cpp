@@ -1,0 +1,108 @@
+#include <bits/stdc++.h>
+using namespace std;
+class Solution
+{
+public:
+    // Brute force - simulating the process
+    int passThePillow2(int n, int time)
+    {
+        // TC: O(n)
+        // SC: O(1)
+
+        int idx = 1;
+        int dir = 1;
+        while (time > 0)
+        {
+            if (idx + dir >= 1 && idx + dir <= n)
+            {
+                idx = idx + dir;
+                time--;
+            }
+            else
+                dir *= -1;
+        }
+        return idx;
+    }
+
+    // Optimal - finding  no of full rounds and then finding the position
+    int passThePillow(int n, int time)
+    {
+        // TC: O(1)
+        // SC: O(1)
+
+        int fullRounds = time / (n - 1); // since it takes n - 1 moves to reach the end.
+        int timeLeft = time % (n - 1);   // after full rounds, remaining time.
+        if (fullRounds % 2 == 0)
+            return timeLeft + 1;
+        else
+            return n - timeLeft;
+    }
+};
+int main()
+{
+    Solution s;
+    int n = 4, time = 5;
+    // int n = 18, time = 38;
+    cout << "Result: " << s.passThePillow(n, time) << endl;
+    return 0;
+}
+
+/*
+
+link:
+
+leetcode:
+
+Youtube: https://www.youtube.com/watch?v=tI8OO93t2zM
+
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Mathematical/Leetcode%20Easy/Pass%20the%20Pillow.cpp
+
+algorithm:
+
+- Optimal Approach:
+
+- 
+
+*/
+
+/*
+
+2582. Pass the Pillow
+
+There are n people standing in a line labeled from 1 to n. The first person in the line is
+holding a pillow initially. Every second, the person holding the pillow passes it to the
+next person standing in the line. Once the pillow reaches the end of the line, the direction
+changes, and people continue passing the pillow in the opposite direction.
+
+For example, once the pillow reaches the nth person they pass it to the n - 1th person, then
+to the n - 2th person and so on.
+Given the two positive integers n and time, return the index of the person holding the pillow
+after time seconds.
+
+Example 1:
+
+Input: n = 4, time = 5
+Output: 2
+Explanation: People pass the pillow in the following way: 1 -> 2 -> 3 -> 4 -> 3 -> 2.
+After five seconds, the 2nd person is holding the pillow.
+
+Example 2:
+
+Input: n = 3, time = 2
+Output: 3
+Explanation: People pass the pillow in the following way: 1 -> 2 -> 3.
+After two seconds, the 3rd person is holding the pillow.
+
+Constraints:
+
+2 <= n <= 1000
+1 <= time <= 1000
+
+*/
+
+/*
+************* Java Code **************
+
+
+
+*/
