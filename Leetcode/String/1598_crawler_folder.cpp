@@ -67,19 +67,15 @@ link:
 
 leetcode: https://leetcode.com/problems/crawler-log-folder
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=xAI0hcwzuuE
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Stack/Easy/Crawler%20Log%20Folder.cpp
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
 - Optimal Approach:
 
-- self explanatory
+- just keep track of depth of folder.
 
 */
 

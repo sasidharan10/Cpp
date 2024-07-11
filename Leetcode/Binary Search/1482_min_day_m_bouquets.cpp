@@ -29,11 +29,12 @@ public:
         else
             return false;
     }
-    
+
     int minDays(vector<int> &bloomDay, int m, int k)
     {
         int sz = bloomDay.size();
-        int res = 1e9;
+        int res = 0;
+        // since m*k causes integer overflow, we typecast it into "long long".
         if (sz < (long long)m * k)
             return -1;
         int mini = *min_element(bloomDay.begin(), bloomDay.end());
@@ -71,6 +72,9 @@ link: https://www.codingninjas.com/studio/problems/rose-garden_2248080
 leetcode: https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/
 
 Youtube: https://www.youtube.com/watch?v=TXAuxeYBTdg&list=PLgUwDviBIf0pMFMWuuvDNMAkoQFi-h0ZF&index=14&t=4s
+Youtube (MIK): https://www.youtube.com/watch?v=erWfh_hBF80
+
+code: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Arrays/Binary%20Search/Minimum%20Number%20of%20Days%20to%20Make%20m%20Bouquets.cpp
 
 algorithm:
 
@@ -155,8 +159,9 @@ public static boolean isPossible(int day, int[] bloomDay, int m, int k) {
 
     public static int minDays(int[] bloomDay, int m, int k) {
         int sz = bloomDay.length;
-        int res = -1;
-        if (sz < m * k)
+        int res = 0;
+        // since m*k causes integer overflow, we typecast it into long.
+        if (sz < ((long)m *k))
             return -1;
         int mini = 0, maxi = 0;
         for (int i = 0; i < sz; i++) {

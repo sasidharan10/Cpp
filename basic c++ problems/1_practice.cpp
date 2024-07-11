@@ -1,16 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
-    char str = 'A' + 22;
-    string temp = "";
-    // temp.push_back(str);
-    string gd = " sds";
-    temp += gd;
-    temp += str;
-    cout << "'" << str << "'" << endl;
-    cout << "'" << temp << "'" << endl;
-
+    vector<int> nums{2, 4, 6, 1, 4, 8};
+    for (int it : nums)
+    {
+        cout << it * 2 << ", ";
+    }
+    cout << endl;
+    for (int it : nums)
+    {
+        cout << it<< ", ";
+    }
     return 0;
 }
