@@ -125,6 +125,34 @@ to_delete contains distinct values between 1 and 1000.
 /*
 ************* Java Code **************
 
+    public static Set<Integer> delNodes;
+    public static List<TreeNode> res;
 
+    public static TreeNode deleteNodes(TreeNode root) {
+        if (root == null)
+            return null;
+        root.left = deleteNodes(root.left);
+        root.right = deleteNodes(root.right);
+        if (delNodes.contains(root.val)) {
+            if (root.left != null)
+                res.add(root.left);
+            if (root.right != null)
+                res.add(root.right);
+            return null;
+        } else
+            return root;
+    }
+
+    public static List<TreeNode> delNodes(TreeNode root, int[] to_delete) {
+        res = new ArrayList<>();
+        delNodes = new HashSet<>();
+        for (int it : to_delete) {
+            delNodes.add(it);
+        }
+        TreeNode temp = deleteNodes(root);
+        if (!delNodes.contains(root.val))
+            res.add(root);
+        return res;
+    }
 
 */

@@ -19,17 +19,21 @@ public:
                 st.push(unordered_map<string, int>());
                 i++;
             }
-            else if (formula[i] == ')')
+            else if (formula[i] == ')')  // elements inside the current () is processed.
             {
                 unordered_map<string, int> currMap = st.top();
                 st.pop();
                 i++;
+
+                // cheching if it has any digits present after ')'.
                 int num = 0;
                 while (i < n && isdigit(formula[i]))
                 {
                     num = num * 10 + (formula[i] - '0');
                     i++;
                 }
+
+                // if present, we multiply all elements with "num".
                 if (num > 0)
                 {
                     for (auto it : currMap) // O(n)
@@ -48,7 +52,7 @@ public:
                     st.top()[element] += cnt;
                 }
             }
-            else
+            else   //processing current element.
             {
                 string curr = "";
                 curr += formula[i];
@@ -58,19 +62,28 @@ public:
                     curr += formula[i];
                     i++;
                 }
+
+                // cheching if it has any number present next to it.
                 int num = 0;
                 while (i < n && isdigit(formula[i]))
                 {
                     num = num * 10 + (formula[i] - '0');
                     i++;
                 }
+
+                // If yes, then we get that count, and merge that element to st.top()
+                // or to next outer parenthesis.
+
                 num = (num == 0) ? 1 : num;
                 st.top()[curr] += num;
             }
         }
-
+        // Since the elements should be sorted, we push the resultant map
+        // into an ordered map.
         map<string, int> sortedMap(st.top().begin(), st.top().end()); // O(nlogn)
         string res = "";
+
+        // convert the map int string
         for (auto it : sortedMap)
         {
             string element = it.first;
@@ -104,7 +117,29 @@ algorithm:
 
 - Optimal Approach:
 
-- 
+- We will process only each element along with its count ata time.
+- we have to keep the count of each element present inside its parenthesis, hence
+  we use a map to keep the count of frequencies.
+- We will use stack, to process element present inside each parenthesis.
+
+- Case 1:
+- if (formula[i] == '('), means new group of elements, hence we push a new empty map into the stack.
+
+- Case 2:
+- if (formula[i] == ')'), means we have process all elements in the current parenthesis, hence we
+  will first check if any number exists, after parenthesis. If yes, then we get that number and multiply
+  with all the elements present in the st.top() or current parenthesis.
+- After multiplying, we finally merge the current map to the next st.top() map or outer ().
+
+- Case 3:
+- Here, we will processs the current element.
+- Any element's symbol consists of only 1 or 2 letters, hence we first check if the current element has
+  1 or 2 letters.
+- After that, we check if it has any number after that. If yes, we process that number and get its count.
+- Then we just merge it with the current st.top() map, or to the outer ().  
+
+- Since the elements should be sorted, we push the resultant map into an ordered map. 
+- Then process the map, and store it into a string and return it.
 
 */
 
