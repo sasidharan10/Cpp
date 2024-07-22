@@ -147,13 +147,27 @@ Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Tree/Numbe
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
 - Optimal Approach:
 
-- self explanatory
+- 2 Approaches.
+- Using DFS.
+- Whenever we find a leaf node, we return an array with 1.
+- Now the parent node will receive 2 arrays from left and right.
+- Lets say, the parent receives [{1}, {1}].
+- Which means, the current node has 2 leaf nodes, with a distance of 1.
+- Now we check if (curr > 0) to eliminate single leaf nodes. WE need to find pairs 
+  having curr <= distance.
+- if (curr <= distance), then we found a pair, hence we increase the count.
+- Now while returning the array to the parent node, we increase the distance by 1,
+  and combine leaf nodes from both children and return it to the parent node.
+
+- Converting into graph and using BFS.
+- Create a parent map, to traverse upwards.
+- Find all the leaf nodes, and store it in a array.
+- Now from each leaf node, we will do a BFS traversal and find the path to all other leaf nodes in the tree.
+- We check if (curr > 0 && curr <= distance), if yes, then return 1, means we found a pair,
+  or return 0.
+- Note that we will find 2 pairs, a -> b, then b -> a. Hence we divide the result/2.
 
 */
 
