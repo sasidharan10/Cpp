@@ -53,6 +53,7 @@ algorithm:
 - Optimal Approach:
 
 - Use a map and sort based on heights.
+- Traverse through the map and store the names in an array and return it.
 
 */
 
