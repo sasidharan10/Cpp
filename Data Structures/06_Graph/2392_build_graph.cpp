@@ -148,8 +148,10 @@ public:
 int main()
 {
     Solution s;
-    vector<vector<int>> rowConditions = {{1, 2}, {3, 2}}, colConditions = {{2, 1}, {3, 2}};
-    int k = 3;
+    // int k = 3;
+    // vector<vector<int>> rowConditions = {{1, 2}, {3, 2}}, colConditions = {{2, 1}, {3, 2}};
+    int k = 8;
+    vector<vector<int>> rowConditions = {{1, 2}}, colConditions = {{5, 7}, {2, 7}, {4, 3}, {6, 7}, {4, 3}, {2, 3}, {6, 2}};
     vector<vector<int>> ans = s.buildMatrix(k, rowConditions, colConditions);
     cout << "Result: " << endl;
     for (auto i : ans)
@@ -177,7 +179,12 @@ algorithm:
 
 - Optimal Approach:
 
-- 
+- First we need to find whether the given ordering is possible or not.
+- Like [[1, 2], [2, 1] is not possible.
+- We use topo sort to solve this issue. It will help us to find whether the ordering is
+  possible. If possible, it will give the numbers in order.
+- So convert the numbers into a graph, and perform topo sort for row and column.
+-
 
 */
 
