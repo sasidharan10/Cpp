@@ -59,4 +59,35 @@ Youtube: https://www.youtube.com/watch?v=0vVofAhAYjc&list=PLgUwDviBIf0oE3gA41TKO
 
 algorithm:
 
+- This algo is used in undirected, weighted graphs
+- For using in undirected graphs (bi-directional), we have to relax the edges from u -> v and as 
+  well as from v -> u.
+- This algo is also known as "Single source shortest path", since we can find the shortest path
+  from a single source to all its other nodes.
+- This algo will work even when the weights are negative. (meanwhile dijkstra fails with -ve weights).
+
+- In this algo we try to relax the edges of the graphs, for n - 1 times.
+- dist[source] = 0, will be initialised.
+- Relaxation means, if (dist[u] + wt < dist[v]), that is I find a path from u -> v, whose distance
+  is lesser than dist[v], then I update it.
+- We do this relaxation for n-1 times, and the resultant dist[], is the shortest distance from
+  source to every node in the graph.
+
+- Why n-1 times?
+- Because, here we try to iterate the edges from the order, which is random.
+- When we do the dry-run for the relaxation of the edges, at each iteration,
+  we can see, we get some smaller distance, hence dist[v] is getting updated.
+- At worst case, in each iteration only 1 dist[v] gets updated. so it will take atleast
+  n-1 iterationss, to update all the dist[v], with the shortest distance.
+- refer video for more understanding.
+
+- Find negative cycles:
+
+- If any negative cycles exist, then the dist[v] would be getting reduced after each
+  iteration.
+- So we finally do 1 more relaxation of the edges, and check if any dist[v] is getting
+  smaller or not. If yes, then negative cycle exists.
+
+
+
 */

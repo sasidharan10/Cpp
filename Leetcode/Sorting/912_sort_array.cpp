@@ -164,6 +164,8 @@ algorithm:
 
 - Optimal Approach:
 
+- merge sort.
+- heap sort.
 - Counting sort.
 
 */

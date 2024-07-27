@@ -71,4 +71,21 @@ Youtube: https://www.youtube.com/watch?v=YbY8cVwWAvw&list=PLgUwDviBIf0oE3gA41TKO
 
 algorithm:
 
+- This algo is used in undirected, weighted graphs.
+- This algo is also known as "All source shortest path", since we can find the shortest path
+  from all nodes to all its neighbour nodes.
+- This algo will work even when the weights are negative.
+- Its T.C is relatively high, compared to other algos. O(V^3)
+- This algo is basically a brute force algorithm.
+- We explore every possibl path from a node, to all other nodes, and store the minimum
+  possible distance.
+- matrix[i][j] = min(matrix[i][j], matrix[i][k] + matrix[k][j]);
+- Here, we try to find the distance from i -> k and then k -> j.
+- If tis distance is less, then we update it.
+
+- How to find -ve cycles?
+
+- Distance of any node, to itself, should be 0. If it is -ve, that means -ve cycle exists.
+- We just need to check this in the resultant matrix.
+
 */

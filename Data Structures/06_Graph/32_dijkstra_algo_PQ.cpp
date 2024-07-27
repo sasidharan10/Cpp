@@ -56,6 +56,10 @@ Youtube: https://www.youtube.com/watch?v=V6H1qAeB-l4&list=PLgUwDviBIf0oE3gA41TKO
 
 algorithm:
 
+- This algo is used in undirected, weighted graphs, where the weights are not negative. We need
+  to create an adjacency matrix to use this algo.
+- This algo is also known as "Single source shortest path", since we can find the shortest path
+  from a single source to all its other nodes.
 - Dijkstra Algorithm won't work with negative weights, as it will end in an infinite loop.
 - By using priority_queue instead of Queue, we always update the dist[] with smallest element,
   hence we are checking for paths with smallest value possible. Eliminating paths having
