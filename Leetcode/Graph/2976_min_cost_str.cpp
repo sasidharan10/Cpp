@@ -124,19 +124,44 @@ link:
 
 leetcode: https://leetcode.com/problems/minimum-cost-to-convert-string-i
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=M8WnAIhTjmQ
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Graph/Dijkstra'a%20Based%20Problems/Minimum%20Cost%20to%20Convert%20String%20I.cpp
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Graph/Floyd%20Warshall/Minimum%20Cost%20to%20Convert%20String%20I.cpp
 
 algorithm:
 
 - Better Approach:
 
--
+- Using Dijkstra algo:
+- As given in the problem, we can convert only original[i] -> changed[i], and not vice-versa.
+- By refering the 2 arrays, we can coonvert c -> b in 2 ways.
+- c -> b, cost = 5.
+- c -> e, cost = 1, e -> b, cost = 2, total = 3.
+- We can see that, each letter can be converted into another letter in many ways, some
+  and its cost vary in each case.
+- This pattern is similar to a graph problem.
+- We convert it into a graph, and change the letters into number from 0 - 25 since we have 
+  to return the minimum cost only, so  letters don't matter.
+- We also dont know, which letters will be present in the edges, but what we know is, there can be
+  0-25 nodes possible in the graph. hence we take V = 26.
+- We create the adjacency list, using original[i] and changed[i], put cost[i] as edge weight.
+- Now we take source[i] as source, and find the shorted distance to all nodes using dijkstra algo.
+- After finding the path, we take the target[i] as destination, and check if the path is valid. if yes,
+  we add it to the res, or else, the path does not exist, so we directly return -1.
+
+- Optimisation: 
+- We use 2D matrix distMatrix[][] and fill the shortest dist array of all nodes from 0 - 25.
+- We also use vis[] to mark if the current node's dist array is filled or not.
+- So when we encounter the same node again, we dont have to fill the dist array again, hence
+  reducign the TC.
 
 - Optimal Approach:
 
-- self explanatory
+- Instead of calculating the shortest dist[] for each source[i], we just use Floyd-Warshall algo
+  and calculate the distMatrix[][] for all nodes from 0 - 25 in one go.
+- Then using that distMatrix[][], we find the shortest apath from source[i] -> target[i]
+  and return the result.
 
 */
 
@@ -191,6 +216,39 @@ be changed from 'd' to 'e'.
 /*
 ************* Java Code **************
 
+public static long minimumCost(String source, String target, char[] original, char[] changed, int[] cost) {
+        int n = original.length;
+        int m = source.length();
+        int[][] distMatrix = new int[26][26];
+        for (int i = 0; i < 26; i++) {
+            Arrays.fill(distMatrix[i], Integer.MAX_VALUE);
+            distMatrix[i][i] = 0;
+        }
+        for (int i = 0; i < n; i++) {
+            int u = original[i] - 'a';
+            int v = changed[i] - 'a';
+            int wt = cost[i];
+            distMatrix[u][v] = Math.min(distMatrix[u][v], wt);
+        }
 
+        for (int k = 0; k < 26; k++) {
+            for (int i = 0; i < 26; i++) {
+                for (int j = 0; j < 26; j++) {
+                    if (distMatrix[i][k] == Integer.MAX_VALUE || distMatrix[k][j] == Integer.MAX_VALUE)
+                        continue;
+                    distMatrix[i][j] = Math.min(distMatrix[i][j], distMatrix[i][k] + distMatrix[k][j]);
+                }
+            }
+        }
+        long res = 0;
+        for (int i = 0; i < m; i++) {
+            int u = source.charAt(i) - 'a';
+            int v = target.charAt(i) - 'a';
+            if (distMatrix[u][v] == Integer.MAX_VALUE)
+                return -1;
+            res += distMatrix[u][v];
+        }
+        return res;
+    }
 
 */
