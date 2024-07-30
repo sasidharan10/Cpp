@@ -8,7 +8,7 @@ public:
     {
         // TC: O(E*logV)
         // SC: O(V + V)
-        
+
         int m = edges.size();
         unordered_map<int, vector<int>> adj;
         for (int i = 0; i < m; i++)
@@ -28,6 +28,9 @@ public:
             int timePassed = pq.top().first;
             int u = pq.top().second;
             pq.pop();
+            if (dist2[n] != INT_MAX && u == n) // We reached n 2nd time means it's the second minimum
+                return dist2[n];
+
             int temp = timePassed / change;
             if (temp % 2 != 0)
                 timePassed = (temp + 1) * change;
@@ -171,6 +174,9 @@ Each vertex can be reached directly or indirectly from every other vertex.
             int timePassed = pq.peek()[0];
             int u = pq.peek()[1];
             pq.poll();
+            if (dist2[n] != Integer.MAX_VALUE && u == n)
+                return dist2[n];
+                
             int temp = timePassed / change;
             if (temp % 2 != 0)
                 timePassed = (temp + 1) * change;
