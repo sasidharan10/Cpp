@@ -3,11 +3,11 @@ using namespace std;
 class Solution
 {
 public:
-    // Optimal - Using dijksra algo
-    int secondMinimum(int n, vector<vector<int>> &edges, int time, int change)
+    // Better - Using dijksra algo
+    int secondMinimum2(int n, vector<vector<int>> &edges, int time, int change)
     {
         // TC: O(E*logV)
-        // SC: O(V + V)
+        // SC: O(V + E)
 
         int m = edges.size();
         unordered_map<int, vector<int>> adj;
@@ -52,6 +52,58 @@ public:
         }
         return dist2[n];
     }
+
+    // Optimal - Using BFS, and keeping freq count.
+    int secondMinimum(int n, vector<vector<int>> &edges, int time, int change)
+    {
+        // TC: O(V + E)
+        // SC: O(V + E)
+
+        int m = edges.size();
+        unordered_map<int, vector<int>> adj;
+        for (int i = 0; i < m; i++)
+        {
+            int u = edges[i][0];
+            int v = edges[i][1];
+            adj[u].push_back(v);
+            adj[v].push_back(u);
+        }
+        vector<int> dist1(n + 1, INT_MAX);
+        vector<int> dist2(n + 1, INT_MAX);
+        queue<pair<int, int>> que;
+        que.push({1, 1});
+        dist1[1] = 0;
+        while (!que.empty())
+        {
+            int u = que.front().first;
+            int freq = que.front().second;
+            que.pop();
+
+            int timePassed = (freq == 1) ? dist1[u] : dist2[u];
+
+            if (dist2[n] != INT_MAX && u == n) // We reached n 2nd time means it's the second minimum
+                return dist2[n];
+
+            int temp = timePassed / change;
+            if (temp % 2 != 0)
+                timePassed = (temp + 1) * change;
+            for (int v : adj[u])
+            {
+                int newTime = timePassed + time;
+                if (dist1[v] == INT_MAX)
+                {
+                    dist1[v] = newTime;
+                    que.push({v, 1});
+                }
+                else if (dist2[v] == INT_MAX && dist1[v] != newTime)
+                {
+                    dist2[v] = newTime;
+                    que.push({v, 2});
+                }
+            }
+        }
+        return dist2[n];
+    }
 };
 int main()
 {
@@ -76,11 +128,40 @@ algorithm:
 
 - Brute Force Approach:
 
--
+- We need to find the 2nd shortest path from source = 1 to dest = n.
+- We can use dijkstra algo here. But we use 2 dist[] here, to stoer the shortest and 2nd shortest
+  path.
+- We can only move only when the time range in green. If time range is red, then we cannot move, 
+  and have to wait, until it turns green.
+- Moving from every node to every other node takes "time" minutes. lets take "time" = 3.
+- The light changes for every "change" minutes, lets take "change" = 5.
+- so for first 0-5 minutes, its green, then 5-10, its red, and so on.
+- 0-5 = G
+- 5-10 = R
+- 10-15 = G
+- 15-20 = R
+- To find which range we fall in, we can use this formula: temp = timePassed/change.
+- If (temp % 2 == 0) means green, or its red.
+- If we are in green zone, we can just use the same time, as we don't have to wait.
+- But if we are in red zone, then we have to wait until it turns green again.
+- To find the next green zone, we can use this formula: timePassed = (temp + 1) * change;
+- Thats its, now we use the Dijsktra also same as before, and update the dist1[] first, to
+  store the shortest time, then update dist2[] to store 2nd shortest path.
+- The 2nd shortest path, should be strictly shorter than the first path, hence we should not
+  store same path in dist1[] and dist2[].
+- After filing both arrays, we can return dist2[n].
 
 - Optimal Approach:
 
-- self explanatory
+- We can directly use a simple BFS traversal.
+- Here instead of distance, we store freq along with node in the queue.
+- We get the distance, with the help of freq.
+- int timePassed = (freq == 1) ? dist1[u] : dist2[u];
+- We simply check if dist1[] is visited. If yes, then we check if
+  dist2[] is visted.
+- Since we are using BFS, and all cost to traversing through every node is same, 
+  Its guaranteed that, the first distance that we find in dits1[] is the shortest. 
+- We use the same formula for finding the timePassed and check in which zone the time lies.
 
 */
 
@@ -154,6 +235,8 @@ Each vertex can be reached directly or indirectly from every other vertex.
 /*
 ************* Java Code **************
 
+// Dijkstra Algo
+
     public static int secondMinimum(int n, int[][] edges, int time, int change) {
         int m = edges.length;
         Map<Integer, List<Integer>> adj = new HashMap<>();
@@ -176,7 +259,7 @@ Each vertex can be reached directly or indirectly from every other vertex.
             pq.poll();
             if (dist2[n] != Integer.MAX_VALUE && u == n)
                 return dist2[n];
-                
+
             int temp = timePassed / change;
             if (temp % 2 != 0)
                 timePassed = (temp + 1) * change;
