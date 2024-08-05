@@ -79,9 +79,9 @@ link:
 
 leetcode: https://leetcode.com/problems/range-sum-of-sorted-subarray-sums
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=oMHO5iti5_c
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Heap/Range%20Sum%20of%20Sorted%20Subarray%20Sums.cpp
 
 algorithm:
 
@@ -92,7 +92,8 @@ algorithm:
 
 - Optimal Approach:
 
-- 
+- A new technique to find sum of all subarrays in increasing order.
+- We push 
 
 */
 
