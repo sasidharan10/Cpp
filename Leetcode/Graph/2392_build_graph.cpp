@@ -244,6 +244,34 @@ lefti != righti
 /*
 ************* Java Code **************
 
+-- Code is Incomplete
 
+public static int[][] buildMatrix(int k, int[][] rowConditions, int[][]
+    colConditions) {
+    // vector<int> rowArray = findOrderedList2(k, rowConditions);
+    // vector<int> colArray = findOrderedList2(k, colConditions);
+
+    List<Integer> rowArray = findOrderedList(k, rowConditions);
+    List<Integer> colArray = findOrderedList(k, colConditions);
+    if (rowArray.size() == 0 || colArray.size() == 0)
+    return new int[][]{};
+
+    int[][] matrix = new int[k][k];
+    Map<Integer, pair<int, int>> mp;
+    for (int i = 0; i < k; i++)
+    {
+    int row = rowArray[i];
+    int col = colArray[i];
+    mp[row].first = i;
+    mp[col].second = i;
+    }
+    for (int i = 1; i <= k; i++)
+    {
+    int row = mp[i].first;
+    int col = mp[i].second;
+    matrix[row][col] = i;
+    }
+    return matrix;
+    }
 
 */
