@@ -84,19 +84,52 @@ link:
 
 leetcode: https://leetcode.com/problems/regions-cut-by-slashes
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=zMqgIbLLsc4
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Arrays/2-D%20Array/DFS/Regions%20Cut%20By%20Slashes.cpp
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
 - Optimal Approach:
 
-- self explanatory
+- We try to represent the given symbols in a matrix, by denoting the slashes as 1's and blank
+  spaces as 0's.
+- First, we take '/' as 1 in a matrix.
+- Eg 1: 
+  [/\]  can be represent as [1 1]
+  [\/]                      [1 1]
+- But in example 1, there are actually 5 empty regions. So this fails.
+- Now we try with 2*2 matrix for every '/'. 
+- Eg 1: 
+                            [0 1 1 0]
+   [/\]                     [1 0 0 1]
+   [\/] can be represent as [1 0 0 1]
+                            [0 1 1 0]
+- Now, if we try to count the empty regions we will get 5, which is correct, but it fails 
+  for some testcases, proof given below. 
+- Eg 2:                           
+                             [0 1 0 1]
+   [//]                      [1 0 1 0]
+   [/ ] can be represent as  [0 1 0 0]
+                             [1 0 0 0]
+- Now, if we try to count the empty regions we will get 5. but the correct answer is 3. The 3 
+  diagonal empty regions.
+- We cannot check for empty regions, by performing DFS diagonally, beacuse then all empty regions 
+  will be connected, hence we will get wrong answers.
+- Now we try with 3*3 matrix for every '/'. 
+- Eg 2:                          
+                             [0 0 1 0 0 1]
+   [//]                      [0 1 0 0 1 0]
+   [/ ] can be represent as  [1 0 0 1 0 0]
+                             [0 0 1 0 0 0]                            
+                             [0 1 0 0 0 0]                            
+                             [1 0 0 0 0 0]
+- Now, if we try to count the empty regions we will get 3. which is correct. this works well
+  with all test cases.
+- So we try to represent  every '/', '\' and ' ' as 3*3 matrix, then we try to find no of
+  empty regions, by performing either DFS or BFS, and find the total no of components.
+- The total no of components, is the no of empty regions. Hence we return that.
+
 
 */
 

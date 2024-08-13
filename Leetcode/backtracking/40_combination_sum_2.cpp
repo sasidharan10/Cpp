@@ -12,7 +12,7 @@ void findCombination(int index, vector<int> v, vector<int> &temp, vector<vector<
     for (int i = index; i < v.size(); i++)
     {
         if (i > index && v[i] == v[i - 1]) // refer below
-            continue;
+            continue;                      // ignore duplicates
         if (v[i] > target)
             break;
         temp.push_back(v[i]);
@@ -46,11 +46,13 @@ int main()
 
 /*
 
-link:
+link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Backtracking/Combination%20Sum%20II.cpp
 
 leetcode: https://leetcode.com/problems/combination-sum-ii/
 
 Youtube: https://www.youtube.com/watch?v=G1fRTGRxXU8&list=PLgUwDviBIf0rGlzIn_7rsaR2FQ5e6ZOL9&index=12
+
+Youtube MIK: https://www.youtube.com/watch?v=bfKwLi6jtDk
 
 algorithm:
 
@@ -94,5 +96,34 @@ Output:
 [1,2,2],
 [5]
 ]
+
+*/
+
+/*
+************* Java Code **************
+
+    public static void findCombination(int index, int[] v, List<Integer> temp, List<List<Integer>> ans, int target) {
+        if (target == 0) {
+            ans.add(new ArrayList<>(temp));
+            return;
+        }
+        for (int i = index; i < v.length; i++) {
+            if (i > index && v[i] == v[i - 1]) // refer below
+                continue;
+            if (v[i] > target)
+                break;
+            temp.add(v[i]);
+            findCombination(i + 1, v, temp, ans, target - v[i]);
+            temp.remove(temp.size() - 1);
+        }
+    }
+
+    public static List<List<Integer>> combinationSum2(int[] candidates, int target) {
+        List<List<Integer>> ans = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
+        Arrays.sort(candidates);
+        findCombination(0, candidates, temp, ans, target);
+        return ans;
+    }
 
 */
