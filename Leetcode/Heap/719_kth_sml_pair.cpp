@@ -93,11 +93,11 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/find-k-th-smallest-pair-distance/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=hx8Ssz_3XSs
 
-Code Link:
+Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Arrays/Binary%20Search/Find%20K-th%20Smallest%20Pair%20Distance.cpp
 
 algorithm:
 
@@ -107,7 +107,7 @@ algorithm:
 
 - Optimal Approach:
 
-- self explanatory
+- not done
 
 */
 
