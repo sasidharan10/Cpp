@@ -15,6 +15,7 @@ struct comp
         return p1.second < p2.second;
     }
 };
+
 bool compare(pair<string, int> &p1, pair<string, int> &p2)
 {
     return p1.second < p2.second;
@@ -47,8 +48,10 @@ void valSort2(unordered_map<string, int> &m)
 {
     /*
 
-    Here, we used the in-built sort() to sort the map. we used a comparator
-     function (compare()),which tells the sort function, to sort the vector based on second parameter.
+    Here, we used the in-built sort() to sort the map. we used a function (compare()),which 
+    tells the sort function, to sort the vector based on second parameter.
+    It's same as using lambda function. Instead of compare(), we can insert our lambda
+    function, and it will work like same.
 
     */
     vector<pair<string, int>> v;
