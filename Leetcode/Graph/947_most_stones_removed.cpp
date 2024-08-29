@@ -6,9 +6,9 @@ public:
     vector<int> parent, size;
     disjointSet(int n)
     {
-        size.resize(n + 1, 1);
-        parent.resize(n + 1);
-        for (int i = 0; i <= n; i++)
+        size.resize(n, 1);
+        parent.resize(n);
+        for (int i = 0; i < n; i++)
         {
             parent[i] = i;
         }
@@ -40,37 +40,64 @@ public:
 class Solution
 {
 public:
-    int maxRemove(vector<vector<int>> &stones)
+    void dfs(int index, int n, vector<vector<int>> &stones, vector<bool> &visited)
     {
+        visited[index] = true;
+        for (int i = 0; i < n; i++)
+        {
+            if (!visited[i] && (stones[i][0] == stones[index][0] || stones[i][1] == stones[index][1]))
+                dfs(i, n, stones, visited);
+        }
+    }
+    // Using DFS
+    int removeStones2(vector<vector<int>> &stones)
+    {
+        // TC: O(n)
+        // SC: O(n)
+
         int n = stones.size();
-        int maxRow = 0, maxCol = 0;
+        vector<bool> visited(n, false);
+        int groups = 0;
         for (int i = 0; i < n; i++)
         {
-            maxRow = max(maxRow, stones[i][0]);
-            maxCol = max(maxCol, stones[i][1]);
+            if (visited[i] != true)
+            {
+                dfs(i, n, stones, visited);
+                groups++;
+            }
         }
-        disjointSet ds(maxRow + maxCol + 1);
+        return n - groups;
+    }
+    // Using Disjoint Set
+    int removeStones(vector<vector<int>> &stones)
+    {
+        // TC: O(^2) + alpha(n)
+        // SC: O(n)
+        
+        int n = stones.size();
+        disjointSet ds(n);
         for (int i = 0; i < n; i++)
         {
-            int nodeRow = stones[i][0];
-            int nodeCol = stones[i][1] + maxRow + 1;
-            ds.unionBySize(nodeRow, nodeCol);
+            for (int j = i + 1; j < n; j++)
+            {
+                if (stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1])
+                    ds.unionBySize(i, j);
+            }
         }
-        int totalNodes = maxRow + maxCol + 2;
-        int cnt = 0;
-        for (int i = 0; i < totalNodes; i++)
+        int groups = 0;
+        for (int i = 0; i < n; i++)
         {
-            if (ds.parent[i] == i && ds.size[i] > 1)
-                cnt++;
+            if (ds.parent[i] == i)
+                groups++;
         }
-        return n - cnt;
+        return n - groups;
     }
 };
 int main()
 {
     Solution s;
     vector<vector<int>> stones{{0, 0}, {0, 1}, {1, 0}, {1, 2}, {2, 1}, {2, 2}};
-    cout << "Result: " << s.maxRemove(stones) << endl;
+    cout << "Result: " << s.removeStones(stones) << endl;
     return 0;
 }
 
@@ -80,22 +107,24 @@ link: https://www.geeksforgeeks.org/problems/maximum-stone-removal-1662179442/1
 
 leetcode: https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/
 
-Youtube: https://www.youtube.com/watch?v=OwMNX8SPavM&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=54&t=75s
+Youtube: https://www.youtube.com/watch?v=cmqIeBFx01w
+
+Code link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Graph/Disjoint%20Set/Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column.cpp
 
 algorithm:
 
-- We take the rows and columns as nodes.
-- if a 2D array has 4 rows [0,1,2,3] and 5 columns [0,1,2,3,4] then we can
-  represent the rows as itself, and columns will be represented as [4,5,7,8,9].
-- And we will connect the col and row nodes of each element, since they are
-  connected.
-- Now the no of connected components - n will be the max no of stones we can remove.
-- because each connected components are lying without any connection with other components.
-- Now the nodes inside the components are lying in the same row or column. We can remove
-  c - 1 nodes from them, as we can keep 1 node in a component. hence the ans = n - cnt.
-- To get the components count, we find no of "ds.parent[i] == i" and
-  also check for "ds.size[i] > 1", which means this component has more than 1 node i.e.,
-  its not an empty row or column(stones present in that row or column).
+- Using DFS:
+
+- We just traverse to next cell, if it is from the same column or row. In this way, we will
+  group all the cells, belonging to same row/column. From these groups, only 1 stone will
+  be left, and all other stones will be removed.
+- So the total number of stones removed will be = (n - total groups).
+- Link: https://www.youtube.com/watch?v=ZsGTpXm966E
+- Code: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Graph/BFS_DFS/Most%20Stones%20Removed%20with%20Same%20Row%20or%20Column.cpp
+
+- Using Disjoint Set:
+
+- 
 
 */
 
@@ -142,5 +171,57 @@ Example 3:
 Input: stones = [[0,0]]
 Output: 0
 Explanation: [0,0] is the only stone on the plane, so you cannot remove it.
+
+*/
+
+/*
+************* Java Code **************
+
+    public static void dfs(int index, int n, int[][] stones, boolean[] visited) {
+        visited[index] = true;
+        for (int i = 0; i < n; i++) {
+            if (visited[i] == false && stones[i][0] == stones[index][0] || stones[i][1] == stones[index][1])
+                dfs(i, n, stones, visited);
+        }
+    }
+
+    public static int removeStones(int[][] stones) {
+        int n = stones.length;
+        boolean[] visited = new boolean[n];
+        int cnt = 0;
+        for (int i = 0; i < n; i++) {
+            if (visited[i] != true) {
+                dfs(i, n, stones, visited);
+                cnt++;
+            }
+        }
+        return n - cnt;
+    }
+
+    // Using Disjoint Set
+
+    public static int removeStones(int[][] stones)
+    {
+        // TC: O(^2) + alpha(n)
+        // SC: O(n)
+        
+        int n = stones.length;
+        disjointSet ds = new disjointSet(n);
+        for (int i = 0; i < n; i++)
+        {
+            for (int j = i + 1; j < n; j++)
+            {
+                if (stones[i][0] == stones[j][0] || stones[i][1] == stones[j][1])
+                    ds.unionBySize(i, j);
+            }
+        }
+        int groups = 0;
+        for (int i = 0; i < n; i++)
+        {
+            if (ds.parent[i] == i)
+                groups++;
+        }
+        return n - groups;
+    }
 
 */
