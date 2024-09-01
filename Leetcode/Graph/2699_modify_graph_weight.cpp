@@ -123,10 +123,6 @@ Code Link: https://github.com/MAZHARMIK/Interview_DS_Algo/blob/master/Graph/Dijk
 
 algorithm:
 
-- Brute Force Approach:
-
--
-
 - Optimal Approach:
 
 - self explanatory
