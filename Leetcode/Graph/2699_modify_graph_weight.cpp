@@ -228,10 +228,8 @@ The graph is connected, and there are no self-loops or repeated edges
         long shortestDist = dijkstraAlgo(n, edges, source, destination);
 
         // case 1:
-        int[][] temp = new int[0][];
-        ;
         if (shortestDist < target) {
-            return temp;
+            return new int[0][];
         }
 
         // case 2:
@@ -264,7 +262,7 @@ The graph is connected, and there are no self-loops or repeated edges
             }
         }
         if (matchedTarget == false)
-            return temp;
+            return new int[0][];
 
         return edges;
     }

@@ -46,17 +46,13 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/convert-1d-array-into-2d-array
 
 Youtube:
 
 Code Link:
 
 algorithm:
-
-- Brute Force Approach:
-
--
 
 - Optimal Approach:
 
@@ -112,6 +108,19 @@ Constraints:
 /*
 ************* Java Code **************
 
-
+    public static int[][] construct2DArray(int[] original, int m, int n) {
+        int sz = original.length;
+        if (m * n != sz)
+            return new int[0][];
+        int[][] matrix = new int[m][n];
+        int idx = 0;
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                matrix[i][j] = original[idx];
+                idx++;
+            }
+        }
+        return matrix;
+    }
 
 */
