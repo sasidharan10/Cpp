@@ -152,6 +152,8 @@ chalk.length == n
         long sum = 0;
         for (int i = 0; i < n; i++) {
             sum += chalk[i];
+            if (sum > k)
+                break;
         }
         long remaining = (long) k % sum;
         for (int i = 0; i < n; i++) {
