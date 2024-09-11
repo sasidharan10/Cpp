@@ -5,6 +5,9 @@ class Solution
 public:
     vector<vector<int>> spiralMatrixIII(int rows, int cols, int rStart, int cStart)
     {
+        // TC: O(max(rows,cols)^2)
+        // SC: O(1)
+        
         int dir = 0;
         int steps = 0;
         int visitedCells = 1;

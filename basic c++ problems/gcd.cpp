@@ -4,16 +4,7 @@
 using namespace std;
 int gcd1(int a, int b)
 {
-    // TC: O(log(max(a)))
-    // SC: O(log(max(a)))
-    
-    if (b == 0)
-        return a;
-    return gcd1(b, a % b);
-}
-int gcd2(int a, int b)
-{
-    // TC: O(log(max(a)))
+    // TC: O(min(a, b))
     // SC: O(1)
 
     int gcd;
@@ -23,6 +14,15 @@ int gcd2(int a, int b)
             gcd = i;
     }
     return gcd;
+}
+int gcd2(int a, int b)
+{
+    // TC: O(log(max(a)))
+    // SC: O(log(max(a)))
+
+    if (b == 0)
+        return a;
+    return gcd1(b, a % b);
 }
 int gcd3(int a, int b)
 {
@@ -58,8 +58,8 @@ int main()
     int a = 40, b = 50;
     int arr[]{20, 40, 60, 5};
     int n = sizeof(arr) / sizeof(arr[0]);
-    cout << "GCD is(recursion) : " << gcd1(a, b);
-    cout << "\nGCD is(loop) : " << gcd2(a, b);
+    cout << "\nGCD is(brute force) : " << gcd1(a, b);
+    cout << "GCD is(recursion) : " << gcd2(a, b);
     cout << "\nGCD is(loop, optimized) : " << gcd3(a, b);
     cout << "\nGCD (Built-in) : " << gcdBuiltIn(a, b);
     cout << "\nGCD Array : " << gcdArray(arr, n);
