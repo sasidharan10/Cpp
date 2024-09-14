@@ -43,12 +43,10 @@ public:
         int m = queries.size();
         vector<int> prefix;
         vector<int> res;
-        int XOR = arr[0];
-        prefix.push_back(XOR);
+        prefix.push_back(arr[0]);
         for (int i = 1; i < n; i++)
         {
-            XOR ^= arr[i];
-            prefix.push_back(XOR);
+            prefix.push_back(prefix[i - 1] ^ arr[i]);
         }
         for (int i = 0; i < m; i++)
         {
@@ -151,6 +149,27 @@ queries[i].length == 2
 /*
 ************* Java Code **************
 
+    public static int[] xorQueries(int[] arr, int[][] queries) {
+        // TC: O(n + m)
+        // SC: O(n)
 
+        int n = arr.length;
+        int m = queries.length;
+        int[] prefix = new int[n];
+        int[] res = new int[m];
+        prefix[0] = arr[0];
+        for (int i = 1; i < n; i++) {
+            prefix[i] = prefix[i - 1] ^ arr[i];
+        }
+        for (int i = 0; i < m; i++) {
+            int lt = queries[i][0];
+            int rt = queries[i][1];
+            if (lt == 0)
+                res[i] = prefix[rt];
+            else
+                res[i] = prefix[lt - 1] ^ prefix[rt];
+        }
+        return res;
+    }
 
 */
