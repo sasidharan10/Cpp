@@ -123,6 +123,56 @@ s1 and s2 consist of lowercase English letters.
 /*
 ************* Java Code **************
 
+// using substring and sorting, then comparing.
+    public static boolean checkInclusion(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
 
+        // If s1 is larger than s2, no permutation can exist
+        if (n > m)
+            return false;
+
+        char[] sortedS1 = s1.toCharArray();
+        Arrays.sort(sortedS1);
+
+        for (int i = 0; i <= m - n; i++) {
+            String temp = s2.substring(i, i + n);
+
+            char[] sortedS2 = temp.toCharArray();
+            Arrays.sort(sortedS2);
+
+            if (Arrays.equals(sortedS1, sortedS2))
+                return true;
+        }
+        return false;
+    }
+
+// using array[26] as map
+    public static boolean checkInclusion(String s1, String s2) {
+        int n = s1.length();
+        int m = s2.length();
+
+        // If s1 is larger than s2, no permutation can exist
+        if (n > m) return false;
+
+        int[] mp1 = new int[26];
+        int[] mp2 = new int[26];
+        for (int i = 0; i < n; i++) {
+            mp1[s1.charAt(i) - 'a']++;
+        }
+        int i = 0, j = 0;
+        while (j < m) {
+            mp2[s2.charAt(j) - 'a']++;
+            // Check if the current window size matches the size of s1
+            if (j - i + 1 > n) {
+                mp2[s2.charAt(i) - 'a']--;
+                i++;
+            }
+            if (Arrays.equals(mp1, mp2))
+                return true;
+            j++;
+        }
+        return false;
+    }
 
 */
