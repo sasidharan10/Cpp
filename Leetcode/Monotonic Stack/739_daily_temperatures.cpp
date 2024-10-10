@@ -84,7 +84,7 @@ algorithm:
 - We traverse from back, and check if cur element is greater than st.top().
   If yes, then we pop() elements from stack, until we find a greater
   element (i.e., st.top() > cur).
-- If found, that means these is a greater element present in array, and its
+- If found, that means there is a greater element present in array, and its
   distance from cur element => (st.top() - cur_index).
 - If no element found, stack becomes empty. hence there is no element greater than
   cur element, hence we assign 0.
