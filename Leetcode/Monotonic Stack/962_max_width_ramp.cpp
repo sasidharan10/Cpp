@@ -28,6 +28,7 @@ public:
     }
 
     // Using two pointer and prefix
+    // Monotonic stack approach not done.
     int maxWidthRamp(vector<int> &nums)
     {
         // TC: O(n)
