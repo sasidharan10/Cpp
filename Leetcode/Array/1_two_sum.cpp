@@ -1,27 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 vector<int> twoSum(vector<int> v, int target)
-{
-    // TC: O(nlogn)
-    // SC: O(n)
-
-    unordered_map<int, int> m;
-    vector<int> ans;
-    for (int i = 0; i < v.size(); i++)
-    {
-        if (m.find(target - v[i]) != m.end())
-        {
-            ans.push_back(m[target - v[i]]);
-            ans.push_back(i);
-            return ans;
-        }
-        else
-            m[v[i]] = i;
-    }
-    return ans;
-}
-
-vector<int> twoSum2(vector<int> v, int target)
 {
     // TC: O(n^2) brute force
     // SC: O(1)
@@ -42,6 +22,28 @@ vector<int> twoSum2(vector<int> v, int target)
     }
     return ans;
 }
+
+vector<int> twoSum2(vector<int> v, int target)
+{
+    // TC: O(nlogn)
+    // SC: O(n)
+
+    unordered_map<int, int> m;
+    vector<int> ans;
+    for (int i = 0; i < v.size(); i++)
+    {
+        if (m.find(target - v[i]) != m.end())
+        {
+            ans.push_back(m[target - v[i]]);
+            ans.push_back(i);
+            return ans;
+        }
+        else
+            m[v[i]] = i;
+    }
+    return ans;
+}
+
 
 bool twoSum3(vector<int> v, int target)
 {
