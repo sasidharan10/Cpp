@@ -6,7 +6,7 @@ public:
     // Better
     int countPalindromicSubsequence2(string s)
     {
-        // TC: O(26*n)
+        // TC: O(26*n) ~ O(n)
         // SC: O(26)
 
         unordered_set<char> letters;
@@ -44,7 +44,7 @@ public:
     // Optimal
     int countPalindromicSubsequence(string s)
     {
-        // TC: O(26*n)
+        // TC: O(26*n) ~ O(n)
         // SC: O(26)
         
         vector<pair<int, int>> v(26, {-1, -1});
