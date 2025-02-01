@@ -3,6 +3,7 @@ using namespace std;
 class Solution
 {
 public:
+    // optimal approach: using row, column aray to keep the count of servers in that row, column.
     int countServers(vector<vector<int>> &grid)
     {
         // TC: O(n*m) * 2
@@ -99,5 +100,36 @@ Output: 4
 Explanation: The two servers in the first row can communicate with each other.
 The two servers in the third column can communicate with each other. The
 server at right bottom corner can't communicate with any other server.
+
+*/
+
+/*   
+************* Java Code **************
+
+public static int countServers(int[][] grid) {
+        int n = grid.length;
+        int m = grid[0].length;
+
+        int[] rowOnes = new int[n];
+        int[] colOnes = new int[m];
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] == 1) {
+                    rowOnes[i]++;
+                    colOnes[j]++;
+                }
+            }
+        }
+
+        int cnt = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if (grid[i][j] == 1 && (rowOnes[i] > 1 || colOnes[j] > 1))
+                    cnt++;
+            }
+        }
+        return cnt;
+    }
 
 */
