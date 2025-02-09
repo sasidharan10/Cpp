@@ -129,6 +129,24 @@ s1 and s2 consist of only lowercase English letters.
 /*
 ************* Java Code **************
 
-
+    public static boolean areAlmostEqual(String s1, String s2) {
+        int n = s1.length();
+        int misMatch = 0;
+        int firstIndexDiff = 0;
+        int secondIndexDiff = 0;
+        for (int i = 0; i < n; i++) {
+            if (s1.charAt(i) != s2.charAt(i)) {
+                misMatch++;
+                if (misMatch > 2)
+                    return false;
+                else if (misMatch == 1)
+                    firstIndexDiff = i;
+                else
+                    secondIndexDiff = i;
+            }
+        }
+        return (s1.charAt(firstIndexDiff) == s2.charAt(secondIndexDiff)
+                && s1.charAt(secondIndexDiff) == s2.charAt(firstIndexDiff));
+    }
 
 */
