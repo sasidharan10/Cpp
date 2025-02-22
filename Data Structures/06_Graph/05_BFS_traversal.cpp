@@ -47,16 +47,16 @@ int main()
     {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
-
 
 /*
 
 link: https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
 
-leetcode: 
+leetcode:
 
-algorithm: 
+algorithm:
 
 */
