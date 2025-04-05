@@ -15,16 +15,16 @@ public:
             {
                 cnt1++;
             }
-            else if (cnt1 == 0 && nums[i] != el2)
-            {
-                cnt1 = 1;
-                el1 = nums[i];
-            }
             else if (nums[i] == el2)
             {
                 cnt2++;
             }
-            else if (cnt2 == 0 && nums[i] != el1)
+            else if (cnt1 == 0)
+            {
+                cnt1 = 1;
+                el1 = nums[i];
+            }
+            else if (cnt2 == 0)
             {
                 cnt2 = 1;
                 el2 = nums[i];

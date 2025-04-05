@@ -11,7 +11,7 @@ public:
         vector<int> inDegree(V, 0);
         for (int i = 0; i < V; i++)
         {
-            for (auto &&node : adj[i])
+            for (int node : adj[i])
             {
                 inDegree[node]++;
             }
@@ -28,7 +28,7 @@ public:
             int node = q.front();
             ans.push_back(node);
             q.pop();
-            for (auto &&i : adj[node])
+            for (int i : adj[node])
             {
                 inDegree[i]--;
                 if (inDegree[i] == 0)
@@ -65,7 +65,7 @@ Youtube: https://www.youtube.com/watch?v=73sneFXuTEg&list=PLgUwDviBIf0oE3gA41TKO
 algorithm:
 
 - This algo only works for DAGs.
-- Find the indegree of that the nodes in the graph.
+- Find the indegree of the nodes in the graph.
 - Think of this algo as, removing nodes from the graph, which has (indegree[node] == 0).
 - The removed nodes will be stored in an aray "ans", which will have the nodes on topo sort order.
 - So when we remove that node, all its neighbour nodes's indegree will decrease by 1.
@@ -73,7 +73,7 @@ algorithm:
   then we add that into our queue.
 - We do this process until, the queue gets empty.
 - The "ans" array will have the nodes in topo sort order.
-- reutrn "ans" array.
+- return "ans" array.
 
 To find a DAG is Cyclic or not:
 
