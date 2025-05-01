@@ -48,9 +48,9 @@ int main()
 
 link:
 
-leetcode:
+leetcode: https://leetcode.com/problems/tuple-with-same-product/description/
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=aC7q-YCFV2o
 
 Code Link:
 

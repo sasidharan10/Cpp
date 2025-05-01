@@ -1,9 +1,4 @@
-#include <iostream>
-#include <stdio.h>
-#include <string> // separate header file to use the string(Data structure)
-#include <algorithm>
-#include <vector>
-#include <numeric>
+#include <bits/stdc++.h>
 using namespace std;
 int main()
 {
@@ -56,6 +51,19 @@ int main()
 	cout << "\nVector after removing duplicates: ";
 	for (int i : v)
 		cout << i << " ";
-	cout << "\ndistance of max element : " << distance(v.begin(), max_element(v.begin(), v.end()));
+	cout << "\ndistance of max element : " << distance(v.begin(), max_element(v.begin(), v.end())) << endl;
+	vector<int> vec2 = {1, 2, 3, 4, 5, 1, 2, 3, 4, 5};
+	map<int, int> mp;
+	for (int i = 0; i < vec2.size(); i++)
+	{
+		mp[vec2[i]]++;
+	}
+	map<int, int>::iterator it = mp.begin();
+	advance(it, 2); // 2 steps forward
+	cout << "key(2): " << it->first << endl;
+	cout << "val(2): " << it->second << endl;
+	advance(it, -2); // 2 steps backward
+	cout << "key(0): " << it->first << endl;
+	cout << "val(0): " << it->second << endl;
 	return 0;
 }
