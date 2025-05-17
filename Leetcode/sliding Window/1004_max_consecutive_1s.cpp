@@ -5,6 +5,9 @@ class Solution
 public:
     int longestOnes(vector<int> &nums, int k)
     {
+        // TC: O(n)
+        // SC: O(1)
+        
         int n = nums.size();
         int zeroes = 0;
         int maxi = INT_MIN;
@@ -88,5 +91,45 @@ Output: 10
 Explanation: [0,0,1,1,1,1,1,1,1,1,1,1,0,0,0,1,1,1,1]
 Bolded numbers were flipped from 0 to 1. The longest subarray is underlined.
 
+Constraints:
+
+1 <= nums.length <= 10^5
+nums[i] is either 0 or 1.
+0 <= k <= nums.length
+
+*/
+
+/*   
+************* Java Code **************
+
+public static int longestOnes(int[] nums, int k) {
+        int n = nums.length;
+        int zeroes = 0;
+        int maxi = Integer.MIN_VALUE;
+        int i = 0, j = 0;
+        int len = 0;
+        while (j < n) {
+            // case 1
+            if (nums[j] == 1) {
+                j++;
+            }
+            // case 2
+            else if (nums[j] == 0 && zeroes < k) {
+                j++;
+                zeroes++;
+            }
+            // case 3
+            else {
+                while (nums[i] != 0) {
+                    i++;
+                }
+                i++;
+                zeroes--;
+            }
+            len = j - i;
+            maxi = Math.max(maxi, len);
+        }
+        return maxi;
+    }
 
 */

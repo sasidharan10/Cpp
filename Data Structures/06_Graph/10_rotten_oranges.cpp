@@ -70,7 +70,7 @@ int main()
         }
         cout << endl;
     }
-    cout << "Time taken to rot all oranges: " << s.orangesRotting(v);
+    cout << "Time taken to rot all oranges: " << s.orangesRotting(v) << endl;
     return 0;
 }
 

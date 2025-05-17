@@ -69,7 +69,7 @@ algorithm:
 
 - Optimal Approach:
 
--
+- if n is a power of two, it should have only one 1 bit in its binary representation.
 
 */
 

@@ -64,9 +64,11 @@ public:
 int main()
 {
     Solution s;
-    vector<int> a{2, 0, 2, 1, 1, 0};
-    s.sortColors(a);
-    for (int i : a)
+    vector<int> nums{2, 0, 2, 1, 1, 0};
+    // vector<int> nums{2, 2, 2, 0, 0, 0, 1, 1, 1};
+    // vector<int> nums{2, 2, 2, 2, 2, 1, 0, 0, 1, 1, 0};
+    s.sortColors(nums);
+    for (int i : nums)
         cout << i << " ";
 }
 
@@ -85,10 +87,13 @@ algorithm:
 - Brute Force Approach:
 
 - counting 0's, 1's and 2's and assigning it.
+- Sort and return the array.
 
 - Optimal Approach:
 
 - Using two pointers method.
+- "Low" will point at the index, where the next 0 needs to be placed. "low" makes sure, all 0's are
+  already placed before it.
 
 */
 

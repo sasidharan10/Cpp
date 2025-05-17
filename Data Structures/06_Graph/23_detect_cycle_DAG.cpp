@@ -81,7 +81,7 @@ int main()
     vector<int> adj[] = {{1}, {2}, {3}, {3}};
     // vector<int> adj[] = {{}, {3}, {3}, {0}, {1}, {0, 2}};
     int V = 4;
-    cout << "Cyclic Graph?: " << s.isCyclic2(V, adj);
+    cout << "Cyclic Graph?: " << s.isCyclic2(V, adj) << endl;
     return 0;
 }
 
@@ -101,5 +101,5 @@ algorithm:
 - vis[node] == 2 means, node is visted, as well as its neighbours visited.
 - So when we are doing a dfs on nodes, and we encounter (vis[node] == 1), means
   we have visited that node again, while visiting its neighbours, hence its a cyclic graph.
-  
+
 */

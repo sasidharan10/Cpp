@@ -20,7 +20,7 @@ int main()
 {
   Solution s;
   uint32_t n = 4294967293;
-  cout << "Reverse bit: " << s.reverseBits(n);
+  cout << "Reverse bit: " << s.reverseBits(n) << endl;
   return 0;
 }
 

@@ -59,11 +59,12 @@ int main()
     int N = 5, K = 4;
     string dict[] = {"baa", "abcd", "abca", "cab", "cad"};
     string ans = s.findOrder(dict, N, K);
-    cout << "Result: " << endl;
+    cout << "Result: ";
     for (auto &&i : ans)
     {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
 

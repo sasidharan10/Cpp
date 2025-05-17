@@ -61,10 +61,10 @@ public:
             ans.push_back(nums[n - 1]);
         return ans;
     }
-    int findMask(int numXor)
-    {
-        
-    }
+    // int findMask(int numXor)
+    // {
+
+    // }
     vector<int> singleNumber(vector<int> &nums)
     {
         // TC: O(n)
@@ -96,11 +96,12 @@ int main()
     // vector<int> nums{1, 1, 2, 2, 4, 4, 5, 5, 7, 6};
     vector<int> nums{9, 8, 2, 2, 4, 4, 5, 5, 7, 7};
     vector<int> ans = s.singleNumber(nums);
-    cout << "Result: " << endl;
+    cout << "Result: ";
     for (auto &&i : ans)
     {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
 
@@ -129,7 +130,7 @@ algorithm:
 - x = a ^ b => 110.
 - We know if any bit of a ^ b == 0, it means both have been same bits in that position, hence resulted into 0
   and a ^ b == 1 means, both have different bits in their respective positions.
-- 110, from right to left, 
+- 110, from right to left,
 - 0th bit == 0 => same.
 - 1st bit == 1 => different.
 - Hence we will try to separate the array, into 2 groups by cheching their 1st bit, if 0 then grp1 and if 1
@@ -137,8 +138,8 @@ algorithm:
 - Finally we will XOR both groups, and the unique numbers will be remaining, hence return it.
 
 - How to separate the array with this analysis?
-- Find the bit position which is different, let's take it as ith position, then create a "mask" number, 
-  which will have 1 in ith position. a ^ b => 110 => mask = 010 (1st bit is diferent).So when we 
+- Find the bit position which is different, let's take it as ith position, then create a "mask" number,
+  which will have 1 in ith position. a ^ b => 110 => mask = 010 (1st bit is diferent).So when we
   do AND operation with the mask, then (nums[i] & mask) == 0, belongs to grp1 and vice versa.
 - To create that mask, we take mask = 1, and left shift it until ith position.
 

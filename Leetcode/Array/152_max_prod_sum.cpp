@@ -10,11 +10,12 @@ int maxProduct2(vector<int> &nums)
     for (int i = 0; i < n; i++)
     {
         prod = nums[i];
+        result = max(result, nums[i]);
         for (int j = i + 1; j < n; j++)
         {
             prod *= nums[j];
+            result = max(result, prod);
         }
-        result = max(result, prod);
     }
     return result;
 }
@@ -47,3 +48,17 @@ int main()
     cout << "Max Prod O(n)   : " << maxProduct(nums) << endl;
     return 0;
 }
+
+/*
+
+link:
+
+leetcode: https://leetcode.com/problems/maximum-product-subarray/description/
+
+Youtube: https://www.youtube.com/watch?v=hnswaLJvr6g
+
+algorithm:
+
+Code Link:
+
+*/

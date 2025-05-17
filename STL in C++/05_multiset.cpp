@@ -1,18 +1,17 @@
-#include<iostream>
-#include<algorithm>
-#include<set>
+#include <iostream>
+#include <algorithm>
+#include <set>
 using namespace std;
 int main()
 {
-    multiset<int>ms;
-    ms={3,5,7,9,1,3,4,6};
-    cout<<"Front: "<<*ms.begin()<<endl;
-    cout<<"Multiset: ";
+    multiset<int> ms;
+    ms = {3, 5, 7, 9, 1, 3, 4, 6};
+    cout << "Front: " << *ms.begin() << endl;
+    cout << "Multiset: ";
     for (auto &&i : ms)
     {
-        cout<<i<<" ";
+        cout << i << " ";
     }
-    
 }
 
 /*

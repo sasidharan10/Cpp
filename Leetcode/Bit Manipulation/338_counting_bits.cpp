@@ -22,13 +22,13 @@ public:
         }
         return ans;
     }
+
     // better
     vector<int> countBits(int n)
     {
         vector<int> ans;
         ans.push_back(0);
-        int
-            temp = 0;
+        int temp = 0;
         for (int i = 1; i <= n; i++)
         {
             int res = 0;
@@ -64,7 +64,7 @@ Youtube: https://www.youtube.com/watch?v=awxaRgUB4Kw
 
 algorithm:
 
-- Refer LC 191, for learning all methods to countno of '1's bit
+- Refer LC 191, for learning all methods to count no of '1's bit
 - We basically do n = n & (n - 1), which will eliminate one '1' bit in each
   operation, until the number becomes 0.
 - Ex:

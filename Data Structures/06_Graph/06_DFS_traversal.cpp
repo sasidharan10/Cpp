@@ -23,10 +23,10 @@ public:
     {
         // TC: O(n + 2*E)
         // SC: O(3n)
-        
+
         vector<int> ans;
         vector<int> vis(V + 1, 0);
-        int start=0;
+        int start = 0;
         dfs(start, adj, vis, ans);
         return ans;
     }

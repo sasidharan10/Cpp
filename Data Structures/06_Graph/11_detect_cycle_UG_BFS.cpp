@@ -53,7 +53,7 @@ int main()
     adj[2].assign({1, 3});
     adj[3].assign({2, 4});
     adj[4].assign({1, 3});
-    cout << "Has Cycle ? : " << s.isCycle(5, adj);
+    cout << "Has Cycle ? : " << s.isCycle(5, adj) << endl;
     return 0;
 }
 

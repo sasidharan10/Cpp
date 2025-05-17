@@ -52,11 +52,12 @@ int main()
     int n = 4;
     int m = 3;
     vector<int> ans = s.findOrder(n, m, prerequisites);
-    cout << "Possible to complete task: " << endl;
+    cout << "Possible to complete task: ";
     for (auto &&i : ans)
     {
         cout << i << " ";
     }
+    cout << endl;
     return 0;
 }
 
