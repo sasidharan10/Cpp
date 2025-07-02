@@ -7,46 +7,34 @@ public:
     {
         // TC: O(n)
         // SC: O(1)
-        
-        int n = nums.size();
-        int zeroes = 0;
-        int maxi = INT_MIN;
-        int i = 0, j = 0;
-        int len = 0;
+
+        int i = 0, j = 0, n = nums.size(), countZeros = 0, ans = INT_MIN;
         while (j < n)
         {
-            // case 1
-            if (nums[j] == 1)
+            if (nums[j] == 0)
             {
-                j++;
+                countZeros++;
             }
-            // case 2
-            else if (nums[j] == 0 && zeroes < k)
+            while (countZeros > k)
             {
-                j++;
-                zeroes++;
-            }
-            // case 3
-            else
-            {
-                while (nums[i] != 0)
+                if (nums[i] == 0)
                 {
-                    i++;
+
+                    countZeros--;
                 }
                 i++;
-                zeroes--;
             }
-            len = j - i;
-            maxi = max(maxi, len);
+            ans = max(ans, j - i + 1);
+            j++;
         }
-        return maxi;
+        return ans;
     }
 };
 int main()
 {
     Solution s;
-    vector<int> nums{0, 0, 1, 1, 0, 0, 1, 1, 1, 0, 1, 1, 0, 0, 0, 1, 1, 1, 1};
-    int k = 3;
+    vector<int> nums{1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0};
+    int k = 2;
     cout << "Max Consecutive Ones: " << s.longestOnes(nums, k) << endl;
     return 0;
 }
@@ -99,7 +87,7 @@ nums[i] is either 0 or 1.
 
 */
 
-/*   
+/*
 ************* Java Code **************
 
 public static int longestOnes(int[] nums, int k) {

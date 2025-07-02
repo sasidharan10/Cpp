@@ -37,13 +37,48 @@ public:
             root->right = insertNode(root->right, n);
         return root;
     }
-    int maxDepth(TreeNode *root)
+    int maxDepth2(TreeNode *root)
     {
         if (root == NULL)
             return 0;
         int leftHeight = maxDepth(root->left);
         int rightHeight = maxDepth(root->right);
         return max(leftHeight, rightHeight) + 1;
+    }
+
+    int maxDepth(TreeNode *root)
+    {
+        if (!root)
+        {
+            return 0;
+        }
+
+        queue<TreeNode *> q;
+        q.push(root);
+        int depth = 0;
+
+        while (!q.empty())
+        {
+            depth++;
+            int levelSize = q.size();
+
+            for (int i = 0; i < levelSize; i++)
+            {
+                TreeNode *node = q.front();
+                q.pop();
+
+                if (node->left)
+                {
+                    q.push(node->left);
+                }
+                if (node->right)
+                {
+                    q.push(node->right);
+                }
+            }
+        }
+
+        return depth;
     }
 };
 int main()
