@@ -170,13 +170,11 @@ Explanation: Because the new interval [4,8] overlaps with [3,5],[6,7],[8,10].
         return result.toArray(new int[result.size()][]);
     }
 
-public static int[][] insert(int[][] intervals, int[] newInterval) {
+    public static int[][] insert(int[][] intervals, int[] newInterval) {
         int n = intervals.length;
         ArrayList<int[]> ans = new ArrayList<>();
         int i = 0;
         while (i < n) {
-            int start = intervals[i][0];
-            int end = intervals[i][1];
             if (intervals[i][1] < newInterval[0]) {
                 ans.add(intervals[i]);
             } else if (newInterval[1] < intervals[i][0])
