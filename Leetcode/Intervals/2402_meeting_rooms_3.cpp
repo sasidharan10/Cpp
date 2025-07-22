@@ -3,134 +3,134 @@ using namespace std;
 class Solution
 {
 public:
-    // Brute
-    int mostBooked2(int n, vector<vector<int>> &meetings)
+  // Brute
+  int mostBooked2(int n, vector<vector<int>> &meetings)
+  {
+    // TC: O(m * n)
+    // SC: O(n) + O(n)
+
+    int m = meetings.size();
+    sort(meetings.begin(), meetings.end());
+
+    vector<int> roomsUsedCount(n, 0);
+    vector<long long> lastAvailableAt(n, 0);
+    for (int i = 0; i < m; i++)
     {
-      // TC: O(m * n)
-      // SC: O(n) + O(n)
-      
-        int m = meetings.size();
-        sort(meetings.begin(), meetings.end());
+      int start = meetings[i][0];
+      int end = meetings[i][1];
+      int duration = end - start;
+      bool found = false;
 
-        vector<int> roomsUsedCount(n, 0);
-        vector<long long> lastAvailableAt(n, 0);
-        for (int i = 0; i < m; i++)
+      int earlyEndRoom = 0;
+      long long earlyEndRoomTime = LLONG_MAX;
+
+      for (int room = 0; room < n; room++)
+      {
+        if (lastAvailableAt[room] <= start)
         {
-            int start = meetings[i][0];
-            int end = meetings[i][1];
-            int duration = end - start;
-            bool found = false;
-
-            int earlyEndRoom = 0;
-            long long earlyEndRoomTime = LLONG_MAX;
-
-            for (int room = 0; room < n; room++)
-            {
-                if (lastAvailableAt[room] <= start)
-                {
-                    found = true;
-                    lastAvailableAt[room] = end;
-                    roomsUsedCount[room]++;
-                    break;
-                }
-
-                // finding the room with min end time
-                if (lastAvailableAt[room] < earlyEndRoomTime)
-                {
-                    earlyEndRoomTime = lastAvailableAt[room];
-                    earlyEndRoom = room;
-                }
-            }
-            // if no room avaialbe, room with min end time will be used
-            if (!found)
-            {
-                lastAvailableAt[earlyEndRoom] += duration;
-                roomsUsedCount[earlyEndRoom]++;
-            }
+          found = true;
+          lastAvailableAt[room] = end;
+          roomsUsedCount[room]++;
+          break;
         }
 
-        int maxUsedRoom = 0;
-        int maxi = 0;
-        for (int i = 0; i < n; i++)
+        // finding the room with min end time
+        if (lastAvailableAt[room] < earlyEndRoomTime)
         {
-            if (roomsUsedCount[i] > maxi)
-            {
-                maxi = roomsUsedCount[i];
-                maxUsedRoom = i;
-            }
+          earlyEndRoomTime = lastAvailableAt[room];
+          earlyEndRoom = room;
         }
-        return maxUsedRoom;
+      }
+      // if no room avaialbe, room with min end time will be used
+      if (!found)
+      {
+        lastAvailableAt[earlyEndRoom] += duration;
+        roomsUsedCount[earlyEndRoom]++;
+      }
     }
 
-    // Optimal
-    int mostBooked(int n, vector<vector<int>> &meetings)
+    int maxUsedRoom = 0;
+    int maxi = 0;
+    for (int i = 0; i < n; i++)
     {
-      // TC: O(m) * O(logn)
-      // SC: O(n) + O(n)
-      
-        int m = meetings.size();
-        sort(meetings.begin(), meetings.end());
-
-        priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> usedRooms;
-        priority_queue<int, vector<int>, greater<int>> availableRooms;
-        vector<int> roomsUsedCount(n, 0);
-
-        for (int i = 0; i < n; i++)
-        {
-            availableRooms.push(i);
-        }
-
-        for (int i = 0; i < m; i++)
-        {
-            int start = meetings[i][0];
-            int end = meetings[i][1];
-            // means the meeting ended, we can pop it
-            while (!usedRooms.empty() && usedRooms.top().first <= start)
-            {
-                int room = usedRooms.top().second;
-                usedRooms.pop();
-                availableRooms.push(room);
-            }
-            // If free rooms available, we assign the current meeting
-            if (!availableRooms.empty())
-            {
-                int room = availableRooms.top();
-                availableRooms.pop();
-                usedRooms.push({end, room});
-                roomsUsedCount[room]++;
-            }
-            // Room with least endtime will have the next meeting
-            else
-            {
-                int endTime = usedRooms.top().first;
-                int room = usedRooms.top().second;
-                usedRooms.pop();
-
-                usedRooms.push({endTime + end - start, room});
-                roomsUsedCount[room]++;
-            }
-        }
-        
-        int maxUsedRoom = 0;
-        int maxi = 0;
-        for (int i = 0; i < n; i++)
-        {
-            if (roomsUsedCount[i] > maxi)
-            {
-                maxi = roomsUsedCount[i];
-                maxUsedRoom = i;
-            }
-        }
-        return maxUsedRoom;
+      if (roomsUsedCount[i] > maxi)
+      {
+        maxi = roomsUsedCount[i];
+        maxUsedRoom = i;
+      }
     }
+    return maxUsedRoom;
+  }
+
+  // Optimal
+  int mostBooked(int n, vector<vector<int>> &meetings)
+  {
+    // TC: O(m) * O(logn)
+    // SC: O(n) + O(n)
+
+    int m = meetings.size();
+    sort(meetings.begin(), meetings.end());
+    // min-heap
+    priority_queue<pair<long long, int>, vector<pair<long long, int>>, greater<pair<long long, int>>> usedRooms;
+    priority_queue<int, vector<int>, greater<int>> availableRooms;
+    vector<int> roomsUsedCount(n, 0);
+
+    for (int i = 0; i < n; i++)
+    {
+      availableRooms.push(i);
+    }
+
+    for (int i = 0; i < m; i++)
+    {
+      int start = meetings[i][0];
+      int end = meetings[i][1];
+      // means the meeting ended, we can pop it
+      while (!usedRooms.empty() && usedRooms.top().first <= start)
+      {
+        int room = usedRooms.top().second;
+        usedRooms.pop();
+        availableRooms.push(room);
+      }
+      // If free rooms available, we assign the current meeting
+      if (!availableRooms.empty())
+      {
+        int room = availableRooms.top();
+        availableRooms.pop();
+        usedRooms.push({end, room});
+        roomsUsedCount[room]++;
+      }
+      // Room with least endtime will have the next meeting
+      else
+      {
+        int endTime = usedRooms.top().first;
+        int room = usedRooms.top().second;
+        usedRooms.pop();
+
+        usedRooms.push({endTime + end - start, room});
+        roomsUsedCount[room]++;
+      }
+    }
+
+    int maxUsedRoom = 0;
+    int maxi = 0;
+    for (int i = 0; i < n; i++)
+    {
+      if (roomsUsedCount[i] > maxi)
+      {
+        maxi = roomsUsedCount[i];
+        maxUsedRoom = i;
+      }
+    }
+    return maxUsedRoom;
+  }
 };
 int main()
 {
-    Solution s;
-    int n = 3;
-    vector<vector<int>> meetings = {{1, 20}, {2, 10}, {3, 5}, {4, 9}, {6, 8}};
-    cout << "Room with Most meetings: " << s.mostBooked(n, meetings) << endl;
-    return 0;
+  Solution s;
+  int n = 3;
+  vector<vector<int>> meetings = {{1, 20}, {2, 10}, {3, 5}, {4, 9}, {6, 8}};
+  cout << "Room with Most meetings: " << s.mostBooked(n, meetings) << endl;
+  return 0;
 }
 
 /*
@@ -145,11 +145,11 @@ algorithm:
 
 - Brute Force Approach:
 
-- We use 2 arrays, 1 to track the rooms used count and another, to 
+- We use 2 arrays, 1 to track the rooms used count and another, to
   check the time at which each room is available.
 - We sort the meeting array, by starting time, since they should
   be picked based on their starting time.
-- Now, traverse through each meetings time, and check if we can 
+- Now, traverse through each meetings time, and check if we can
   put in any available room slots.
 - For wach meetings, we check each room from 0 - n, and check
   if the room is available or not.
@@ -158,7 +158,7 @@ algorithm:
   in that array.
 - Meanwhile, we also keep track of the room with least EndTime. So, if we dont
   find any room available, we know that the room with least endtime, will
-  will the room where we can have next meeting, hence we update its endtime,
+  bw the room where we can have next meeting, hence we update its endtime,
   by adding the current meetings duration.
 - Finally, we check for the room with max meetings, using the room count array.
 
@@ -167,7 +167,7 @@ algorithm:
 - Here, instead for traversing through each room for finding available slots,
   we can keep 2 min-heaps, whcih  keep track of available rooms, and used rooms
   end time.
-- So everytime we take a new meeting, we check if 
+- So everytime we take a new meeting, we check if
   while (!usedRooms.empty() && usedRooms.top().first <= start), means
   endtime in that room will be over before the cuurent start time, so we
   can pop that from the heap (basically the meeting ended).
@@ -232,5 +232,61 @@ Explanation:
 - At time 10, the meetings in rooms 1 and 2 finish. The fifth meeting
   starts in room 1 for the time period [10,12).
 Room 0 held 1 meeting while rooms 1 and 2 each held 2 meetings, so we return 1.
+
+*/
+
+/*
+************* Java Code **************
+
+  public static int mostBooked(int n, int[][] meetings) {
+        int m = meetings.length;
+        Arrays.sort(meetings, (a, b) -> Integer.compare(a[0], b[0]));
+        // by default min-heap in java
+        PriorityQueue<long[]> usedRooms = new PriorityQueue<>(
+                (a, b) -> a[0] != b[0] ? Long.compare(a[0], b[0]) : Long.compare(a[1], b[1]));
+        PriorityQueue<Integer> availableRooms = new PriorityQueue<>();
+        int[] roomsUsedCount = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            availableRooms.offer(i);
+        }
+
+        for (int i = 0; i < m; i++) {
+            long start = meetings[i][0];
+            long end = meetings[i][1];
+            // means the meeting ended, we can pop it
+            while (!usedRooms.isEmpty() && usedRooms.peek()[0] <= start) {
+                int room = (int) usedRooms.peek()[1];
+                usedRooms.poll();
+                availableRooms.offer(room);
+            }
+            // If free rooms available, we assign the current meeting
+            if (!availableRooms.isEmpty()) {
+                int room = availableRooms.peek();
+                availableRooms.poll();
+                usedRooms.offer(new long[] { end, room });
+                roomsUsedCount[room]++;
+            }
+            // Room with least endtime will have the next meeting
+            else {
+                long endTime = usedRooms.peek()[0];
+                int room = (int) usedRooms.peek()[1];
+                usedRooms.poll();
+
+                usedRooms.offer(new long[] { endTime + end - start, room });
+                roomsUsedCount[room]++;
+            }
+        }
+
+        int maxUsedRoom = 0;
+        int maxi = 0;
+        for (int i = 0; i < n; i++) {
+            if (roomsUsedCount[i] > maxi) {
+                maxi = roomsUsedCount[i];
+                maxUsedRoom = i;
+            }
+        }
+        return maxUsedRoom;
+    }
 
 */
