@@ -3,18 +3,52 @@ using namespace std;
 class Solution
 {
 public:
+    // Brute force
     int maxProfit(vector<int> &prices)
     {
-        // TC: O(n)
+        // TC: O(n^2)
         // SC: O(1)
 
+        int n = prices.size();
         int maxProfit = 0;
-        int minPrice = prices[0];
+
+        // Try buying at every day i
+        for (int i = 0; i < n - 1; i++)
+        {
+            // Try selling at every day j > i
+            for (int j = i + 1; j < n; j++)
+            {
+                // Calculate profit if bought at i and sold at j
+                int profit = prices[j] - prices[i];
+
+                // Update maxProfit if this is better
+                if (profit > maxProfit)
+                {
+                    maxProfit = profit;
+                }
+            }
+        }
+        return maxProfit;
+    }
+
+    // Optimal Approach
+    int maxProfit(vector<int> &prices)
+    {
+        // TC: O(n) – single pass through the array
+        // SC: O(1) – constant extra space
+
+        int maxProfit = 0;        // stores the maximum profit found so far
+        int minPrice = prices[0]; // stores the minimum price seen so far (best day to buy)
+
         for (int i = 0; i < prices.size(); i++)
         {
+            // update the minimum price if a lower price is found
             minPrice = min(minPrice, prices[i]);
+
+            // calculate potential profit by selling on day i
             maxProfit = max(maxProfit, prices[i] - minPrice);
         }
+
         return maxProfit;
     }
 };
@@ -45,7 +79,11 @@ algorithm:
 
 - Optimal Approach:
 
-- Keep track of the minimum element, and find the max profit.
+- Track the lowest price seen so far (minPrice) — the best day to buy.
+- On each day i, compute the profit if selling on that day: prices[i] - minPrice.
+- Update maxProfit if the current profit is greater than the previously recorded max.
+- Update minPrice if a new lower price is found.
+- Only one pass through the array is needed.
 
 */
 
@@ -54,7 +92,7 @@ algorithm:
 121. Best Time to Buy and Sell Stock
 
 You are given an array prices where prices[i] is the price of a given stock on the ith day.
-You want to maximize your profit by choosing a single day to buy one stock and choosing a different 
+You want to maximize your profit by choosing a single day to buy one stock and choosing a different
 day in the future to sell that stock.
 Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
 

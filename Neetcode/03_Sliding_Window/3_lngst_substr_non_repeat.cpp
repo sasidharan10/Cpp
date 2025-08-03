@@ -4,25 +4,30 @@ class Solution
 {
 public:
     // Brute force
+    // Brute force
     int lengthOfLongestSubstring2(string s)
     {
-        // TC: O(n^2)
-        // SC: O(255) ~ O(1)
+        // TC: O(n^2) – check all substrings
+        // SC: O(255) ~ O(1) – fixed character map
 
         int n = s.length();
-        int maxi = 0;
+        int maxi = 0; // stores max length of valid substring
 
         for (int i = 0; i < n; i++)
         {
-            vector<int> mp(255, -1);
+            vector<int> mp(255, -1); // map to track visited characters in current substring
+
             for (int j = i; j < n; j++)
             {
-                int idx = s[j];
+                int idx = s[j]; // ASCII value of character
+
                 if (mp[idx] != -1)
-                    break;
-                mp[idx] = 1;
-                int len = j - i + 1;
-                maxi = max(len, maxi);
+                    break; // duplicate character found → stop extending
+
+                mp[idx] = 1; // mark character as seen
+
+                int len = j - i + 1;   // current substring length
+                maxi = max(len, maxi); // update max length if needed
             }
         }
         return maxi;
@@ -35,22 +40,27 @@ public:
         // SC: O(255) ~ O(1)
 
         int n = s.length();
-        int maxi = 0;
-        vector<int> mp(255, -1);
-        int l = 0, r = 0;
+        int maxi = 0;            // stores max length of valid substring
+        vector<int> mp(255, -1); // stores last index of each character
+        int l = 0, r = 0;        // sliding window: [l, r]
+
         while (r < n)
         {
-            int idx = s[r];
+            int idx = s[r]; // ASCII value of character at r
+
             if (mp[idx] >= l)
             {
+                // character was seen in current window → move l past the duplicate
                 l = mp[idx] + 1;
             }
             else
             {
+                // no duplicate in window → valid substring
                 int len = r - l + 1;
-                maxi = max(len, maxi);
-                mp[idx] = r;
-                r++;
+                maxi = max(len, maxi); // update max length
+
+                mp[idx] = r; // record last seen index of character
+                r++;         // expand window
             }
         }
         return maxi;
@@ -78,11 +88,17 @@ algorithm:
 
 - Brute Force Approach:
 
--
+- Check every substring starting from each index i.
+- For each j from i, track visited characters using a map.
+- If a duplicate character is found, stop checking further.
+- Keep track of the maximum length of a valid substring.
 
 - Optimal Approach:
 
-- self explanatory
+- Use two pointers l and r to define a window.
+- Use a map to store the last seen index of characters.
+- If the character at r is inside the current window (mp[idx] ≥ l), move l just past the previous occurrence.
+- Otherwise, update max length and expand the window.
 
 */
 
