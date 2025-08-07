@@ -24,6 +24,7 @@ public:
         }
         return -1;
     }
+
     // Better - Sorting the array (Accepted)
     int findDuplicate4(vector<int> &nums)
     {
@@ -120,12 +121,12 @@ algorithm:
 
 - Optimal Approach:
 
-- Since the given umbers are from the range 1 - n. we can use the 
+- Since the given umbers are from the range 1 - n. we can use the
   numbers as index and mark as -ve at that index.
 - If that index is already marked, then its a duplicate number.
 - while marking the index, we take ind = ind - 1. since the range is 1 to n, and the
   index range  is 0 to n - 1.
-  
+
 - Floyd cycle detection
 - We find the index, where the cycle occurs.
 - then initialize slow = 0, then move slow, fast by 1 index, until they meet.
