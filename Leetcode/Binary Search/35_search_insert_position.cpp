@@ -25,25 +25,27 @@ public:
                 low = mid + 1;
             }
         }
-        return ans;
+        return low;
     }
 };
 int main()
 {
     Solution s;
-    vector<int> nums{1, 2, 3, 4, 5};
+    vector<int> nums{1, 3, 5, 6};
+    int target = 2;
+    cout << "Result: " << s.searchInsert(nums, target) << endl;
     return 0;
 }
 
 /*
 
-link: 
+link:
 
 leetcode: https://leetcode.com/problems/search-insert-position/description/
 
-Youtube: 
+Youtube:
 
-algorithm: 
+algorithm:
 
 - Finding LB of the target
 */
