@@ -3,8 +3,12 @@ using namespace std;
 class Solution
 {
 public:
+    // Recursion
     int knapSack(int W, int wt[], int val[], int n)
     {
+        // TC: O(2^n)
+        // SC: O(n)  // stack space
+
         if (n == 0 || W == 0)
             return 0;
 
@@ -15,8 +19,13 @@ public:
         else
             return knapSack(W, wt, val, n - 1);
     }
+        
+    // Memoization
     int knapSackMem(int W, int wt[], int val[], int n, vector<int> &dp)
     {
+        // TC: O(n)
+        // SC: O(n)  // stack space
+
         if (n == 0 || W == 0)
             return 0;
         if (dp[n] != -1)
@@ -28,6 +37,10 @@ public:
         else
             return dp[n] = knapSackMem(W, wt, val, n - 1, dp);
     }
+        
+    // Tabulation
+    
+    // Space Optimization
 };
 int main()
 {
@@ -50,6 +63,32 @@ leetcode:
 
 Youtube: 
 
+Code Link: 
+
 algorithm: 
+
+- Brute Force Approach:
+
+- 
+
+- Optimal Approach:
+
+- self explanatory
+
+*/
+
+/*
+
+
+
+
+
+
+*/
+
+/*   
+************* Java Code **************
+
+
 
 */

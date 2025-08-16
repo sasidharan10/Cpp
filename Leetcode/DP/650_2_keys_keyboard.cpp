@@ -14,6 +14,7 @@ public:
         int copyAllPaste = 2 + minStepsRecur(currStr * 2, currStr, n);
         return min(paste, copyAllPaste);
     }
+    
     // Memoization
     int minStepsMem(int currStr, int clipStr, int n, vector<vector<int>> &dp)
     {
