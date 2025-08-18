@@ -1,20 +1,16 @@
-#include <iostream>
-#include <algorithm>
-#include <cmath>
-#include <vector>
-#include <climits>
+#include <bits/stdc++.h>
 using namespace std;
 int frogJumpRecur(int index, vector<int> &heights)
 {
     if (index <= 0)
         return 0;
-    int left = frogJumpRecur(index - 1, heights) + abs(heights[index] - heights[index - 1]);
-    int right = INT_MAX;
+    int oneJump = frogJumpRecur(index - 1, heights) + abs(heights[index] - heights[index - 1]);
+    int twoJump = INT_MAX;
     if (index > 1)
     {
-        right = frogJumpRecur(index - 2, heights) + abs(heights[index] - heights[index - 2]);
+        twoJump = frogJumpRecur(index - 2, heights) + abs(heights[index] - heights[index - 2]);
     }
-    return min(left, right);
+    return min(oneJump, twoJump);
 }
 int frogJumpMem(int index, vector<int> &heights, vector<int> &dp)
 {
@@ -22,27 +18,27 @@ int frogJumpMem(int index, vector<int> &heights, vector<int> &dp)
         return 0;
     if (dp[index] != -1)
         return dp[index];
-    int left = frogJumpMem(index - 1, heights, dp) + abs(heights[index] - heights[index - 1]);
-    int right = INT_MAX;
+    int oneJump = frogJumpMem(index - 1, heights, dp) + abs(heights[index] - heights[index - 1]);
+    int twoJump = INT_MAX;
     if (index > 1)
     {
-        right = frogJumpMem(index - 2, heights, dp) + abs(heights[index] - heights[index - 2]);
+        twoJump = frogJumpMem(index - 2, heights, dp) + abs(heights[index] - heights[index - 2]);
     }
-    return dp[index] = min(left, right);
+    return dp[index] = min(oneJump, twoJump);
 }
-int frogJumpBtt(int n, vector<int> &heights)
+int frogJumpTab(int n, vector<int> &heights)
 {
     vector<int> dp1(n, -1);
     dp1[0] = 0;
     for (int i = 1; i < n; i++)
     {
-        int left = dp1[i - 1] + abs(heights[i] - heights[i - 1]);
-        int right = INT_MAX;
+        int oneJump = dp1[i - 1] + abs(heights[i] - heights[i - 1]);
+        int twoJump = INT_MAX;
         if (i > 1)
         {
-            right = dp1[i - 2] + abs(heights[i] - heights[i - 2]);
+            twoJump = dp1[i - 2] + abs(heights[i] - heights[i - 2]);
         }
-        dp1[i] = min(left, right);
+        dp1[i] = min(oneJump, twoJump);
     }
     return dp1[n - 1];
 }
@@ -52,13 +48,13 @@ int frogJumpSpc(int n, vector<int> &heights)
     int prev2 = 0;
     for (int i = 1; i < n; i++)
     {
-        int left = prev + abs(heights[i] - heights[i - 1]);
-        int right = INT_MAX;
+        int oneJump = prev + abs(heights[i] - heights[i - 1]);
+        int twoJump = INT_MAX;
         if (i > 1)
         {
-            right = prev2 + abs(heights[i] - heights[i - 2]);
+            twoJump = prev2 + abs(heights[i] - heights[i - 2]);
         }
-        int cur = min(left, right);
+        int cur = min(oneJump, twoJump);
         prev2 = prev;
         prev = cur;
     }
@@ -70,7 +66,7 @@ int frogJump(int n, vector<int> &heights)
     vector<int> dp(n + 1, -1);
     // return frogJumpRecur(n - 1, heights);
     // return frogJumpMem(n - 1, heights, dp);
-    // return frogJumpBtt(n, heights);
+    // return frogJumpTab(n, heights);
     return frogJumpSpc(n, heights);
 }
 int main()

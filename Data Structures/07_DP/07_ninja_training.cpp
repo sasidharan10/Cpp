@@ -66,18 +66,21 @@ int ninjaTrainingTab(int n, vector<vector<int>> &points)
     {
         for (int last = 0; last < 4; last++)
         {
+            int maxi = 0;
             for (int task = 0; task < 3; task++)
             {
                 if (task != last)
                 {
                     int point = points[day][task] + dp[day - 1][task];
-                    dp[day][last] = max(dp[day][last], point);
+                    maxi = max(maxi, point);
                 }
             }
+            dp[day][last] = maxi;
         }
     }
     return dp[n - 1][3];
 }
+
 // Tabulation traversing in reverse
 int ninjaTrainingTab2(int n, vector<vector<int>> &points)
 {
@@ -93,14 +96,16 @@ int ninjaTrainingTab2(int n, vector<vector<int>> &points)
     {
         for (int last = 0; last < 4; last++)
         {
+            int maxi = 0;
             for (int task = 0; task < 3; task++)
             {
                 if (task != last)
                 {
                     int point = points[day][task] + dp[day + 1][task];
-                    dp[day][last] = max(dp[day][last], point);
+                    maxi = max(maxi, point);
                 }
             }
+            dp[day][last] = maxi;
         }
     }
     return dp[0][3];
@@ -118,19 +123,21 @@ int ninjaTrainingSpc(int n, vector<vector<int>> &points)
     prev[3] = max({points[0][1], points[0][2], points[0][3]});
     for (int day = 1; day < n; day++)
     {
-        vector<int> temp(4, 0);
+        vector<int> curr(4, 0);
         for (int last = 0; last < 4; last++)
         {
+            int maxi = 0;
             for (int task = 0; task < 3; task++)
             {
                 if (task != last)
                 {
                     int point = points[day][task] + prev[task];
-                    temp[last] = max(temp[last], point);
+                    maxi = max(maxi, point);
                 }
             }
+            curr[last] = maxi;
         }
-        prev = temp;
+        prev = curr;
     }
     return prev[3];
 }

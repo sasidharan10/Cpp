@@ -1,5 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
+
 // Recursion
 int uniquePathsRecur(int i, int j)
 {
@@ -14,6 +15,7 @@ int uniquePathsRecur(int i, int j)
     int left = uniquePathsRecur(i, j - 1);
     return up + left;
 }
+
 // Memoization
 int uniquePathsMem(int i, int j, vector<vector<int>> &dp)
 {
@@ -30,6 +32,7 @@ int uniquePathsMem(int i, int j, vector<vector<int>> &dp)
     int left = uniquePathsMem(i, j - 1, dp);
     return dp[i][j] = up + left;
 }
+
 // Tabulation
 int uniquePathsTab(int m, int n)
 {
@@ -57,6 +60,7 @@ int uniquePathsTab(int m, int n)
     }
     return dp[m - 1][n - 1];
 }
+
 // Space Optimization
 int uniquePathsSpc(int m, int n)
 {
@@ -66,12 +70,12 @@ int uniquePathsSpc(int m, int n)
     vector<int> prev(n, 0);
     for (int i = 0; i < m; i++)
     {
-        vector<int> temp(n, 0);
+        vector<int> curr(n, 0);
         for (int j = 0; j < n; j++)
         {
             if (i == 0 && j == 0)
             {
-                temp[j] = 1;
+                curr[j] = 1;
                 continue;
             }
             int up = 0;
@@ -79,13 +83,14 @@ int uniquePathsSpc(int m, int n)
             if (i > 0)
                 up = prev[j];
             if (j > 0)
-                left = temp[j - 1];
-            temp[j] = up + left;
+                left = curr[j - 1];
+            curr[j] = up + left;
         }
-        prev = temp;
+        prev = curr;
     }
     return prev[n - 1];
 }
+
 // formnula
 int uniquePathsFormula(int m, int n)
 {

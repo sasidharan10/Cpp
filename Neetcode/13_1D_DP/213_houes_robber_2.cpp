@@ -114,7 +114,7 @@ int main()
 
 /*
 
-link: https://www.codingninjas.com/studio/problems/house-robber_839733
+link: 
 
 leetcode: https://leetcode.com/problems/house-robber-ii/description/
 
