@@ -39,6 +39,9 @@ public:
     }
     ListNode *mergeTwoLists(ListNode *list1, ListNode *list2)
     {
+        // TC: O(n + m)
+        // SC: O(1)
+        
         // Dummy node to simplify edge cases
         ListNode *dummy = new ListNode(0);
         ListNode *curr = dummy;
@@ -107,7 +110,12 @@ algorithm:
 
 - Optimal Approach:
 
-- self explanatory
+- Use a dummy node to simplify linking.
+- Compare list1->val and list2->val.
+- Always attach the smaller node to merged list.
+- Advance pointer in the list where the node was taken.
+- When one list is finished, attach the remaining nodes of the other.
+- Return dummy->next as the head of merged list.
 
 */
 
