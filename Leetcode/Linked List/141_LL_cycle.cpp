@@ -41,8 +41,31 @@ public:
         }
         cout << endl;
     }
+
+    // better - using set
     bool hasCycle(ListNode *head)
     {
+        // TC: O(n)
+        // SC: O(n)
+        
+        unordered_set<ListNode *> seen;
+        ListNode *cur = head;
+        while (cur)
+        {
+            if (seen.find(cur) != seen.end())
+            {
+                return true;
+            }
+            seen.insert(cur);
+            cur = cur->next;
+        }
+        return false;
+    }
+    bool hasCycle2(ListNode *head)
+    {
+        // TC: O(n)
+        // SC: O(1)
+        
         ListNode *slow = head;
         ListNode *fast = head;
 
