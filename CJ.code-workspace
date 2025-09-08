@@ -118,7 +118,11 @@
 			"mutex": "cpp",
 			"scoped_allocator": "cpp",
 			"shared_mutex": "cpp",
-			"typeindex": "cpp"
+			"typeindex": "cpp",
+			"string_view": "cpp",
+			"ranges": "cpp",
+			"span": "cpp",
+			"stacktrace": "cpp"
 		}
 	}
 }
