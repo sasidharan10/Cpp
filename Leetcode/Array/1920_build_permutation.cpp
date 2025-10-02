@@ -66,7 +66,7 @@ link:
 
 leetcode: https://leetcode.com/problems/build-array-from-permutation
 
-Youtube:
+Youtube: https://www.youtube.com/watch?v=0Q7m9VFCrUI
 
 Code Link:
 
@@ -132,6 +132,24 @@ Follow-up: Can you solve it without using an extra space (i.e., O(1) memory)?
 /*
 ************* Java Code **************
 
+    public int[] buildArray(int[] nums) {
+        // TC: O(n)
+        // SC: O(1)
+        int n = nums.length;
 
+        // First pass: encode both values in each element
+        for (int i = 0; i < n; i++) {
+            int oldVal = nums[i];
+            int newVal = nums[oldVal] % n;
+            nums[i] = oldVal + (newVal * n);
+        }
+
+        // Second pass: extract the new values
+        for (int i = 0; i < n; i++) {
+            int newVal = nums[i] / n;
+            nums[i] = newVal;
+        }
+        return nums;
+    }
 
 */
