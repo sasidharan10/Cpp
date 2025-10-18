@@ -55,3 +55,43 @@ int main()
 
 
 */
+
+
+/*   
+************* Java Code **************
+
+public static void quickSort(int[] arr) {
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
+        quickSort(arr, 0, arr.length - 1);
+    }
+
+    private static void quickSort(int[] arr, int start, int end) {
+        if (start >= end) {
+            return;
+        }
+        int p_index = partition(arr, start, end);
+        quickSort(arr, start, p_index - 1); // array left to pivot element
+        quickSort(arr, p_index + 1, end);   // array right to pivot element
+    }
+
+    private static int partition(int[] arr, int start, int end) {
+        // Time  : O(n^2) worst case, O(n log n) average case
+        // Space : O(log n) due to recursion stack
+
+        int p_index = start;
+        int pivot = arr[end];               // taking last element as pivot element
+        
+        for (int i = start; i < end; i++) { // start to end-1 (excluding last element)
+            if (arr[i] <= pivot) {
+                swap(arr, i, p_index);
+                p_index++;
+            }
+        }
+        // left of p_index will have lesser value than pivot and higher in right side
+        swap(arr, p_index, end); // swapping the pivot element in its appropriate index
+        return p_index;
+    }
+
+*/

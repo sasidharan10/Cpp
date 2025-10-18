@@ -63,7 +63,7 @@ int main()
     int arr1[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
     int n1 = sizeof(arr1) / sizeof(arr1[0]);
     // int arr2[] = {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
-    int arr2[] = {2,0,1};
+    int arr2[] = {2, 0, 1};
     int n2 = sizeof(arr2) / sizeof(arr2[0]);
     segregate1(arr1, n1);
     segregate2(arr2, n2);

@@ -40,7 +40,7 @@ public:
     int treeHeight(TreeNode *root)
     {
         if (!root)
-            return -1;
+            return 0;
         int lt = treeHeight(root->left);
         int rt = treeHeight(root->right);
         return max(lt, rt) + 1;

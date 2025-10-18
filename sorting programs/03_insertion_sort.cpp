@@ -4,18 +4,18 @@ void insertion(int arr[], int n)
 {
     // Time  : O(n^2)
     // Space : O(1)
-    
-    int index = 0, value = 0;
+
+    int hole = 0, value = 0;
     for (int i = 1; i < n; i++)
     {
         value = arr[i]; // to check the current value with other elements
-        index = i;      // after while loop gets terminated, "index" will have the index for the current value
-        while (index > 0 && arr[index - 1] > value)
+        hole = i;       // after while loop gets terminated, "hole" will have the index for the current value
+        while (hole > 0 && arr[hole - 1] > value)
         {
-            arr[index] = arr[index - 1];
-            index = index - 1;
+            arr[hole] = arr[hole - 1];
+            hole = hole - 1;
         }
-        arr[index] = value;
+        arr[hole] = value;
     }
 }
 int main()
@@ -31,7 +31,6 @@ int main()
         cout << i << " ";
     return 0;
 }
-
 
 /*
 

@@ -26,7 +26,7 @@ public:
     {
         // TC: O(4^n * n)
         // SC: O(n)
-        
+
         if (digits.length() == 0)
             return {};
         unordered_map<char, string> mp;
@@ -82,10 +82,12 @@ Example 1:
 
 Input: digits = "23"
 Output: ["ad","ae","af","bd","be","bf","cd","ce","cf"]
+
 Example 2:
 
 Input: digits = ""
 Output: []
+
 Example 3:
 
 Input: digits = "2"

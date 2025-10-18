@@ -4,7 +4,6 @@ class Solution
 {
 public:
     // Brute force
-    // Brute force
     int lengthOfLongestSubstring2(string s)
     {
         // TC: O(n^2) – check all substrings

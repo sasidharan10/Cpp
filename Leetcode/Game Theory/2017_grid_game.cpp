@@ -76,7 +76,7 @@ algorithm:
 
 - Optimal Approach:
 
-- The concept here is, the first robot wants t minimize the path sum for the second robot. Hence, finding the
+- The concept here is, the first robot wants to minimize the path sum for the second robot. Hence, finding the
   maximum path sum for robot1 wont ensure, the second robot will have the minimum possible path sum. refer below.
 - [[ 5, 12, 14 ],
   [  20, 7, 17 ]] try this.
