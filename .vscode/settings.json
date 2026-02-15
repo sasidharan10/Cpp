@@ -126,5 +126,6 @@
             "username": "root",
             "password": "root"
         }
-    ]
+    ],
+    "C_Cpp.default.compilerPath": "C:/MinGW/bin/g++.exe"
 }
