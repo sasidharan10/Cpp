@@ -5,6 +5,9 @@ class Solution
 public:
     vector<vector<string>> groupAnagrams(vector<string> &strs)
     {
+        // TC: (O(nk log k))
+        // SC: O(nk)
+        
         int n = strs.size();
         // Map to store groups of anagrams.
         // Key: sorted version of the string
@@ -86,5 +89,39 @@ Example 3:
 
 Input: strs = ["a"]
 Output: [["a"]]
+
+*/
+
+/*   
+************* Java Code **************
+
+    public static List<List<String>> groupAnagrams(String[] strs) {
+        int n = strs.length;
+        HashMap<String, List<String>> mp = new HashMap<>();
+
+        for (int i = 0; i < n; i++)
+        {
+            String temp = strs[i];          // Copy the current string
+            char[] tempArray;
+            tempArray = temp.toCharArray();
+            Arrays.sort(tempArray);
+            String key = new String(tempArray);
+
+            // The sorted string acts as a "signature" for all its anagrams.
+            // Example: "eat", "tea", "ate" → sorted to "aet"
+            mp.computeIfAbsent(key, k -> new ArrayList<>())
+              .add(strs[i]); // Group them under the same key
+            
+        }
+
+        // Step 2: Extract all the grouped anagrams from the map
+        List<List<String>> ans = new ArrayList<>();
+        for (List<String> group : mp.values()) {
+            ans.add(group);   // Add each anagram group to the answer
+        }
+
+        // Step 3: Return the list of anagram groups
+        return ans;
+    }
 
 */
